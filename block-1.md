@@ -109,7 +109,26 @@ Priority = (Frequency × Time × Repetitiveness) + (Value × AI-Suitable)
 
 **Step 4:** Identify your top 3 highest-scoring tasks
 
-**Deliverable:** Completed task priority matrix (use provided template)
+**Step 5:** Quick Impact Estimate
+
+For each of your top 3 tasks, estimate the potential time savings:
+
+```markdown
+# Quick Impact Estimate
+
+| Task | Current Time | Frequency | Hours/Month | With AI (est.) | Monthly Savings |
+|------|--------------|-----------|-------------|----------------|-----------------|
+| [Task 1] | __ min | __x/week | __ hrs | __ min | __ hrs |
+| [Task 2] | __ min | __x/week | __ hrs | __ min | __ hrs |
+| [Task 3] | __ min | __x/week | __ hrs | __ min | __ hrs |
+| **Total** | | | __ hrs | | __ hrs |
+
+Projected annual time savings: __ hours
+```
+
+> **Why estimate now?** Tracking your "before" state helps you measure real impact later. By Block 3, you'll calculate actual ROI with measured data. This baseline makes that possible.
+
+**Deliverable:** Completed task priority matrix with impact estimates (use provided template)
 
 **Resources:**
 
