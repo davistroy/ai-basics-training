@@ -59,7 +59,7 @@ The curriculum follows a progressive maturity model:
 
 ### Supplementary Materials
 
-- **[Agent Memory Meta-Framework Presentation](presentation.md)** - 48-slide presentation on agent memory architecture
+- **[Agent Memory Meta-Framework Presentation](archive/presentation.md)** - 48-slide presentation on agent memory architecture
 
 ---
 
@@ -159,7 +159,7 @@ Each module is 2 weeks with 45 min live sessions and 60-75 min homework per week
 
 ### Agent Memory Meta-Framework Presentation
 
-The [presentation.md](presentation.md) file contains a comprehensive 48-slide presentation on why AI agents fail and how to fix them through proper memory architecture. Key concepts include:
+The [presentation.md](archive/presentation.md) file contains a comprehensive 48-slide presentation on why AI agents fail and how to fix them through proper memory architecture. Key concepts include:
 
 - **The Three Pillars of Domain Memory:** Explicit Goals, Progress Records, Operating Procedures
 - **Micro-Agent Pattern:** Small, focused agents (3-20 steps) within deterministic workflows
@@ -322,8 +322,6 @@ ai-basics-training/
 ├── block-1.md                   # Block 1: AI Prompting Mastery (8 weeks)
 ├── block-2.md                   # Block 2: AI Workflow Engineering (8 weeks)
 ├── block-3.md                   # Block 3: AI Automation Architecture (8 weeks)
-├── presentation.md              # Agent Memory Meta-Framework (48 slides)
-├── checkpoint-1.md              # Curriculum design session summary
 ├── checkpoints/                 # Inter-block skill verification
 │   ├── block-1-to-2-checkpoint.md
 │   └── block-2-to-3-checkpoint.md
@@ -339,7 +337,12 @@ ai-basics-training/
 │   ├── block-1-reference.md
 │   ├── block-2-reference.md
 │   └── block-3-reference.md
+├── updates/                     # Curriculum update implementation plans
+│   ├── update-1.md
+│   └── CHANGELOG-2025-12-31.md
 └── archive/                     # Historical/reference documents
+    ├── presentation.md          # Agent Memory Meta-Framework (48 slides)
+    ├── checkpoint-1.md          # Curriculum design session summary
     └── IMPLEMENTATION-PLAN.md
 ```
 
@@ -417,11 +420,11 @@ Each advanced module contains its own appendices with:
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 2.1 | [TBD] | Implementation improvements (see [CHANGELOG.md](CHANGELOG.md)) |
+| 2.1 | 2025-12-31 | Implementation improvements (see [CHANGELOG](updates/CHANGELOG-2025-12-31.md)) |
 | 2.0 | 2025-12-31 | Added 5 advanced modules, Agent Memory Meta-Framework presentation, archive folder, updated structure |
 | 1.0 | 2025-01-01 | Initial curriculum release |
 
-For detailed change history, see [CHANGELOG.md](CHANGELOG.md).
+For detailed change history, see [CHANGELOG](updates/CHANGELOG-2025-12-31.md).
 
 ---
 

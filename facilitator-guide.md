@@ -111,7 +111,7 @@ This guide supports facilitators delivering the AI Practitioner Training curricu
 - Use the RFP Response Agent example extensively
 
 **Pre-Work Check:**
-- Verify participants reviewed presentation.md
+- Verify participants reviewed archive/presentation.md
 - Quick poll: "What's the Daily Contractor analogy about?"
 
 ### Week 2: Building Reliable Agents

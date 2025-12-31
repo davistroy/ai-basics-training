@@ -93,7 +93,7 @@ If you struggled with any part of this checkpoint:
 
 Before starting Block 3, also complete:
 
-- [ ] Read [presentation.md](presentation.md) slides 1-25 (Domain Memory concepts)
+- [ ] Read [presentation.md](../archive/presentation.md) slides 1-25 (Domain Memory concepts)
 - [ ] Identify your capstone agent candidate (complex workflow to convert)
 - [ ] Review the Two-Agent Architecture Pattern overview
 - [ ] Ensure MCP is working reliably (you'll depend on it heavily)

@@ -26,7 +26,7 @@
 - 20+ workflow executions completed
 
 **Pre-Work (Complete before Week 1):**
-- Review [Agent Memory Meta-Framework Presentation](presentation.md), slides 1-30
+- Review [Agent Memory Meta-Framework Presentation](archive/presentation.md), slides 1-30
 - Focus on: The Three Pillars of Domain Memory, Why Agents Fail, The Daily Contractor Analogy
 - Time required: ~30 minutes
 
