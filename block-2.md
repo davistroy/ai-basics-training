@@ -1,5 +1,15 @@
 # **BLOCK 2: AI Workflow Engineering**
 
+**Version:** 1.0
+**Last Updated:** 2025-01-01
+**Status:** Active
+
+---
+
+**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | **Block 2** | [Block 3 →](block-3.md)
+
+---
+
 ## **8 Weeks | 45 min live + 60 min homework per week**
 
 -----
@@ -1931,8 +1941,8 @@ This week is **self-paced** - no live workshop. Complete final submissions and s
 **Block 3 takes you from:**
 Workflow → Agent → Orchestrated System
 
-**Enrollment opens:** [Date]
-**Block 3 starts:** [Date]
+**Enrollment:** Opens upon Block 2 certification
+**Block 3 starts:** 1-2 weeks after Block 2 evaluation
 
 -----
 
@@ -2126,10 +2136,11 @@ Workflow → Agent → Orchestrated System
    - Real quality improvement
    - Real cost analysis
 
-5. **Could someone else use my toolkit?**
-   - Is documentation complete?
-   - Are setup instructions clear?
-   - Would they succeed without my help?
+5. **What would I do differently?**
+   - In workflow design?
+   - In tool selection?
+   - In quality systems?
+   - What lessons will I carry to Block 3?
 ```
 
 -----
@@ -2770,4 +2781,29 @@ Pass threshold: 3.5
 
 -----
 
+## **Certification: AI Workflow Engineer**
+
+Upon successful completion of Block 2 Capstone with a score of 22+ points (55%+):
+
+**You have demonstrated:**
+- Ability to design and build multi-step AI workflows
+- Proficiency in MCP configuration and tool integration
+- Understanding of quality systems and automated evaluation
+- Skill in performance monitoring and optimization
+- Creation of reusable workflow templates for team use
+- Measured business impact with actual data
+
+**You are certified as:** AI Workflow Engineer
+
+**Next Steps:**
+- Continue to [Block 3: AI Automation Architecture](block-3.md)
+- Enrollment opens upon Block 2 certification
+- Block 3 starts 1-2 weeks after Block 2 evaluation
+
+-----
+
 **END OF BLOCK 2 CURRICULUM**
+
+---
+
+**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | **Block 2** | [Block 3 →](block-3.md)

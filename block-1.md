@@ -1,5 +1,15 @@
 # **BLOCK 1: AI Prompting Mastery**
 
+**Version:** 1.0
+**Last Updated:** 2025-01-01
+**Status:** Active
+
+---
+
+**Navigation:** [← README](README.md) | **Block 1** | [Block 2 →](block-2.md) | [Block 3 →](block-3.md)
+
+---
+
 ## **8 Weeks | 45 min live + 60 min homework per week**
 
 -----
@@ -525,7 +535,7 @@ Priority = (Frequency × Time × Repetitiveness) + (Value × AI-Suitable)
 - [ ] Completed Weeks 1-3
 - [ ] style.json created
 - [ ] GitHub repository initialized
-- [ ] 3+ prompts developed
+- [ ] 3+ working prompts developed (these will become templates)
 
 ### **Exit Criteria**
 
@@ -1378,8 +1388,8 @@ This week is **self-paced** - no live workshop. Participants complete final deli
 - Creating your first AI-powered agent
 - Takes your prompts from manual to automated
 
-**Enrollment opens:** [Date]
-**Block 2 starts:** [Date]
+**Enrollment:** Opens upon Block 1 certification
+**Block 2 starts:** 1-2 weeks after Block 1 evaluation
 
 -----
 
@@ -1500,18 +1510,16 @@ Provide:
 - Structure to follow
 
 Example:
-```
 
-## Executive Summary
+    ## Executive Summary
 
-Acme Manufacturing’s legacy ERP system has become a critical bottleneck,
-limiting growth and creating operational inefficiencies…
+    Acme Manufacturing's legacy ERP system has become a critical bottleneck,
+    limiting growth and creating operational inefficiencies…
 
-**Proposed Approach:** [Brief description]
-**Timeline:** [Key milestones]
-**Expected Value:** [Quantified benefits]
+    **Proposed Approach:** [Brief description]
+    **Timeline:** [Key milestones]
+    **Expected Value:** [Quantified benefits]
 
-```
 ---
 
 ## Usage Instructions
@@ -1623,7 +1631,7 @@ limiting growth and creating operational inefficiencies…
   
   "metadata": {
     "version": "1.0",
-    "last_updated": "2024-12-30",
+    "last_updated": "YYYY-MM-DD",
     "owner": "Your Name",
     "department": "Consulting",
     "approved_by": "Leadership Team"
@@ -2458,3 +2466,145 @@ Use these to assess your own work before submission:
    - What was harder than expected?
    - What would I do differently?
 ```
+
+-----
+
+## **Appendix I: QUICK-START.md Template**
+
+```markdown
+# Quick Start Guide: [Repository/Library Name]
+
+## 5-Minute Setup
+
+### Step 1: Clone or Download
+
+    git clone [repository-url]
+
+Or download ZIP from GitHub and extract.
+
+### Step 2: Review Structure
+
+    your-prompt-library/
+    ├── README.md          # You are here
+    ├── QUICK-START.md     # This file
+    ├── CONTRIBUTING.md    # How to contribute
+    ├── resources/
+    │   └── style.json     # Your brand configuration
+    ├── templates/
+    │   ├── client-facing/ # External deliverables
+    │   └── internal/      # Internal documents
+    └── rubrics/           # Quality evaluation criteria
+
+### Step 3: Configure Your Style
+1. Open `resources/style.json`
+2. Update brand colors, fonts, and tone to match your preferences
+3. Save the file
+
+### Step 4: Use Your First Template
+1. Navigate to `templates/client-facing/` or `templates/internal/`
+2. Open any template file
+3. Copy the prompt section
+4. Paste into your AI tool (Claude, ChatGPT, Copilot)
+5. Fill in the variables (marked with [BRACKETS])
+6. Run and review output
+7. Use the associated rubric to evaluate quality
+
+---
+
+## Common Tasks
+
+### Creating a New Deliverable
+1. Identify the closest matching template
+2. Copy the prompt
+3. Fill in all required variables
+4. Generate content
+5. Evaluate with rubric
+6. Iterate if needed (use LLM-as-judge pattern)
+
+### Adding a New Template
+1. Create a new branch: `git checkout -b feature/new-template-name`
+2. Copy `templates/_template-template.md` to your category folder
+3. Fill in all sections following the documentation standard
+4. Create accompanying rubric in `rubrics/`
+5. Test with at least 3 examples
+6. Submit pull request
+
+### Updating an Existing Template
+1. Create a feature branch
+2. Make your improvements
+3. Update version history
+4. Test thoroughly
+5. Submit pull request with clear description
+
+---
+
+## Key Files Reference
+
+| File | Purpose |
+|------|---------|
+| `resources/style.json` | Brand voice, colors, formatting preferences |
+| `templates/client-facing/proposal.md` | Proposal generation template |
+| `templates/internal/status-report.md` | Internal status updates |
+| `rubrics/proposal-rubric.md` | Proposal quality evaluation |
+| `CONTRIBUTING.md` | Guidelines for improvements |
+
+---
+
+## Getting Help
+
+- **Documentation Issues:** Check the full README for detailed explanations
+- **Template Problems:** Review the "Known Limitations" section in each template
+- **General Questions:** [Your support channel]
+- **Contributions:** See CONTRIBUTING.md
+
+---
+
+## Quick Reference: ASK-CONTEXT-CONSTRAINTS-EXAMPLE
+
+Every template follows this structure:
+
+    # ASK
+    [What you want the AI to do]
+
+    # CONTEXT
+    [Background information and inputs]
+
+    # CONSTRAINTS
+    [Rules, requirements, limitations]
+
+    # EXAMPLE
+    [Sample of desired output format]
+
+---
+
+**Ready to go?** Start with a template from `/templates/` that matches your current task!
+```
+
+-----
+
+## **Certification: AI Prompting Practitioner**
+
+Upon successful completion of Block 1 Capstone with a score of 22+ points (55%+):
+
+**You have demonstrated:**
+- Proficiency in structured prompting using Markdown
+- Ability to create reusable, documented templates
+- Understanding of quality evaluation through rubrics
+- Professional use of GitHub for version control
+- Application of the ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework
+- Creation of a personal prompt library with measurable impact
+
+**You are certified as:** AI Prompting Practitioner
+
+**Next Steps:**
+- Continue to [Block 2: AI Workflow Engineering](block-2.md)
+- Enrollment opens upon Block 1 certification
+- Block 2 starts 1-2 weeks after Block 1 evaluation
+
+-----
+
+**END OF BLOCK 1 CURRICULUM**
+
+---
+
+**Navigation:** [← README](README.md) | **Block 1** | [Block 2 →](block-2.md) | [Block 3 →](block-3.md)

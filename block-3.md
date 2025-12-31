@@ -1,6 +1,18 @@
 # **BLOCK 3: AI Automation Architecture**
 
+**Version:** 1.0
+**Last Updated:** 2025-01-01
+**Status:** Active
+
+---
+
+**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | [← Block 2](block-2.md) | **Block 3**
+
+---
+
 ## **8 Weeks | 45 min live + 75 min homework per week**
+
+> **Note:** Block 3 requires additional homework time (75 min vs 60 min in Blocks 1-2) due to the complexity of building, testing, and debugging autonomous agents. The extra 15 minutes per week ensures adequate time for agent iteration and reliability testing.
 
 -----
 
@@ -3305,3 +3317,7 @@ Approved by: ___________________ Date: ___________
 ---
 
 **END OF BLOCK 3 CURRICULUM**
+
+---
+
+**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | [← Block 2](block-2.md) | **Block 3**
