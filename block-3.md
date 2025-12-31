@@ -1,6 +1,18 @@
 # **BLOCK 3: AI Automation Architecture**
 
+**Version:** 1.0
+**Last Updated:** 2025-01-01
+**Status:** Active
+
+---
+
+**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | [← Block 2](block-2.md) | **Block 3**
+
+---
+
 ## **8 Weeks | 45 min live + 75 min homework per week**
+
+> **Note:** Block 3 requires additional homework time (75 min vs 60 min in Blocks 1-2) due to the complexity of building, testing, and debugging autonomous agents. The extra 15 minutes per week ensures adequate time for agent iteration and reliability testing.
 
 -----
 
@@ -91,30 +103,46 @@
   - Workflow: Predictable, repeatable processes
   - Agent: Variable inputs, judgment required, tool selection needed
 
-**Segment 3: Agent Architecture Components (13 min)**
+**Segment 3: The Two-Agent Architecture Pattern (15 min)**
+
+- **The fundamental insight:**
+  - Stop trying to give agents memory
+  - Build systems where amnesiacs can work effectively
+
+- **Why single agents fail on multi-session tasks:**
+  - No memory between sessions
+  - Different interpretations of "done"
+  - Repeated failed attempts
+  - Context window pollution
+
+- **The Two-Agent Pattern:**
+  ```
+  SETUP AGENT (runs once)
+  - Takes human request
+  - Creates structured records
+  - Defines goals, procedures, success criteria
+  - Then stops
+
+  WORKER AGENT (runs repeatedly, stateless)
+  - Reads current state from records
+  - Picks ONE incomplete task
+  - Does work, validates, updates records
+  - Stops
+
+  → Next worker starts fresh, reads updated state, continues
+  ```
+
+- **The Daily Contractor Analogy:**
+  - Each contractor is still an amnesiac
+  - But the PROJECT has memory
+  - The system has memory through structured records
 
 - **Core components of an agent:**
-
   1. **Goal/Objective:** What the agent is trying to achieve
-  2. **Context/Memory:** Information the agent has access to
+  2. **Context/Memory:** Information the agent has access to (structured records!)
   3. **Tools:** Actions the agent can take
   4. **Reasoning:** How the agent decides what to do
   5. **Output:** What the agent produces
-
-- **Simple agent anatomy:**
-  ```
-  [User Request]
-       ↓
-  [Agent: Analyze request, determine approach]
-       ↓
-  [Agent: Select and use tools]
-       ↓
-  [Agent: Evaluate results]
-       ↓
-  [Agent: Continue or complete?]
-       ↓
-  [Final Output]
-  ```
 
 - **Tool integration:**
   - MCP servers as agent tools
@@ -122,7 +150,9 @@
   - File operations
   - Data lookups
 
-**Segment 4: Planning Your Capstone Agent (10 min)**
+- **For your capstone:** Consider this pattern for complex multi-step tasks
+
+**Segment 4: Planning Your Capstone Agent (8 min)**
 
 - **Agent selection criteria:**
   - Complex enough to benefit from autonomy
@@ -273,6 +303,25 @@
 
 ---
 
+## Domain Memory Design
+
+### Goals (Testable Success Criteria)
+1. [Criterion with specific test]
+2. [Criterion with specific test]
+3. [Criterion with specific test]
+
+### Progress Records Structure
+- What will be logged after each execution?
+- How will failures be recorded?
+- What state persists between sessions?
+
+### Operating Procedures
+- Validation process: [How to verify success]
+- Escalation triggers: [When to stop and get help]
+- Quality standards: [What "good" looks like]
+
+---
+
 ## Risk Assessment
 
 | Risk | Likelihood | Impact | Mitigation |
@@ -388,7 +437,31 @@ Stop and request help when:
 
 ### **Workshop Content (45 minutes)**
 
-**Segment 1: The Agent Execution Loop (10 min)**
+**Segment 1: Domain Memory - What Makes Agents Reliable (8 min)**
+
+- **The Three Pillars of Domain Memory:**
+
+  1. **EXPLICIT GOALS**
+     - What "done" means with testable criteria
+     - "Run login_test.py, all assertions pass" vs "Build login"
+     - If you can't test it, it's not a goal—it's a wish
+
+  2. **PROGRESS RECORDS**
+     - What's been completed, attempted, failed
+     - "Tuesday: Tried approach A → timeout failure"
+     - Prevents Groundhog Day loops
+
+  3. **OPERATING PROCEDURES**
+     - How to validate, when to escalate
+     - "After any change, run test suite"
+     - "After 3 failures, escalate to human"
+
+- **Why this matters for your agent:**
+  - Your agent design document (from Week 1) becomes the Setup Agent output
+  - Your execution logs become Progress Records
+  - Your error handling becomes Operating Procedures
+
+**Segment 2: The Agent Execution Loop (8 min)**
 
 - **Understanding the loop:**
   ```
@@ -417,7 +490,7 @@ Stop and request help when:
   - Tool result parsing
   - Completion detection
 
-**Segment 2: Error Handling for Agents (12 min)**
+**Segment 3: Error Handling for Agents (13 min)**
 
 - **Types of agent failures:**
   1. **Tool failures:** API down, permission denied, timeout
@@ -440,17 +513,41 @@ Stop and request help when:
       Request clarification OR try alternative
   ```
 
-- **Retry patterns:**
-  - Exponential backoff: 1s, 2s, 4s, 8s
-  - Maximum retries: 3-5 typically
-  - Different strategies for different errors
+- **The Circuit Breaker Pattern:**
+
+  ```python
+  class CircuitBreaker:
+      max_iterations = 100
+      timeout_seconds = 1800  # 30 minutes
+      max_consecutive_errors = 3
+
+      def check(self):
+          if self.iteration > self.max_iterations:
+              raise CircuitBreakerTripped("Iteration limit")
+          if elapsed > self.timeout:
+              raise CircuitBreakerTripped("Timeout")
+          if self.consecutive_errors >= self.max_consecutive_errors:
+              raise CircuitBreakerTripped("Error limit - escalate to human")
+  ```
+
+- **The 3-Failure Rule:**
+  - LLMs CAN recover from errors (they read error messages and adapt)
+  - BUT after 3 consecutive failures, the agent is probably stuck
+  - It's tried its best approaches; more attempts won't help
+  - ESCALATE to human rather than thrashing indefinitely
+
+- **Multi-Agent Error Propagation:**
+  When a sub-agent fails:
+  - Return structured failure info (not a crash)
+  - Include: success flag, partial work completed, can_retry boolean
+  - Let parent agent decide: retry, work around, or escalate
 
 - **Graceful degradation:**
   - Partial success is acceptable
   - Save progress before failing
   - Clear error messages for humans
 
-**Segment 3: Building Your First Agent - Live Demo (15 min)**
+**Segment 4: Building Your First Agent - Live Demo (9 min)**
 
 - **Demo agent:** Research Assistant
   - Goal: Answer questions using multiple sources
@@ -469,7 +566,7 @@ Stop and request help when:
   - How agent knows when to stop
   - What happens when something fails
 
-**Segment 4: Testing Agent Reliability (8 min)**
+**Segment 5: Testing Agent Reliability (7 min)**
 
 - **Test categories:**
   1. **Happy path:** Normal inputs, everything works
@@ -681,7 +778,7 @@ Set alerts for:
 
 ### **Workshop Content (45 minutes)**
 
-**Segment 1: Advanced MCP Architecture (12 min)**
+**Segment 1: Advanced MCP Architecture (10 min)**
 
 - **MCP in the agent context:**
   ```
@@ -762,7 +859,24 @@ Set alerts for:
   - Validate outputs before chaining
   - Handle partial failures gracefully
 
-**Segment 4: Security and Best Practices (9 min)**
+**Segment 4: Production Principles + Security (11 min)**
+
+- **The 12-Factor Agent Principles (Key Highlights):**
+
+  Production agents follow operational principles:
+
+  1. **Own Your Prompts** - Treat prompts as first-class code, not framework magic
+  2. **Own Your Context Window** - Curate ruthlessly; context is your competitive advantage
+  3. **Tools Are Structured Outputs** - LLM emits JSON; YOUR code decides what to do
+  4. **Small, Focused Agents** - 3-20 step workflows; smaller = better performance
+  5. **Stateless Reducer** - Think `(state, event) → state`; enables testing and replay
+
+- **What this means for your agent:**
+  - You control the prompts (not hidden in a framework)
+  - You decide what goes in context (not automatic accumulation)
+  - You handle tool results (not black-box execution)
+  - You keep scope bounded (not "do everything")
+  - You can replay any decision (not mystery behavior)
 
 - **Security principles:**
   - Least privilege: Only enable needed servers
@@ -988,7 +1102,7 @@ Set alerts for:
 
 ### **Workshop Content (45 minutes)**
 
-**Segment 1: Complex Task Decomposition (12 min)**
+**Segment 1: Complex Task Decomposition (10 min)**
 
 - **The challenge:** Single-prompt agents struggle with complex tasks
 - **The solution:** Explicit planning and step execution
@@ -1022,7 +1136,30 @@ Set alerts for:
   Output as structured plan.
   ```
 
-**Segment 2: State Management Across Steps (12 min)**
+**Segment 2: State Management Across Steps (14 min)**
+
+- **Context Architecture - The Four Tiers:**
+
+  Not everything belongs in active context:
+
+  | Tier | What | Example | Loading |
+  |------|------|---------|---------|
+  | **Tier 1: Working Context** | Active now | Current prompt, immediate task | Always loaded |
+  | **Tier 2: Session State** | This conversation | Structured event stream | Filtered as needed |
+  | **Tier 3: Persistent Memory** | Across sessions | Progress records, learnings | Retrieved on-demand |
+  | **Tier 4: Artifacts** | Large data | Files, databases | Referenced, not pasted |
+
+- **The Attention Budget:**
+  - Context is a finite resource
+  - Find the SMALLEST set of HIGH-SIGNAL tokens
+  - More context often makes performance WORSE (research-backed)
+  - Progressive disclosure over pre-loading
+
+- **For your multi-step agent:**
+  - Tier 1: Current step instructions only
+  - Tier 2: Step results and running summary
+  - Tier 3: Checkpoint files
+  - Tier 4: Full documents referenced by path
 
 - **The context problem:**
   - Agents can lose track in long tasks
@@ -1738,7 +1875,7 @@ def orchestrate(user_input):
   - [ ] Cost within budget
   - [ ] Security review completed
 
-**Segment 2: Performance Dashboards (12 min)**
+**Segment 2: Performance Dashboards (13 min)**
 
 - **Key metrics to track:**
 
@@ -1767,13 +1904,36 @@ def orchestrate(user_input):
   └─────────────────────────────────────────────┘
   ```
 
+- **Observability Litmus Test:**
+
+  Can you answer these questions about your agent system?
+
+  - ✓ What's in the context right now?
+  - ✓ Where did each piece come from?
+  - ✓ Why was this included?
+  - ✓ What was available but excluded?
+  - ✓ Can you replay any decision with exact context state?
+
+- **Without observability:**
+  - Debugging is guesswork
+  - Failures are mysterious
+  - Trust is impossible
+
+- **The Law of Observability:**
+  If you can't see it, you can't fix it. If you can't fix it, you can't trust it.
+
+- **Your dashboard must enable:**
+  - Context inspection at any step
+  - Decision tracing (what did agent see when it decided X?)
+  - Replay capability for debugging
+
 - **Implementation options:**
   - Google Sheets (simple)
   - Airtable (structured)
   - Grafana (advanced)
   - Custom web dashboard
 
-**Segment 3: Cost Optimization Deep Dive (12 min)**
+**Segment 3: Cost Optimization Deep Dive (11 min)**
 
 - **Cost components:**
   - AI API calls (tokens)
@@ -3305,3 +3465,7 @@ Approved by: ___________________ Date: ___________
 ---
 
 **END OF BLOCK 3 CURRICULUM**
+
+---
+
+**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | [← Block 2](block-2.md) | **Block 3**

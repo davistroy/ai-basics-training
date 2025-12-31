@@ -1,5 +1,15 @@
 # **BLOCK 2: AI Workflow Engineering**
 
+**Version:** 1.0
+**Last Updated:** 2025-01-01
+**Status:** Active
+
+---
+
+**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | **Block 2** | [Block 3 →](block-3.md)
+
+---
+
 ## **8 Weeks | 45 min live + 60 min homework per week**
 
 -----
@@ -277,7 +287,7 @@ Rationale: [2-3 sentences explaining choice]
 
 ### **Workshop Content (45 minutes)**
 
-**Segment 1: Workflow Design Principles (10 min)**
+**Segment 1: Workflow Design Principles (12 min)**
 
 - **The workflow mindset:**
   - Think in steps, not single prompts
@@ -291,7 +301,31 @@ Rationale: [2-3 sentences explaining choice]
   5. **Output:** Where does the result go?
 - **Visual mapping:** Flowchart your workflow before building
 
-**Segment 2: Your First Workflow - Live Build (20 min)**
+- **The Micro-Agent Pattern:**
+  - **What's actually working in production:**
+    - NOT autonomous agents running indefinitely
+    - Small, focused agents: 3-20 steps
+    - Embedded within larger deterministic workflows
+  - **The pattern:**
+    ```
+    Traditional DAG:     Step A → Step B → Step C → Step D
+                         (all deterministic, all predefined)
+
+    Micro-Agent Pattern: [Deterministic] → [AI: 5-10 steps] → [Deterministic]
+                         (flexibility where needed, predictability elsewhere)
+    ```
+  - **Why 3-20 steps?**
+    - Bounds the context window
+    - Limits scope of failures
+    - Easier to debug
+    - Research shows agents degrade after 10-20 turns
+  - **The 90% reality check:**
+    - A 90% success rate sounds good
+    - But would you use a web app that crashed 10% of the time?
+    - Production means reliability, not impressive demos
+  - **For your workflow:** Think "one thing done well"
+
+**Segment 2: Your First Workflow - Live Build (18 min)**
 
 - **Demonstration workflow:** Email → AI Summary → Slack notification
 - **Step-by-step construction:**
@@ -517,7 +551,21 @@ Log Entry:
 
 ### **Workshop Content (45 minutes)**
 
-**Segment 1: Quality in Automated Workflows (10 min)**
+**Segment 1: Quality in Automated Workflows (12 min)**
+
+- **Framing: Quality as Domain Memory**
+  - **The Three Pillars (preview of Block 3):**
+    1. **Explicit Goals** → Your success criteria
+    2. **Progress Records** → Your execution logs
+    3. **Operating Procedures** → Your quality system!
+  - **Quality systems ARE operating procedures:**
+    - Pre-generation checks = input validation procedures
+    - Post-generation evaluation = output verification procedures
+    - Human review triggers = escalation procedures
+  - **Why this matters:**
+    - Consistent behavior across all executions
+    - Predictable quality without human variance
+    - Foundation for autonomous agents (Block 3)
 
 - **The automation quality challenge:**
   - Manual review doesn't scale
@@ -532,7 +580,7 @@ Log Entry:
   - Post-generation: Output evaluation
   - Human review: When automated checks fail
 
-**Segment 2: Automated Quality Checks (12 min)**
+**Segment 2: Automated Quality Checks (10 min)**
 
 - **Using AI to check AI:**
 
@@ -823,7 +871,7 @@ Pass threshold: overall_score >= 3.5
 
 ### **Workshop Content (45 minutes)**
 
-**Segment 1: Analyzing Workflow Performance (10 min)**
+**Segment 1: Analyzing Workflow Performance (9 min)**
 
 - **Review your execution logs:**
   - Average execution time
@@ -836,7 +884,21 @@ Pass threshold: overall_score >= 3.5
   - What triggers low quality scores?
 - **Live analysis:** Walk through sample execution data
 
-**Segment 2: Cost Optimization Strategies (15 min)**
+**Segment 2: Cost Optimization Strategies (16 min)**
+
+- **The Context Window Trap:**
+  - **Common assumption:** "Bigger context windows = better performance"
+  - **The research reality:**
+    - "Lost in the Middle" study: Models ignore middle of long inputs
+    - Performance degrades as input length increases
+    - Complete histories often perform WORSE than curated excerpts
+  - **The counterintuitive principle:** More context makes things WORSE, not better.
+  - **Why this matters for workflow optimization:**
+    - Don't dump entire conversation histories
+    - Summarize large inputs before AI processing
+    - Pass only what's needed for THIS step
+    - Every token competes for attention
+  - **Token Reduction = Better Performance AND Lower Cost**
 
 - **Token reduction techniques:**
   - Shorter context windows (pass only what's needed)
@@ -1931,8 +1993,8 @@ This week is **self-paced** - no live workshop. Complete final submissions and s
 **Block 3 takes you from:**
 Workflow → Agent → Orchestrated System
 
-**Enrollment opens:** [Date]
-**Block 3 starts:** [Date]
+**Enrollment:** Opens upon Block 2 certification
+**Block 3 starts:** 1-2 weeks after Block 2 evaluation
 
 -----
 
@@ -2126,10 +2188,11 @@ Workflow → Agent → Orchestrated System
    - Real quality improvement
    - Real cost analysis
 
-5. **Could someone else use my toolkit?**
-   - Is documentation complete?
-   - Are setup instructions clear?
-   - Would they succeed without my help?
+5. **What would I do differently?**
+   - In workflow design?
+   - In tool selection?
+   - In quality systems?
+   - What lessons will I carry to Block 3?
 ```
 
 -----
@@ -2770,4 +2833,29 @@ Pass threshold: 3.5
 
 -----
 
+## **Certification: AI Workflow Engineer**
+
+Upon successful completion of Block 2 Capstone with a score of 22+ points (55%+):
+
+**You have demonstrated:**
+- Ability to design and build multi-step AI workflows
+- Proficiency in MCP configuration and tool integration
+- Understanding of quality systems and automated evaluation
+- Skill in performance monitoring and optimization
+- Creation of reusable workflow templates for team use
+- Measured business impact with actual data
+
+**You are certified as:** AI Workflow Engineer
+
+**Next Steps:**
+- Continue to [Block 3: AI Automation Architecture](block-3.md)
+- Enrollment opens upon Block 2 certification
+- Block 3 starts 1-2 weeks after Block 2 evaluation
+
+-----
+
 **END OF BLOCK 2 CURRICULUM**
+
+---
+
+**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | **Block 2** | [Block 3 →](block-3.md)

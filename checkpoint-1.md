@@ -987,17 +987,6 @@ As we continue with Blocks 2 & 3, maintain these principles:
 
 ## Reference Information
 
-### File Locations
-
-**Previous Transcripts:**
-
-- `/mnt/transcripts/2025-12-30-19-16-58-ai-training-curriculum-design.txt` - Original curriculum design session
-- `/mnt/transcripts/2025-12-30-19-58-30-ai-training-curriculum-refinement.txt` - This session (colleague materials review and Block 1 development)
-
-**Journal:**
-
-- `/mnt/transcripts/journal.txt` - Catalog of all previous transcripts
-
 ### Key Resources Referenced
 
 **Markdown:**
