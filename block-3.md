@@ -10,9 +10,9 @@
 
 ---
 
-## **8 Weeks | 45 min live + 75 min homework per week**
+## **8 Weeks | 45 min live + 75-90 min homework per week**
 
-> **Note:** Block 3 requires additional homework time (75 min vs 60 min in Blocks 1-2) due to the complexity of building, testing, and debugging autonomous agents. The extra 15 minutes per week ensures adequate time for agent iteration and reliability testing.
+> **Pacing Note:** Block 3 requires 75-90 minutes of homework per week—significantly more than earlier blocks. Agent development involves debugging cycles that can be unpredictable. Some participants may need additional time for Weeks 2-4 (building reliable agents) and Week 5 (orchestration). Build buffer into your schedule and don't hesitate to spread capstone work across multiple sessions.
 
 -----
 
@@ -24,6 +24,11 @@
 - Quality systems implemented with rubrics
 - Performance monitoring active
 - 20+ workflow executions completed
+
+**Pre-Work (Complete before Week 1):**
+- Review [Agent Memory Meta-Framework Presentation](presentation.md), slides 1-30
+- Focus on: The Three Pillars of Domain Memory, Why Agents Fail, The Daily Contractor Analogy
+- Time required: ~30 minutes
 
 -----
 
@@ -78,6 +83,11 @@
   - Level 3: Automation architecture (Block 3 - starting now)
 - **The key shift:** From workflows that execute steps → Agents that make decisions
 - Preview of capstone: End-to-end autonomous solution
+- **Connection to pre-work:**
+  - The presentation introduced WHY agents fail (memory, reliability, complexity)
+  - Block 3 teaches HOW to build agents that succeed
+  - The Three Pillars become your design framework
+  - The Daily Contractor analogy guides your architecture
 
 **Segment 2: Agents vs. Workflows - The Critical Distinction (12 min)**
 
@@ -151,6 +161,93 @@
   - Data lookups
 
 - **For your capstone:** Consider this pattern for complex multi-step tasks
+
+- **Consulting Domain Example: RFP Response Agent**
+
+  Let's see the Two-Agent Pattern applied to a real consulting task:
+
+  **The Problem:**
+  - RFP arrives with 47 requirements across 8 sections
+  - Manual response takes 20-40 hours
+  - Quality varies based on who writes it
+  - Easy to miss requirements
+
+  **Setup Agent (runs once when RFP arrives):**
+
+  ```
+  Input: RFP document
+
+  Actions:
+  1. Parse all requirements into structured checklist
+  2. Map each requirement to existing proposal sections
+  3. Identify which templates apply
+  4. Create response_plan.json:
+     {
+       "rfp_id": "acme-2024-q4",
+       "client": "Acme Manufacturing",
+       "due_date": "2025-01-15",
+       "sections": [
+         {
+           "id": "exec-summary",
+           "requirements": ["ES-1", "ES-2", "ES-3"],
+           "template": "executive-summary-v2.md",
+           "status": "pending",
+           "assigned_to": "worker"
+         },
+         {
+           "id": "technical-approach",
+           "requirements": ["TA-1", "TA-2", ... "TA-12"],
+           "template": "technical-approach-v3.md",
+           "status": "pending",
+           "assigned_to": "worker"
+         }
+         // ... more sections
+       ],
+       "success_criteria": {
+         "all_requirements_addressed": false,
+         "quality_score_minimum": 4.0,
+         "human_review_complete": false
+       }
+     }
+
+  Output: Structured response plan (the "memory")
+  Then: STOP
+  ```
+
+  **Worker Agent (runs repeatedly, stateless):**
+
+  ```
+  Input: response_plan.json (current state)
+
+  Actions:
+  1. Read response_plan.json
+  2. Find first section with status: "pending"
+  3. Load the mapped template
+  4. Load relevant requirements
+  5. Generate section draft
+  6. Self-evaluate against requirements
+  7. If quality >= 4.0:
+       - Save draft to /outputs/{section_id}.md
+       - Update response_plan.json: status → "complete"
+     If quality < 4.0:
+       - Log attempt in response_plan.json
+       - If attempts >= 3: status → "needs_human"
+  8. STOP
+
+  Output: One completed section (or escalation)
+  ```
+
+  **Human Review Touchpoints:**
+  - After each section completes: optional review
+  - Sections marked "needs_human": required review
+  - Before final submission: full review
+
+  **Why This Works:**
+  - Each worker run is bounded (one section)
+  - Progress is tracked externally (response_plan.json)
+  - Failures are contained (one section, not whole RFP)
+  - Human oversight at appropriate points
+  - Workers are interchangeable (any instance can continue)
 
 **Segment 4: Planning Your Capstone Agent (8 min)**
 
@@ -238,6 +335,25 @@
 **Failure Criteria:**
 - [What constitutes failure]
 - [When to stop and escalate]
+
+**Example (RFP Response Agent):**
+```markdown
+## Goal Definition
+
+**Primary Goal:**
+Generate complete, requirement-compliant RFP response drafts for all sections, ready for human review and refinement.
+
+**Success Criteria:**
+1. Every RFP requirement has a corresponding response
+2. Each section scores >= 4.0 on quality rubric
+3. Response follows client-specific tone from style.json
+4. Total generation time < 4 hours (vs 20-40 hours manual)
+
+**Failure Criteria:**
+- Any section fails quality check 3+ times → escalate to human
+- Missing requirement detected → stop and flag
+- Template not found for section type → stop and flag
+```
 
 ---
 
@@ -438,6 +554,9 @@ Stop and request help when:
 ### **Workshop Content (45 minutes)**
 
 **Segment 1: Domain Memory - What Makes Agents Reliable (8 min)**
+
+- **Recall from presentation:** The fundamental insight is that agents are "unreliable amnesiacs"
+- **Today's application:** We make amnesiacs effective by building systems with memory
 
 - **The Three Pillars of Domain Memory:**
 
@@ -1833,6 +1952,50 @@ def orchestrate(user_input):
 ```
 
 **Deliverable:** Integration test results
+
+-----
+
+**Exercise 5.4: Agent Architecture Review (Optional - 30 minutes)**
+
+*Peer review of agent designs*
+
+**If you have a learning partner:**
+
+1. Exchange agent design documents
+2. Review partner's design for:
+   - Clear specialization (is scope bounded?)
+   - Appropriate orchestration pattern
+   - Complete error handling
+   - Realistic success criteria
+
+3. Provide structured feedback:
+
+```markdown
+## Agent Design Review
+
+### Strengths
+- [What's well-designed]
+
+### Questions
+- [Clarifications needed]
+
+### Concerns
+- [Potential issues]
+
+### Suggestions
+- [Improvements to consider]
+```
+
+4. Discuss feedback together
+5. Revise designs based on input
+
+**Deliverable:** Design review feedback + revised design
+
+**Benefits:**
+- Fresh perspective on architecture
+- Catches blind spots
+- Improves documentation clarity
+- Builds team agent expertise
 
 -----
 

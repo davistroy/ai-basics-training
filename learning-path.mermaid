@@ -1,0 +1,42 @@
+flowchart TB
+    subgraph B1["Block 1: AI Prompting Mastery (8 weeks)"]
+        direction TB
+        B1W1["Week 1-2: Markdown + Structured Prompting"]
+        B1W2["Week 3-4: JSON + Quality Rubrics"]
+        B1W3["Week 5-6: GitHub + Organization"]
+        B1W4["Week 7-8: Capstone"]
+        B1W1 --> B1W2 --> B1W3 --> B1W4
+        B1Out["📋 Personal Prompt Library"]
+    end
+
+    subgraph B2["Block 2: AI Workflow Engineering (8 weeks)"]
+        direction TB
+        B2W1["Week 1-2: Automation Platforms"]
+        B2W2["Week 3-4: Quality Systems + Optimization"]
+        B2W3["Week 5-6: MCP Integration"]
+        B2W4["Week 7-8: Capstone"]
+        B2W1 --> B2W2 --> B2W3 --> B2W4
+        B2Out["⚙️ AI Workflow Toolkit"]
+    end
+
+    subgraph B3["Block 3: AI Automation Architecture (8 weeks)"]
+        direction TB
+        B3W1["Week 1-2: Agent Fundamentals"]
+        B3W2["Week 3-4: MCP Deep Dive + Multi-Step"]
+        B3W3["Week 5-6: Orchestration + Optimization"]
+        B3W4["Week 7-8: Capstone"]
+        B3W1 --> B3W2 --> B3W3 --> B3W4
+        B3Out["🤖 Automated Workflow Solution"]
+    end
+
+    B1 --> B2 --> B3
+
+    subgraph Skills["Cumulative Skills"]
+        S1["Level 1: Templated Workflows"]
+        S2["Level 2: Workflow Engineering"]
+        S3["Level 3: Automation Architecture"]
+    end
+
+    B1Out --> S1
+    B2Out --> S2
+    B3Out --> S3
