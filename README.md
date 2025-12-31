@@ -338,7 +338,8 @@ ai-basics-training/
 │   ├── block-2-reference.md
 │   └── block-3-reference.md
 ├── updates/                     # Curriculum update implementation plans
-│   └── update-1.md
+│   ├── update-1.md
+│   └── CHANGELOG-2025-12-31.md
 └── archive/                     # Historical/reference documents
     ├── presentation.md          # Agent Memory Meta-Framework (48 slides)
     ├── checkpoint-1.md          # Curriculum design session summary
@@ -419,11 +420,11 @@ Each advanced module contains its own appendices with:
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 2.1 | [TBD] | Implementation improvements (see [CHANGELOG.md](CHANGELOG.md)) |
+| 2.1 | 2025-12-31 | Implementation improvements (see [CHANGELOG](updates/CHANGELOG-2025-12-31.md)) |
 | 2.0 | 2025-12-31 | Added 5 advanced modules, Agent Memory Meta-Framework presentation, archive folder, updated structure |
 | 1.0 | 2025-01-01 | Initial curriculum release |
 
-For detailed change history, see [CHANGELOG.md](CHANGELOG.md).
+For detailed change history, see [CHANGELOG](updates/CHANGELOG-2025-12-31.md).
 
 ---
 
