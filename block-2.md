@@ -92,6 +92,17 @@
   - Data security requirements
 - **Recommendation:** Start with Make or n8n for most consultants
 
+> **🔒 AI Data Handling Awareness**
+>
+> When automating workflows that process client or sensitive data:
+> - **Know your data flows:** Understand what data passes through each platform and AI service
+> - **Check data retention policies:** Most AI providers retain data temporarily; know the specifics
+> - **Client obligations first:** Review client contracts for data handling requirements before automating
+> - **When in doubt, anonymize:** Use placeholder data for testing; sanitize sensitive fields
+> - **Document your choices:** Record which platforms handle which data types for compliance
+>
+> This isn't legal advice—consult your organization's policies. The goal is awareness, not fear.
+
 **Segment 3: Decision Matrix for Platform Selection (12 min)**
 
 - **The framework:**
