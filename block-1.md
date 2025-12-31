@@ -342,8 +342,8 @@ Priority = (Frequency × Time × Repetitiveness) + (Value × AI-Suitable)
 - [ ] Can read and create basic JSON structures
 - [ ] Created personal `style.json` file
 - [ ] GitHub repository initialized with folder structure
-- [ ] Understands “promptware” concept (prompts as assets)
-- [ ] Basic familiarity with MCP concept (preview)
+- [ ] Understands "promptware" concept (prompts as assets)
+- [ ] Basic understanding of how templates will be automated in Block 2
 
 -----
 
@@ -400,9 +400,9 @@ Priority = (Frequency × Time × Repetitiveness) + (Value × AI-Suitable)
   ```
 - **Using it:** “Apply my style.json to this output…”
 
-**Segment 4: GitHub as Asset Repository + MCP Preview (15 min)**
+**Segment 4: GitHub as Asset Repository + Looking Ahead (15 min)**
 
-- **“Promptware” framing:** Prompts are company assets, not personal notes
+- **"Promptware" framing:** Prompts are company assets, not personal notes
 - **Why GitHub:**
   - Version control (track changes)
   - Collaboration (team access)
@@ -413,11 +413,10 @@ Priority = (Frequency × Time × Repetitiveness) + (Value × AI-Suitable)
   - Commit = save version
   - README = documentation
 - **Quick demo:** Create repo, add file, commit, view history
-- **MCP Teaser (2 min):**
-  - “In Block 2, you’ll learn MCP - Model Context Protocol”
-  - **“USB-C for AI” analogy:** Universal connector for AI tools
-  - “Imagine AI automatically accessing your GitHub prompts - that’s MCP”
-  - “Don’t worry about it now, just planting the seed”
+- **Looking Ahead (2 min):**
+  - "In Block 2, you'll connect these templates to automated workflows"
+  - "Your organized GitHub library becomes the foundation for automation"
+  - "The structure you build now pays dividends later"
 
 -----
 
@@ -917,7 +916,7 @@ Priority = (Frequency × Time × Repetitiveness) + (Value × AI-Suitable)
 - [ ] Library organized by categories
 - [ ] Client-facing vs. internal templates distinguished
 - [ ] Quick-start guide created
-- [ ] MCP preview understood (preparation for Block 2)
+- [ ] Understanding of how Block 1 work enables Block 2 automation
 
 -----
 
@@ -997,16 +996,22 @@ Each template includes:
   - Internal: Fewer gates, faster iteration
 - **Labeling strategy:** Tag templates as “client” or “internal”
 
-**Segment 4: MCP Preview - Looking Ahead (10 min)**
+**Segment 4: Block 2 Preview - Looking Ahead (10 min)**
 
-- **Recap from Week 3:** “USB-C for AI” concept
-- **What you’ll learn in Block 2:**
-  - Connecting AI to your GitHub library directly
-  - Agents that can read your templates automatically
-  - No more copying/pasting - AI fetches what it needs
-- **Quick demo or video:** Show MCP in action (if available)
-- **Why organize now:** Well-structured library makes MCP setup easier
-- **Teaser:** “Imagine your agent automatically using the latest template version from GitHub”
+- **What you've built:**
+  - Organized template library with version control
+  - Quality rubrics for consistent evaluation
+  - Documentation standards for reusability
+- **What's next in Block 2:**
+  - Automating your templates into multi-step workflows
+  - Adding quality gates that run automatically
+  - Connecting workflows to external tools and data sources
+  - Building systems that execute without manual prompting
+- **Why your Block 1 work matters:**
+  - Well-documented templates become workflow components
+  - Quality rubrics become automated quality checks
+  - GitHub organization enables team collaboration
+- **The progression:** "You've learned to write excellent prompts. Next, you'll learn to orchestrate them."
 
 -----
 
@@ -1384,7 +1389,7 @@ This week is **self-paced** - no live workshop. Participants complete final deli
 
 - Building on your templates to create automated workflows
 - Introduction to no-code automation platforms
-- MCP configuration and integration
+- Connecting AI to external tools and data sources
 - Creating your first AI-powered agent
 - Takes your prompts from manual to automated
 

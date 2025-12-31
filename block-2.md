@@ -10,7 +10,9 @@
 
 ---
 
-## **8 Weeks | 45 min live + 60 min homework per week**
+## **8 Weeks | 45 min live + 60-75 min homework per week**
+
+> **Pacing Note:** Weeks 5-6 (MCP integration) often require additional time for initial setup and troubleshooting. Budget extra time your first time configuring MCP servers.
 
 -----
 
@@ -922,6 +924,25 @@ Pass threshold: overall_score >= 3.5
   }
   ```
 
+- **Current Token Pricing Reference (Early 2025):**
+
+  | Model | Input (per 1M tokens) | Output (per 1M tokens) | Best For |
+  |-------|----------------------|------------------------|----------|
+  | Claude 3.5 Sonnet | ~$3.00 | ~$15.00 | Complex generation, analysis |
+  | Claude 3 Haiku | ~$0.25 | ~$1.25 | Simple tasks, classification |
+  | GPT-4o | ~$2.50 | ~$10.00 | General purpose |
+  | GPT-4o-mini | ~$0.15 | ~$0.60 | High-volume, simple tasks |
+
+  *Prices change frequently—verify current rates at provider websites*
+
+  **Typical consulting workflow costs:**
+  - Simple email generation: ~500 tokens → $0.001-0.01
+  - Proposal section: ~2,000 input + 1,500 output → $0.01-0.05
+  - Complex analysis: ~5,000 input + 3,000 output → $0.05-0.15
+  - 100 executions/month: $1-15/month (varies by complexity)
+
+  **The insight:** Token costs are rarely the bottleneck—time savings dwarf AI costs
+
 - **Example:** Reduce 40% token usage with prompt optimization
 
 **Segment 3: Quality Gate Refinement (12 min)**
@@ -1096,6 +1117,35 @@ Pass threshold: overall_score >= 3.5
 ```
 
 **Deliverable:** `optimization-results.md`
+
+-----
+
+**Exercise 4.4: Workflow Exchange (Optional - 20 minutes)**
+
+*Learn from peers by testing each other's workflows*
+
+**If you have a learning partner:**
+
+1. Exchange workflow documentation with partner
+2. Each person attempts to run the other's workflow:
+   - Follow their documentation
+   - Note any gaps or confusion
+   - Document results
+
+3. Provide feedback:
+   - What was clear
+   - What was confusing
+   - Suggestions for improvement
+
+4. Discuss findings together
+
+**Deliverable:** Peer feedback notes (shared with partner)
+
+**Benefits:**
+- Reveals documentation gaps
+- Exposes assumptions
+- Builds team knowledge
+- Prepares for team rollout
 
 -----
 
@@ -2000,7 +2050,7 @@ Workflow → Agent → Orchestrated System
 
 # **APPENDICES**
 
-## **Appendix I: Block 2 Capstone Rubric**
+## **Appendix J: Block 2 Capstone Rubric**
 
 ```markdown
 # Block 2 Capstone Evaluation Rubric
@@ -2197,7 +2247,7 @@ Workflow → Agent → Orchestrated System
 
 -----
 
-## **Appendix J: Platform Decision Matrix Template**
+## **Appendix K: Platform Decision Matrix Template**
 
 ```markdown
 # Automation Platform Decision Matrix
@@ -2267,7 +2317,7 @@ Platform 3: = ___
 
 -----
 
-## **Appendix K: Workflow Documentation Template**
+## **Appendix L: Workflow Documentation Template**
 
 ```markdown
 # Workflow: [Name]
@@ -2468,7 +2518,7 @@ Trigger → Data Prep → AI Generate → Quality Check → Route
 
 -----
 
-## **Appendix L: MCP Configuration Reference**
+## **Appendix M: MCP Configuration Reference**
 
 ```markdown
 # MCP Configuration Guide
@@ -2671,7 +2721,7 @@ The server will read from environment automatically.
 
 -----
 
-## **Appendix M: Quality Evaluation Prompt Template**
+## **Appendix N: Quality Evaluation Prompt Template**
 
 ```markdown
 # Quality Evaluation Prompt Template
@@ -2830,6 +2880,282 @@ Pass threshold: 3.5
 4. **Adjust threshold** based on your quality requirements
 5. **Parse JSON** in workflow to route based on pass/fail
 ```
+
+-----
+
+## **Appendix O: MCP Troubleshooting Guide**
+
+# MCP Troubleshooting Guide
+
+## Quick Diagnostic Checklist
+
+When MCP isn't working, check these in order:
+
+- [ ] JSON syntax is valid (test at jsonlint.com)
+- [ ] Config file is in correct location for your OS
+- [ ] Claude Desktop was fully quit and relaunched
+- [ ] Node.js is installed (`node --version` in terminal)
+- [ ] File paths in config actually exist
+- [ ] No trailing commas in JSON
+
+---
+
+## Common Issues and Solutions
+
+### Issue: "Server Not Appearing in Claude"
+
+**Symptoms:**
+- Asked Claude about MCP tools, says it has none
+- No server-related options visible
+
+**Solutions:**
+
+1. **Verify config file location:**
+   - Mac: `~/Library/Application Support/Claude/claude_desktop_config.json`
+   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+   - File must be named exactly `claude_desktop_config.json`
+
+2. **Validate JSON syntax:**
+   ```json
+   // WRONG - trailing comma
+   {
+     "mcpServers": {
+       "filesystem": { ... },  // ← comma here causes failure if last item
+     }
+   }
+
+   // CORRECT - no trailing comma
+   {
+     "mcpServers": {
+       "filesystem": { ... }
+     }
+   }
+   ```
+
+3. **Fully restart Claude Desktop:**
+   - Mac: Menu bar → Claude → Quit Claude (not just close window)
+   - Windows: System tray → Right-click Claude icon → Exit
+   - Then relaunch
+
+4. **Check Claude Desktop version:**
+   - MCP requires recent Claude Desktop versions
+   - Update if available: Help → Check for Updates
+
+---
+
+### Issue: "npx Command Not Found"
+
+**Symptoms:**
+- Server fails to start
+- Error mentions npx or npm not found
+
+**Solutions:**
+
+1. **Install Node.js:**
+   - Download from https://nodejs.org/ (LTS version)
+   - Run installer with default options
+   - Restart terminal/command prompt after install
+
+2. **Verify installation:**
+   ```bash
+   node --version    # Should show version number
+   npm --version     # Should show version number
+   npx --version     # Should show version number
+   ```
+
+3. **If still not working (Mac):**
+   ```bash
+   # May need to add to PATH - add to ~/.zshrc:
+   export PATH="/usr/local/bin:$PATH"
+   ```
+
+4. **If still not working (Windows):**
+   - Restart computer after Node.js install
+   - Or manually add Node.js to system PATH
+
+---
+
+### Issue: "Permission Denied" Errors
+
+**Symptoms:**
+- Server starts but can't access files
+- Error mentions permissions
+
+**Solutions:**
+
+1. **Filesystem server - verify path access:**
+   - Path in config must be readable by your user
+   - Try a simple path first: your Documents folder
+   - Avoid system directories
+
+2. **GitHub server - verify token:**
+   - Token may have expired
+   - Token may lack required scopes
+   - Generate new token with `repo` and `read:user` scopes
+
+3. **Mac-specific:**
+   - Claude Desktop may need Full Disk Access
+   - System Preferences → Security & Privacy → Privacy → Full Disk Access
+   - Add Claude if prompted
+
+---
+
+### Issue: "GitHub Server Can't Access Repository"
+
+**Symptoms:**
+- GitHub MCP configured but can't read repos
+- Authentication errors
+
+**Solutions:**
+
+1. **Verify token is correct:**
+   - No extra spaces when copying
+   - Token starts with `ghp_`
+   - Token hasn't expired
+
+2. **Check token scopes:**
+   - Go to GitHub → Settings → Developer Settings → Personal Access Tokens
+   - Verify token has `repo` scope (for private repos)
+   - Verify token has `read:user` scope
+
+3. **Token in config correctly:**
+   ```json
+   {
+     "mcpServers": {
+       "github": {
+         "command": "npx",
+         "args": ["-y", "@modelcontextprotocol/server-github"],
+         "env": {
+           "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxxxxxxxxxxx"
+         }
+       }
+     }
+   }
+   ```
+   - Note: Token is in `env` object, not `args`
+
+4. **Alternative - use environment variable:**
+
+   Instead of putting token in config file:
+
+   **Mac (~/.zshrc):**
+   ```bash
+   export GITHUB_PERSONAL_ACCESS_TOKEN="ghp_xxxxxxxxxxxx"
+   ```
+
+   **Windows (System Environment Variables):**
+   - Search "Environment Variables" in Start menu
+   - Add new User variable: GITHUB_PERSONAL_ACCESS_TOKEN
+
+   Then config can omit the env section:
+   ```json
+   {
+     "mcpServers": {
+       "github": {
+         "command": "npx",
+         "args": ["-y", "@modelcontextprotocol/server-github"]
+       }
+     }
+   }
+   ```
+
+---
+
+### Issue: "Server Starts Then Immediately Stops"
+
+**Symptoms:**
+- Brief activity then nothing
+- Server shows then disappears
+
+**Solutions:**
+
+1. **Check for conflicting servers:**
+   - Two servers can't use same name
+   - Each server needs unique key in mcpServers object
+
+2. **Test server manually in terminal:**
+   ```bash
+   npx -y @modelcontextprotocol/server-filesystem /your/path
+   ```
+   - Watch for error messages
+   - Ctrl+C to stop when done testing
+
+3. **Check Claude Desktop logs:**
+   - Mac: `~/Library/Logs/Claude/`
+   - Windows: `%APPDATA%\Claude\logs\`
+   - Look for recent error messages
+
+---
+
+### Issue: "Everything Was Working, Now It's Not"
+
+**Symptoms:**
+- MCP worked before, stopped working
+- No config changes made
+
+**Solutions:**
+
+1. **Node.js/npm update broke things:**
+   ```bash
+   # Clear npm cache
+   npm cache clean --force
+
+   # Try running server manually to see errors
+   npx -y @modelcontextprotocol/server-filesystem /your/path
+   ```
+
+2. **Claude Desktop update:**
+   - Config format may have changed
+   - Check Anthropic's MCP documentation for updates
+
+3. **Token expired:**
+   - GitHub tokens can expire
+   - Generate new token and update config
+
+4. **Simple restart:**
+   - Fully quit Claude Desktop
+   - Close all terminal windows
+   - Restart computer if needed
+   - Relaunch Claude Desktop
+
+---
+
+## Validation Commands
+
+Run these to verify your setup:
+
+```bash
+# Check Node.js installation
+node --version
+
+# Check npm installation
+npm --version
+
+# Test filesystem server manually
+npx -y @modelcontextprotocol/server-filesystem ~/Documents
+
+# Test GitHub server manually (needs token in environment)
+export GITHUB_PERSONAL_ACCESS_TOKEN="ghp_xxx"
+npx -y @modelcontextprotocol/server-github
+
+# Validate JSON config
+# Copy your config and paste at: https://jsonlint.com/
+```
+
+---
+
+## Getting Help
+
+If these solutions don't work:
+
+1. **Check MCP documentation:** https://modelcontextprotocol.io/
+2. **Search GitHub issues:** https://github.com/modelcontextprotocol/servers/issues
+3. **Ask in training support channel** with:
+   - Your operating system
+   - Node.js version (`node --version`)
+   - Your config file (remove any tokens first!)
+   - Exact error message
+   - Steps you've already tried
 
 -----
 

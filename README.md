@@ -194,12 +194,14 @@ Each week follows a consistent format:
 
 ### Core Curriculum
 
-| Block | Live Sessions | Homework | Weekly Total | Block Total |
-|-------|---------------|----------|--------------|-------------|
-| Block 1 | 45 min | 60 min | 1.75 hrs | 14 hrs |
-| Block 2 | 45 min | 60 min | 1.75 hrs | 14 hrs |
-| Block 3 | 45 min | 75 min | 2.0 hrs | 16 hrs |
-| **Core Total** | | | | **44 hrs** |
+| Block | Live Sessions | Homework | Weekly Total | Block Total | Notes |
+|-------|---------------|----------|--------------|-------------|-------|
+| Block 1 | 45 min | 60 min | 1.75 hrs | 14 hrs | Consistent pacing |
+| Block 2 | 45 min | 60-75 min | 1.75-2.0 hrs | 14-16 hrs | MCP setup may require extra time |
+| Block 3 | 45 min | 75-90 min | 2.0-2.25 hrs | 16-18 hrs | Agent complexity varies |
+| **Core Total** | | | | **44-48 hrs** | |
+
+> **Note:** Time estimates assume participants complete prerequisites and have basic technical comfort. First-time MCP setup (Block 2, Week 5) often requires additional troubleshooting time—budget an extra hour that week. Agent debugging (Block 3) can be unpredictable—some weeks may run long.
 
 ### Advanced Modules (Optional)
 
@@ -223,15 +225,49 @@ Each week follows a consistent format:
 
 ### Block 2
 - Block 1 Capstone completed and approved
+- [Block 1→2 Checkpoint](checkpoints/block-1-to-2-checkpoint.md) completed
 - Personal Prompt Library with 3+ documented templates
 - GitHub repository with organized structure
 - Familiarity with ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework
 
 ### Block 3
 - Block 2 Capstone completed and approved
+- [Block 2→3 Checkpoint](checkpoints/block-2-to-3-checkpoint.md) completed
 - AI Workflow Toolkit with 3+ working workflows
 - MCP configured and functional
 - 20+ workflow executions completed
+
+---
+
+## Learning Path Overview
+
+```
+BLOCK 1                    BLOCK 2                    BLOCK 3
+AI Prompting Mastery       AI Workflow Engineering    AI Automation Architecture
+━━━━━━━━━━━━━━━━━━━━━     ━━━━━━━━━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 Structured Prompts      ⚙️ Multi-Step Workflows    🤖 Autonomous Agents
+📊 Quality Rubrics    ──►  🔌 MCP Integration    ──►  🎭 Agent Orchestration
+📁 GitHub Library          📈 Performance Monitoring  🏭 Production Deployment
+
+     ↓                          ↓                          ↓
+┌─────────────────┐      ┌─────────────────┐       ┌─────────────────┐
+│ Personal Prompt │      │  AI Workflow    │       │   Automated     │
+│    Library      │  ──► │    Toolkit      │  ──►  │   Workflow      │
+│                 │      │                 │       │   Solution      │
+└─────────────────┘      └─────────────────┘       └─────────────────┘
+
+🎓 AI Prompting           🎓 AI Workflow             🎓 AI Automation
+   Practitioner              Engineer                   Architect
+```
+
+### Skills Progression
+
+| Block | Entry Level | Exit Level | Key Transformation |
+|-------|-------------|------------|-------------------|
+| **1** | Ad-hoc AI user | Templated workflows | Random prompts → Structured, reusable templates |
+| **2** | Manual execution | Workflow engineering | Copy-paste → Automated multi-step processes |
+| **3** | Human-triggered | Automation architecture | Workflows → Autonomous agents with oversight |
 
 ---
 
@@ -280,20 +316,42 @@ Each certification requires:
 ```
 ai-basics-training/
 ├── README.md                    # This file - program overview
+├── prerequisites.md             # Pre-program self-assessment and setup
+├── facilitator-guide.md         # Delivery guidance for trainers
+├── learning-path.mermaid        # Visual learning path diagram (Mermaid format)
 ├── block-1.md                   # Block 1: AI Prompting Mastery (8 weeks)
 ├── block-2.md                   # Block 2: AI Workflow Engineering (8 weeks)
 ├── block-3.md                   # Block 3: AI Automation Architecture (8 weeks)
 ├── presentation.md              # Agent Memory Meta-Framework (48 slides)
 ├── checkpoint-1.md              # Curriculum design session summary
+├── checkpoints/                 # Inter-block skill verification
+│   ├── block-1-to-2-checkpoint.md
+│   └── block-2-to-3-checkpoint.md
+├── feedback/                    # Cohort feedback collection
+│   └── cohort-feedback-template.md
 ├── advanced-modules/            # Optional post-Block 3 learning
 │   ├── module-1-orchestration-patterns.md
 │   ├── module-2-chaos-testing.md
 │   ├── module-3-json-schema.md
 │   ├── module-4-visual-documentation.md
 │   └── module-5-github-devops.md
+├── quick-reference/             # One-page reference cards
+│   ├── block-1-reference.md
+│   ├── block-2-reference.md
+│   └── block-3-reference.md
 └── archive/                     # Historical/reference documents
     └── IMPLEMENTATION-PLAN.md
 ```
+
+---
+
+## Quick Reference Cards
+
+Condensed one-page references for each block—useful during and after training:
+
+- **[Block 1 Reference](quick-reference/block-1-reference.md)** - ASK-CONTEXT-CONSTRAINTS-EXAMPLE, rubrics, Markdown, GitHub
+- **[Block 2 Reference](quick-reference/block-2-reference.md)** - Workflow patterns, MCP config, quality gates, metrics
+- **[Block 3 Reference](quick-reference/block-3-reference.md)** - Two-Agent Pattern, Domain Memory, orchestration, production readiness
 
 ---
 
@@ -312,12 +370,13 @@ Each block includes comprehensive appendices with ready-to-use templates:
 - H: Block 1 Capstone Rubric
 - I: QUICK-START.md Template
 
-### Block 2 Appendices (J-M)
-- I: Block 2 Capstone Rubric
-- J: Platform Decision Matrix Template
-- K: Workflow Documentation Template
-- L: MCP Configuration Reference
-- M: Quality Evaluation Prompt Template
+### Block 2 Appendices (J-O)
+- J: Block 2 Capstone Rubric
+- K: Platform Decision Matrix Template
+- L: Workflow Documentation Template
+- M: MCP Configuration Reference
+- N: Quality Evaluation Prompt Template
+- O: MCP Troubleshooting Guide
 
 ### Block 3 Appendices (N-Q)
 - N: Block 3 Capstone Rubric
@@ -337,11 +396,12 @@ Each advanced module contains its own appendices with:
 ## Getting Started
 
 1. **Review this README** to understand the program structure
-2. **Start with [Block 1](block-1.md)** - no prerequisites required
-3. **Complete Week 1** exercises to build your foundation
-4. **Progress through each week** following entry/exit criteria
-5. **Submit your capstone** at Week 8
-6. **Continue to Block 2** upon certification
+2. **Complete the [Prerequisites Self-Assessment](prerequisites.md)** to verify readiness
+3. **Start with [Block 1](block-1.md)** after completing prerequisites
+4. **Complete Week 1** exercises to build your foundation
+5. **Progress through each week** following entry/exit criteria
+6. **Submit your capstone** at Week 8
+7. **Continue to Block 2** upon certification
 
 ---
 
@@ -357,8 +417,11 @@ Each advanced module contains its own appendices with:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1 | [TBD] | Implementation improvements (see [CHANGELOG.md](CHANGELOG.md)) |
 | 2.0 | 2025-12-31 | Added 5 advanced modules, Agent Memory Meta-Framework presentation, archive folder, updated structure |
 | 1.0 | 2025-01-01 | Initial curriculum release |
+
+For detailed change history, see [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
