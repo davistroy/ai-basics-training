@@ -1,6 +1,6 @@
 # AI Practitioner Training Curriculum
 
-**Version:** 3.0
+**Version:** 3.1
 **Last Updated:** 2026-01-01
 **Status:** Active
 
@@ -11,7 +11,7 @@
 This repository contains a comprehensive AI training curriculum designed for consulting professionals. The program transforms participants from ad-hoc AI users into skilled AI Automation Architects through a progressive three-block structure, with optional advanced modules for continued learning.
 
 **Core Program Duration:** 24 weeks (three 8-week blocks)
-**Advanced Modules:** 9 optional 2-week modules for Block 3 graduates
+**Advanced Modules:** 10 optional 2-week modules for Block 3 graduates
 **Weekly Time Commitment:** 1.75-2.25 hours (45 min live session + 60-90 min homework)
 **Delivery Format:** Live MS Teams workshops + self-paced exercises
 
@@ -42,6 +42,7 @@ The curriculum follows a progressive maturity model:
 | [Enterprise AI Governance](advanced-modules/module-7-ai-governance.md) | Block 3 | 2 weeks | Risk frameworks, compliance, policies |
 | [RAG & Knowledge Systems](advanced-modules/module-8-rag-knowledge-systems.md) | Block 3 | 2 weeks | Vector databases, retrieval patterns, agent integration |
 | [AI Security Fundamentals](advanced-modules/module-9-ai-security.md) | Block 3 | 2 weeks | Threat landscape, prompt injection defense, security assessment |
+| [Data Architecture for AI](advanced-modules/module-10-data-architecture.md) | Block 3 | 2 weeks | Information architecture, semantic structure, data transformation |
 
 ---
 
@@ -64,6 +65,7 @@ The curriculum follows a progressive maturity model:
 - **[Module 7: Enterprise AI Governance](advanced-modules/module-7-ai-governance.md)** - Risk frameworks & compliance
 - **[Module 8: RAG & Knowledge Systems](advanced-modules/module-8-rag-knowledge-systems.md)** - Knowledge-enabled agents
 - **[Module 9: AI Security Fundamentals](advanced-modules/module-9-ai-security.md)** - Security assessment & hardening
+- **[Module 10: Data Architecture for AI](advanced-modules/module-10-data-architecture.md)** - Information architecture & transformation
 
 ### Supplementary Materials
 
@@ -162,6 +164,7 @@ After completing Block 3, participants can continue their learning with speciali
 | **Enterprise AI Governance** | Risk & compliance | NIST AI RMF, ISO 42001, policy frameworks, audit trails |
 | **RAG & Knowledge Systems** | Knowledge-enabled agents | Vector databases, embeddings, retrieval patterns, evaluation |
 | **AI Security** | Threat defense & assessment | Prompt injection, agent security, red teaming basics |
+| **Data Architecture** | Structuring data for AI | Semantic structure, format selection, transformation pipelines |
 
 Each module is 2 weeks with 45 min live sessions and 60-75 min homework per week.
 
@@ -228,7 +231,8 @@ Each week follows a consistent format:
 | Module 7: AI Governance | 45 min | 75 min | 2.0 hrs | 4 hrs |
 | Module 8: RAG & Knowledge | 45 min | 75 min | 2.0 hrs | 4 hrs |
 | Module 9: AI Security | 45 min | 75 min | 2.0 hrs | 4 hrs |
-| **All Modules** | | | | **35-36 hrs** |
+| Module 10: Data Architecture | 45 min | 75 min | 2.0 hrs | 4 hrs |
+| **All Modules** | | | | **39-40 hrs** |
 
 ---
 
@@ -348,7 +352,7 @@ ai-basics-training/
 │   └── block-2-to-3-checkpoint.md
 ├── feedback/                    # Cohort feedback collection
 │   └── cohort-feedback-template.md
-├── advanced-modules/            # Optional post-Block 3 learning (9 modules)
+├── advanced-modules/            # Optional post-Block 3 learning (10 modules)
 │   ├── module-1-orchestration-patterns.md
 │   ├── module-2-chaos-testing.md
 │   ├── module-3-json-schema.md
@@ -357,7 +361,8 @@ ai-basics-training/
 │   ├── module-6-enterprise-architecture.md
 │   ├── module-7-ai-governance.md
 │   ├── module-8-rag-knowledge-systems.md
-│   └── module-9-ai-security.md
+│   ├── module-9-ai-security.md
+│   └── module-10-data-architecture.md
 ├── quick-reference/             # One-page reference cards
 │   ├── block-1-reference.md
 │   ├── block-2-reference.md
@@ -451,6 +456,7 @@ Each advanced module contains its own appendices with:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 3.1 | 2026-01-01 | Added Module 10: Data Architecture for AI Systems |
 | 3.0 | 2026-01-01 | Added 4 new advanced modules (Enterprise Architecture, AI Governance, RAG & Knowledge Systems, AI Security), weekly training materials (instructor guides, participant guides, presentations) |
 | 2.1 | 2025-12-31 | Implementation improvements (see [CHANGELOG](updates/CHANGELOG-2025-12-31.md)) |
 | 2.0 | 2025-12-31 | Added 5 advanced modules, Agent Memory Meta-Framework presentation, archive folder, updated structure |
