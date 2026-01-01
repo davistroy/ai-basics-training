@@ -692,7 +692,7 @@ Key: This must work for YOU. Don't copy someone else's taxonomy. Rename consiste
 **Content:**
 
 **Preview:**
-Completing all capstone components, finalizing style.json, task priority matrix.
+Completing all capstone components, finalizing `style.json`, task priority matrix.
 
 **What to Complete:**
 - [ ] Exercise 6.1: Taxonomy Design

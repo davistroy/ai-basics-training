@@ -12,12 +12,12 @@
 1. Understand all capstone requirements
 2. Know the quality bar for templates
 3. Create a task priority matrix
-4. Finalize style.json
+4. Finalize `style.json`
 
 **Entry Criteria:**
 - [ ] Week 6 exercises completed
 - [ ] At least 5 templates created
-- [ ] style.json exists
+- [ ] `style.json` exists
 - [ ] Repository organized
 
 **Exit Criteria:**
@@ -152,7 +152,7 @@ Let's review exactly what's required."
 |-----------|-------------|
 | **GitHub Repository** | Organized, documented |
 | **Prompt Templates** | 5+ documented, tested |
-| **style.json** | Complete, tested |
+| **`style.json`** | Complete, tested |
 | **Quality Rubrics** | 2+ with specific criteria |
 | **Task Priority Matrix** | Analysis of AI opportunities |
 
@@ -171,7 +171,7 @@ GitHub repository - organized with documentation.
 
 Prompt templates - at least 5, fully documented and tested.
 
-style.json - complete configuration, tested.
+`style.json` - complete configuration, tested.
 
 Quality rubrics - at least 2, with specific criteria.
 
@@ -197,7 +197,7 @@ Be honest: which of these do you have completed right now? Which need work?"
 |---|-----------|------------------|
 | 1 | Template Quality | Complete documentation |
 | 2 | Variety & Coverage | Different use cases |
-| 3 | style.json | Comprehensive, tested |
+| 3 | `style.json` | Comprehensive, tested |
 | 4 | Quality Systems | Specific rubrics |
 | 5 | Repository Org | Easy to find things |
 | 6 | Practical Application | Evidence of real use |
@@ -214,7 +214,7 @@ Be honest: which of these do you have completed right now? Which need work?"
 
 Template quality - are templates fully documented?
 Variety - do you cover different deliverable types?
-style.json - is it comprehensive and tested?
+`style.json` - is it comprehensive and tested?
 Quality systems - are rubrics specific, not vague?
 Repository organization - can someone find things?
 Practical application - is there evidence of real use?
@@ -557,7 +557,7 @@ This directly feeds criterion #6 - practical application. Evaluators want to see
 
 ### SLIDE 13: STYLE.JSON FINALIZATION
 
-**Title:** Finalizing Your style.json
+**Title:** Finalizing Your `style.json`
 
 **Content:**
 
@@ -575,11 +575,11 @@ Used in 5+ prompts with verified results.
 **Documentation:**
 Usage guide explaining how to use it.
 
-**Graphic:** style.json structure
+**Graphic:** `style.json` structure
 
 **SPEAKER NOTES:**
 
-"style.json needs to be finalized this week.
+"`style.json` needs to be finalized this week.
 
 [Walk through checklist]
 
@@ -591,7 +591,7 @@ You need to have tested it with at least 5 prompts. Does AI follow your preferen
 
 [Point to documentation]
 
-Create a usage guide explaining how to use your style.json in prompts."
+Create a usage guide explaining how to use your `style.json` in prompts."
 
 [Transition]
 
@@ -607,7 +607,7 @@ Create a usage guide explaining how to use your style.json in prompts."
 |----------|-------|-------------|
 | 7.1 | Template completion | All templates documented |
 | 7.2 | Task priority matrix | `task-priority-matrix.md` |
-| 7.3 | style.json finalization | Complete, tested |
+| 7.3 | `style.json` finalization | Complete, tested |
 | 7.4 | Repository review | Capstone summary |
 
 **Critical Reminder:**
@@ -626,7 +626,7 @@ Week 8 is self-evaluation. No live workshop.
 
 Exercise 7.1 - complete all template documentation.
 Exercise 7.2 - create your task priority matrix.
-Exercise 7.3 - finalize style.json with testing.
+Exercise 7.3 - finalize `style.json` with testing.
 Exercise 7.4 - comprehensive repository review and capstone summary.
 
 [Point to critical reminder]

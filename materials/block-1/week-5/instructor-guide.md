@@ -325,7 +325,7 @@ A: Yes - AI guesses at purpose, usage, and context. Always review and edit AI-ge
 | Exercise | Deliverable | Where to Find |
 |----------|-------------|---------------|
 | 5.1 | Merged pull request | GitHub PR history |
-| 5.2 | Updated README.md | Repository root |
+| 5.2 | Updated `README.md` | Repository root |
 | 5.3 | Documented template | Templates folder |
 
 ### Progress Check Approach

@@ -45,7 +45,7 @@ You'll learn to engineer your prompts—not just write them—so that every inte
 | **Personal Prompt Library** | A GitHub-hosted collection of your best prompts—searchable, organized, always available |
 | **3+ Production-Ready Templates** | Fully documented templates for proposals, assessments, or other key deliverables you use weekly |
 | **Quality Rubrics** | Clear 5-point scoring systems so AI outputs meet your standards every time |
-| **Style Configuration** | A style.json file encoding your brand voice, formatting preferences, and professional standards |
+| **Style Configuration** | A `style.json` file encoding your brand voice, formatting preferences, and professional standards |
 | **AI Prompting Practitioner Certification** | Recognized credential demonstrating systematic AI competency |
 
 ---
@@ -98,7 +98,7 @@ Every AI platform has hidden capabilities most users never discover. Learn the *
 
 Transform your prompts from scattered notes into organized, shareable assets. Learn JSON for style configuration and GitHub basics for version control. Your prompts become **"promptware"**—company assets, not personal files that disappear when you switch laptops.
 
-*You'll leave with:* Your style.json file and an initialized GitHub repository.
+*You'll leave with:* Your `style.json` file and an initialized GitHub repository.
 
 ---
 

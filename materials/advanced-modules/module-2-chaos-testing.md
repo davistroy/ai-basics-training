@@ -63,7 +63,7 @@
 
 - **Why for AI Agents?**
   - AI systems have unique failure modes
-  - External dependencies (APIs, tools, MCP servers)
+  - External dependencies (APIs, tools, Model Context Protocol (MCP) servers)
   - Non-deterministic outputs
   - Complex orchestration paths
 

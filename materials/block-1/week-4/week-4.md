@@ -8,7 +8,7 @@
 ## Entry Criteria
 
 - [ ] Week 3 exercises completed
-- [ ] style.json created and tested
+- [ ] `style.json` created and tested
 - [ ] GitHub basics understood
 - [ ] Comfortable with JSON syntax
 

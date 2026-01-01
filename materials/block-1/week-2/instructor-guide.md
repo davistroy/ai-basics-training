@@ -108,7 +108,7 @@
 
 **Key Actions:**
 1. Welcome participants back
-2. Quick recap of Week 1: Markdown and ACCE framework
+2. Quick recap of Week 1: Markdown and ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework
 3. Address common issues from Week 1 exercises
 4. Preview today's advanced techniques
 
@@ -116,7 +116,7 @@
 > "Welcome back to Week 2. Last week we covered the foundation - Markdown structure and the ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework. Today we're adding power tools to your toolkit: role prompting, few-shot learning, and platform-specific optimizations."
 
 **Engagement Opportunity:**
-> "Quick check-in: Who used the ACCE framework this week for a real task? What was your experience?"
+> "Quick check-in: Who used the ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework this week for a real task? What was your experience?"
 
 [Wait for 1-2 responses - this helps gauge if Week 1 concepts are sticking]
 
@@ -338,7 +338,7 @@ Participants may think one platform is "better" - emphasize that each has streng
 
 #### Next Week Preview
 
-> "Next week we're introducing JSON - structured data for AI configuration. We'll create your style.json file that defines your personal brand voice. And we'll do more with GitHub."
+> "Next week we're introducing JSON - structured data for AI configuration. We'll create your `style.json` file that defines your personal brand voice. And we'll do more with GitHub."
 
 #### Session Close
 
@@ -400,7 +400,7 @@ A: The setup time pays off when you use the prompt repeatedly. Build once, use m
 
 | Challenge | Signs | Response |
 |-----------|-------|----------|
-| Week 1 concepts shaky | Questions about ACCE framework | Quickly review, point to Week 1 guide |
+| Week 1 concepts shaky | Questions about ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework | Quickly review, point to Week 1 guide |
 | Over-complicating roles | Very long role descriptions | Encourage simpler, test and refine |
 | No access to second platform | "I only have ChatGPT" | Offer to demo comparison, accept one-platform exercise |
 | Feature confusion | Mixing up role vs. few-shot | Clarify: role = who, few-shot = how |
@@ -488,7 +488,7 @@ A: The setup time pays off when you use the prompt repeatedly. Build once, use m
 
 **Builds On:**
 - Week 1: Markdown structure for formatting
-- Week 1: ACCE framework for organizing prompts
+- Week 1: ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework for organizing prompts
 - Assumes participants have working AI platform access
 
 **Sets Up:**

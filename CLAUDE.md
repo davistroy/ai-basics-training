@@ -4,18 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an **AI Practitioner Training Curriculum** - a 24-week professional development program for consulting professionals. It transforms ad-hoc AI users into skilled AI Automation Architects through three progressive blocks plus five optional advanced modules.
+This is an **AI Practitioner Training Curriculum** - a 24-week professional development program for consulting professionals. It transforms ad-hoc AI users into skilled AI Automation Architects through three progressive blocks plus ten optional advanced modules.
 
 **This is a documentation-only repository** - no build, test, or lint commands. All content is Markdown files.
 
 ## Repository Structure
 
 ```
-block-0/           Prerequisites and self-assessment
-block-1/           AI Prompting Mastery (8 weeks) - Foundation skills
-block-2/           AI Workflow Engineering (8 weeks) - Automation and MCP
-block-3/           AI Automation Architecture (8 weeks) - Autonomous agents
-advanced-modules/  5 optional post-Block 3 modules (2 weeks each)
+materials/
+├── block-0/           Prerequisites and self-assessment
+├── block-1/           AI Prompting Mastery (8 weeks) - Foundation skills
+├── block-2/           AI Workflow Engineering (8 weeks) - Automation and MCP
+├── block-3/           AI Automation Architecture (8 weeks) - Autonomous agents
+└── advanced-modules/  10 optional post-Block 3 modules (2 weeks each)
 checkpoints/       Inter-block skill verification assessments
 quick-reference/   One-page reference cards per block
 templates/         Reusable templates for instructors and participants
@@ -29,9 +30,12 @@ archive/           Historical documents and presentations
 
 ### Block Structure
 Each block follows a consistent pattern:
-- Main curriculum file: `block-N/block-N.md` (comprehensive, 78-92KB each)
-- Weekly breakdown: `block-N/week-N/week-N.md`
+- Main curriculum file: `materials/block-N/block-N.md` (comprehensive, 78-92KB each)
+- Weekly breakdown: `materials/block-N/week-N/week-N.md`
 - Each week has: Entry Criteria → Workshop Content (45 min) → Self-Paced Exercises (60-90 min) → Exit Criteria
+
+### Advanced Module Structure
+Advanced modules are self-contained 2-week units located in `materials/advanced-modules/`. Unlike core blocks, they do NOT follow the week-1/week-2 subdirectory pattern. Each module is a single comprehensive markdown file covering the complete 2-week curriculum.
 
 ### Key Frameworks Referenced Throughout
 - **ASK-CONTEXT-CONSTRAINTS-EXAMPLE**: Block 1 prompting framework
@@ -43,7 +47,7 @@ Each block follows a consistent pattern:
 Each block includes lettered appendices with templates:
 - Block 1: Appendices A-I
 - Block 2: Appendices J-O
-- Block 3: Appendices N-Q (note: some letter overlap)
+- Block 3: Appendices P-S
 
 ## Working with This Repository
 
@@ -55,7 +59,8 @@ Each block includes lettered appendices with templates:
 
 ### Assessment Standards
 - Quality rubrics use 5-point scale: 5-Excellent, 4-Good, 3-Adequate, 2-Poor, 1-Missing
-- Certification threshold: 22/40 points (55%)
+- Certification threshold: 22/40 points (55%) for Blocks 1-2
+- Block 3 certification threshold: 34/40 points (85%) - reflects agent complexity
 - Each block ends with a capstone project
 
 ### File Naming Conventions

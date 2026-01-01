@@ -1,7 +1,7 @@
 # **BLOCK 2: AI Workflow Engineering**
 
-**Version:** 1.0
-**Last Updated:** 2025-01-01
+**Version:** 3.1
+**Last Updated:** 2026-01-01
 **Status:** Active
 
 ---
@@ -21,7 +21,7 @@
 - Block 1 Certification: AI Prompting Practitioner
 - Personal Prompt Library with 3+ documented templates
 - GitHub repository with organized structure
-- style.json and quality rubrics created
+- `style.json` and quality rubrics created
 - Familiarity with ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework
 
 -----
@@ -977,7 +977,7 @@ Pass threshold: overall_score >= 3.5
   - Run independent steps simultaneously
   - Reduce total execution time
 - **Caching strategies:**
-  - Cache style.json and reference data
+  - Cache `style.json` and reference data
   - Don't re-fetch static content
 - **Step elimination:**
   - Are all steps necessary?
@@ -1175,7 +1175,7 @@ Pass threshold: overall_score >= 3.5
 - [ ] At least one MCP server connected and functional
 - [ ] Workflow integrated with MCP capability
 - [ ] MCP security considerations understood
-- [ ] GitHub MCP connection working
+- [ ] GitHub MCP server working
 
 -----
 
@@ -1293,7 +1293,7 @@ Pass threshold: overall_score >= 3.5
 
 4. **Test filesystem access:**
    - Ask Claude: "What files are in my prompts directory?"
-   - Ask Claude: "Read my style.json file"
+   - Ask Claude: "Read my `style.json` file"
    - Verify it can access your Block 1 content
 
 5. **Document configuration:**
@@ -1386,7 +1386,7 @@ Follow the template structure exactly and apply the style guide throughout.
 
 2. **Execute in Claude Desktop:**
    - Verify Claude reads files via MCP
-   - Check output matches style.json guidelines
+   - Check output matches `style.json` guidelines
    - Verify template structure is followed
 
 3. **Compare with manual approach:**
@@ -1575,7 +1575,7 @@ Follow the template structure exactly and apply the style guide throughout.
 ### AI Processing
 - Model: [Claude/GPT]
 - Template: [Which template]
-- MCP integration: [How MCP is used]
+- MCP servers: [Which MCP servers are used]
 
 ### Quality System
 - Evaluation criteria: [Link to rubric]
@@ -1842,7 +1842,7 @@ Input → [Step] → [Step] → Output
    - [ ] Error handling implemented
    - [ ] Quality check integrated
    - [ ] Logging active
-   - [ ] MCP integration (at least one)
+   - [ ] MCP server (at least one)
    - [ ] Documentation complete
 
 2. **Final testing:**

@@ -12,7 +12,7 @@
 1. Understand the automation maturity progression from templates to workflows to agents
 2. Compare automation platform categories and key selection criteria
 3. Apply a decision matrix framework for platform selection
-4. Understand MCP as the universal protocol for AI tool integration
+4. Understand Model Context Protocol (MCP) as the universal protocol for AI tool integration
 
 **Entry Criteria:**
 - [ ] Block 1 Capstone completed and approved
@@ -205,7 +205,7 @@ In Block 1, you were the operator. In Block 2, you become the engineer who desig
 
 **Assets You Created:**
 - Prompt Library (3+ documented templates)
-- style.json (voice and style specifications)
+- `style.json` (voice and style specifications)
 - Quality Rubrics (evaluation criteria)
 - GitHub Repository (organized structure)
 
@@ -214,9 +214,9 @@ In Block 1, you were the operator. In Block 2, you become the engineer who desig
 | Block 1 Asset | Block 2 Use |
 |---------------|-------------|
 | Prompt Templates | AI processing steps in workflows |
-| style.json | Automated style checking |
+| `style.json` | Automated style checking |
 | Quality Rubrics | Automated quality gates |
-| Repository | MCP integration source |
+| Repository | MCP server source |
 
 **Graphic:** Flow diagram showing Block 1 outputs feeding into Block 2 workflow
 
@@ -228,7 +228,7 @@ In Block 1, you were the operator. In Block 2, you become the engineer who desig
 
 Your prompt templates become the AI processing steps in your automated workflows.
 
-Your style.json becomes the reference for automated style checking - the workflow can verify outputs match your voice without you reviewing each one.
+Your `style.json` becomes the reference for automated style checking - the workflow can verify outputs match your voice without you reviewing each one.
 
 Your quality rubrics become automated quality gates - the system evaluates outputs against your criteria and routes them appropriately.
 
@@ -771,7 +771,7 @@ Now let's talk about MCP - the technology that makes AI workflows truly powerful
 - Claude connecting to databases, APIs, services
 - All without custom coding
 
-**Graphic:** Visual showing Claude in center with MCP connections radiating to various tools (files, GitHub, Slack, databases)
+**Graphic:** Visual showing Claude in center with MCP servers radiating to various tools (files, GitHub, Slack, databases)
 
 **SPEAKER NOTES:**
 

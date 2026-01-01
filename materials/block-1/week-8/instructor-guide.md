@@ -88,7 +88,7 @@ Week 8 is different from previous weeks:
 - [ ] Repository accessible
 - [ ] README present
 - [ ] Templates folder exists
-- [ ] style.json present
+- [ ] `style.json` present
 - [ ] Rubrics folder exists
 - [ ] Task priority matrix present
 
@@ -130,13 +130,13 @@ Week 8 is different from previous weeks:
 
 ---
 
-**Criterion 3: style.json Sophistication (5 points)**
+**Criterion 3: `style.json` Sophistication (5 points)**
 
 | Score | What to Look For |
 |-------|------------------|
 | 5 | Comprehensive; all sections complete; evidence of testing; usage documentation |
 | 4 | Good coverage; most sections complete; some testing evidence |
-| 3 | Basic style.json; core preferences defined |
+| 3 | Basic `style.json`; core preferences defined |
 | 2 | Minimal; missing key sections |
 | 1 | Absent or non-functional JSON |
 
@@ -202,7 +202,7 @@ Can you find a specific template type in under 30 seconds?
 |-----------|------------|------------------|-------|
 | 1. Template Quality | /5 | /5 | |
 | 2. Variety & Coverage | /5 | /5 | |
-| 3. style.json | /5 | /5 | |
+| 3. `style.json` | /5 | /5 | |
 | 4. Quality Systems | /5 | /5 | |
 | 5. Organization | /5 | /5 | |
 | 6. Practical Application | /5 | /5 | |
@@ -337,7 +337,7 @@ Can you find a specific template type in under 30 seconds?
 - Block 1 certification (18+ points)
 - Personal Prompt Library complete
 - 3+ documented templates
-- style.json created
+- `style.json` created
 - GitHub repository organized
 
 ---

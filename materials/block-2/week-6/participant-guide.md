@@ -170,7 +170,7 @@ Choose a pattern and design your third workflow:
 ### AI Processing
 - Model: Claude 3.5 Sonnet
 - Template: [Which template from your library]
-- MCP integration: [How MCP provides context]
+- MCP servers: [Which MCP servers provide context]
 
 ### Quality System
 - Evaluation rubric: [Link to your rubric]

@@ -24,7 +24,7 @@ Week 8 is dedicated to:
 
 1. **Complete Your Repository** (if any gaps remain)
    - Ensure all 5+ templates are fully documented
-   - Verify style.json is complete and valid
+   - Verify `style.json` is complete and valid
    - Confirm quality rubrics have specific criteria
    - Check task priority matrix is populated
 

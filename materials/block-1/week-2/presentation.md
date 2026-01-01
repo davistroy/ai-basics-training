@@ -6,7 +6,7 @@
 **Session Duration:** 45 minutes
 **Delivery Format:** Live MS Teams workshop
 
-**Target Audience:** Participants who completed Week 1 Markdown and ACCE framework training
+**Target Audience:** Participants who completed Week 1 Markdown and ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework training
 
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Use role prompting to activate domain-specific expertise in AI responses
@@ -17,7 +17,7 @@
 **Entry Criteria:**
 - [ ] Week 1 exercises completed
 - [ ] GitHub repository created with initial structure
-- [ ] Comfortable with ACCE framework
+- [ ] Comfortable with ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework
 
 **Exit Criteria:**
 - [ ] Understands when to use role prompting vs. few-shot
@@ -59,7 +59,7 @@
 
 This week, we're adding power tools. By the end of today, you'll have three new techniques that dramatically improve your prompt effectiveness.
 
-Quick check-in: Who used the ACCE framework on a real task this week?
+Quick check-in: Who used the ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework on a real task this week?
 
 [Wait for 1-2 responses]
 
@@ -107,7 +107,7 @@ Let's start with a quick recap of where we left off."
 
 **What You Learned:**
 - Markdown provides structure AI understands
-- The ACCE framework ensures completeness
+- The ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework ensures completeness
 
 **The Framework:**
 ```markdown
@@ -122,11 +122,11 @@ Let's start with a quick recap of where we left off."
 - Code blocks for data isolation
 - Being specific enough in ASK section
 
-**Graphic:** ACCE framework visual from Week 1
+**Graphic:** ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework visual from Week 1
 
 **SPEAKER NOTES:**
 
-"Quick recap: Markdown gives structure, ACCE gives completeness.
+"Quick recap: Markdown gives structure, the framework gives completeness.
 
 [Point to framework]
 
@@ -134,7 +134,7 @@ ASK - what you want. CONTEXT - background. CONSTRAINTS - rules. EXAMPLE - show i
 
 Common issues I saw in exercises: forgetting the space after the hash for headers, not using code blocks for data, and ASK sections that were too vague.
 
-Today's techniques build directly on this foundation. You'll still use ACCE - but now with more sophisticated approaches.
+Today's techniques build directly on this foundation. You'll still use the framework - but now with more sophisticated approaches.
 
 Let's start with role prompting."
 
@@ -855,7 +855,7 @@ If you get stuck, post in the cohort channel. Happy to help troubleshoot."
 **Content:**
 
 **Preview:**
-Creating structured configuration files (style.json) and mastering GitHub version control.
+Creating structured configuration files (`style.json`) and mastering GitHub version control.
 
 **What to Complete Before Then:**
 - [ ] Exercise 2.1: Role Prompting Experiments
@@ -873,7 +873,7 @@ Creating structured configuration files (style.json) and mastering GitHub versio
 
 "Next week we're introducing JSON - structured data for AI configuration.
 
-You'll create a style.json file that captures your personal preferences. Tone, format, things to include, things to avoid. Then you reference this in every prompt for consistent style.
+You'll create a `style.json` file that captures your personal preferences. Tone, format, things to include, things to avoid. Then you reference this in every prompt for consistent style.
 
 We'll also do more with GitHub - version control, collaboration basics.
 

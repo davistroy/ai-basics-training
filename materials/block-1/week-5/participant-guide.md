@@ -223,7 +223,7 @@ ai-prompt-library/
 | Exercise | Duration | Deliverable | Focus |
 |----------|----------|-------------|-------|
 | 5.1 | 20 min | Merged pull request | PR workflow |
-| 5.2 | 25 min | Updated README.md | AI documentation |
+| 5.2 | 25 min | Updated `README.md` | AI documentation |
 | 5.3 | 15 min | Documented template | Template docs |
 
 ---
@@ -317,7 +317,7 @@ Part of Week 5 exercises for AI Prompting Mastery.
 Create comprehensive repository documentation using AI assistance, then refine with your knowledge.
 
 **You Will Create:**
-A complete README.md that explains your prompt library.
+A complete `README.md` that explains your prompt library.
 
 ---
 
@@ -327,7 +327,7 @@ A complete README.md that explains your prompt library.
 List everything in your repo:
 - Templates (names and purposes)
 - Rubrics (what they evaluate)
-- Configuration files (style.json)
+- Configuration files (`style.json`)
 - Other resources
 
 **Step 2: Generate README with AI**
@@ -368,7 +368,7 @@ Check the AI output for:
 - [ ] Information that's wrong or guessed incorrectly
 
 **Step 4: Commit to repository**
-Replace your current README.md with the refined version.
+Replace your current `README.md` with the refined version.
 
 ---
 

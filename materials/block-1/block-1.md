@@ -1,7 +1,7 @@
 # **BLOCK 1: AI Prompting Mastery**
 
-**Version:** 1.0
-**Last Updated:** 2025-01-01
+**Version:** 3.1
+**Last Updated:** 2026-01-01
 **Status:** Active
 
 ---
@@ -394,7 +394,7 @@ Projected annual time savings: __ hours
   }
   ```
 
-**Segment 3: Creating style.json (10 min)**
+**Segment 3: Creating `style.json` (10 min)**
 
 - **Purpose:** Single source of truth for brand/style
 - **What to include:**
@@ -417,7 +417,7 @@ Projected annual time savings: __ hours
     }
   }
   ```
-- **Using it:** “Apply my style.json to this output…”
+- **Using it:** “Apply my `style.json` to this output…”
 
 **Segment 4: GitHub as Asset Repository + Looking Ahead (15 min)**
 
@@ -441,7 +441,7 @@ Projected annual time savings: __ hours
 
 ### **Self-Paced Exercises (60 minutes total)**
 
-**Exercise 3.1: Create Your style.json (25 minutes)**
+**Exercise 3.1: Create Your `style.json` (25 minutes)**
 
 *Define your brand/style standards*
 
@@ -461,7 +461,7 @@ Projected annual time savings: __ hours
 
 **Resources:**
 
-- style.json Template (see Appendix C)
+- `style.json` Template (see Appendix C)
 - [JSONLint Validator](https://jsonlint.com/)
 - [JSON.org - Introduction](https://www.json.org/)
 
@@ -486,7 +486,7 @@ Projected annual time savings: __ hours
    /workflows
    /resources
    ```
-1. Add initial README.md:
+1. Add initial `README.md`:
    
    ```markdown
    # [Your Name]'s AI Prompt Library
@@ -551,7 +551,7 @@ Projected annual time savings: __ hours
 ### **Entry Criteria**
 
 - [ ] Completed Weeks 1-3
-- [ ] style.json created
+- [ ] `style.json` created
 - [ ] GitHub repository initialized
 - [ ] 3+ working prompts developed (these will become templates)
 
@@ -561,7 +561,7 @@ Projected annual time savings: __ hours
 - [ ] Rubrics created as deliverables for templates
 - [ ] Understands quality gates in workflows
 - [ ] Can write pseudocode for workflow logic
-- [ ] Knows comparison gates (style.json matching)
+- [ ] Knows comparison gates (`style.json` matching)
 
 -----
 
@@ -617,7 +617,7 @@ Projected annual time savings: __ hours
 **Segment 4: Comparison Gates (10 min)**
 
 - **Concept:** Comparing output against standards
-- **style.json matching:**
+- **`style.json` matching:**
   - Does tone match descriptors?
   - Are brand colors referenced correctly?
   - Is formatting consistent?
@@ -729,7 +729,7 @@ Projected annual time savings: __ hours
 - [ ] Can create and review pull requests
 - [ ] Completed peer review exercise
 - [ ] Documentation standard template applied
-- [ ] CONTRIBUTING.md file created
+- [ ] `CONTRIBUTING.md` file created
 
 -----
 
@@ -800,7 +800,7 @@ Projected annual time savings: __ hours
   - Level 1: Repository overview
   - Level 2: Folder/section overviews
   - Level 3: Individual file documentation
-- **CONTRIBUTING.md:** Guidelines for team contributions
+- **`CONTRIBUTING.md`:** Guidelines for team contributions
 
 -----
 
@@ -905,19 +905,19 @@ Projected annual time savings: __ hours
    ## Version History
    - v1.0 (YYYY-MM-DD): Initial version
    ```
-1. Create CONTRIBUTING.md in repository root:
+1. Create `CONTRIBUTING.md` in repository root:
 
 - How to contribute
 - Quality standards
 - Pull request process
 - Who to contact
 
-**Deliverable:** Documented template + CONTRIBUTING.md file
+**Deliverable:** Documented template + `CONTRIBUTING.md` file
 
 **Resources:**
 
 - Documentation Standard Template (see Appendix F)
-- CONTRIBUTING.md Template (see Appendix G)
+- `CONTRIBUTING.md` Template (see Appendix G)
 
 -----
 
@@ -1046,7 +1046,7 @@ Each template includes:
 - Contents listing
 - Navigation guide
 - Quick start instructions
-- Link to CONTRIBUTING.md
+- Link to `CONTRIBUTING.md`
 - Version history
 
 1. **Create folder READMEs** (Level 2):
@@ -1103,12 +1103,12 @@ Each template includes:
 
 - “I need to create a [deliverable]” → Link to that template
 - “I want to browse all templates” → Link to index
-- “I want to contribute” → Link to CONTRIBUTING.md
+- “I want to contribute” → Link to `CONTRIBUTING.md`
 - “I have a question” → Contact info / async channel
 
 1. Add to main README as first section
 
-**Deliverable:** QUICK-START.md file
+**Deliverable:** `QUICK-START.md` file
 
 -----
 
@@ -1140,7 +1140,7 @@ Each template includes:
 1. Personal Prompt Library (GitHub repository)
 1. 3+ fully documented templates
 1. Quality rubrics for each template
-1. style.json file
+1. `style.json` file
 1. Complete README hierarchy
 1. Impact estimation document
 
@@ -1192,7 +1192,7 @@ Each template includes:
 - **Repository organization:**
   - [ ] Clear folder structure
   - [ ] All READMEs complete
-  - [ ] CONTRIBUTING.md present
+  - [ ] `CONTRIBUTING.md` present
   - [ ] Quick start guide
   - [ ] Consistent naming
 - **Template quality:**
@@ -1563,7 +1563,7 @@ Example:
 
 -----
 
-## **Appendix C: style.json Template**
+## **Appendix C: `style.json` Template**
 
 ```json
 {
@@ -2056,7 +2056,7 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for details.
 ```
 ---
 
-## **Appendix G: CONTRIBUTING.md Template**
+## **Appendix G: `CONTRIBUTING.md` Template**
 
 ```markdown
 # Contributing to [Your Name]'s AI Prompt Library
@@ -2493,7 +2493,7 @@ Use these to assess your own work before submission:
 
 -----
 
-## **Appendix I: QUICK-START.md Template**
+## **Appendix I: `QUICK-START.md` Template**
 
 ```markdown
 # Quick Start Guide: [Repository/Library Name]

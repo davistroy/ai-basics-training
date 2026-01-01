@@ -11,7 +11,7 @@
 - Understanding of prompt engineering principles
 - Familiarity with data retrieval concepts
 - 30+ agent executions completed
-- MCP proficiency demonstrated
+- Model Context Protocol (MCP) proficiency demonstrated
 
 -----
 

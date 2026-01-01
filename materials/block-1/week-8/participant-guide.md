@@ -37,7 +37,7 @@ Before starting evaluation, verify you have completed:
 
 - [ ] All Week 7 preparation exercises
 - [ ] 5+ documented templates in repository
-- [ ] style.json finalized and tested
+- [ ] `style.json` finalized and tested
 - [ ] Quality rubrics created (at least 2)
 - [ ] Task priority matrix complete
 - [ ] Repository organized and documented
@@ -106,7 +106,7 @@ Go through your repository and verify:
 - [ ] README is comprehensive and accurate
 - [ ] All templates are documented
 - [ ] Examples contain real AI responses
-- [ ] style.json is complete and valid
+- [ ] `style.json` is complete and valid
 - [ ] Quality rubrics have specific criteria
 - [ ] Task matrix is populated
 - [ ] Index is accurate
@@ -165,15 +165,15 @@ Answer the reflection questions at the end of this guide.
 
 ---
 
-### Criterion 3: style.json Sophistication (5 points)
+### Criterion 3: `style.json` Sophistication (5 points)
 
 | Score | Description |
 |-------|-------------|
-| **5 - Excellent** | Comprehensive style.json covering voice, writing preferences, formatting, and domain-specific rules. Evidence of testing and refinement. Usage documentation included. |
-| **4 - Good** | Good style.json with most sections complete. Some testing evident. |
-| **3 - Adequate** | Basic style.json present. Core preferences defined. |
-| **2 - Needs Work** | Minimal style.json. Missing key sections. |
-| **1 - Incomplete** | No style.json or non-functional JSON. |
+| **5 - Excellent** | Comprehensive `style.json` covering voice, writing preferences, formatting, and domain-specific rules. Evidence of testing and refinement. Usage documentation included. |
+| **4 - Good** | Good `style.json` with most sections complete. Some testing evident. |
+| **3 - Adequate** | Basic `style.json` present. Core preferences defined. |
+| **2 - Needs Work** | Minimal `style.json`. Missing key sections. |
+| **1 - Incomplete** | No `style.json` or non-functional JSON. |
 
 **My Score: ___ / 5**
 
@@ -235,7 +235,7 @@ Answer the reflection questions at the end of this guide.
 |-----------|-------|
 | 1. Template Quality & Documentation | /5 |
 | 2. Variety & Coverage | /5 |
-| 3. style.json Sophistication | /5 |
+| 3. `style.json` Sophistication | /5 |
 | 4. Quality System Implementation | /5 |
 | 5. Repository Organization | /5 |
 | 6. Practical Application | /5 |
@@ -296,9 +296,9 @@ Answer these to gain maximum benefit from Block 1:
 Before submitting, verify:
 
 - [ ] GitHub repository is accessible (public or collaborator added)
-- [ ] README.md is complete and helpful
+- [ ] `README.md` is complete and helpful
 - [ ] 5+ templates fully documented
-- [ ] style.json is valid JSON and documented
+- [ ] `style.json` is valid JSON and documented
 - [ ] 2+ quality rubrics created
 - [ ] Task priority matrix complete
 - [ ] Template index is accurate
@@ -338,7 +338,7 @@ Before submitting, verify:
 ### What You've Achieved (Block 1)
 - Personal prompt library with documented templates
 - Quality systems for evaluating AI outputs
-- style.json for consistent outputs
+- `style.json` for consistent outputs
 - GitHub repository for version control
 - Task priority matrix for focusing effort
 
@@ -353,7 +353,7 @@ Before submitting, verify:
 - Block 1 certification (18+ points)
 - Personal Prompt Library complete
 - 3+ documented templates
-- style.json created
+- `style.json` created
 - GitHub repository organized
 
 ---

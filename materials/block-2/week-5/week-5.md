@@ -18,7 +18,7 @@
 - [ ] At least one MCP server connected and functional
 - [ ] Workflow integrated with MCP capability
 - [ ] MCP security considerations understood
-- [ ] GitHub MCP connection working
+- [ ] GitHub MCP server working
 
 ---
 
@@ -143,7 +143,7 @@ Claude Desktop ← MCP Protocol → MCP Server → External Tool
 
 4. **Test filesystem access:**
    - Ask Claude: "What files are in my prompts directory?"
-   - Ask Claude: "Read my style.json file"
+   - Ask Claude: "Read my `style.json` file"
    - Verify it can access your Block 1 content
 
 5. **Document configuration:**
@@ -237,7 +237,7 @@ Follow the template structure exactly and apply the style guide throughout.
 
 2. **Execute in Claude Desktop:**
    - Verify Claude reads files via MCP
-   - Check output matches style.json guidelines
+   - Check output matches `style.json` guidelines
    - Verify template structure is followed
 
 3. **Compare with manual approach:**

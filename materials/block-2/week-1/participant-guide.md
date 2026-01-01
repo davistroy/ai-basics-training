@@ -227,7 +227,7 @@ Browsing the MCP Server Registry to identify available integrations
 3. Reviewed server capabilities and use cases
 
 **Result:**
-Understanding of available MCP integrations for workflow enhancement
+Understanding of available MCP servers for workflow enhancement
 
 ---
 
@@ -238,7 +238,7 @@ Understanding of available MCP integrations for workflow enhancement
 | Exercise | Duration | Deliverable | Focus |
 |----------|----------|-------------|-------|
 | 1.1 | 25 min | `platform-decision-matrix.md` | Platform selection |
-| 1.2 | 20 min | `mcp-server-analysis.md` | MCP integration planning |
+| 1.2 | 20 min | `mcp-server-analysis.md` | MCP server selection |
 | 1.3 | 15 min | `workflow-metrics-definition.md` | Performance monitoring |
 
 ---

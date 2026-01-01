@@ -6,7 +6,7 @@
 **Session Duration:** 45 minutes
 **Delivery Format:** Live MS Teams workshop
 
-**Target Audience:** Participants who completed Weeks 1-3 with style.json and multiple templates
+**Target Audience:** Participants who completed Weeks 1-3 with `style.json` and multiple templates
 
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Create quality rubrics with specific, measurable criteria
@@ -16,7 +16,7 @@
 
 **Entry Criteria:**
 - [ ] Week 3 exercises completed
-- [ ] style.json created and tested
+- [ ] `style.json` created and tested
 - [ ] GitHub basics understood
 
 **Exit Criteria:**
@@ -124,17 +124,17 @@ Let's start with a quick recap of Week 3."
 - Meaningful messages
 
 **The Question:**
-Your style.json defines how you want to sound. But how do you know if AI actually followed it?
+Your `style.json` defines how you want to sound. But how do you know if AI actually followed it?
 
-**Graphic:** style.json flowing into question mark
+**Graphic:** `style.json` flowing into question mark
 
 **SPEAKER NOTES:**
 
-"Last week you built infrastructure. JSON for configuration - your style.json captures preferences. GitHub for version control - tracking changes over time.
+"Last week you built infrastructure. JSON for configuration - your `style.json` captures preferences. GitHub for version control - tracking changes over time.
 
 [Point to question]
 
-But here's the question: Your style.json says 'professional but approachable.' After AI generates content, how do you know if it actually matched that?
+But here's the question: Your `style.json` says 'professional but approachable.' After AI generates content, how do you know if it actually matched that?
 
 Right now, it's subjective. 'This feels right' or 'This seems off.' That's the problem we're solving today."
 

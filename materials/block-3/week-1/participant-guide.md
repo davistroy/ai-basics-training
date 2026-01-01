@@ -633,7 +633,7 @@ In your GitHub repository, create this structure:
     /logs/               # Execution logs
 ```
 
-**Step 2: Create README.md**
+**Step 2: Create `README.md`**
 Write a brief README for your agent with:
 - Agent name and purpose
 - Quick start instructions (placeholder for now)

@@ -276,7 +276,7 @@ Create a professional README.md for my AI prompt library repository.
    - Replace your current README (or create if missing)
    - Write meaningful commit message
 
-**Deliverable:** Updated README.md in your repository
+**Deliverable:** Updated `README.md` in your repository
 
 ---
 

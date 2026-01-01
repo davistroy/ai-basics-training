@@ -11,14 +11,14 @@
 - [ ] Prompt library organized with taxonomy
 - [ ] Template index created
 - [ ] At least 5 documented templates
-- [ ] style.json created and tested
+- [ ] `style.json` created and tested
 
 ## Exit Criteria
 
 - [ ] All capstone components identified
 - [ ] Personal Prompt Library complete
 - [ ] Task priority matrix created
-- [ ] style.json finalized
+- [ ] `style.json` finalized
 - [ ] Ready for Block 1 evaluation
 
 ---
@@ -32,14 +32,14 @@
 Required components:
 1. **Organized GitHub Repository** - Clear structure, documentation
 2. **5+ Prompt Templates** - Documented, tested, quality-checked
-3. **style.json** - Your personal style configuration
+3. **`style.json`** - Your personal style configuration
 4. **Quality Rubrics** - At least 2 rubrics for different deliverable types
 5. **Task Priority Matrix** - Analysis of AI-automation opportunities
 
 **Evaluation criteria (6 dimensions):**
 1. Template Quality & Documentation
 2. Variety & Coverage
-3. style.json Sophistication
+3. `style.json` Sophistication
 4. Quality System Implementation
 5. Repository Organization
 6. Practical Application
@@ -168,7 +168,7 @@ Score = Frequency × Time
 - Add domain-specific settings
 - Include format preferences
 
-**Complete style.json template:**
+**Complete `style.json` template:**
 ```json
 {
   "metadata": {
@@ -221,7 +221,7 @@ Score = Frequency × Time
 **This week's focus:**
 - Complete all template documentation
 - Test every template with real tasks
-- Finalize style.json
+- Finalize `style.json`
 - Create task priority matrix
 - Review repository organization
 
@@ -338,11 +338,11 @@ Score = Frequency × Time
 
 ---
 
-### Exercise 7.3: Finalize style.json (15 minutes)
+### Exercise 7.3: Finalize `style.json` (15 minutes)
 
 *Complete your style configuration*
 
-1. **Review current style.json:**
+1. **Review current `style.json`:**
    - Test with 3-5 different prompt types
    - Note where style isn't being followed
 
@@ -396,14 +396,14 @@ Follow this style guide for all output:
 *Prepare for evaluation*
 
 1. **Structure check:**
-   - [ ] README.md is comprehensive
+   - [ ] `README.md` is comprehensive
    - [ ] Template index is complete and accurate
    - [ ] All folders have README files
    - [ ] Naming conventions are consistent
 
 2. **Content check:**
    - [ ] 5+ complete templates with all required sections
-   - [ ] style.json is valid and documented
+   - [ ] `style.json` is valid and documented
    - [ ] 2+ quality rubrics created
    - [ ] Task priority matrix complete
 
@@ -460,7 +460,7 @@ Follow this style guide for all output:
 2. **Quality over quantity** - 5 excellent templates beat 20 mediocre ones
 3. **Task priority matrix guides future work** - Know where to focus
 4. **Documentation matters** - Others (and future you) need to understand
-5. **style.json creates consistency** - The foundation for all output
+5. **`style.json` creates consistency** - The foundation for all output
 
 ---
 

@@ -87,7 +87,7 @@ Manual → Templates → Workflows → Agents
 
 ### Segment 4: MCP Introduction + Registry Preview (13 min)
 
-**MCP Deep Dive - "USB-C for AI":**
+**Model Context Protocol (MCP) Deep Dive - "USB-C for AI":**
 - Universal protocol for AI tool connections
 - Servers provide capabilities (file access, database, APIs)
 - Claude and other AI tools connect via MCP

@@ -28,7 +28,7 @@ By the end of this week, you will be able to:
 | # | Objective | Practiced In |
 |---|-----------|--------------|
 | 1 | Read and write valid JSON structures with multiple data types | Exercise 3.1 |
-| 2 | Create a personal style.json file defining your writing preferences | Exercise 3.2 |
+| 2 | Create a personal `style.json` file defining your writing preferences | Exercise 3.2 |
 | 3 | Perform basic GitHub operations (commit, push, version history) | Exercise 3.3 |
 | 4 | Reference configuration files in prompts for consistent output | Exercise 3.2 + All future work |
 
@@ -142,7 +142,7 @@ Unlike Markdown where errors just look wrong, JSON errors break parsing entirely
 
 ---
 
-### Concept 4: The style.json Concept
+### Concept 4: The `style.json` Concept
 
 **Definition:**
 A configuration file that captures your personal writing preferences for consistent AI outputs.
@@ -237,7 +237,7 @@ You can see what changed, when, and why. You can revert mistakes. You can collab
 - Strict syntax - always validate
 - Key takeaway: Trailing commas are the #1 error
 
-**Segment 3: Creating style.json**
+**Segment 3: Creating `style.json`**
 - Captures voice, preferences, things to avoid
 - Reference in prompts for consistent output
 - Personal - customize to your actual preferences
@@ -252,7 +252,7 @@ You can see what changed, when, and why. You can revert mistakes. You can collab
 ### Demo Recap
 
 **What Was Demonstrated:**
-Building a style.json file step-by-step, showing validation with JSONLint, and fixing common errors.
+Building a `style.json` file step-by-step, showing validation with JSONLint, and fixing common errors.
 
 **Key Steps:**
 1. Started with empty JSON object `{}`
@@ -262,7 +262,7 @@ Building a style.json file step-by-step, showing validation with JSONLint, and f
 5. Fixed error, showed successful validation
 
 **Result:**
-A valid style.json that can be referenced in any prompt for consistent output.
+A valid `style.json` that can be referenced in any prompt for consistent output.
 
 ---
 
@@ -402,7 +402,7 @@ Uses all required data types in a realistic structure. Each value serves a purpo
 
 ---
 
-### Exercise 3.2: Create Your style.json
+### Exercise 3.2: Create Your `style.json`
 
 **Duration:** 25 minutes
 
@@ -410,7 +410,7 @@ Uses all required data types in a realistic structure. Each value serves a purpo
 Define your personal writing style in a configuration file that you'll reference in prompts for consistent output.
 
 **You Will Create:**
-A style.json file capturing your voice, plus test results showing it works.
+A `style.json` file capturing your voice, plus test results showing it works.
 
 ---
 
@@ -424,7 +424,7 @@ Before writing JSON, consider:
 - What do you always try to avoid?
 - Any domain-specific preferences?
 
-**Step 2: Create style.json using this template**
+**Step 2: Create `style.json` using this template**
 
 ```json
 {
@@ -464,7 +464,7 @@ Don't just copy the template - make it reflect your real style.
 **Step 4: Validate with JSONLint**
 Paste into [JSONLint.com](https://jsonlint.com/) and fix any errors.
 
-**Step 5: Test your style.json**
+**Step 5: Test your `style.json`**
 Create a prompt that references your style:
 
 ```markdown
@@ -494,7 +494,7 @@ If the AI didn't follow something, make that preference more explicit.
 **Location:** Upload to your GitHub repository (in `/resources` folder)
 
 **Also Include:** A test document showing:
-- Your test prompt (with style.json included)
+- Your test prompt (with `style.json` included)
 - The AI's response
 - Brief evaluation of how well style was followed
 
@@ -510,7 +510,7 @@ If the AI didn't follow something, make that preference more explicit.
 
 **Scenario:** A consultant creating their style guide
 
-**style.json:**
+**`style.json`:**
 ```json
 {
   "voice": {
@@ -570,7 +570,7 @@ Using the GitHub web interface:
 5. Click "Commit changes"
 
 **Step 2: Edit an existing file**
-1. Click on your main README.md
+1. Click on your main `README.md`
 2. Click the pencil icon to edit
 3. Add a section about your style configuration:
 ```markdown
@@ -605,9 +605,9 @@ Add information about Week 3 deliverables:
 #### Deliverable Specification
 
 **Deliverable:** GitHub activity showing:
-- Files uploaded (json-practice.json, style.json)
+- Files uploaded (json-practice.json, `style.json`)
 - At least 3 commits with meaningful messages
-- Updated README.md
+- Updated `README.md`
 
 **Quality Criteria:**
 - [ ] New files added to repository
@@ -640,12 +640,12 @@ Add information about Week 3 deliverables:
 
 | Template | Purpose | Location |
 |----------|---------|----------|
-| style.json Template | Personal style configuration | Below |
+| `style.json` Template | Personal style configuration | Below |
 | JSON Quick Reference | Syntax reminder | Key Concepts section |
 
 ---
 
-### Template: Complete style.json
+### Template: Complete `style.json`
 
 ```json
 {
@@ -722,7 +722,7 @@ Before moving to next week, confirm you can:
 | # | Skill | Demonstrated By | Done? |
 |---|-------|-----------------|-------|
 | 1 | Write valid JSON with multiple data types | Exercise 3.1 passes JSONLint | ☐ |
-| 2 | Create personalized style.json | Exercise 3.2 with custom content | ☐ |
+| 2 | Create personalized `style.json` | Exercise 3.2 with custom content | ☐ |
 | 3 | Reference configuration in prompts | Test results in Exercise 3.2 | ☐ |
 | 4 | Make meaningful GitHub commits | Exercise 3.3 with good messages | ☐ |
 
@@ -763,7 +763,7 @@ Take 5 minutes to consider:
 **Q: My JSON won't validate but I can't find the error.**
 A: Most likely a trailing comma. Look at the last item before each closing brace `}` or bracket `]`. If there's a comma, remove it.
 
-**Q: How detailed should my style.json be?**
+**Q: How detailed should my `style.json` be?**
 A: Start with the basics (tone, preferences, avoid). Add more detail only if AI outputs aren't matching your expectations.
 
 **Q: Do I need to memorize JSON syntax?**
@@ -785,11 +785,11 @@ A: No - you just need to recognize valid structure and use JSONLint to catch err
 Creating quality evaluation rubrics and learning the LLM-as-judge pattern.
 
 **How It Builds on This Week:**
-Your style.json becomes part of how you evaluate outputs. Does the AI match your documented style?
+Your `style.json` becomes part of how you evaluate outputs. Does the AI match your documented style?
 
 **To Prepare:**
 - [ ] Complete all Week 3 exercises
-- [ ] Use your style.json in at least 5 prompts this week
+- [ ] Use your `style.json` in at least 5 prompts this week
 - [ ] Note: Where does AI follow your style? Where does it deviate?
 - [ ] Think about: How would you rate AI output quality?
 

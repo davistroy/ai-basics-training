@@ -562,7 +562,7 @@ See how the structure creates visual hierarchy? The AI will parse this the same 
 
 **Content:**
 
-**ASK-CONTEXT-CONSTRAINTS-EXAMPLE (ACCE)**
+**ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework**
 
 | Section | Purpose | What Goes Here |
 |---------|---------|----------------|
@@ -815,7 +815,7 @@ Questions on the framework before we look at homework?"
 | Exercise | Time | Deliverable | Skills Practiced |
 |----------|------|-------------|------------------|
 | Exercise 1.1: Markdown Practice | 20 min | `markdown-practice.md` | Headers, lists, code blocks |
-| Exercise 1.2: First Structured Prompt | 25 min | `first-structured-prompt.md` | ACCE framework |
+| Exercise 1.2: First Structured Prompt | 25 min | `first-structured-prompt.md` | the framework |
 | Exercise 1.3: GitHub Setup | 15 min | Repository with structure | Version control basics |
 | **Total** | **60 min** | | |
 
@@ -829,7 +829,7 @@ Questions on the framework before we look at homework?"
 
 Exercise 1.1 is Markdown practice - 20 minutes. You'll create a document using all the syntax we covered. Headers, lists, emphasis, code blocks.
 
-Exercise 1.2 is your first structured prompt - 25 minutes. Pick a real task, use the ACCE framework, test it, document the result.
+Exercise 1.2 is your first structured prompt - 25 minutes. Pick a real task, use the ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework, test it, document the result.
 
 Exercise 1.3 is GitHub setup - 15 minutes. You'll create the repository that becomes your prompt library home.
 
@@ -866,7 +866,7 @@ All instructions are in your participant guide."
 
 "You have several resources to support your homework:
 
-The participant guide has both templates you need - the ACCE framework and a Markdown quick reference.
+The participant guide has both templates you need - the ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework and a Markdown quick reference.
 
 For Markdown practice, markdowntutorial.com is excellent - interactive lessons that take maybe 15 minutes.
 
@@ -893,7 +893,7 @@ We'll add role prompting and few-shot learning to your toolkit, plus platform-sp
 - [ ] Exercise 1.3: GitHub Repository Setup
 
 **Key Preparation:**
-- Test at least 2-3 more prompts using the ACCE framework
+- Test at least 2-3 more prompts using the ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework
 - Note what works and what doesn't
 
 **Graphic:** Preview image showing role prompting concept
@@ -908,7 +908,7 @@ Make sure you've completed all three exercises before next session. Your structu
 
 [Final close]
 
-Great first session. You've got the foundations now - Markdown for structure, ACCE for completeness.
+Great first session. You've got the foundations now - Markdown for structure, ASK-CONTEXT-CONSTRAINTS-EXAMPLE for completeness.
 
 The goal this week is practice. The framework might feel mechanical at first. By Week 3 or 4, it becomes automatic.
 

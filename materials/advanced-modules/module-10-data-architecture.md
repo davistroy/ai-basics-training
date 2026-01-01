@@ -7,7 +7,7 @@
 ## **Prerequisites**
 
 - Block 3 Certification: AI Automation Architect
-- Working agent system with MCP integration
+- Working agent system with Model Context Protocol (MCP) servers configured
 - Experience with multiple data formats (JSON, Markdown, CSV)
 - Understanding of agent context and memory patterns
 - Access to sample enterprise data for exercises

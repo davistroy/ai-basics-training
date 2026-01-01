@@ -154,7 +154,7 @@ Human Review → Approve/Edit → Learn from Feedback
 ### AI Processing
 - Model: [Claude/GPT]
 - Template: [Which template]
-- MCP integration: [How MCP is used]
+- MCP servers: [Which MCP servers are used]
 
 ### Quality System
 - Evaluation criteria: [Link to rubric]
