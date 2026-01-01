@@ -123,7 +123,7 @@
 - Reduce total execution time
 
 **Caching strategies:**
-- Cache style.json and reference data
+- Cache `style.json` and reference data
 - Don't re-fetch static content
 
 **Step elimination:**

@@ -261,7 +261,7 @@ Many participants assume more context = better results. The research says otherw
 - Platform-specific implementation
 
 **Key Point 2: Caching Strategies**
-- Cache style.json and reference data
+- Cache `style.json` and reference data
 - Don't re-fetch static content every execution
 - Platform-specific caching options
 

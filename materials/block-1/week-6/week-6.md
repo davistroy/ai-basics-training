@@ -290,7 +290,7 @@ templates/
 
 1. **Create the folder structure:**
    - Make all directories according to your taxonomy
-   - Add README.md to each folder explaining contents
+   - Add `README.md` to each folder explaining contents
 
 2. **Move and rename templates:**
    - Apply your naming convention

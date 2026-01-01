@@ -40,7 +40,7 @@ Before starting this week, confirm you have completed:
 
 - [ ] Week 1 exercises (markdown-practice.md, first-structured-prompt.md)
 - [ ] GitHub repository created with initial structure
-- [ ] At least one structured prompt tested using ACCE framework
+- [ ] At least one structured prompt tested using ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework
 - [ ] Familiar with basic Markdown syntax
 
 **Not ready?** Complete the [Week 1 exercises](../week-1/participant-guide.md) first - they're the foundation for this week.
@@ -654,7 +654,7 @@ You are a [role/title] with [X years] of experience in [domain/industry].
 ---
 
 # Task
-[Your request using the ACCE framework]
+[Your request using the ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework]
 
 ## ASK
 [What you want]
@@ -673,7 +673,7 @@ You are a [role/title] with [X years] of experience in [domain/industry].
 1. Start with just the basic role (first line)
 2. Add expertise section only if output needs more specificity
 3. Communication style helps with tone matching
-4. Combine with ACCE framework for best results
+4. Combine with ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework for best results
 
 ---
 
@@ -752,7 +752,7 @@ Before moving to next week, confirm you can:
 | 1 | Write effective role prompts | Exercise 2.1 shows meaningful differences across roles | ☐ |
 | 2 | Create few-shot prompts | Exercise 2.2 template produces consistent outputs | ☐ |
 | 3 | Identify platform strengths | Exercise 2.3 has specific observations | ☐ |
-| 4 | Combine techniques appropriately | Exercises use role + ACCE or few-shot as appropriate | ☐ |
+| 4 | Combine techniques appropriately | Exercises use role + ASK-CONTEXT-CONSTRAINTS-EXAMPLE or few-shot as appropriate | ☐ |
 
 ---
 
@@ -810,7 +810,7 @@ A: Use what you have access to. For complex, structured tasks, Claude often exce
 ### Next Week Preview: Week 3 - JSON Fundamentals + GitHub Basics
 
 **Focus:**
-Creating structured configuration files (style.json) and mastering GitHub version control.
+Creating structured configuration files (`style.json`) and mastering GitHub version control.
 
 **How It Builds on This Week:**
 The prompting techniques you've learned will be captured in JSON configuration files for consistent application.

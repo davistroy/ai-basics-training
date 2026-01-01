@@ -131,7 +131,7 @@ Required components:
    - [ ] Error handling implemented
    - [ ] Quality check integrated
    - [ ] Logging active
-   - [ ] MCP integration (at least one)
+   - [ ] MCP server (at least one)
    - [ ] Documentation complete
 
 2. **Final testing:**

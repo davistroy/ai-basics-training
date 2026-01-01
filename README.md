@@ -25,24 +25,24 @@ The curriculum follows a progressive maturity model:
 
 | Level | Block | Certification | Focus |
 |-------|-------|---------------|-------|
-| Level 0 → 1 | [Block 1: AI Prompting Mastery](block-1/block-1.md) | AI Prompting Practitioner | Write prompts that consistently produce high-quality outputs |
-| Level 1 → 2 | [Block 2: AI Workflow Engineering](block-2/block-2.md) | AI Workflow Engineer | Build reusable templates, quality systems, and tool integration |
-| Level 2 → 3 | [Block 3: AI Automation Architecture](block-3/block-3.md) | AI Automation Architect | Design autonomous AI agents for complex workflows |
+| Level 0 → 1 | [Block 1: AI Prompting Mastery](materials/block-1/block-1.md) | AI Prompting Practitioner | Write prompts that consistently produce high-quality outputs |
+| Level 1 → 2 | [Block 2: AI Workflow Engineering](materials/block-2/block-2.md) | AI Workflow Engineer | Build reusable templates, quality systems, and tool integration |
+| Level 2 → 3 | [Block 3: AI Automation Architecture](materials/block-3/block-3.md) | AI Automation Architect | Design autonomous AI agents for complex workflows |
 
 ### Advanced Modules (Optional, Post-Block 3)
 
 | Module | Prerequisites | Duration | Focus |
 |--------|---------------|----------|-------|
-| [Advanced Orchestration Patterns](advanced-modules/module-1-orchestration-patterns.md) | Block 3 | 2 weeks | Parallel & team-based agent patterns |
-| [Chaos Testing & Reliability](advanced-modules/module-2-chaos-testing.md) | Block 3 | 2 weeks | Fault injection, circuit breakers, self-healing |
-| [JSON Schema & Data Validation](advanced-modules/module-3-json-schema.md) | Block 2+ | 2 weeks | Schema design, runtime validation |
-| [Visual Documentation with Mermaid](advanced-modules/module-4-visual-documentation.md) | Block 1+ | 2 weeks | Flowcharts, sequence diagrams, architecture docs |
-| [Advanced GitHub & DevOps](advanced-modules/module-5-github-devops.md) | Block 3 | 2 weeks | CI/CD pipelines, deployment strategies |
-| [Enterprise AI Architecture](advanced-modules/module-6-enterprise-architecture.md) | Block 3 | 2 weeks | Cloud platforms, deployment patterns, scaling |
-| [Enterprise AI Governance](advanced-modules/module-7-ai-governance.md) | Block 3 | 2 weeks | Risk frameworks, compliance, policies |
-| [RAG & Knowledge Systems](advanced-modules/module-8-rag-knowledge-systems.md) | Block 3 | 2 weeks | Vector databases, retrieval patterns, agent integration |
-| [AI Security Fundamentals](advanced-modules/module-9-ai-security.md) | Block 3 | 2 weeks | Threat landscape, prompt injection defense, security assessment |
-| [Data Architecture for AI](advanced-modules/module-10-data-architecture.md) | Block 3 | 2 weeks | Information architecture, semantic structure, data transformation |
+| [Advanced Orchestration Patterns](materials/advanced-modules/module-1-orchestration-patterns.md) | Block 3 | 2 weeks | Parallel & team-based agent patterns |
+| [Chaos Testing & Reliability](materials/advanced-modules/module-2-chaos-testing.md) | Block 3 | 2 weeks | Fault injection, circuit breakers, self-healing |
+| [JSON Schema & Data Validation](materials/advanced-modules/module-3-json-schema.md) | Block 2+ | 2 weeks | Schema design, runtime validation |
+| [Visual Documentation with Mermaid](materials/advanced-modules/module-4-visual-documentation.md) | Block 1+ | 2 weeks | Flowcharts, sequence diagrams, architecture docs |
+| [Advanced GitHub & DevOps](materials/advanced-modules/module-5-github-devops.md) | Block 3 | 2 weeks | CI/CD pipelines, deployment strategies |
+| [Enterprise AI Architecture](materials/advanced-modules/module-6-enterprise-architecture.md) | Block 3 | 2 weeks | Cloud platforms, deployment patterns, scaling |
+| [Enterprise AI Governance](materials/advanced-modules/module-7-ai-governance.md) | Block 3 | 2 weeks | Risk frameworks, compliance, policies |
+| [RAG & Knowledge Systems](materials/advanced-modules/module-8-rag-knowledge-systems.md) | Block 3 | 2 weeks | Vector databases, retrieval patterns, agent integration |
+| [AI Security Fundamentals](materials/advanced-modules/module-9-ai-security.md) | Block 3 | 2 weeks | Threat landscape, prompt injection defense, security assessment |
+| [Data Architecture for AI](materials/advanced-modules/module-10-data-architecture.md) | Block 3 | 2 weeks | Information architecture, semantic structure, data transformation |
 
 ---
 
@@ -50,26 +50,27 @@ The curriculum follows a progressive maturity model:
 
 ### Core Curriculum
 
-- **[Block 1: AI Prompting Mastery](block-1/block-1.md)** - Foundation skills for all consultants
-- **[Block 2: AI Workflow Engineering](block-2/block-2.md)** - Workflow automation and MCP integration
-- **[Block 3: AI Automation Architecture](block-3/block-3.md)** - Autonomous agents and production deployment
+- **[Block 1: AI Prompting Mastery](materials/block-1/block-1.md)** - Foundation skills for all consultants
+- **[Block 2: AI Workflow Engineering](materials/block-2/block-2.md)** - Workflow automation and MCP integration
+- **[Block 3: AI Automation Architecture](materials/block-3/block-3.md)** - Autonomous agents and production deployment
 
 ### Advanced Modules
 
-- **[Module 1: Advanced Orchestration Patterns](advanced-modules/module-1-orchestration-patterns.md)** - Parallel & team-based patterns
-- **[Module 2: Chaos Testing & Reliability](advanced-modules/module-2-chaos-testing.md)** - Fault tolerance & self-healing
-- **[Module 3: JSON Schema & Data Validation](advanced-modules/module-3-json-schema.md)** - Schema design & validation
-- **[Module 4: Visual Documentation with Mermaid](advanced-modules/module-4-visual-documentation.md)** - Diagrams & architecture docs
-- **[Module 5: Advanced GitHub & DevOps](advanced-modules/module-5-github-devops.md)** - CI/CD pipelines
-- **[Module 6: Enterprise AI Architecture](advanced-modules/module-6-enterprise-architecture.md)** - Cloud & on-prem deployment
-- **[Module 7: Enterprise AI Governance](advanced-modules/module-7-ai-governance.md)** - Risk frameworks & compliance
-- **[Module 8: RAG & Knowledge Systems](advanced-modules/module-8-rag-knowledge-systems.md)** - Knowledge-enabled agents
-- **[Module 9: AI Security Fundamentals](advanced-modules/module-9-ai-security.md)** - Security assessment & hardening
-- **[Module 10: Data Architecture for AI](advanced-modules/module-10-data-architecture.md)** - Information architecture & transformation
+- **[Module 1: Advanced Orchestration Patterns](materials/advanced-modules/module-1-orchestration-patterns.md)** - Parallel & team-based patterns
+- **[Module 2: Chaos Testing & Reliability](materials/advanced-modules/module-2-chaos-testing.md)** - Fault tolerance & self-healing
+- **[Module 3: JSON Schema & Data Validation](materials/advanced-modules/module-3-json-schema.md)** - Schema design & validation
+- **[Module 4: Visual Documentation with Mermaid](materials/advanced-modules/module-4-visual-documentation.md)** - Diagrams & architecture docs
+- **[Module 5: Advanced GitHub & DevOps](materials/advanced-modules/module-5-github-devops.md)** - CI/CD pipelines
+- **[Module 6: Enterprise AI Architecture](materials/advanced-modules/module-6-enterprise-architecture.md)** - Cloud & on-prem deployment
+- **[Module 7: Enterprise AI Governance](materials/advanced-modules/module-7-ai-governance.md)** - Risk frameworks & compliance
+- **[Module 8: RAG & Knowledge Systems](materials/advanced-modules/module-8-rag-knowledge-systems.md)** - Knowledge-enabled agents
+- **[Module 9: AI Security Fundamentals](materials/advanced-modules/module-9-ai-security.md)** - Security assessment & hardening
+- **[Module 10: Data Architecture for AI](materials/advanced-modules/module-10-data-architecture.md)** - Information architecture & transformation
 
 ### Supplementary Materials
 
 - **[Agent Memory Meta-Framework Presentation](archive/presentation.md)** - 48-slide presentation on agent memory architecture
+- **[Glossary](glossary.md)** - Key terms and definitions used throughout the curriculum
 
 ---
 
@@ -146,6 +147,10 @@ The curriculum follows a progressive maturity model:
 - ROI calculation with measured data
 
 **Certification:** AI Automation Architect
+
+> **Certification Standard:** Block 3 requires 34/40 points (85%) for certification,
+> higher than Blocks 1-2 (22/40 = 55%), reflecting the critical nature of autonomous
+> agent deployment.
 
 ---
 
@@ -336,33 +341,36 @@ Each certification requires:
 ```
 ai-basics-training/
 ├── README.md                    # This file - program overview
+├── CLAUDE.md                    # Claude Code guidance
 ├── facilitator-guide.md         # Delivery guidance for trainers
-├── learning-path.mermaid        # Visual learning path diagram (Mermaid format)
-├── block-0/                     # Pre-program materials
-│   └── prerequisites.md         # Pre-program self-assessment and setup
-├── block-1/                     # Block 1: AI Prompting Mastery (8 weeks)
-│   ├── block-1.md               # Full curriculum
-│   └── block-1-executive-summary.md  # Executive overview
-├── block-2/                     # Block 2: AI Workflow Engineering (8 weeks)
-│   └── block-2.md               # Full curriculum
-├── block-3/                     # Block 3: AI Automation Architecture (8 weeks)
-│   └── block-3.md               # Full curriculum
+├── learning-path.mermaid        # Visual learning path diagram
+├── materials/                   # All curriculum content
+│   ├── block-0/                 # Pre-program materials
+│   │   └── prerequisites.md     # Pre-program self-assessment and setup
+│   ├── block-1/                 # Block 1: AI Prompting Mastery (8 weeks)
+│   │   ├── block-1.md           # Full curriculum
+│   │   ├── block-1-executive-summary.md
+│   │   └── week-1/ through week-8/  # Weekly breakdowns
+│   ├── block-2/                 # Block 2: AI Workflow Engineering (8 weeks)
+│   │   ├── block-2.md           # Full curriculum
+│   │   └── week-1/ through week-8/  # Weekly breakdowns
+│   ├── block-3/                 # Block 3: AI Automation Architecture (8 weeks)
+│   │   ├── block-3.md           # Full curriculum
+│   │   └── week-1/ through week-8/  # Weekly breakdowns
+│   └── advanced-modules/        # Optional post-Block 3 learning (10 modules)
+│       ├── module-1-orchestration-patterns.md
+│       ├── module-2-chaos-testing.md
+│       ├── module-3-json-schema.md
+│       ├── module-4-visual-documentation.md
+│       ├── module-5-github-devops.md
+│       ├── module-6-enterprise-architecture.md
+│       ├── module-7-ai-governance.md
+│       ├── module-8-rag-knowledge-systems.md
+│       ├── module-9-ai-security.md
+│       └── module-10-data-architecture.md
 ├── checkpoints/                 # Inter-block skill verification
 │   ├── block-1-to-2-checkpoint.md
 │   └── block-2-to-3-checkpoint.md
-├── feedback/                    # Cohort feedback collection
-│   └── cohort-feedback-template.md
-├── advanced-modules/            # Optional post-Block 3 learning (10 modules)
-│   ├── module-1-orchestration-patterns.md
-│   ├── module-2-chaos-testing.md
-│   ├── module-3-json-schema.md
-│   ├── module-4-visual-documentation.md
-│   ├── module-5-github-devops.md
-│   ├── module-6-enterprise-architecture.md
-│   ├── module-7-ai-governance.md
-│   ├── module-8-rag-knowledge-systems.md
-│   ├── module-9-ai-security.md
-│   └── module-10-data-architecture.md
 ├── quick-reference/             # One-page reference cards
 │   ├── block-1-reference.md
 │   ├── block-2-reference.md
@@ -371,14 +379,16 @@ ai-basics-training/
 │   ├── weekly-instructor-guide-template.md
 │   ├── weekly-participant-guide-template.md
 │   └── weekly-presentation-template.md
+├── feedback/                    # Cohort feedback collection
+│   └── cohort-feedback-template.md
 ├── marketing/                   # Marketing and sales materials
 │   └── block1-sales-infographic.md
-├── updates/                     # Curriculum update implementation plans
+├── updates/                     # Curriculum updates and changelogs
 │   ├── update-1.md
 │   └── CHANGELOG-2025-12-31.md
 └── archive/                     # Historical/reference documents
     ├── presentation.md          # Agent Memory Meta-Framework (48 slides)
-    ├── checkpoint-1.md          # Curriculum design session summary
+    ├── checkpoint-1.md
     └── IMPLEMENTATION-PLAN.md
 ```
 
@@ -417,11 +427,11 @@ Each block includes comprehensive appendices with ready-to-use templates:
 - N: Quality Evaluation Prompt Template
 - O: MCP Troubleshooting Guide
 
-### Block 3 Appendices (N-Q)
-- N: Block 3 Capstone Rubric
-- O: Agent Design Template
-- P: Production Readiness Checklist
-- Q: ROI Calculation Template
+### Block 3 Appendices (P-S)
+- P: Block 3 Capstone Rubric
+- Q: Agent Design Template
+- R: Production Readiness Checklist
+- S: ROI Calculation Template
 
 ### Advanced Module Appendices
 Each advanced module contains its own appendices with:
@@ -435,8 +445,8 @@ Each advanced module contains its own appendices with:
 ## Getting Started
 
 1. **Review this README** to understand the program structure
-2. **Complete the [Prerequisites Self-Assessment](block-0/prerequisites.md)** to verify readiness
-3. **Start with [Block 1](block-1/block-1.md)** after completing prerequisites
+2. **Complete the [Prerequisites Self-Assessment](materials/block-0/prerequisites.md)** to verify readiness
+3. **Start with [Block 1](materials/block-1/block-1.md)** after completing prerequisites
 4. **Complete Week 1** exercises to build your foundation
 5. **Progress through each week** following entry/exit criteria
 6. **Submit your capstone** at Week 8
@@ -472,4 +482,4 @@ This curriculum is proprietary training material. All rights reserved.
 
 ---
 
-**Ready to begin?** Start with **[Block 1: AI Prompting Mastery](block-1/block-1.md)**
+**Ready to begin?** Start with **[Block 1: AI Prompting Mastery](materials/block-1/block-1.md)**

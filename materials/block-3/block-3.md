@@ -1,7 +1,7 @@
 # **BLOCK 3: AI Automation Architecture**
 
-**Version:** 1.0
-**Last Updated:** 2025-01-01
+**Version:** 3.1
+**Last Updated:** 2026-01-01
 **Status:** Active
 
 ---
@@ -20,7 +20,7 @@
 
 - Block 2 Certification: AI Workflow Engineer
 - AI Workflow Toolkit with 3+ working workflows
-- MCP configured and functional
+- Model Context Protocol (MCP) configured and functional
 - Quality systems implemented with rubrics
 - Performance monitoring active
 - 20+ workflow executions completed
@@ -346,7 +346,7 @@ Generate complete, requirement-compliant RFP response drafts for all sections, r
 **Success Criteria:**
 1. Every RFP requirement has a corresponding response
 2. Each section scores >= 4.0 on quality rubric
-3. Response follows client-specific tone from style.json
+3. Response follows client-specific tone from `style.json`
 4. Total generation time < 4 hours (vs 20-40 hours manual)
 
 **Failure Criteria:**
@@ -874,6 +874,9 @@ Set alerts for:
 
 **Deliverable:** `failure-modes.md`
 
+> **Extend Your Learning:** After completing Block 3, explore
+> [Module 1: Orchestration Patterns](../../advanced-modules/module-1-orchestration-patterns.md) for deeper coverage.
+
 -----
 
 ## **Week 3: MCP Deep Dive**
@@ -1197,6 +1200,9 @@ Set alerts for:
    - Reduce unnecessary calls
 
 **Deliverable:** Tool chain documentation + test results
+
+> **Extend Your Learning:** After completing Block 3, explore
+> [Module 1: Orchestration Patterns](../../advanced-modules/module-1-orchestration-patterns.md) for deeper coverage.
 
 -----
 
@@ -1586,6 +1592,9 @@ Save checkpoint:
    - Verify correct continuation
 
 **Deliverable:** Checkpoint system + successful resume test
+
+> **Extend Your Learning:** After completing Block 3, explore
+> [Module 2: Chaos Testing](../../advanced-modules/module-2-chaos-testing.md) for deeper coverage.
 
 -----
 
@@ -1997,6 +2006,9 @@ def orchestrate(user_input):
 - Improves documentation clarity
 - Builds team agent expertise
 
+> **Extend Your Learning:** After completing Block 3, explore
+> [Module 8: RAG & Knowledge Systems](../../advanced-modules/module-8-rag-knowledge-systems.md) for deeper coverage.
+
 -----
 
 ## **Week 6: Optimization & Monitoring**
@@ -2402,6 +2414,9 @@ If pursuing advanced reliability:
 ```
 
 **Deliverable:** Reliability implementation + test results
+
+> **Extend Your Learning:** After completing Block 3, explore
+> [Module 5: GitHub DevOps](../../advanced-modules/module-5-github-devops.md) for deeper coverage.
 
 -----
 
@@ -2820,6 +2835,9 @@ If [X] team members use this agent:
 
 **Deliverable:** `block-3-roi-analysis.md`
 
+> **Extend Your Learning:** After completing Block 3, explore
+> [Module 6: Enterprise Architecture](../../advanced-modules/module-6-enterprise-architecture.md) for deeper coverage.
+
 -----
 
 ## **Week 8: Block 3 Capstone Evaluation**
@@ -2841,7 +2859,7 @@ This week is **self-paced** - no live workshop. Complete final submissions and s
 
 ### **Self-Evaluation Process (Optional - 30 minutes)**
 
-1. Review the Block 3 Capstone Rubric (see Appendix N)
+1. Review the Block 3 Capstone Rubric (see Appendix P)
 2. Score yourself on each of 8 criteria (1-5 points each):
 
    - Agent Architecture
@@ -2857,6 +2875,9 @@ This week is **self-paced** - no live workshop. Complete final submissions and s
 4. Reflect on your journey from Block 1 to Block 3
 
 **Deliverable:** Self-evaluation document
+
+> **Extend Your Learning:** After completing Block 3, explore
+> [Module 7: AI Governance](../../advanced-modules/module-7-ai-governance.md) for deeper coverage.
 
 -----
 
@@ -2948,7 +2969,7 @@ Upon successful completion of Block 3 Capstone:
 
 # **APPENDICES**
 
-## **Appendix N: Block 3 Capstone Rubric**
+## **Appendix P: Block 3 Capstone Rubric**
 
 ```markdown
 # Block 3 Capstone Evaluation Rubric
@@ -3144,7 +3165,7 @@ Upon successful completion of Block 3 Capstone:
 
 ---
 
-## **Appendix O: Agent Design Template**
+## **Appendix Q: Agent Design Template**
 
 ```markdown
 # Agent Design Document
@@ -3304,7 +3325,7 @@ When to stop and request human help:
 
 ---
 
-## **Appendix P: Production Readiness Checklist**
+## **Appendix R: Production Readiness Checklist**
 
 ```markdown
 # Production Readiness Checklist
@@ -3466,7 +3487,7 @@ Approved by: ___________________ Date: ___________
 
 ---
 
-## **Appendix Q: ROI Calculation Template**
+## **Appendix S: ROI Calculation Template**
 
 ```markdown
 # ROI Analysis Template

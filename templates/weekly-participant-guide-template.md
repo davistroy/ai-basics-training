@@ -1,3 +1,10 @@
+<!--
+TEMPLATE: Weekly Participant Guide
+PURPOSE: Standardized structure for creating weekly participant guides
+USAGE: Copy this file and replace [BRACKETED] placeholders with your content.
+LAST UPDATED: 2026-01-01
+-->
+
 # Weekly Participant Guide Template
 
 **AI Practitioner Training Curriculum**

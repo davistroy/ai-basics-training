@@ -38,12 +38,12 @@ By the end of this week, you will be able to:
 
 Before starting this week, confirm you have completed:
 
-- [ ] Week 3 exercises (json-practice.json, style.json, GitHub activity)
-- [ ] style.json created and tested with at least one prompt
+- [ ] Week 3 exercises (json-practice.json, `style.json`, GitHub activity)
+- [ ] `style.json` created and tested with at least one prompt
 - [ ] Comfortable with JSON syntax and validation
 - [ ] At least 3-4 templates or prompts in your library
 
-**Not ready?** Complete the [Week 3 exercises](../week-3/participant-guide.md) first - your style.json becomes part of quality evaluation.
+**Not ready?** Complete the [Week 3 exercises](../week-3/participant-guide.md) first - your `style.json` becomes part of quality evaluation.
 
 ---
 

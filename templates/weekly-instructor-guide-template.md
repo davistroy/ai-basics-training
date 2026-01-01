@@ -1,3 +1,10 @@
+<!--
+TEMPLATE: Weekly Instructor Guide
+PURPOSE: Standardized structure for creating weekly instructor guides
+USAGE: Copy this file and replace [BRACKETED] placeholders with your content.
+LAST UPDATED: 2026-01-01
+-->
+
 # Weekly Instructor Guide Template
 
 **AI Practitioner Training Curriculum**

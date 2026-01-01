@@ -10,7 +10,7 @@
 - Functional multi-agent system with Sequential or Master-Worker pattern
 - Understanding of agent specialization principles
 - 30+ agent executions completed
-- MCP proficiency demonstrated
+- Model Context Protocol (MCP) proficiency demonstrated
 
 -----
 

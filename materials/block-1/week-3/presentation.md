@@ -10,7 +10,7 @@
 
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Read and write valid JSON structures with multiple data types
-2. Create a personal style.json file defining writing preferences
+2. Create a personal `style.json` file defining writing preferences
 3. Perform basic GitHub operations (commit, push, view history)
 4. Understand how configuration files enable consistent AI outputs
 
@@ -22,14 +22,14 @@
 **Exit Criteria:**
 - [ ] Understands JSON syntax (objects, arrays, types)
 - [ ] Knows how to validate JSON with JSONLint
-- [ ] Has plan to create personal style.json
+- [ ] Has plan to create personal `style.json`
 - [ ] Understands GitHub commit workflow
 
 **Presentation Structure:**
 1. Opening & Recap (5 min) - Slides 1-3
 2. Segment 1: Why JSON? (8 min) - Slides 4-5
 3. Segment 2: JSON Syntax Essentials (15 min) - Slides 6-10
-4. Segment 3: Creating style.json (10 min) - Slides 11-13
+4. Segment 3: Creating `style.json` (10 min) - Slides 11-13
 5. Segment 4: GitHub Basics (7 min) - Slides 14-17
 
 **Total Slides:** 17
@@ -78,7 +78,7 @@ By the end of today, you'll understand how to store your preferences in a file a
 | 0-5 min | Opening | Week 2 Recap |
 | 5-13 min | Segment 1 | Why JSON? |
 | 13-28 min | Segment 2 | JSON Syntax Essentials |
-| 28-38 min | Segment 3 | Creating style.json |
+| 28-38 min | Segment 3 | Creating `style.json` |
 | 38-45 min | Segment 4 | GitHub Basics |
 
 **Graphic:** Timeline with JSON and GitHub icons
@@ -89,7 +89,7 @@ By the end of today, you'll understand how to store your preferences in a file a
 
 First, a quick recap of Week 2. Then we'll cover why JSON matters for AI work.
 
-The bulk of our time is on JSON syntax - this is the technical foundation. Then we'll apply it by looking at style.json - your personal voice configuration.
+The bulk of our time is on JSON syntax - this is the technical foundation. Then we'll apply it by looking at `style.json` - your personal voice configuration.
 
 We'll close with GitHub basics - version control concepts you'll use going forward.
 
@@ -194,7 +194,7 @@ What we need is a way to store preferences once and reference them every time."
 **The Concept:**
 Store your preferences in a file. Reference that file in every prompt.
 
-**style.json Preview:**
+**`style.json` Preview:**
 ```json
 {
   "voice": {
@@ -334,7 +334,7 @@ Strings - text in double quotes. Numbers - no quotes needed. Booleans - true or 
 
 Arrays - lists of items in square brackets. Objects - nested groups in curly braces.
 
-For style.json, you'll mostly use strings, arrays, and nested objects.
+For `style.json`, you'll mostly use strings, arrays, and nested objects.
 
 [Point to table]
 
@@ -499,7 +499,7 @@ These are the messages you'll see most often. 'Expecting STRING' usually means m
 
 JSONLint highlights the line with the problem. Look there first.
 
-Now let's apply this to something practical - your style.json."
+Now let's apply this to something practical - your `style.json`."
 
 [Transition: Click to Segment 3]
 
@@ -512,7 +512,7 @@ Now let's apply this to something practical - your style.json."
 
 ### SLIDE 11: WHAT GOES IN STYLE.JSON
 
-**Title:** Your style.json: Personal Voice Configuration
+**Title:** Your `style.json`: Personal Voice Configuration
 
 **Content:**
 
@@ -528,11 +528,11 @@ Now let's apply this to something practical - your style.json."
 **Key Insight:**
 This isn't abstract - it's YOUR actual preferences. What do YOU want your writing to sound like?
 
-**Graphic:** style.json sections mapped to output characteristics
+**Graphic:** `style.json` sections mapped to output characteristics
 
 **SPEAKER NOTES:**
 
-"Your style.json captures your personal voice.
+"Your `style.json` captures your personal voice.
 
 [Walk through sections]
 
@@ -554,7 +554,7 @@ This isn't abstract. Think about your actual preferences. How do YOU want to wri
 
 ### SLIDE 12: STYLE.JSON TEMPLATE
 
-**Title:** style.json Template
+**Title:** `style.json` Template
 
 **Content:**
 
@@ -608,7 +608,7 @@ In Exercise 3.2, you'll customize every value to match YOUR preferences."
 
 ### SLIDE 13: USING STYLE.JSON IN PROMPTS
 
-**Title:** Using style.json in Prompts
+**Title:** Using `style.json` in Prompts
 
 **Content:**
 
@@ -635,7 +635,7 @@ Now write: [Your request here]
 - Shareable (team can use same style)
 - Evolves with you (refine as you learn)
 
-**Graphic:** style.json connecting to multiple prompts with consistent output
+**Graphic:** `style.json` connecting to multiple prompts with consistent output
 
 **SPEAKER NOTES:**
 
@@ -794,7 +794,7 @@ Make changes to your files. Stage the changes - select what to include. Write a 
 
 Commit messages matter. They're notes to your future self.
 
-'Add style.json with voice and formatting preferences' - tells you exactly what that commit contains.
+'Add `style.json` with voice and formatting preferences' - tells you exactly what that commit contains.
 
 'updates' - tells you nothing. Three months from now, you won't remember what you changed.
 
@@ -813,13 +813,13 @@ In Exercise 3.3, you'll practice making meaningful commits."
 | Exercise | Time | Deliverable | Skills Practiced |
 |----------|------|-------------|------------------|
 | Exercise 3.1: JSON Practice | 15 min | `json-practice.json` | All data types |
-| Exercise 3.2: Create style.json | 25 min | `style.json` + test | Personal config |
+| Exercise 3.2: Create `style.json` | 25 min | `style.json` + test | Personal config |
 | Exercise 3.3: GitHub Practice | 20 min | Commit history | Version control |
 | **Total** | **60 min** | | |
 
 **Key Reminders:**
 - **Always validate JSON with JSONLint**
-- Customize style.json to YOUR preferences
+- Customize `style.json` to YOUR preferences
 - Write meaningful commit messages
 
 **Next Week:** Quality Rubrics + LLM-as-Judge
@@ -832,17 +832,17 @@ In Exercise 3.3, you'll practice making meaningful commits."
 
 Exercise 3.1 is JSON practice - 15 minutes. Create a valid JSON file using all the data types we covered. Validate with JSONLint.
 
-Exercise 3.2 is your style.json - 25 minutes. This is personal. Customize every value to YOUR preferences. Test it in a prompt.
+Exercise 3.2 is your `style.json` - 25 minutes. This is personal. Customize every value to YOUR preferences. Test it in a prompt.
 
 Exercise 3.3 is GitHub practice - 20 minutes. Upload your files, make multiple commits, practice meaningful commit messages.
 
 [Point to reminders]
 
-Always validate JSON. Customize your style.json - don't just copy the template. Write commit messages that explain what you changed.
+Always validate JSON. Customize your `style.json` - don't just copy the template. Write commit messages that explain what you changed.
 
 [Point to next week]
 
-Next week we tackle quality - how to evaluate AI outputs systematically. You'll create quality rubrics and learn the LLM-as-judge pattern. Your style.json becomes part of how we evaluate outputs.
+Next week we tackle quality - how to evaluate AI outputs systematically. You'll create quality rubrics and learn the LLM-as-judge pattern. Your `style.json` becomes part of how we evaluate outputs.
 
 Questions before we wrap?
 

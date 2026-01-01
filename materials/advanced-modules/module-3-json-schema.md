@@ -8,7 +8,7 @@
 
 - Block 2 Certification: AI Workflow Engineer (minimum)
 - Understanding of JSON fundamentals from Block 1
-- Experience with style.json and data structures
+- Experience with `style.json` and data structures
 - Working workflows using JSON data
 
 -----
@@ -37,7 +37,7 @@
 ### **Entry Criteria**
 
 - [ ] Comfortable reading and writing JSON
-- [ ] style.json created and used
+- [ ] `style.json` created and used
 - [ ] Workflows handling JSON data
 - [ ] Understanding of data types
 
@@ -307,7 +307,7 @@
 
 **Exercise 1.2: Complex Schema Design (20 minutes)**
 
-*Create schema for your style.json*
+*Create schema for your `style.json`*
 
 ```json
 {
@@ -397,7 +397,7 @@
 ```
 
 **Tasks:**
-1. Validate your existing style.json against this schema
+1. Validate your existing `style.json` against this schema
 2. Fix any validation errors
 3. Extend schema for your specific needs
 

@@ -42,7 +42,7 @@
 | Test demo | Prepare sample content and run LLM-as-judge evaluation | ☐ |
 | Create rubric | Have a sample quality rubric ready for demonstration | ☐ |
 | Prepare backup | Create screenshots of evaluation output | ☐ |
-| Review previous | Check Week 3 exercise submissions, especially style.json files | ☐ |
+| Review previous | Check Week 3 exercise submissions, especially `style.json` files | ☐ |
 
 ### 1 Day Before
 
@@ -52,7 +52,7 @@
 | Load presentation | Have slides ready and tested | ☐ |
 | Review timing | Practice LLM-as-judge demo - ensure it fits in time | ☐ |
 | Prepare materials | Sample content ready, evaluation prompt prepared | ☐ |
-| Check participant progress | Review who completed Week 3, especially style.json | ☐ |
+| Check participant progress | Review who completed Week 3, especially `style.json` | ☐ |
 
 ### 15 Minutes Before
 
@@ -60,7 +60,7 @@
 |------|---------|-------|
 | Open all tabs | Presentation, AI platform, sample rubric | ☐ |
 | Test share | Verify screen sharing works | ☐ |
-| Welcome early arrivals | Ask how style.json testing went | ☐ |
+| Welcome early arrivals | Ask how `style.json` testing went | ☐ |
 | Start recording | If session is recorded | ☐ |
 
 ---
@@ -108,7 +108,7 @@
 
 **Key Actions:**
 1. Welcome participants back
-2. Quick recap of Week 3: JSON configuration, style.json, GitHub
+2. Quick recap of Week 3: JSON configuration, `style.json`, GitHub
 3. Preview today's shift to quality evaluation
 4. Set expectations: systematic quality improvement
 
@@ -116,7 +116,7 @@
 > "Welcome to Week 4. Last week we built infrastructure - JSON for configuration and GitHub for version control. Now we're adding quality systems. Today you'll learn how to evaluate AI outputs systematically and, here's the key insight, use AI itself to do the evaluation."
 
 **Engagement Opportunity:**
-> "Quick question: When you tested your style.json this week, how did you know if the AI actually followed your preferences? How did you evaluate the output?"
+> "Quick question: When you tested your `style.json` this week, how did you know if the AI actually followed your preferences? How did you evaluate the output?"
 
 [Wait for responses - leads into the quality problem]
 
@@ -445,7 +445,7 @@ A: Quality rubrics are required capstone deliverables. You'll need at least 2 ru
 
 **Builds On:**
 - Week 1-2: Prompting techniques (what we're evaluating)
-- Week 3: style.json (can be referenced in rubrics)
+- Week 3: `style.json` (can be referenced in rubrics)
 - All previous: Content to evaluate
 
 **Sets Up:**

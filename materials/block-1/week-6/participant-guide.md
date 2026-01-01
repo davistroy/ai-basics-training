@@ -501,7 +501,7 @@ If no template exists for your need:
 ### Next Week Preview: Week 7 - Block 1 Capstone Preparation
 
 **Focus:**
-Completing all capstone components, finalizing style.json, task priority matrix.
+Completing all capstone components, finalizing `style.json`, task priority matrix.
 
 **How It Builds on This Week:**
 Your organized repository IS a capstone requirement. The structure you create this week is evaluated.

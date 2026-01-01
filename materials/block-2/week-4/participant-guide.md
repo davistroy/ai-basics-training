@@ -181,7 +181,7 @@ Parallel:    Fetch A + B (2s) → Process (5s) = 7s total
 ```
 
 **Caching Candidates:**
-- style.json and reference documents
+- `style.json` and reference documents
 - Static templates
 - Frequently accessed data
 - Previous execution results (where appropriate)

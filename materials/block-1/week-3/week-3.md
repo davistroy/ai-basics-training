@@ -15,9 +15,9 @@
 ## Exit Criteria
 
 - [ ] Can read and write basic JSON structures
-- [ ] Understands JSON for AI configuration (style.json concept)
+- [ ] Understands JSON for AI configuration (`style.json` concept)
 - [ ] Can perform basic GitHub operations (commit, push, pull)
-- [ ] First style.json file created
+- [ ] First `style.json` file created
 
 ---
 
@@ -41,7 +41,7 @@
 - Standard data format (used everywhere)
 - Easy to version control
 
-**Preview: style.json**
+**Preview: `style.json`**
 ```json
 {
   "voice": "professional but approachable",
@@ -101,9 +101,9 @@
 
 **Live demo:** Building a JSON configuration step by step
 
-### Segment 3: Creating Your style.json (10 min)
+### Segment 3: Creating Your `style.json` (10 min)
 
-**The style.json concept:**
+**The `style.json` concept:**
 - Central file defining your writing preferences
 - Reference in prompts for consistency
 - Evolves as you refine your style
@@ -212,7 +212,7 @@ Bad: "Changes"
 
 ---
 
-### Exercise 3.2: Create Your style.json (25 minutes)
+### Exercise 3.2: Create Your `style.json` (25 minutes)
 
 *Define your personal writing style*
 
@@ -257,7 +257,7 @@ Bad: "Changes"
 ```
 
 3. Validate your JSON
-4. Test it: Create a prompt that references your style.json and generate content
+4. Test it: Create a prompt that references your `style.json` and generate content
 5. Refine based on results
 
 **Deliverable:** `style.json` + test prompt + AI response showing style application
@@ -289,15 +289,15 @@ Bad: "Changes"
    - Notice the "diff" view (red = removed, green = added)
 
 4. **Document your repository:**
-   - Edit your README.md
+   - Edit your `README.md`
    - Add a description of your prompt library
    - List what files are included
    - Commit the change
 
 **Deliverable:**
-- style.json in your GitHub repository
+- `style.json` in your GitHub repository
 - At least 3 commits with meaningful messages
-- Updated README.md
+- Updated `README.md`
 
 **Optional (if comfortable with command line):**
 - Install [GitHub Desktop](https://desktop.github.com/) or Git
@@ -309,7 +309,7 @@ Bad: "Changes"
 ## Key Takeaways
 
 1. **JSON provides structured configuration** that AI can parse and follow
-2. **style.json creates consistency** across all your AI-generated content
+2. **`style.json` creates consistency** across all your AI-generated content
 3. **Version control (GitHub) tracks evolution** of your prompts and configurations
 4. **Meaningful commit messages** make it easy to understand changes over time
 5. **Validation is essential** - always check JSON syntax before using
@@ -319,7 +319,7 @@ Bad: "Changes"
 ## Preparation for Week 4
 
 - Complete all Week 3 exercises
-- Use your style.json in at least 5 prompts this week
+- Use your `style.json` in at least 5 prompts this week
 - Note: Does the AI follow your style guide? Where does it deviate?
 - Next week: Quality rubrics and workflow design
 

@@ -16,7 +16,7 @@
 | **Difficulty Level** | Medium |
 | **Prep Time Required** | 30 minutes |
 | **Demo Required** | Yes - Building JSON step-by-step and GitHub commit workflow |
-| **Tech Setup Needed** | Text editor, JSONLint.com open, GitHub account, sample style.json |
+| **Tech Setup Needed** | Text editor, JSONLint.com open, GitHub account, sample `style.json` |
 | **Common Challenges** | JSON syntax errors (trailing commas, single quotes), GitHub terminology confusion |
 
 ---
@@ -39,7 +39,7 @@
 | Task | Details | Done? |
 |------|---------|-------|
 | Review content | Read through all Week 3 materials | ☐ |
-| Test demo | Practice building style.json live, common errors to show | ☐ |
+| Test demo | Practice building `style.json` live, common errors to show | ☐ |
 | Check resources | Verify JSONLint.com, JSON.org links work | ☐ |
 | Prepare backup | Create screenshots of JSON validation and GitHub workflow | ☐ |
 | Review previous | Check Week 2 exercise submissions and note common issues | ☐ |
@@ -74,7 +74,7 @@
 | 0:00 | 5 min | Opening | Recap Week 2, preview JSON journey | Quick context |
 | 0:05 | 8 min | Segment 1 | Why JSON? Configuration concept | Motivation |
 | 0:13 | 15 min | Segment 2 | JSON Syntax Essentials | Core technical content |
-| 0:28 | 10 min | Segment 3 | Creating style.json | Practical application |
+| 0:28 | 10 min | Segment 3 | Creating `style.json` | Practical application |
 | 0:38 | 7 min | Segment 4 | GitHub Basics | Version control intro |
 | **Total** | **45 min** | | | |
 
@@ -137,12 +137,12 @@
 
 **Key Point 2: Configuration Files as Solution**
 - Main message: Store preferences in a file, reference every time
-- Demonstration: Preview what style.json enables
+- Demonstration: Preview what `style.json` enables
 - Participant relevance: "Your voice" captured and applied consistently
 
 **Key Point 3: Why JSON Specifically**
 - Main message: Human-readable, AI-parseable, industry standard
-- Practice preview: Exercise 3.2 creates personal style.json
+- Practice preview: Exercise 3.2 creates personal `style.json`
 
 #### Facilitation Notes
 
@@ -213,26 +213,26 @@ If demo fails:
 This is dense technical content. Keep it practical and moving.
 
 **Transition to Segment 3:**
-> "Now you know the syntax. Let's apply it to something immediately useful - your personal style.json file."
+> "Now you know the syntax. Let's apply it to something immediately useful - your personal `style.json` file."
 
 ---
 
-### Segment 3: Creating style.json (10 minutes)
+### Segment 3: Creating `style.json` (10 minutes)
 
-**Learning Objective:** Create a style.json file capturing personal preferences
+**Learning Objective:** Create a `style.json` file capturing personal preferences
 
 **Slides:** 11-13
 
 #### Content Delivery
 
-**Key Point 1: What Goes in style.json**
+**Key Point 1: What Goes in `style.json`**
 - Main message: Voice, writing preferences, things to avoid
 - Framework/Pattern: Show the template structure
 - Customization: This is personal - no single right answer
 
-**Key Point 2: Using style.json in Prompts**
+**Key Point 2: Using `style.json` in Prompts**
 - Main message: Reference the file, AI follows the configuration
-- Example walkthrough: Show a prompt that incorporates style.json
+- Example walkthrough: Show a prompt that incorporates `style.json`
 - Practical benefit: Consistent voice across all outputs
 
 **Key Point 3: Evolving Your Style**
@@ -245,7 +245,7 @@ This is dense technical content. Keep it practical and moving.
 
 **Setup Required:**
 - Empty JSON file ready to populate
-- style.json template on screen
+- `style.json` template on screen
 
 **Demo Steps:**
 1. Start with the template structure
@@ -309,14 +309,14 @@ Commit messages - why they matter
 > "Your homework includes three exercises totaling about 60 minutes.
 >
 > Exercise 3.1 is JSON practice - 15 minutes. Get comfortable with the syntax.
-> Exercise 3.2 is creating your style.json - 25 minutes. This is your personal voice configuration.
+> Exercise 3.2 is creating your `style.json` - 25 minutes. This is your personal voice configuration.
 > Exercise 3.3 is GitHub practice - 20 minutes. Uploading files, making commits, using version control.
 >
 > Important: Validate all JSON with JSONLint before submitting. Invalid JSON breaks everything."
 
 #### Next Week Preview
 
-> "Next week we're tackling quality - how to evaluate AI outputs systematically. You'll create quality rubrics and learn the LLM-as-judge pattern. Your style.json from this week becomes part of how we evaluate outputs."
+> "Next week we're tackling quality - how to evaluate AI outputs systematically. You'll create quality rubrics and learn the LLM-as-judge pattern. Your `style.json` from this week becomes part of how we evaluate outputs."
 
 ---
 
@@ -330,7 +330,7 @@ A: JSON is structured data that can be parsed precisely. It also becomes reusabl
 **Q: Does the AI actually read JSON, or do I need to convert it?**
 A: AI can read JSON directly. You paste it into your prompt and the AI parses the structure. That's one reason we use it - human-readable AND machine-readable.
 
-**Q: How detailed should my style.json be?**
+**Q: How detailed should my `style.json` be?**
 A: Start simple. Add detail only when outputs aren't matching your preferences. You can always expand it. Better to start minimal and grow.
 
 ### Technical Questions
@@ -429,16 +429,16 @@ A: Week 5 introduces collaboration features. For now, focus on your personal rep
 **How to Verify Completion:**
 - Validate JSON files with JSONLint
 - Check GitHub commit history for meaningful messages
-- Verify style.json has personalized content (not just template)
+- Verify `style.json` has personalized content (not just template)
 
 **Red flags indicating struggle:**
 - Invalid JSON (validation errors)
-- style.json that's just the template without customization
+- `style.json` that's just the template without customization
 - No new GitHub commits
 
 **Intervention Thresholds:**
 - Invalid JSON: Must fix before Week 4
-- No style.json: Core requirement for Block 1
+- No `style.json`: Core requirement for Block 1
 - GitHub issues: Offer 1:1 support
 
 ---
@@ -448,7 +448,7 @@ A: Week 5 introduces collaboration features. For now, focus on your personal rep
 ### What Makes This Week Unique
 
 - **Technical pivot**: More structured data, less creative prompting
-- **Foundation setting**: style.json becomes capstone component
+- **Foundation setting**: `style.json` becomes capstone component
 - **GitHub deepening**: From storage to version control
 - **Two distinct topics**: JSON and GitHub - different skill sets
 
@@ -456,13 +456,13 @@ A: Week 5 introduces collaboration features. For now, focus on your personal rep
 
 **Builds On:**
 - Week 1: Markdown formatting (JSON is structured data like Markdown is structured text)
-- Week 2: Preferences from role prompting inform style.json content
+- Week 2: Preferences from role prompting inform `style.json` content
 - Previous GitHub setup from Week 1
 
 **Sets Up:**
-- Week 4: Quality rubrics reference style.json for evaluation
+- Week 4: Quality rubrics reference `style.json` for evaluation
 - Week 5: GitHub collaboration builds on basics
-- Capstone: style.json is required deliverable
+- Capstone: `style.json` is required deliverable
 
 ### Known Issues
 
@@ -480,7 +480,7 @@ A: Week 5 introduces collaboration features. For now, focus on your personal rep
 
 **Check for Understanding:**
 - Can participants identify valid vs. invalid JSON?
-- Do they understand why style.json helps with consistency?
+- Do they understand why `style.json` helps with consistency?
 - Are they comfortable with basic GitHub terminology?
 
 **Observable behavior indicating understanding:**
@@ -497,19 +497,19 @@ A: Week 5 introduces collaboration features. For now, focus on your personal rep
 
 **Exercise Quality Indicators:**
 - Exercise 3.1: Valid JSON with all required data types
-- Exercise 3.2: Personalized style.json (not just template)
+- Exercise 3.2: Personalized `style.json` (not just template)
 - Exercise 3.3: Meaningful commit messages
 
 **Common Issues to Flag:**
 - JSON validation errors (must fix)
-- style.json that doesn't reflect actual preferences
+- `style.json` that doesn't reflect actual preferences
 - Single commit with "updates" message
 
 ### Connecting to Capstone
 
 **Capstone Relevance:**
 This week's work contributes to the capstone by:
-- style.json is required capstone component
+- `style.json` is required capstone component
 - GitHub practices establish repository quality
 - JSON skills used for any structured data
 
@@ -543,11 +543,11 @@ This week's work contributes to the capstone by:
 
 1. "JSON is structured data - like a digital form with questions and answers"
 2. "Always validate JSON before using - one error breaks everything"
-3. "style.json is your voice captured in code - reference it every time for consistency"
+3. "`style.json` is your voice captured in code - reference it every time for consistency"
 
 ### If You Only Have Time For One Thing
 
-JSON syntax and validation. style.json creation can be homework-driven, but understanding the syntax is essential.
+JSON syntax and validation. `style.json` creation can be homework-driven, but understanding the syntax is essential.
 
 ### Memorable Analogies
 
@@ -556,7 +556,7 @@ JSON syntax and validation. style.json creation can be homework-driven, but unde
 | JSON structure | "A form with questions (keys) and answers (values)" | When introducing JSON |
 | Trailing commas | "Like having an extra 'and' at the end of a list" | When showing common errors |
 | Git commits | "Like saving a video game - you can go back to any save point" | When explaining version control |
-| style.json | "Your personal brand guide in code" | When explaining the purpose |
+| `style.json` | "Your personal brand guide in code" | When explaining the purpose |
 
 ---
 

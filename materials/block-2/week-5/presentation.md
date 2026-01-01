@@ -25,7 +25,7 @@
 - [ ] At least one MCP server connected and functional
 - [ ] Workflow integrated with MCP capability
 - [ ] MCP security considerations understood
-- [ ] GitHub MCP connection working
+- [ ] GitHub MCP server working
 
 **Presentation Structure:**
 1. Opening & Recap (3 min) - Slides 1-3
@@ -51,7 +51,7 @@
 - [Instructor Name]
 - [Date]
 
-**Graphic:** Clean title slide with Block 2 orange theme. MCP connection/integration icon.
+**Graphic:** Clean title slide with Block 2 orange theme. MCP server icon.
 
 **SPEAKER NOTES:**
 
@@ -126,7 +126,7 @@ You will be able to:
 4. **Apply MCP to real generation**
    - No more copy-paste
 
-**Graphic:** Checklist with MCP connection icons
+**Graphic:** Checklist with MCP server icons
 
 **SPEAKER NOTES:**
 
@@ -246,7 +246,7 @@ Resources are what servers PROVIDE - file contents, repository data.
 
 [Point to connection]
 
-You configure it once. Then you just chat naturally. 'Read my style.json' - Claude uses the filesystem tool automatically."
+You configure it once. Then you just chat naturally. 'Read my `style.json`' - Claude uses the filesystem tool automatically."
 
 [Transition]
 
@@ -459,7 +459,7 @@ Let me add this to my config..."
 
 4. **Test with prompts:**
    - "What files are in my prompts directory?"
-   - "Read my style.json file"
+   - "Read my `style.json` file"
 
 **Graphic:** Test workflow diagram
 
@@ -544,10 +544,10 @@ Now let's add GitHub access."
 
 **Use Cases:**
 - "Read my proposal template from [repo]/templates/"
-- "Get my style.json from the resources folder"
+- "Get my `style.json` from the resources folder"
 - "List what templates I have available"
 
-**Graphic:** GitHub logo with MCP connection arrows
+**Graphic:** GitHub logo with MCP server arrows
 
 **SPEAKER NOTES:**
 
@@ -675,7 +675,7 @@ After saving, restart Claude Desktop, and test with: 'List my repositories' or '
 
 **Test Prompts:**
 - "List my repositories"
-- "Read [repo]/README.md"
+- "Read [repo]/`README.md`"
 - "Show my templates folder from [repo]"
 
 **Security Reminder:**

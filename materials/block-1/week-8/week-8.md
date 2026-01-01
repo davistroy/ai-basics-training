@@ -15,7 +15,7 @@ Week 8 is dedicated to final submission and self-evaluation. There is no live wo
 
 - [ ] All Week 7 preparation completed
 - [ ] 5+ documented templates in repository
-- [ ] style.json finalized
+- [ ] `style.json` finalized
 - [ ] Quality rubrics created
 - [ ] Task priority matrix complete
 - [ ] Repository organized and documented
@@ -80,15 +80,15 @@ Week 8 is dedicated to final submission and self-evaluation. There is no live wo
 
 ---
 
-#### Criterion 3: style.json Sophistication (5 points)
+#### Criterion 3: `style.json` Sophistication (5 points)
 
 | Score | Description |
 |-------|-------------|
-| **5 - Excellent** | Comprehensive style.json covering voice, writing preferences, formatting, and domain-specific rules. Evidence of testing and refinement. Usage documentation included. |
-| **4 - Good** | Good style.json with most sections complete. Some testing evident. |
-| **3 - Adequate** | Basic style.json present. Core preferences defined. |
-| **2 - Poor** | Minimal style.json. Missing key sections. |
-| **1 - Missing** | No style.json or non-functional. |
+| **5 - Excellent** | Comprehensive `style.json` covering voice, writing preferences, formatting, and domain-specific rules. Evidence of testing and refinement. Usage documentation included. |
+| **4 - Good** | Good `style.json` with most sections complete. Some testing evident. |
+| **3 - Adequate** | Basic `style.json` present. Core preferences defined. |
+| **2 - Poor** | Minimal `style.json`. Missing key sections. |
+| **1 - Missing** | No `style.json` or non-functional. |
 
 ---
 
@@ -134,7 +134,7 @@ Week 8 is dedicated to final submission and self-evaluation. There is no live wo
 |-----------|------------------|-------|
 | 1. Template Quality & Documentation | | |
 | 2. Variety & Coverage | | |
-| 3. style.json Sophistication | | |
+| 3. `style.json` Sophistication | | |
 | 4. Quality System Implementation | | |
 | 5. Repository Organization | | |
 | 6. Practical Application | | |
@@ -181,7 +181,7 @@ Answer these to gain maximum benefit from Block 1:
 ### What You've Achieved (Block 1)
 - Personal prompt library with documented templates
 - Quality systems for evaluating AI outputs
-- style.json for consistent outputs
+- `style.json` for consistent outputs
 - GitHub repository for version control
 - Task priority matrix for focusing effort
 
@@ -196,7 +196,7 @@ Answer these to gain maximum benefit from Block 1:
 - Block 1 certification (18+ points)
 - Personal Prompt Library complete
 - 3+ documented templates
-- style.json created
+- `style.json` created
 - GitHub repository organized
 
 ### Enrollment
@@ -227,9 +227,9 @@ Upon successful completion of Block 1 Capstone (18+ points):
 Before submitting, verify:
 
 - [ ] GitHub repository is accessible (public or instructor added)
-- [ ] README.md is complete and helpful
+- [ ] `README.md` is complete and helpful
 - [ ] 5+ templates fully documented
-- [ ] style.json is valid and documented
+- [ ] `style.json` is valid and documented
 - [ ] 2+ quality rubrics created
 - [ ] Task priority matrix complete
 - [ ] Template index is accurate

@@ -7,7 +7,7 @@
 ## **Prerequisites**
 
 - Block 3 Certification: AI Automation Architect
-- Functional agent system with tool access and MCP integration
+- Functional agent system with tool access and Model Context Protocol (MCP) servers configured
 - Basic security awareness (organizational security training completed)
 - Understanding of data classification principles
 - Experience with client-facing AI deployments or consulting

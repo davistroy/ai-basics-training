@@ -468,7 +468,7 @@ You've completed Block 2: AI Workflow Engineering.
 You started with individual AI interactions. Now you have:
 - 3 working, integrated workflows
 - Quality systems with automated evaluation
-- MCP integration for tool access
+- MCP servers for tool access
 - Performance monitoring and optimization
 - A documented, reusable toolkit
 - Measured business impact

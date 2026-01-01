@@ -1,3 +1,10 @@
+<!--
+TEMPLATE: Weekly PowerPoint Presentation
+PURPOSE: Standardized structure for creating weekly session PowerPoint presentations
+USAGE: Copy this file and replace [BRACKETED] placeholders with your content.
+LAST UPDATED: 2026-01-01
+-->
+
 # Weekly PowerPoint Presentation Template
 
 **AI Practitioner Training Curriculum**

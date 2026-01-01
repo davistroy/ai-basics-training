@@ -70,7 +70,7 @@ Based on your evaluation:
 
 ---
 
-## style.json Essential Fields
+## `style.json` Essential Fields
 
 ```json
 {

@@ -672,7 +672,7 @@ ai-prompt-library/
 
 [Walk through structure]
 
-Root has your main README and style.json.
+Root has your main README and `style.json`.
 
 Templates folder contains subfolders by type.
 

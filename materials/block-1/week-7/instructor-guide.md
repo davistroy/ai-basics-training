@@ -41,7 +41,7 @@
 | Review content | Read through all Week 7 materials | ☐ |
 | Prepare capstone checklist | Have detailed requirements ready | ☐ |
 | Check participant progress | Identify who needs support | ☐ |
-| Prepare examples | Sample task priority matrix, style.json | ☐ |
+| Prepare examples | Sample task priority matrix, `style.json` | ☐ |
 | Review rubric | Know the 6 evaluation dimensions | ☐ |
 
 ### 1 Day Before
@@ -66,7 +66,7 @@
 | 0:05 | 10 min | Segment 1 | Capstone Requirements Review | What's needed |
 | 0:15 | 10 min | Segment 2 | Template Completion Checklist | Quality bar |
 | 0:25 | 12 min | Segment 3 | Task Priority Matrix | Strategic thinking |
-| 0:37 | 8 min | Segment 4 | style.json + Final Prep | Completion + homework |
+| 0:37 | 8 min | Segment 4 | `style.json` + Final Prep | Completion + homework |
 | **Total** | **45 min** | | | |
 
 ---
@@ -91,14 +91,14 @@
 **Key Point 1: What's Required**
 - Organized GitHub Repository
 - 5+ Prompt Templates (documented, tested)
-- style.json (personal style configuration)
+- `style.json` (personal style configuration)
 - Quality Rubrics (at least 2)
 - Task Priority Matrix
 
 **Key Point 2: Evaluation Criteria (6 dimensions)**
 1. Template Quality & Documentation
 2. Variety & Coverage
-3. style.json Sophistication
+3. `style.json` Sophistication
 4. Quality System Implementation
 5. Repository Organization
 6. Practical Application
@@ -163,7 +163,7 @@
 
 ---
 
-### Segment 4: style.json Finalization + Close (8 minutes)
+### Segment 4: `style.json` Finalization + Close (8 minutes)
 
 **Key Point 1: Review Requirements**
 - Voice configuration
@@ -181,7 +181,7 @@
 > "Four exercises this week - all focused on capstone preparation:
 > - Exercise 7.1: Complete template documentation
 > - Exercise 7.2: Create task priority matrix
-> - Exercise 7.3: Finalize style.json
+> - Exercise 7.3: Finalize `style.json`
 > - Exercise 7.4: Repository final review
 >
 > Week 8 is self-evaluation. No live workshop. Submit your capstone and complete the evaluation form."
@@ -220,7 +220,7 @@ A: It's one of six criteria. It shows strategic thinking about AI automation. A 
 - Missing templates (fewer than 5)
 - Templates without documentation
 - No quality rubrics
-- style.json that's just the template
+- `style.json` that's just the template
 - Disorganized repository
 
 ---
@@ -238,7 +238,7 @@ A: It's one of six criteria. It shows strategic thinking about AI automation. A 
 
 **Builds On:**
 - All previous weeks - this is integration
-- Week 3: style.json refinement
+- Week 3: `style.json` refinement
 - Week 4: Quality rubrics
 - Week 6: Organization
 

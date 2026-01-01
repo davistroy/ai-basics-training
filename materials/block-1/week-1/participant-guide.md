@@ -568,7 +568,7 @@ Repeat for:
 4. Click "Commit changes"
 
 **Step 5: Update the main README**
-Edit the README.md file to describe your library:
+Edit the `README.md` file to describe your library:
 
 ```markdown
 # My AI Prompt Library
@@ -584,7 +584,7 @@ during the AI Prompting Mastery training program.
 
 ## Week 1 Files
 - `markdown-practice.md` - Markdown syntax practice
-- `first-structured-prompt.md` - First structured prompt using ACCE framework
+- `first-structured-prompt.md` - First structured prompt using ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework
 
 ## How to Use
 [Will be developed as library grows]
@@ -728,7 +728,7 @@ Before moving to next week, confirm you can:
 | # | Skill | Demonstrated By | Done? |
 |---|-------|-----------------|-------|
 | 1 | Write valid Markdown with all essential elements | Exercise 1.1 file renders correctly | ☐ |
-| 2 | Structure prompts using ACCE framework | Exercise 1.2 uses all four sections | ☐ |
+| 2 | Structure prompts using ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework | Exercise 1.2 uses all four sections | ☐ |
 | 3 | Use GitHub for file storage and version control | Repository exists with files uploaded | ☐ |
 | 4 | Explain why structure improves AI outputs | Your analysis in Exercise 1.2 | ☐ |
 

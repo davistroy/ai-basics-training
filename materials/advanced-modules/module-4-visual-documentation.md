@@ -353,7 +353,7 @@ sequenceDiagram
 sequenceDiagram
     participant O as Orchestrator
     participant A as Agent
-    participant T as Tool (MCP)
+    participant T as Tool (Model Context Protocol)
     participant E as Error Handler
 
     O->>A: Execute task

@@ -29,7 +29,7 @@ By the end of this week, you will be able to:
 |---|-----------|--------------|
 | 1 | Complete all capstone components to requirements | Exercise 7.1 |
 | 2 | Create a task priority matrix for AI automation | Exercise 7.2 |
-| 3 | Finalize and document style.json | Exercise 7.3 |
+| 3 | Finalize and document `style.json` | Exercise 7.3 |
 | 4 | Perform comprehensive repository review | Exercise 7.4 |
 
 ---
@@ -40,7 +40,7 @@ Before starting this week, confirm you have completed:
 
 - [ ] Week 6 exercises (taxonomy, reorganization, index)
 - [ ] At least 5 templates with some documentation
-- [ ] style.json created
+- [ ] `style.json` created
 - [ ] Quality rubrics created (at least 1)
 - [ ] Organized repository structure
 
@@ -59,7 +59,7 @@ The capstone demonstrates your mastery of AI prompting through a personal prompt
 |-----------|-------------|--------------|
 | GitHub Repository | Organized, documented | ☐ |
 | Prompt Templates | 5+ documented, tested | ☐ |
-| style.json | Complete, tested | ☐ |
+| `style.json` | Complete, tested | ☐ |
 | Quality Rubrics | 2+ with specific criteria | ☐ |
 | Task Priority Matrix | Analysis of opportunities | ☐ |
 
@@ -67,7 +67,7 @@ The capstone demonstrates your mastery of AI prompting through a personal prompt
 
 1. **Template Quality & Documentation** - Are templates complete?
 2. **Variety & Coverage** - Do templates cover different use cases?
-3. **style.json Sophistication** - Is it comprehensive and tested?
+3. **`style.json` Sophistication** - Is it comprehensive and tested?
 4. **Quality System Implementation** - Are rubrics specific and linked?
 5. **Repository Organization** - Can someone find things easily?
 6. **Practical Application** - Is there evidence of real use?
@@ -161,7 +161,7 @@ Rate tasks on two dimensions:
 
 ---
 
-### Concept 4: style.json Completion
+### Concept 4: `style.json` Completion
 
 **Definition:**
 Your finalized personal voice configuration that ensures consistent AI outputs.
@@ -203,7 +203,7 @@ Your finalized personal voice configuration that ensures consistent AI outputs.
 ```
 
 **Testing Requirement:**
-Use style.json in at least 5 prompts and verify AI follows the preferences.
+Use `style.json` in at least 5 prompts and verify AI follows the preferences.
 
 ---
 
@@ -233,7 +233,7 @@ Use style.json in at least 5 prompts and verify AI follows the preferences.
 - Identifies Block 2 candidates
 - Key takeaway: Strategic thinking about AI automation
 
-**Segment 4: style.json Finalization**
+**Segment 4: `style.json` Finalization**
 - Complete all sections
 - Test with multiple prompts
 - Document usage guide
@@ -377,7 +377,7 @@ Think through a typical week:
 
 ---
 
-### Exercise 7.3: Finalize style.json
+### Exercise 7.3: Finalize `style.json`
 
 **Duration:** 15 minutes
 
@@ -388,7 +388,7 @@ Complete your style configuration and verify it works.
 
 #### Instructions
 
-**Step 1: Review current style.json**
+**Step 1: Review current `style.json`**
 Check against the complete structure template above.
 
 **Step 2: Fill any gaps**
@@ -398,7 +398,7 @@ Ensure all sections are complete with YOUR preferences.
 Use [JSONLint](https://jsonlint.com/) to verify valid syntax.
 
 **Step 4: Test with 3-5 prompts**
-Use style.json in prompts and verify AI follows your preferences.
+Use `style.json` in prompts and verify AI follows your preferences.
 
 **Step 5: Create usage documentation**
 
@@ -413,7 +413,7 @@ Include in prompts as:
 ```markdown
 Follow this style guide:
 <style>
-[Paste style.json]
+[Paste `style.json`]
 </style>
 ```
 
@@ -453,14 +453,14 @@ Comprehensive check that everything is ready for capstone evaluation.
 #### Instructions
 
 **Step 1: Structure check**
-- [ ] README.md is comprehensive
+- [ ] `README.md` is comprehensive
 - [ ] Template index is complete
 - [ ] All folders have README files
 - [ ] Naming conventions consistent
 
 **Step 2: Content check**
 - [ ] 5+ complete templates
-- [ ] style.json valid and documented
+- [ ] `style.json` valid and documented
 - [ ] 2+ quality rubrics created
 - [ ] Task priority matrix complete
 
@@ -530,7 +530,7 @@ Comprehensive check that everything is ready for capstone evaluation.
 | Repository | Organized, documented | ☐ |
 | README | Comprehensive overview | ☐ |
 | Templates | 5+ with full documentation | ☐ |
-| style.json | Complete, tested | ☐ |
+| `style.json` | Complete, tested | ☐ |
 | Rubrics | 2+ with specific criteria | ☐ |
 | Task Matrix | 10+ tasks analyzed | ☐ |
 | Index | All templates listed | ☐ |
@@ -552,7 +552,7 @@ Comprehensive check that everything is ready for capstone evaluation.
 |---|-------------|--------|-------|
 | 1 | 5+ complete templates | [Count] | ☐ |
 | 2 | 2+ quality rubrics | [Count] | ☐ |
-| 3 | style.json finalized | Complete/Partial | ☐ |
+| 3 | `style.json` finalized | Complete/Partial | ☐ |
 | 4 | Task matrix created | Yes/No | ☐ |
 | 5 | Repository organized | Yes/No | ☐ |
 | 6 | README comprehensive | Yes/No | ☐ |

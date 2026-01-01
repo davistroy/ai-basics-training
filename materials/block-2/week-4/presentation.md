@@ -393,7 +393,7 @@ This is why reducing context improves both cost AND quality."
 - Direct instructions for THIS step
 - Necessary context for THIS task
 - Examples (1-2, not 10)
-- style.json reference (summarized)
+- `style.json` reference (summarized)
 
 **The Question to Ask:**
 > "What is the MINIMUM context needed for this specific step?"
@@ -797,7 +797,7 @@ Parallel:   Step A + B (2s) → Step C (5s) = 7s
 If steps are independent, run them simultaneously.
 
 **Caching:**
-- Cache static content (style.json, templates)
+- Cache static content (`style.json`, templates)
 - Don't re-fetch what doesn't change
 - Most platforms support caching
 
@@ -820,7 +820,7 @@ Parallel processing: if two steps don't depend on each other, run them at the sa
 
 [Point to caching]
 
-Caching: your style.json doesn't change. Why fetch it every execution? Cache static content.
+Caching: your `style.json` doesn't change. Why fetch it every execution? Cache static content.
 
 [Point to model selection]
 
@@ -957,7 +957,7 @@ Share your optimization wins in the support channel. Good to learn from each oth
 **The Goal:**
 Claude reading your files, accessing your GitHub, connected to your tools.
 
-**Graphic:** MCP connection diagram
+**Graphic:** MCP server diagram
 
 **SPEAKER NOTES:**
 

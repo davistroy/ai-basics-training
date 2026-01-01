@@ -15,7 +15,7 @@ Week 8 is dedicated to final submission and self-evaluation. There is no live wo
 
 - [ ] 3 finalized workflows with documentation
 - [ ] Quality systems implemented
-- [ ] MCP integration functional
+- [ ] At least one MCP server functional
 - [ ] Impact report with real data
 - [ ] Capstone summary complete
 
@@ -222,7 +222,7 @@ Week 8 is dedicated to final submission and self-evaluation. There is no live wo
 ### What You've Achieved (Block 2)
 - 3 working, integrated workflows
 - Quality systems with automated evaluation
-- MCP integration for tool access
+- MCP servers for tool access
 - Performance monitoring and optimization
 - Documented, reusable toolkit
 

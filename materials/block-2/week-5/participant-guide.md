@@ -343,7 +343,7 @@ Add this configuration (replace path with YOUR path):
 In Claude Desktop, try these prompts:
 
 1. "What files are in my prompts directory?"
-2. "Read my style.json file" (or any file you know exists)
+2. "Read my `style.json` file" (or any file you know exists)
 3. "List all markdown files in my prompt library"
 
 **Step 6: Document Configuration (2 min)**
@@ -589,13 +589,13 @@ Follow the template structure exactly and apply the style guide throughout.
 
 Watch Claude's response:
 - Does it confirm reading the files via MCP?
-- Does the output match your style.json guidelines?
+- Does the output match your `style.json` guidelines?
 - Does it follow your template structure?
 
 **Step 3: Compare to Manual Approach (3 min)**
 
 Think about the manual alternative:
-- How long would it take to copy style.json and paste it?
+- How long would it take to copy `style.json` and paste it?
 - How long to copy the template?
 - What's the time difference?
 

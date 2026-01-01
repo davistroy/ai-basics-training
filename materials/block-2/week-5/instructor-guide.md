@@ -209,7 +209,7 @@
 2. Relaunch
 3. Check for MCP indicator (usually shows available tools)
 4. Test: "What files are in my prompts directory?"
-5. Test: "Read my style.json file"
+5. Test: "Read my `style.json` file"
 6. Show successful read
 
 **Demo Talking Points:**

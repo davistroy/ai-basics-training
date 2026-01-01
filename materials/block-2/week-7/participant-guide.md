@@ -172,7 +172,7 @@ For each workflow, verify:
 - [ ] Error handling implemented
 - [ ] Quality check integrated
 - [ ] Logging active
-- [ ] MCP integration (if applicable)
+- [ ] MCP server (if applicable)
 - [ ] Documentation complete
 
 **Workflow 2: [Name]**
@@ -180,7 +180,7 @@ For each workflow, verify:
 - [ ] Error handling implemented
 - [ ] Quality check integrated
 - [ ] Logging active
-- [ ] MCP integration (if applicable)
+- [ ] MCP server (if applicable)
 - [ ] Documentation complete
 
 **Workflow 3: [Name]**
@@ -188,7 +188,7 @@ For each workflow, verify:
 - [ ] Error handling implemented
 - [ ] Quality check integrated
 - [ ] Logging active
-- [ ] MCP integration (at least one workflow)
+- [ ] MCP server (at least one workflow)
 - [ ] Documentation complete
 
 **Part 2: Final Testing**
