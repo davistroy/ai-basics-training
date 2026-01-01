@@ -1,7 +1,7 @@
 # AI Practitioner Training Curriculum
 
-**Version:** 2.0
-**Last Updated:** 2025-12-31
+**Version:** 3.0
+**Last Updated:** 2026-01-01
 **Status:** Active
 
 ---
@@ -11,7 +11,7 @@
 This repository contains a comprehensive AI training curriculum designed for consulting professionals. The program transforms participants from ad-hoc AI users into skilled AI Automation Architects through a progressive three-block structure, with optional advanced modules for continued learning.
 
 **Core Program Duration:** 24 weeks (three 8-week blocks)
-**Advanced Modules:** 5 optional 2-week modules for Block 3 graduates
+**Advanced Modules:** 9 optional 2-week modules for Block 3 graduates
 **Weekly Time Commitment:** 1.75-2.25 hours (45 min live session + 60-90 min homework)
 **Delivery Format:** Live MS Teams workshops + self-paced exercises
 
@@ -38,6 +38,10 @@ The curriculum follows a progressive maturity model:
 | [JSON Schema & Data Validation](advanced-modules/module-3-json-schema.md) | Block 2+ | 2 weeks | Schema design, runtime validation |
 | [Visual Documentation with Mermaid](advanced-modules/module-4-visual-documentation.md) | Block 1+ | 2 weeks | Flowcharts, sequence diagrams, architecture docs |
 | [Advanced GitHub & DevOps](advanced-modules/module-5-github-devops.md) | Block 3 | 2 weeks | CI/CD pipelines, deployment strategies |
+| [Enterprise AI Architecture](advanced-modules/module-6-enterprise-architecture.md) | Block 3 | 2 weeks | Cloud platforms, deployment patterns, scaling |
+| [Enterprise AI Governance](advanced-modules/module-7-ai-governance.md) | Block 3 | 2 weeks | Risk frameworks, compliance, policies |
+| [RAG & Knowledge Systems](advanced-modules/module-8-rag-knowledge-systems.md) | Block 3 | 2 weeks | Vector databases, retrieval patterns, agent integration |
+| [AI Security Fundamentals](advanced-modules/module-9-ai-security.md) | Block 3 | 2 weeks | Threat landscape, prompt injection defense, security assessment |
 
 ---
 
@@ -56,6 +60,10 @@ The curriculum follows a progressive maturity model:
 - **[Module 3: JSON Schema & Data Validation](advanced-modules/module-3-json-schema.md)** - Schema design & validation
 - **[Module 4: Visual Documentation with Mermaid](advanced-modules/module-4-visual-documentation.md)** - Diagrams & architecture docs
 - **[Module 5: Advanced GitHub & DevOps](advanced-modules/module-5-github-devops.md)** - CI/CD pipelines
+- **[Module 6: Enterprise AI Architecture](advanced-modules/module-6-enterprise-architecture.md)** - Cloud & on-prem deployment
+- **[Module 7: Enterprise AI Governance](advanced-modules/module-7-ai-governance.md)** - Risk frameworks & compliance
+- **[Module 8: RAG & Knowledge Systems](advanced-modules/module-8-rag-knowledge-systems.md)** - Knowledge-enabled agents
+- **[Module 9: AI Security Fundamentals](advanced-modules/module-9-ai-security.md)** - Security assessment & hardening
 
 ### Supplementary Materials
 
@@ -150,6 +158,10 @@ After completing Block 3, participants can continue their learning with speciali
 | **JSON Schema & Validation** | Data contract design | Schema creation, runtime validation, error handling |
 | **Visual Documentation** | Technical diagramming | Mermaid flowcharts, sequence diagrams, architecture docs |
 | **GitHub & DevOps** | CI/CD for AI systems | GitHub Actions, deployment strategies, monitoring |
+| **Enterprise AI Architecture** | Cloud & on-prem deployment | AWS/Azure/GCP patterns, scaling, security architecture |
+| **Enterprise AI Governance** | Risk & compliance | NIST AI RMF, ISO 42001, policy frameworks, audit trails |
+| **RAG & Knowledge Systems** | Knowledge-enabled agents | Vector databases, embeddings, retrieval patterns, evaluation |
+| **AI Security** | Threat defense & assessment | Prompt injection, agent security, red teaming basics |
 
 Each module is 2 weeks with 45 min live sessions and 60-75 min homework per week.
 
@@ -212,7 +224,11 @@ Each week follows a consistent format:
 | Module 3: JSON Schema | 45 min | 60 min | 1.75 hrs | 3.5 hrs |
 | Module 4: Mermaid Docs | 45 min | 60 min | 1.75 hrs | 3.5 hrs |
 | Module 5: DevOps | 45 min | 60-75 min | 1.75-2.0 hrs | 3.5-4 hrs |
-| **All Modules** | | | | **18.5-19 hrs** |
+| Module 6: Enterprise Architecture | 45 min | 75 min | 2.0 hrs | 4 hrs |
+| Module 7: AI Governance | 45 min | 75 min | 2.0 hrs | 4 hrs |
+| Module 8: RAG & Knowledge | 45 min | 75 min | 2.0 hrs | 4 hrs |
+| Module 9: AI Security | 45 min | 75 min | 2.0 hrs | 4 hrs |
+| **All Modules** | | | | **35-36 hrs** |
 
 ---
 
@@ -332,12 +348,16 @@ ai-basics-training/
 │   └── block-2-to-3-checkpoint.md
 ├── feedback/                    # Cohort feedback collection
 │   └── cohort-feedback-template.md
-├── advanced-modules/            # Optional post-Block 3 learning
+├── advanced-modules/            # Optional post-Block 3 learning (9 modules)
 │   ├── module-1-orchestration-patterns.md
 │   ├── module-2-chaos-testing.md
 │   ├── module-3-json-schema.md
 │   ├── module-4-visual-documentation.md
-│   └── module-5-github-devops.md
+│   ├── module-5-github-devops.md
+│   ├── module-6-enterprise-architecture.md
+│   ├── module-7-ai-governance.md
+│   ├── module-8-rag-knowledge-systems.md
+│   └── module-9-ai-security.md
 ├── quick-reference/             # One-page reference cards
 │   ├── block-1-reference.md
 │   ├── block-2-reference.md
@@ -431,6 +451,7 @@ Each advanced module contains its own appendices with:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 3.0 | 2026-01-01 | Added 4 new advanced modules (Enterprise Architecture, AI Governance, RAG & Knowledge Systems, AI Security), weekly training materials (instructor guides, participant guides, presentations) |
 | 2.1 | 2025-12-31 | Implementation improvements (see [CHANGELOG](updates/CHANGELOG-2025-12-31.md)) |
 | 2.0 | 2025-12-31 | Added 5 advanced modules, Agent Memory Meta-Framework presentation, archive folder, updated structure |
 | 1.0 | 2025-01-01 | Initial curriculum release |
