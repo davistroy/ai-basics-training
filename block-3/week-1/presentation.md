@@ -1,0 +1,1103 @@
+# **POWERPOINT PRESENTATION: BLOCK 3 WEEK 1**
+## **Agent Fundamentals**
+
+**Block:** 3: AI Automation Architecture
+**Week Number:** 1
+**Session Duration:** 45 minutes
+**Delivery Format:** Live MS Teams workshop
+
+**Target Audience:** Block 2 graduates with functional workflows who want to build autonomous AI agents
+
+**Week Learning Objectives:** By the end of this session, participants will:
+1. Distinguish between agents and workflows and know when to use each
+2. Apply the Two-Agent Architecture Pattern to design reliable agent systems
+3. Identify the five core components of any agent
+4. Begin planning their capstone agent with clear criteria
+
+**Entry Criteria:** (What participants should have before this session)
+- [ ] Block 2 Capstone completed and approved
+- [ ] 3 working workflows from Block 2
+- [ ] MCP configuration functional
+- [ ] Pre-work: Reviewed Agent Memory Meta-Framework Presentation (slides 1-30)
+
+**Exit Criteria:** (What participants should be able to do after this session)
+- [ ] Explain the difference between agents and workflows
+- [ ] Describe the Two-Agent Architecture Pattern
+- [ ] List the five core components of an agent
+- [ ] Identify a candidate workflow for agent conversion
+
+**Presentation Structure:**
+1. Opening & Recap (3 min) - Slides 1-3
+2. Segment 1: Block 3 Overview + Agent Mindset (10 min) - Slides 4-7
+3. Segment 2: Agents vs. Workflows (12 min) - Slides 8-12
+4. Segment 3: Two-Agent Architecture Pattern (15 min) - Slides 13-19
+5. Segment 4: Planning Your Capstone (5 min) - Slides 20-21
+6. Homework Preview & Close (3 min) - Slides 22-24
+
+**Total Slides:** 24
+
+---
+
+## SLIDE 1: TITLE SLIDE
+
+**Title:** Block 3 Week 1: Agent Fundamentals
+
+**Subtitle:** From Workflows to Agents - The Automation Architecture Journey
+
+**Content:**
+- AI Practitioner Training Program
+- Block 3: AI Automation Architecture
+
+**Graphic:** Clean title slide with green theme (Block 3 color). Include program branding and visual of agent concept.
+
+**SPEAKER NOTES:**
+
+"[OPENING - Welcome]"
+
+"Welcome to Block 3: AI Automation Architecture! This is a major milestone. You've completed AI Prompting Mastery and AI Workflow Engineering. Now we're entering the final frontier - building autonomous AI agents.
+
+Today we're focusing on Agent Fundamentals - the critical concepts that will guide everything you build in this block.
+
+Quick check-in: Who reviewed the Agent Memory Meta-Framework presentation as pre-work? What concept stood out most to you?
+
+[Wait for 1-2 responses]
+
+Great. Let's build on those concepts today."
+
+[Transition: Click to next slide]
+
+---
+
+## SLIDE 2: WEEK OVERVIEW
+
+**Title:** This Week's Journey
+
+**Content:**
+
+| Time | Topic | Focus |
+|------|-------|-------|
+| 0-3 min | Opening | Welcome to Block 3 |
+| 3-13 min | Segment 1 | Block 3 Overview + Agent Mindset |
+| 13-25 min | Segment 2 | Agents vs. Workflows |
+| 25-40 min | Segment 3 | Two-Agent Architecture Pattern |
+| 40-45 min | Segment 4 | Planning Your Capstone |
+
+**Graphic:** Timeline showing session flow with green accent colors
+
+**SPEAKER NOTES:**
+
+"Here's what we'll cover today:
+
+First, we'll set the context for Block 3 - where you are in the maturity progression and what makes agent architecture different.
+
+Then, the critical distinction between agents and workflows. This is foundational - knowing when to use each.
+
+Our main topic is the Two-Agent Architecture Pattern - this is what makes agents reliable instead of chaotic.
+
+We'll close by starting to plan your capstone agent.
+
+[Pause]
+
+Any questions before we dive in?"
+
+[Transition]
+
+---
+
+## SLIDE 3: LEARNING OBJECTIVES
+
+**Title:** By the End of Today...
+
+**Content:**
+
+You will be able to:
+
+1. **Distinguish between agents and workflows**
+   - Know when each is appropriate for your tasks
+
+2. **Apply the Two-Agent Architecture Pattern**
+   - Design systems where "amnesiacs" can work effectively
+
+3. **Identify the five core components of any agent**
+   - Goal, Context, Tools, Reasoning, Output
+
+4. **Begin planning your capstone agent**
+   - Select a candidate and define initial scope
+
+**Graphic:** Checklist visual with green checkboxes
+
+**SPEAKER NOTES:**
+
+"These are our four objectives for today. By the time you leave this session, you'll be able to:
+
+[Read each objective, pausing briefly after each]
+
+Notice these are all ACTION-focused. This isn't just theory - you'll apply each of these in your homework exercises.
+
+[Point to first objective]
+
+This first one connects directly to your Block 2 work. You'll analyze your existing workflows to find agent candidates.
+
+Let's get started."
+
+[Transition: Click to Segment 1]
+
+---
+
+## SEGMENT 1: BLOCK 3 OVERVIEW + AGENT MINDSET
+### Duration: 10 minutes | Slides 4-7
+
+---
+
+## SLIDE 4: THE MATURITY PROGRESSION
+
+**Title:** Your AI Practitioner Journey
+
+**Content:**
+
+```
+Level 1: AI Prompting Mastery (Block 1) ✓
+         → Templated workflows, consistent prompts
+
+Level 2: AI Workflow Engineering (Block 2) ✓
+         → Complex workflows, quality gates, MCP integration
+
+Level 3: AI Automation Architecture (Block 3) ← YOU ARE HERE
+         → Autonomous agents, dynamic decisions, production systems
+```
+
+**Graphic:** Ascending staircase or pyramid showing three levels, with Level 3 highlighted in green
+
+**SPEAKER NOTES:**
+
+"[Hook - Create context]"
+
+"Look at where you are. Level 1 - you learned to write effective prompts and create templated workflows. Level 2 - you engineered complex workflows with quality gates and MCP integration.
+
+Now Level 3 - automation architecture. This is where AI becomes truly autonomous.
+
+[Point to graphic]
+
+Each level builds on the previous. Everything you learned still applies. But now we're adding a crucial capability: agents that make decisions, not just execute steps."
+
+[Transition]
+
+---
+
+## SLIDE 5: THE KEY SHIFT
+
+**Title:** The Key Shift in Block 3
+
+**Content:**
+
+**From:** Workflows that execute steps
+**To:** Agents that make decisions
+
+| Workflows | Agents |
+|-----------|--------|
+| You design the logic | AI determines next steps |
+| Predetermined paths | Dynamic decisions |
+| Fails on unexpected | Adapts to context |
+| Executes what you specify | Achieves goals you define |
+
+**Graphic:** Visual showing a linear workflow transforming into an adaptive decision tree
+
+**SPEAKER NOTES:**
+
+"This is the fundamental shift.
+
+[Point to Workflows column]
+
+Workflows execute what you specify. You design every path, every decision point, every outcome. They're powerful but rigid.
+
+[Point to Agents column]
+
+Agents achieve goals you define. They decide HOW to get there. They adapt when things don't go as expected.
+
+Think of it like giving directions. A workflow is turn-by-turn navigation - 'turn left, go 100 meters, turn right.' An agent is 'get to the restaurant' - it figures out the path.
+
+[Pause]
+
+But here's the catch: agents are expensive and complex. That's why Block 3 exists - to teach you WHEN agents make sense and HOW to build them reliably."
+
+[Transition]
+
+---
+
+## SLIDE 6: CONNECTION TO PRE-WORK
+
+**Title:** Building on the Foundation
+
+**Content:**
+
+**The presentation introduced:**
+- WHY agents fail (memory, reliability, complexity)
+- The Three Pillars of Domain Memory
+- The Daily Contractor Analogy
+
+**Block 3 teaches:**
+- HOW to build agents that succeed
+- The Three Pillars become your design framework
+- The analogy guides your architecture
+
+**Graphic:** Bridge visual connecting "Why Agents Fail" to "How Agents Succeed"
+
+**SPEAKER NOTES:**
+
+"Your pre-work laid the groundwork.
+
+The Agent Memory Meta-Framework presentation explained WHY most agents fail. Remember the key insight? Agents are 'unreliable amnesiacs.' They have no memory between sessions. They interpret 'done' differently each time.
+
+[Pause]
+
+Block 3 is the solution. We'll take those concepts - the Three Pillars of Domain Memory, the Daily Contractor Analogy - and turn them into practical architectures you can build.
+
+If you haven't reviewed the pre-work, I strongly recommend doing so before next week. Everything we build assumes that foundation."
+
+[Transition]
+
+---
+
+## SLIDE 7: CAPSTONE PREVIEW
+
+**Title:** Your Block 3 Capstone
+
+**Content:**
+
+**Automated Workflow Solution**
+- End-to-end autonomous agent demonstration
+- Production deployment documentation
+- Team rollout plan
+- ROI calculation with actual measured data
+
+**What you'll build over 8 weeks:**
+Weeks 1-4: Agent fundamentals and construction
+Weeks 5-6: Orchestration and optimization
+Week 7: Documentation and planning
+Week 8: Final submission
+
+**Graphic:** Roadmap showing the 8-week journey with milestones
+
+**SPEAKER NOTES:**
+
+"Here's where we're headed.
+
+Your Block 3 capstone is an Automated Workflow Solution - a real, working agent system that solves a meaningful problem.
+
+[Point to requirements]
+
+It's not just code. You'll document it for production, plan how to roll it out to a team, and calculate actual ROI from your data.
+
+[Point to timeline]
+
+Weeks 1-4 are construction - building the agent. Weeks 5-6 add sophistication - orchestration and optimization. Week 7 is documentation. Week 8 is submission.
+
+Today we start planning. By the end of this session, you'll know which workflow you're converting and have started your design document."
+
+[Transition: Click to Segment 2]
+
+---
+
+## SEGMENT 2: AGENTS VS. WORKFLOWS
+### Duration: 12 minutes | Slides 8-12
+
+---
+
+## SLIDE 8: THE CRITICAL DISTINCTION
+
+**Title:** When to Use What?
+
+**Content:**
+
+**The Question:**
+"Should this be a workflow or an agent?"
+
+**The Answer Depends On:**
+- How predictable is the path?
+- How much judgment is required?
+- What happens with unexpected input?
+
+**Graphic:** Fork in the road visual with "Workflow" and "Agent" paths
+
+**SPEAKER NOTES:**
+
+"[Hook - Create tension]"
+
+"You're going to face this question constantly: Should this be a workflow or an agent?
+
+Get it wrong, and you either:
+- Build a rigid workflow that breaks on real-world variation, OR
+- Build an expensive agent for something a simple workflow could handle
+
+[Pause]
+
+The answer isn't about what's cooler or more advanced. It's about matching the tool to the task.
+
+Let's break down how to decide."
+
+[Transition]
+
+---
+
+## SLIDE 9: WORKFLOW CHARACTERISTICS
+
+**Title:** Workflows: Powerful But Predictable
+
+**Content:**
+
+**Characteristics:**
+- Predetermined paths
+- Human designs the logic
+- Executes what you specify
+- Fails when unexpected input arrives
+
+**Best For:**
+- Predictable, repeatable processes
+- Fixed decision trees
+- Consistent input formats
+- High-volume, low-variation tasks
+
+**Graphic:** Flowchart with fixed paths, all branches clearly defined
+
+**SPEAKER NOTES:**
+
+"Workflows are what you built in Block 2. Let's be clear about their strengths.
+
+[Point to characteristics]
+
+You design every path. That means you KNOW what will happen. Predictability is valuable - you can test every branch, guarantee outcomes.
+
+[Point to Best For]
+
+Expense report processing. Email routing. Report generation from templates. These are workflow territory.
+
+[Pause]
+
+The weakness? When input varies beyond what you designed for, workflows fail. They don't adapt - they break."
+
+[Transition]
+
+---
+
+## SLIDE 10: AGENT CHARACTERISTICS
+
+**Title:** Agents: Adaptive But Complex
+
+**Content:**
+
+**Characteristics:**
+- Dynamic decision-making
+- AI determines next steps
+- Adapts to context
+- Handles unexpected situations
+- Uses tools and takes actions
+
+**The Agent Loop:**
+```
+Observe → Think → Act → Observe → Think → Act → ...
+```
+
+**Best For:**
+- Variable inputs requiring judgment
+- Tool selection based on situation
+- Multi-step tasks with dependencies
+- Situations where all paths can't be pre-defined
+
+**Graphic:** Circular loop diagram showing Observe-Think-Act cycle
+
+**SPEAKER NOTES:**
+
+"Agents operate differently.
+
+[Point to loop]
+
+This is the agent loop. Observe - take in information. Think - decide what to do. Act - use a tool or produce output. Then loop.
+
+The agent keeps going until the goal is achieved or it determines it can't proceed.
+
+[Point to Best For]
+
+Research tasks where sources vary. Content generation requiring analysis. Troubleshooting problems. These benefit from agents.
+
+[Pause]
+
+But agents cost more - more tokens, more complexity, more things that can go wrong. That's why the next slide matters."
+
+[Transition]
+
+---
+
+## SLIDE 11: DECISION FRAMEWORK
+
+**Title:** Workflow or Agent? A Decision Guide
+
+**Content:**
+
+| Question | If Yes → Workflow | If Yes → Agent |
+|----------|-------------------|----------------|
+| Can you draw every path? | ✓ | |
+| Is input format consistent? | ✓ | |
+| Does it require judgment? | | ✓ |
+| Must it select between tools? | | ✓ |
+| Do inputs vary significantly? | | ✓ |
+| Is the process well-defined? | ✓ | |
+
+**Rule of Thumb:**
+> "If you can draw every possible path, use a workflow. If you can't, consider an agent."
+
+**Graphic:** Decision matrix with green (agent) and blue (workflow) coding
+
+**SPEAKER NOTES:**
+
+"Use this framework when deciding.
+
+[Walk through table]
+
+Can you draw every path? That's the key question. If yes, workflow. If there are too many variations to enumerate, agent.
+
+[Point to Rule of Thumb]
+
+Here's the simple version. Every possible path = workflow. Too many paths to draw = agent.
+
+[Pause]
+
+Now let's test your understanding."
+
+[Transition]
+
+---
+
+## SLIDE 12: QUICK EXERCISE
+
+**Title:** Test Yourself
+
+**Content:**
+
+**Scenario 1:** Processing expense reports with standard categories
+→ [Workflow / Agent]
+
+**Scenario 2:** Researching competitors with varying data availability
+→ [Workflow / Agent]
+
+**Scenario 3:** Generating weekly status emails from template
+→ [Workflow / Agent]
+
+**Scenario 4:** Responding to customer inquiries with different intents
+→ [Workflow / Agent]
+
+**Graphic:** Quiz-style layout with answer spaces
+
+**SPEAKER NOTES:**
+
+"Quick exercise. I'll read each scenario, call out your answer.
+
+[Read Scenario 1]
+
+Expense reports with standard categories. Workflow or Agent?
+
+[Wait for responses]
+
+Workflow. Fixed categories, predictable processing.
+
+[Read Scenario 2]
+
+Competitor research with varying data availability.
+
+[Wait]
+
+Agent. Data sources vary, requires judgment on what's relevant.
+
+[Read Scenario 3]
+
+Weekly status emails from template.
+
+[Wait]
+
+Workflow. Template-based, predictable format.
+
+[Read Scenario 4]
+
+Customer inquiries with different intents.
+
+[Wait]
+
+This one's interesting - could be either. Simple FAQ? Workflow. Complex, varied inquiries needing context? Agent.
+
+The boundary isn't always clear. When in doubt, start simpler."
+
+[Transition: Click to Segment 3]
+
+---
+
+## SEGMENT 3: TWO-AGENT ARCHITECTURE PATTERN
+### Duration: 15 minutes | Slides 13-19
+
+---
+
+## SLIDE 13: THE FUNDAMENTAL INSIGHT
+
+**Title:** Why Single Agents Fail
+
+**Content:**
+
+**The Problem with Single Agents:**
+- No memory between sessions
+- Different interpretations of "done"
+- Repeated failed attempts (Groundhog Day)
+- Context window pollution
+
+**The Fundamental Insight:**
+> "Stop trying to give agents memory. Build systems where amnesiacs can work effectively."
+
+**Graphic:** Illustration of an agent losing memory between sessions (thought bubbles disappearing)
+
+**SPEAKER NOTES:**
+
+"[INSIGHT - The breakthrough]"
+
+"Here's why most agent projects fail.
+
+[Point to problems]
+
+Single agents have no memory between sessions. Each time they start fresh. They interpret 'done' differently. They repeat the same failed approaches. Their context window fills with garbage.
+
+[Pause - let it sink in]
+
+The insight from your pre-work: Stop fighting the amnesia. Design AROUND it.
+
+If you had a team of contractors who forgot everything each day, would you rely on their memory? No. You'd create systems - job boards, progress logs, clear procedures.
+
+That's exactly what we do with agents."
+
+[Transition]
+
+---
+
+## SLIDE 14: THE TWO-AGENT PATTERN
+
+**Title:** The Two-Agent Architecture Pattern
+
+**Content:**
+
+```
+SETUP AGENT (runs once)
+├─ Takes human request
+├─ Creates structured records
+├─ Defines goals, procedures, success criteria
+└─ Then STOPS
+
+WORKER AGENT (runs repeatedly, stateless)
+├─ Reads current state from records
+├─ Picks ONE incomplete task
+├─ Does work, validates, updates records
+└─ STOPS
+
+→ Next worker starts fresh, reads updated state, continues
+```
+
+**Graphic:** Two-agent diagram with Setup Agent on left, multiple Worker Agents on right, connected by "Structured Records" in the middle
+
+**SPEAKER NOTES:**
+
+"This is the Two-Agent Architecture Pattern.
+
+[Point to Setup Agent]
+
+The Setup Agent runs ONCE. It takes the human request and creates structure - structured records, goals, procedures. Then it STOPS. It doesn't try to do the whole task.
+
+[Point to Worker Agent]
+
+Worker Agents run repeatedly. Each one is stateless - no memory of previous runs. It reads the current state from records, picks ONE incomplete task, does work, updates records, STOPS.
+
+[Point to connection]
+
+The key is 'structured records.' That's where memory lives. Not in the agents - in the PROJECT.
+
+Any worker can pick up where the last one left off because all the state is external."
+
+[Transition]
+
+---
+
+## SLIDE 15: THE DAILY CONTRACTOR ANALOGY
+
+**Title:** Think: Daily Contractors
+
+**Content:**
+
+**Imagine:** You hire contractors who forget everything each day.
+
+**Bad Approach:**
+- Rely on their memory
+- Hope they remember what's done
+- Repeat the same instructions daily
+
+**Good Approach:**
+- Create a detailed job board
+- Maintain progress logs
+- Write clear procedures
+- Any contractor can read the board and continue
+
+**The PROJECT has memory, not the contractors.**
+
+**Graphic:** Construction site with job board, showing different contractors checking the board
+
+**SPEAKER NOTES:**
+
+"The Daily Contractor Analogy makes this concrete.
+
+[Present the scenario]
+
+Imagine hiring contractors who forget everything overnight. Sounds terrible, right?
+
+[Point to Bad Approach]
+
+If you rely on their memory, you're doomed. They'll redo work, miss context, give up.
+
+[Point to Good Approach]
+
+Instead, you create systems. A job board showing what's done and what's next. Progress logs tracking attempts. Clear procedures for each task.
+
+Any contractor - any day - can check the board, see the state, and continue.
+
+[Point to key insight]
+
+The PROJECT has memory. Not the contractors. That's how we build reliable agents."
+
+[Transition]
+
+---
+
+## SLIDE 16: CORE AGENT COMPONENTS
+
+**Title:** The Five Core Components
+
+**Content:**
+
+Every agent has:
+
+| Component | Purpose | Example |
+|-----------|---------|---------|
+| **Goal** | What to achieve | "Generate complete RFP response" |
+| **Context** | What it knows | Structured records, progress logs |
+| **Tools** | What it can do | File read/write, APIs, MCP servers |
+| **Reasoning** | How it decides | Decision criteria, priorities |
+| **Output** | What it produces | Documents, updates, notifications |
+
+**Graphic:** Pentagon or star diagram with five components
+
+**SPEAKER NOTES:**
+
+"Every agent - regardless of complexity - has these five components.
+
+[Walk through each]
+
+Goal - clear objective. Not vague 'help the user' but specific 'generate RFP response for all sections.'
+
+Context - information available. In Two-Agent Pattern, this is the structured records.
+
+Tools - actions it can take. MCP servers, file operations, API calls.
+
+Reasoning - decision logic. How it chooses what to do next.
+
+Output - what it produces. Not just final deliverable but also state updates.
+
+Your design document in Exercise 1.2 will define each of these."
+
+[Transition]
+
+---
+
+## SLIDE 17: DOMAIN MEMORY - THREE PILLARS
+
+**Title:** Domain Memory: The Three Pillars
+
+**Content:**
+
+| Pillar | Purpose | Example |
+|--------|---------|---------|
+| **Explicit Goals** | Testable success criteria | "Run login_test.py, all pass" |
+| **Progress Records** | What's been done/tried | "Tuesday: Tried A → timeout" |
+| **Operating Procedures** | How to validate, when to escalate | "After 3 failures, escalate" |
+
+**Key Principle:**
+> "If you can't test it, it's not a goal - it's a wish."
+
+**Graphic:** Three pillars holding up "Reliable Agents" structure
+
+**SPEAKER NOTES:**
+
+"Domain Memory has three pillars. This is from your pre-work, now applied practically.
+
+[Point to Explicit Goals]
+
+Goals must be testable. 'Build login' is a wish. 'Run login_test.py, all assertions pass' is a goal. If you can't test it, it's not a goal.
+
+[Point to Progress Records]
+
+What's been completed, what's been tried, what failed. Prevents Groundhog Day - repeating the same failures.
+
+[Point to Operating Procedures]
+
+How to validate success. When to escalate. Quality standards. The rules workers follow.
+
+Your agent design document will define all three."
+
+[Transition]
+
+---
+
+## SLIDE 18: RFP RESPONSE AGENT EXAMPLE
+
+**Title:** Example: RFP Response Agent
+
+**Content:**
+
+**The Problem:**
+- RFP with 47 requirements across 8 sections
+- Manual response: 20-40 hours
+- Quality varies by author
+- Easy to miss requirements
+
+**Setup Agent (runs once):**
+- Parse requirements into checklist
+- Map to templates
+- Create response_plan.json
+- STOP
+
+**Worker Agent (runs repeatedly):**
+- Read response_plan.json
+- Find pending section
+- Generate draft
+- Self-evaluate
+- Update plan
+- STOP
+
+**Graphic:** Flow diagram showing Setup Agent creating plan, then multiple Worker Agents processing sections
+
+**SPEAKER NOTES:**
+
+"Let's see this pattern in action with a consulting example.
+
+[Present the problem]
+
+RFP arrives with 47 requirements. Manual response takes 20-40 hours. Quality varies. Requirements get missed.
+
+[Point to Setup Agent]
+
+Setup Agent runs once when RFP arrives. Parses all requirements, maps them to templates, creates response_plan.json with the structure. Then STOPS.
+
+[Point to Worker Agent]
+
+Worker Agent runs for each section. Reads the plan, finds first pending section, generates draft, self-evaluates against quality rubric, updates the plan status. STOPS.
+
+Next worker starts fresh, reads updated plan, continues with next pending section.
+
+[Key point]
+
+Each worker is stateless. But the project progresses because response_plan.json tracks everything."
+
+[Transition]
+
+---
+
+## SLIDE 19: THE STATE FILE
+
+**Title:** The Structured Record
+
+**Content:**
+
+```json
+{
+  "rfp_id": "acme-2024-q4",
+  "client": "Acme Manufacturing",
+  "due_date": "2025-01-15",
+  "sections": [
+    {
+      "id": "exec-summary",
+      "requirements": ["ES-1", "ES-2", "ES-3"],
+      "template": "executive-summary-v2.md",
+      "status": "complete",
+      "quality_score": 4.2
+    },
+    {
+      "id": "technical-approach",
+      "requirements": ["TA-1", "TA-2"],
+      "template": "technical-approach-v3.md",
+      "status": "pending"
+    }
+  ]
+}
+```
+
+**Graphic:** JSON structure with annotations pointing to key fields
+
+**SPEAKER NOTES:**
+
+"This is what the structured record looks like.
+
+[Walk through structure]
+
+The plan has RFP metadata - ID, client, due date.
+
+Each section tracks requirements, template mapping, status, and quality score.
+
+[Point to status fields]
+
+See how status changes? 'complete' with quality score, 'pending' awaiting work.
+
+Any worker can read this, see exec-summary is done, technical-approach is next, and continue.
+
+This is the PROJECT memory. The workers are stateless, but the project isn't."
+
+[Transition: Click to Segment 4]
+
+---
+
+## SEGMENT 4: PLANNING YOUR CAPSTONE
+### Duration: 5 minutes | Slides 20-21
+
+---
+
+## SLIDE 20: AGENT SELECTION CRITERIA
+
+**Title:** Choosing Your Capstone Agent
+
+**Content:**
+
+**Selection Criteria:**
+- Complex enough to benefit from autonomy
+- Clear success criteria
+- Measurable business value
+- Builds on your Block 2 workflows
+
+**Planning Questions:**
+1. What goal should the agent achieve?
+2. What tools does it need?
+3. What decisions must it make?
+4. How will you know it succeeded?
+5. What could go wrong?
+
+**Graphic:** Checklist with evaluation criteria
+
+**SPEAKER NOTES:**
+
+"Now let's apply this to YOUR capstone.
+
+[Point to criteria]
+
+Your agent should be complex enough to benefit from agent architecture - simple tasks don't need it. Clear success criteria - you need to know when it's working. Measurable value - time saved, quality improved. Builds on Block 2 - leverage your existing work.
+
+[Point to questions]
+
+These five questions guide your design. Exercise 1.2 walks you through each in detail.
+
+Let's do a quick brainstorm."
+
+[Transition]
+
+---
+
+## SLIDE 21: LIVE BRAINSTORM
+
+**Title:** Your Agent Candidate
+
+**Content:**
+
+**Quick Exercise (60 seconds):**
+
+Think about your Block 2 workflows:
+- Which has the most variable inputs?
+- Which requires the most human judgment?
+- Which breaks most often on unexpected input?
+
+**That's your agent candidate.**
+
+Drop your initial idea in the chat.
+
+**Graphic:** Thought bubble with question marks transforming into lightbulb
+
+**SPEAKER NOTES:**
+
+"Take 60 seconds right now.
+
+[Read the prompts slowly]
+
+Which Block 2 workflow has the most variable inputs?
+Which requires the most human judgment?
+Which breaks most often when something unexpected arrives?
+
+[Pause 30 seconds]
+
+The intersection of those answers is your agent candidate.
+
+Drop your initial idea in the chat - just a phrase or sentence.
+
+[Wait for responses, acknowledge 2-3]
+
+Great ideas. These will become your Exercise 1.2 focus. Now let's preview your homework."
+
+[Transition: Click to Closing]
+
+---
+
+## CLOSING SECTION
+### Duration: 3 minutes | Slides 22-24
+
+---
+
+## SLIDE 22: HOMEWORK OVERVIEW
+
+**Title:** This Week's Practice
+
+**Content:**
+
+| Exercise | Time | Deliverable | Skills Practiced |
+|----------|------|-------------|------------------|
+| 1.1: Agent vs. Workflow Analysis | 20 min | `agent-opportunity-analysis.md` | Identify candidates |
+| 1.2: Agent Design Document | 35 min | `agent-design-document.md` | Comprehensive planning |
+| 1.3: Agent Skeleton Setup | 20 min | Folder structure + system prompt | Foundation building |
+| **Total** | **75 min** | | |
+
+**Graphic:** Exercise flow showing progression from analysis to design to setup
+
+**SPEAKER NOTES:**
+
+"Here's your homework for this week. You have 75 minutes of exercises.
+
+[Walk through each]
+
+Exercise 1.1 - analyze your Block 2 workflows for agent potential. 20 minutes. This helps you pick the right candidate.
+
+Exercise 1.2 - create your agent design document. 35 minutes. This is the big one - it becomes your 'Setup Agent output' for the project.
+
+Exercise 1.3 - set up your agent skeleton in GitHub. 20 minutes. Folder structure and initial system prompt.
+
+Complete them in order. Your participant guide has detailed instructions and templates."
+
+[Transition]
+
+---
+
+## SLIDE 23: RESOURCES
+
+**Title:** Resources for This Week
+
+**Content:**
+
+**Templates & Files:**
+- Agent Opportunity Analysis template - Participant Guide
+- Agent Design Document template - Participant Guide
+- System Prompt template - Participant Guide
+
+**Reference Materials:**
+- [Anthropic Agent Documentation](https://docs.anthropic.com/en/docs/agents)
+- [MCP Server Registry](https://github.com/modelcontextprotocol/servers)
+
+**Support:**
+- Questions: Support channel
+- Pre-work review: Archive folder - Agent Memory Meta-Framework
+
+**Graphic:** Resource icons with links
+
+**SPEAKER NOTES:**
+
+"Resources for this week.
+
+All templates are in your participant guide. The design document template is comprehensive - follow it section by section.
+
+[Point to references]
+
+The Anthropic docs are excellent for agent concepts. MCP Server Registry for finding tools.
+
+If you didn't complete the pre-work, prioritize reviewing it - we build on those concepts throughout Block 3."
+
+[Transition]
+
+---
+
+## SLIDE 24: NEXT WEEK PREVIEW
+
+**Title:** Next Week: Building Reliable Agents
+
+**Content:**
+
+**Preview:**
+Week 2 covers the Domain Memory pillars, the agent execution loop, and error handling.
+
+**What to Complete Before Then:**
+- [ ] Exercise 1.1: Agent vs. Workflow Analysis
+- [ ] Exercise 1.2: Agent Design Document
+- [ ] Exercise 1.3: Agent Skeleton Setup
+
+**Key Preparation:**
+Review MCP servers you'll need for your agent
+
+**Graphic:** Preview image showing execution loop diagram
+
+**SPEAKER NOTES:**
+
+"Next week we cover Building Reliable Agents.
+
+We'll go deep on Domain Memory - the three pillars in practice. The agent execution loop - how agents actually run. And error handling - what to do when things go wrong.
+
+[Point to checklist]
+
+Complete all three exercises. Week 2 builds directly on your design document.
+
+[Point to preparation]
+
+Also review what MCP servers your agent will need. Week 3 is MCP deep dive, but start thinking about it now.
+
+[Final close]
+
+Welcome to Block 3! This is where AI becomes truly powerful. You've learned to prompt. You've learned to engineer workflows. Now you're learning to architect autonomous systems.
+
+Questions before we wrap?
+
+[Handle any questions]
+
+Great session today. Remember: design before building. Your agent design document is your foundation.
+
+See you next week!"
+
+---
+
+## Appendix: Slide Design Notes
+
+### Block 3 Color Scheme
+
+| Element | Color | Hex Code |
+|---------|-------|----------|
+| Primary | Green | #00CC99 |
+| Accent | Teal | #008B8B |
+| Background | White | #FFFFFF |
+| Text | Dark Gray | #333333 |
+
+### Graphic Suggestions by Slide
+
+| Slide | Graphic Type | Description |
+|-------|-------------|-------------|
+| 1 | Title | Clean with green accent, agent icon |
+| 4 | Progression | Ascending steps/pyramid |
+| 5 | Transformation | Linear to adaptive visual |
+| 9 | Flowchart | Fixed-path workflow |
+| 10 | Loop | Circular observe-think-act |
+| 14 | Architecture | Two-agent diagram with records |
+| 15 | Analogy | Construction site with job board |
+| 16 | Components | Pentagon/star diagram |
+
+### Animation Notes
+
+- Segment title slides: Simple fade
+- Content reveals: Build bullet by bullet for complex slides
+- Diagrams: Reveal components sequentially
+- Avoid: Excessive animation that distracts
+
+---
+
+## Version History
+
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | 2025-01-01 | Initial presentation created | Training Team |

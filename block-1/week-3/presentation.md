@@ -1,0 +1,881 @@
+# **POWERPOINT PRESENTATION: BLOCK 1 WEEK 3**
+## **JSON Fundamentals + GitHub Basics**
+
+**Block:** 1: AI Prompting Mastery
+**Week Number:** 3
+**Session Duration:** 45 minutes
+**Delivery Format:** Live MS Teams workshop
+
+**Target Audience:** Participants who completed Weeks 1-2 and have working prompt templates
+
+**Week Learning Objectives:** By the end of this session, participants will:
+1. Read and write valid JSON structures with multiple data types
+2. Create a personal style.json file defining writing preferences
+3. Perform basic GitHub operations (commit, push, view history)
+4. Understand how configuration files enable consistent AI outputs
+
+**Entry Criteria:**
+- [ ] Week 2 exercises completed
+- [ ] Few-shot template created and tested
+- [ ] GitHub repository active
+
+**Exit Criteria:**
+- [ ] Understands JSON syntax (objects, arrays, types)
+- [ ] Knows how to validate JSON with JSONLint
+- [ ] Has plan to create personal style.json
+- [ ] Understands GitHub commit workflow
+
+**Presentation Structure:**
+1. Opening & Recap (5 min) - Slides 1-3
+2. Segment 1: Why JSON? (8 min) - Slides 4-5
+3. Segment 2: JSON Syntax Essentials (15 min) - Slides 6-10
+4. Segment 3: Creating style.json (10 min) - Slides 11-13
+5. Segment 4: GitHub Basics (7 min) - Slides 14-17
+
+**Total Slides:** 17
+
+---
+
+## Slide Definitions
+
+### SLIDE 1: TITLE SLIDE
+
+**Title:** Block 1 Week 3: JSON Fundamentals + GitHub Basics
+
+**Subtitle:** Infrastructure for Consistent AI Outputs
+
+**Content:**
+- AI Practitioner Training Program
+- Block 1: AI Prompting Mastery
+- Week 3 of 8
+
+**Graphic:** Clean title slide with blue color scheme (Block 1 theme).
+
+**SPEAKER NOTES:**
+
+"[OPENING - Welcome]"
+
+"Welcome to Week 3! We're at the midpoint of Block 1's content now.
+
+Last two weeks were about prompting techniques - structure, roles, few-shot learning. This week, we're adding infrastructure.
+
+JSON for configuration. GitHub for version control. These might feel more technical, but they're the foundation that makes everything else work better.
+
+By the end of today, you'll understand how to store your preferences in a file and reference them in every prompt for consistent output."
+
+[Transition: Click to next slide]
+
+---
+
+### SLIDE 2: WEEK OVERVIEW
+
+**Title:** This Week's Journey
+
+**Content:**
+
+| Time | Topic | Focus |
+|------|-------|-------|
+| 0-5 min | Opening | Week 2 Recap |
+| 5-13 min | Segment 1 | Why JSON? |
+| 13-28 min | Segment 2 | JSON Syntax Essentials |
+| 28-38 min | Segment 3 | Creating style.json |
+| 38-45 min | Segment 4 | GitHub Basics |
+
+**Graphic:** Timeline with JSON and GitHub icons
+
+**SPEAKER NOTES:**
+
+"Here's our agenda:
+
+First, a quick recap of Week 2. Then we'll cover why JSON matters for AI work.
+
+The bulk of our time is on JSON syntax - this is the technical foundation. Then we'll apply it by looking at style.json - your personal voice configuration.
+
+We'll close with GitHub basics - version control concepts you'll use going forward.
+
+Let's start with a quick recap."
+
+[Transition]
+
+---
+
+### SLIDE 3: WEEK 2 RECAP
+
+**Title:** Quick Recap: Your Power Tools
+
+**Content:**
+
+**Role Prompting:**
+```markdown
+You are a [role] with expertise in [domain]...
+```
+
+**Few-Shot Learning:**
+```markdown
+# Examples
+Input: [sample]
+Output: [your ideal result]
+```
+
+**Platform Optimization:**
+- Claude: XML tags, reasoning requests
+- ChatGPT: Custom instructions, iteration
+
+**The Question:**
+How do we maintain consistency across ALL prompts?
+
+**Graphic:** Three technique icons from Week 2
+
+**SPEAKER NOTES:**
+
+"Quick recap of your power tools from Week 2.
+
+Role prompting - activate specific expertise. Few-shot learning - teach through examples. Platform optimization - get the most from each tool.
+
+These are great techniques. But here's the question:
+
+[Point to question]
+
+How do we maintain consistency across ALL our prompts? If you have 10 different templates, how do you ensure they all sound like you?
+
+That's what we're solving this week."
+
+[Transition: Click to Segment 1]
+
+---
+
+## SEGMENT 1: WHY JSON?
+### Duration: 8 minutes | Slides 4-5
+
+---
+
+### SLIDE 4: THE CONSISTENCY PROBLEM
+
+**Title:** The Problem: Variable Outputs
+
+**Content:**
+
+**Even with good prompts:**
+- Same prompt, different runs, different tone
+- "Professional" means different things each time
+- Preferences forgotten or inconsistently applied
+- No single source of truth for your style
+
+**What We Need:**
+- Store preferences once
+- Reference them every time
+- Consistent voice across all outputs
+- Easy to update as preferences evolve
+
+**Graphic:** Multiple outputs with inconsistent styles vs. unified style
+
+**SPEAKER NOTES:**
+
+"[Hook - Create tension]"
+
+"Here's a problem you've probably noticed: even with good prompts, outputs vary.
+
+You say 'professional tone' and sometimes you get formal, sometimes conversational. You remember to say 'avoid jargon' in one prompt but forget in the next.
+
+Your preferences are scattered across individual prompts. There's no single source of truth for your style.
+
+What we need is a way to store preferences once and reference them every time."
+
+[Transition]
+
+---
+
+### SLIDE 5: THE SOLUTION - CONFIGURATION FILES
+
+**Title:** The Solution: Configuration Files
+
+**Content:**
+
+**The Concept:**
+Store your preferences in a file. Reference that file in every prompt.
+
+**style.json Preview:**
+```json
+{
+  "voice": {
+    "tone": "professional but approachable",
+    "formality": "business casual"
+  },
+  "preferences": {
+    "use": ["active voice", "concrete examples"],
+    "avoid": ["jargon", "passive voice"]
+  }
+}
+```
+
+**Why JSON Specifically:**
+- Human-readable (you can understand it)
+- Machine-readable (AI can parse it)
+- Industry standard (used everywhere)
+- Easy to version control
+
+**Graphic:** Configuration file connecting to multiple prompts
+
+**SPEAKER NOTES:**
+
+"[INSIGHT - Deliver the solution]"
+
+"The solution is a configuration file. Store your preferences once, reference them everywhere.
+
+[Point to JSON example]
+
+This is what it looks like. Your voice settings. Your preferences. Things to use. Things to avoid. All in one structured file.
+
+Why JSON specifically?
+
+It's human-readable - you can understand what it says. It's machine-readable - AI can parse the structure. It's the industry standard - used in every programming language, every platform.
+
+Now let's learn the syntax so you can write your own."
+
+[Transition: Click to Segment 2]
+
+---
+
+## SEGMENT 2: JSON SYNTAX ESSENTIALS
+### Duration: 15 minutes | Slides 6-10
+
+---
+
+### SLIDE 6: JSON BASIC STRUCTURE
+
+**Title:** JSON Basics: Keys and Values
+
+**Content:**
+
+**The Fundamental Pattern:**
+```json
+{
+  "key": "value"
+}
+```
+
+**Rules:**
+- Everything wrapped in curly braces `{ }`
+- Keys are always in **double quotes**
+- Colon separates key from value
+- Comma separates items (except the last one!)
+
+**Multiple Items:**
+```json
+{
+  "name": "Alice",
+  "role": "Consultant",
+  "years": 5
+}
+```
+
+**Graphic:** Diagram showing key → value relationship
+
+**SPEAKER NOTES:**
+
+"Let's start simple.
+
+JSON is just key-value pairs. The key is a name - like 'name' or 'role'. The value is the data.
+
+[Point to rules]
+
+Everything goes in curly braces. Keys are always in double quotes. Colon separates key from value. Comma separates items.
+
+[Point to multiple items]
+
+Here's a JSON object with three items. Notice the last item - 'years' - has no comma after it. That's important. Trailing commas break JSON.
+
+Let's look at what types of values you can use."
+
+[Transition]
+
+---
+
+### SLIDE 7: JSON DATA TYPES
+
+**Title:** JSON Data Types
+
+**Content:**
+
+```json
+{
+  "string": "text in double quotes",
+  "number": 42,
+  "decimal": 3.14,
+  "boolean": true,
+  "null_value": null,
+  "array": ["item1", "item2", "item3"],
+  "object": {
+    "nested_key": "nested_value"
+  }
+}
+```
+
+**Type Reference:**
+
+| Type | Syntax | Example |
+|------|--------|---------|
+| String | Double quotes | `"hello"` |
+| Number | No quotes | `42`, `3.14` |
+| Boolean | `true` / `false` | `true` |
+| Null | `null` | `null` |
+| Array | Square brackets | `["a", "b"]` |
+| Object | Curly braces | `{"key": "value"}` |
+
+**Graphic:** Type icons with visual examples
+
+**SPEAKER NOTES:**
+
+"JSON supports several data types.
+
+[Walk through example]
+
+Strings - text in double quotes. Numbers - no quotes needed. Booleans - true or false, no quotes. Null - represents empty or unknown.
+
+Arrays - lists of items in square brackets. Objects - nested groups in curly braces.
+
+For style.json, you'll mostly use strings, arrays, and nested objects.
+
+[Point to table]
+
+Here's your quick reference. Strings always have quotes. Numbers and booleans don't."
+
+[Transition]
+
+---
+
+### SLIDE 8: COMMON JSON ERRORS
+
+**Title:** Common Errors (And How to Fix Them)
+
+**Content:**
+
+**Error 1: Trailing Comma**
+```json
+{
+  "name": "Alice",
+  "role": "Consultant",  ← WRONG: comma here
+}
+```
+
+**Error 2: Single Quotes**
+```json
+{
+  'name': 'Alice'  ← WRONG: must use double quotes
+}
+```
+
+**Error 3: Unquoted Keys**
+```json
+{
+  name: "Alice"  ← WRONG: key needs quotes
+}
+```
+
+**The Fix:**
+Always validate with [JSONLint.com](https://jsonlint.com/) before using.
+
+**Graphic:** Red X marks on errors, green checkmark on JSONLint
+
+**SPEAKER NOTES:**
+
+"These three errors cause 90% of JSON problems.
+
+[Point to Error 1]
+
+Trailing comma - the most common error. The last item in an object or array should NOT have a comma after it.
+
+[Point to Error 2]
+
+Single quotes - JSON requires double quotes. Not single. Always double.
+
+[Point to Error 3]
+
+Unquoted keys - unlike some programming languages, JSON needs quotes around keys.
+
+[Point to fix]
+
+The fix: always validate. JSONLint.com will tell you exactly where the error is. I validate every JSON file I write. No exceptions."
+
+[Transition]
+
+---
+
+### SLIDE 9: LIVE DEMO - BUILDING JSON
+
+**Title:** Live Demo: Building JSON Step by Step
+
+**Content:**
+
+**We'll Build:**
+A simple style configuration from scratch
+
+**Watch For:**
+1. Starting with empty braces `{}`
+2. Adding key-value pairs
+3. Creating nested objects
+4. Intentional error → validation → fix
+
+**Graphic:** Demo placeholder
+
+**SPEAKER NOTES:**
+
+"[DEMO - Show, don't tell]"
+
+"Let me show you how to build JSON step by step.
+
+[Open text editor]
+
+Start with empty braces.
+
+[Type { }]
+
+Now I'll add a key-value pair. 'tone' - my preferred tone.
+
+[Type 'tone': 'professional']
+
+Let me add another - my formality preference.
+
+[Continue building]
+
+Now I want to group these under 'voice'. I'll create a nested object.
+
+[Create nested structure]
+
+Let me validate this in JSONLint...
+
+[Paste into JSONLint - should pass]
+
+Now watch what happens if I add a trailing comma...
+
+[Add comma after last item]
+
+Error! See how JSONLint shows exactly where the problem is.
+
+[Fix and validate]
+
+Clean again. Always validate."
+
+[Transition]
+
+---
+
+### SLIDE 10: JSON VALIDATION WORKFLOW
+
+**Title:** The Validation Workflow
+
+**Content:**
+
+**Every Time You Write JSON:**
+
+```
+1. Write or edit JSON
+       ↓
+2. Paste into JSONLint.com
+       ↓
+3. Click "Validate JSON"
+       ↓
+   If error → Read error message → Fix → Return to step 2
+       ↓
+   If valid → Use in your work
+```
+
+**Common Error Messages:**
+- "Expecting 'STRING'" → Missing double quotes
+- "Unexpected token" → Trailing comma or missing comma
+- "Expected ',' or '}'" → Missing comma between items
+
+**Graphic:** Flowchart of validation process
+
+**SPEAKER NOTES:**
+
+"Here's the workflow you should follow every time.
+
+Write JSON. Paste into JSONLint. Validate. If there's an error, read the message, fix it, validate again. Only use JSON that validates clean.
+
+[Point to error messages]
+
+These are the messages you'll see most often. 'Expecting STRING' usually means missing quotes. 'Unexpected token' usually means comma issues.
+
+JSONLint highlights the line with the problem. Look there first.
+
+Now let's apply this to something practical - your style.json."
+
+[Transition: Click to Segment 3]
+
+---
+
+## SEGMENT 3: CREATING STYLE.JSON
+### Duration: 10 minutes | Slides 11-13
+
+---
+
+### SLIDE 11: WHAT GOES IN STYLE.JSON
+
+**Title:** Your style.json: Personal Voice Configuration
+
+**Content:**
+
+**What to Include:**
+
+| Section | Purpose | Examples |
+|---------|---------|----------|
+| `voice` | How you want to sound | tone, formality, personality |
+| `writing` | Structure preferences | sentence length, paragraph length |
+| `preferences` | What to do/avoid | use: [...], avoid: [...] |
+| `formatting` | Visual style | headers, lists, emphasis |
+
+**Key Insight:**
+This isn't abstract - it's YOUR actual preferences. What do YOU want your writing to sound like?
+
+**Graphic:** style.json sections mapped to output characteristics
+
+**SPEAKER NOTES:**
+
+"Your style.json captures your personal voice.
+
+[Walk through sections]
+
+Voice - how do you want to sound? Tone, formality, personality.
+
+Writing - structure preferences. Do you like short sentences or longer ones? How many sentences per paragraph?
+
+Preferences - explicit lists of what to use and what to avoid. This is powerful.
+
+Formatting - visual style. How do you use headers? Lists? Emphasis?
+
+[Point to key insight]
+
+This isn't abstract. Think about your actual preferences. How do YOU want to write? What makes your best work yours?"
+
+[Transition]
+
+---
+
+### SLIDE 12: STYLE.JSON TEMPLATE
+
+**Title:** style.json Template
+
+**Content:**
+
+```json
+{
+  "voice": {
+    "tone": "professional but approachable",
+    "formality": "business casual",
+    "personality": "helpful, direct, thoughtful"
+  },
+  "writing": {
+    "sentence_length": "medium (15-25 words)",
+    "paragraph_length": "3-5 sentences"
+  },
+  "preferences": {
+    "use": [
+      "active voice",
+      "concrete examples",
+      "clear transitions"
+    ],
+    "avoid": [
+      "jargon without explanation",
+      "passive voice",
+      "hedge words (might, perhaps)"
+    ]
+  }
+}
+```
+
+**Graphic:** Template with "customize these" callouts
+
+**SPEAKER NOTES:**
+
+"Here's a template to start from.
+
+[Walk through sections]
+
+Voice section - I've put 'professional but approachable' as the tone. Business casual formality. Helpful, direct, thoughtful personality.
+
+Writing section - medium sentence length with a word count range. 3-5 sentences per paragraph.
+
+Preferences - arrays of things to use and avoid. Active voice, concrete examples, clear transitions. Avoid jargon, passive voice, hedge words.
+
+This is MY style. Yours will be different.
+
+In Exercise 3.2, you'll customize every value to match YOUR preferences."
+
+[Transition]
+
+---
+
+### SLIDE 13: USING STYLE.JSON IN PROMPTS
+
+**Title:** Using style.json in Prompts
+
+**Content:**
+
+**The Pattern:**
+```markdown
+Follow this style guide for all writing:
+
+<style>
+{
+  "tone": "professional but approachable",
+  "preferences": {
+    "use": ["active voice", "examples"],
+    "avoid": ["jargon", "passive voice"]
+  }
+}
+</style>
+
+Now write: [Your request here]
+```
+
+**Benefits:**
+- Same voice every time
+- Easy to update (change file, all prompts updated)
+- Shareable (team can use same style)
+- Evolves with you (refine as you learn)
+
+**Graphic:** style.json connecting to multiple prompts with consistent output
+
+**SPEAKER NOTES:**
+
+"Here's how you use it in prompts.
+
+[Walk through pattern]
+
+'Follow this style guide' - tells the AI to apply these preferences. Then paste your JSON in style tags or code blocks. Then your actual request.
+
+[Point to benefits]
+
+Same voice every time - no more inconsistent outputs.
+
+Easy to update - change the file once, every prompt that references it benefits.
+
+Shareable - your team can use the same style for brand consistency.
+
+Evolves - as you learn what works, refine the file. Your prompts automatically improve.
+
+Now let's talk about version control - how we track these changes over time."
+
+[Transition: Click to Segment 4]
+
+---
+
+## SEGMENT 4: GITHUB BASICS
+### Duration: 7 minutes | Slides 14-17
+
+---
+
+### SLIDE 14: WHY VERSION CONTROL
+
+**Title:** Why Version Control Matters
+
+**Content:**
+
+**Without Version Control:**
+- Multiple files: "style_v2_final_REAL.json"
+- No history of what changed when
+- Can't undo mistakes
+- Collaboration is chaos
+
+**With Version Control:**
+- One file that evolves
+- Complete history of all changes
+- Roll back to any previous version
+- Safe collaboration
+
+**Analogy:**
+Version control is like "track changes" for your entire project.
+
+**Graphic:** Messy file versions vs. clean version history
+
+**SPEAKER NOTES:**
+
+"Let's talk about why version control matters.
+
+[Point to 'without']
+
+Without it, you end up with files like 'style_final_v2_REAL.json'. No history of what changed. Can't undo mistakes. Collaborating with others is a nightmare.
+
+[Point to 'with']
+
+With version control - one file that evolves. Complete history of every change. You can roll back to any previous version. Collaboration works.
+
+[Point to analogy]
+
+Think of it like track changes in Word, but for your entire project."
+
+[Transition]
+
+---
+
+### SLIDE 15: KEY GITHUB CONCEPTS
+
+**Title:** GitHub Vocabulary
+
+**Content:**
+
+| Term | What It Is | Analogy |
+|------|------------|---------|
+| **Repository** | Project folder | Filing cabinet |
+| **Commit** | Saved snapshot | Video game save |
+| **Push** | Upload to GitHub | Sync to cloud |
+| **Pull** | Download changes | Get updates |
+| **History** | Record of commits | Change log |
+
+**You Already Have:**
+A repository from Week 1!
+
+**Today's Focus:**
+Understanding commits and history.
+
+**Graphic:** Icons for each concept
+
+**SPEAKER NOTES:**
+
+"Let's get the vocabulary down.
+
+[Walk through table]
+
+Repository - your project folder on GitHub. You created this in Week 1.
+
+Commit - a saved snapshot with a description. Like saving a video game - you can go back to any save point.
+
+Push - uploading commits to GitHub. Syncing to the cloud.
+
+Pull - downloading changes others made. Getting updates.
+
+History - the record of all commits. Your change log.
+
+Today we're focusing on commits and history. These are the core of version control."
+
+[Transition]
+
+---
+
+### SLIDE 16: THE COMMIT WORKFLOW
+
+**Title:** The Basic Workflow
+
+**Content:**
+
+**Step 1: Make Changes**
+Edit files, add new files
+
+**Step 2: Stage Changes**
+Select what to include in this commit
+
+**Step 3: Write Commit Message**
+Describe what changed and why
+
+**Step 4: Commit**
+Save the snapshot
+
+**Step 5: Push**
+Upload to GitHub
+
+**Commit Message Examples:**
+```
+Good: "Add style.json with voice and formatting preferences"
+Good: "Fix typo in email template"
+Bad:  "updates"
+Bad:  "stuff"
+```
+
+**Graphic:** Flowchart showing the 5 steps
+
+**SPEAKER NOTES:**
+
+"Here's the basic workflow.
+
+Make changes to your files. Stage the changes - select what to include. Write a commit message describing what changed. Commit - save the snapshot. Push - upload to GitHub.
+
+[Point to commit message examples]
+
+Commit messages matter. They're notes to your future self.
+
+'Add style.json with voice and formatting preferences' - tells you exactly what that commit contains.
+
+'updates' - tells you nothing. Three months from now, you won't remember what you changed.
+
+In Exercise 3.3, you'll practice making meaningful commits."
+
+[Transition]
+
+---
+
+### SLIDE 17: HOMEWORK & CLOSE
+
+**Title:** This Week's Practice
+
+**Content:**
+
+| Exercise | Time | Deliverable | Skills Practiced |
+|----------|------|-------------|------------------|
+| Exercise 3.1: JSON Practice | 15 min | `json-practice.json` | All data types |
+| Exercise 3.2: Create style.json | 25 min | `style.json` + test | Personal config |
+| Exercise 3.3: GitHub Practice | 20 min | Commit history | Version control |
+| **Total** | **60 min** | | |
+
+**Key Reminders:**
+- **Always validate JSON with JSONLint**
+- Customize style.json to YOUR preferences
+- Write meaningful commit messages
+
+**Next Week:** Quality Rubrics + LLM-as-Judge
+
+**Graphic:** Three exercise cards with icons
+
+**SPEAKER NOTES:**
+
+"Three exercises this week.
+
+Exercise 3.1 is JSON practice - 15 minutes. Create a valid JSON file using all the data types we covered. Validate with JSONLint.
+
+Exercise 3.2 is your style.json - 25 minutes. This is personal. Customize every value to YOUR preferences. Test it in a prompt.
+
+Exercise 3.3 is GitHub practice - 20 minutes. Upload your files, make multiple commits, practice meaningful commit messages.
+
+[Point to reminders]
+
+Always validate JSON. Customize your style.json - don't just copy the template. Write commit messages that explain what you changed.
+
+[Point to next week]
+
+Next week we tackle quality - how to evaluate AI outputs systematically. You'll create quality rubrics and learn the LLM-as-judge pattern. Your style.json becomes part of how we evaluate outputs.
+
+Questions before we wrap?
+
+[Take questions]
+
+Great session. You've got the infrastructure now - JSON for configuration, GitHub for version control. These compound over time.
+
+See you next week!"
+
+---
+
+## Appendix: Slide Type Reference
+
+| Slide Type | Purpose | Used In |
+|------------|---------|---------|
+| Title | Opens presentation | Slide 1 |
+| Overview | Sets expectations | Slide 2 |
+| Recap | Reviews prior learning | Slide 3 |
+| Problem/Hook | Creates tension | Slide 4 |
+| Solution | Introduces concept | Slide 5 |
+| Syntax/Technical | Teaches structure | Slides 6-8 |
+| Live Demo | Shows technique | Slide 9 |
+| Workflow | Process overview | Slide 10 |
+| Template | Provides starting point | Slides 11-12 |
+| Application | Shows practical use | Slide 13 |
+| Concepts | Vocabulary/definitions | Slides 14-15 |
+| Workflow | Process steps | Slide 16 |
+| Homework/Close | Assignments and wrap | Slide 17 |
+
+---
+
+## Version History
+
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | 2025-01-01 | Initial presentation created | Training Team |
