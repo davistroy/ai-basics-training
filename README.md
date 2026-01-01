@@ -25,9 +25,9 @@ The curriculum follows a progressive maturity model:
 
 | Level | Block | Certification | Focus |
 |-------|-------|---------------|-------|
-| Level 0 → 1 | [Block 1: AI Prompting Mastery](block-1.md) | AI Prompting Practitioner | Write prompts that consistently produce high-quality outputs |
-| Level 1 → 2 | [Block 2: AI Workflow Engineering](block-2.md) | AI Workflow Engineer | Build reusable templates, quality systems, and tool integration |
-| Level 2 → 3 | [Block 3: AI Automation Architecture](block-3.md) | AI Automation Architect | Design autonomous AI agents for complex workflows |
+| Level 0 → 1 | [Block 1: AI Prompting Mastery](block-1/block-1.md) | AI Prompting Practitioner | Write prompts that consistently produce high-quality outputs |
+| Level 1 → 2 | [Block 2: AI Workflow Engineering](block-2/block-2.md) | AI Workflow Engineer | Build reusable templates, quality systems, and tool integration |
+| Level 2 → 3 | [Block 3: AI Automation Architecture](block-3/block-3.md) | AI Automation Architect | Design autonomous AI agents for complex workflows |
 
 ### Advanced Modules (Optional, Post-Block 3)
 
@@ -45,9 +45,9 @@ The curriculum follows a progressive maturity model:
 
 ### Core Curriculum
 
-- **[Block 1: AI Prompting Mastery](block-1.md)** - Foundation skills for all consultants
-- **[Block 2: AI Workflow Engineering](block-2.md)** - Workflow automation and MCP integration
-- **[Block 3: AI Automation Architecture](block-3.md)** - Autonomous agents and production deployment
+- **[Block 1: AI Prompting Mastery](block-1/block-1.md)** - Foundation skills for all consultants
+- **[Block 2: AI Workflow Engineering](block-2/block-2.md)** - Workflow automation and MCP integration
+- **[Block 3: AI Automation Architecture](block-3/block-3.md)** - Autonomous agents and production deployment
 
 ### Advanced Modules
 
@@ -316,12 +316,17 @@ Each certification requires:
 ```
 ai-basics-training/
 ├── README.md                    # This file - program overview
-├── prerequisites.md             # Pre-program self-assessment and setup
 ├── facilitator-guide.md         # Delivery guidance for trainers
 ├── learning-path.mermaid        # Visual learning path diagram (Mermaid format)
-├── block-1.md                   # Block 1: AI Prompting Mastery (8 weeks)
-├── block-2.md                   # Block 2: AI Workflow Engineering (8 weeks)
-├── block-3.md                   # Block 3: AI Automation Architecture (8 weeks)
+├── block-0/                     # Pre-program materials
+│   └── prerequisites.md         # Pre-program self-assessment and setup
+├── block-1/                     # Block 1: AI Prompting Mastery (8 weeks)
+│   ├── block-1.md               # Full curriculum
+│   └── block-1-executive-summary.md  # Executive overview
+├── block-2/                     # Block 2: AI Workflow Engineering (8 weeks)
+│   └── block-2.md               # Full curriculum
+├── block-3/                     # Block 3: AI Automation Architecture (8 weeks)
+│   └── block-3.md               # Full curriculum
 ├── checkpoints/                 # Inter-block skill verification
 │   ├── block-1-to-2-checkpoint.md
 │   └── block-2-to-3-checkpoint.md
@@ -337,6 +342,12 @@ ai-basics-training/
 │   ├── block-1-reference.md
 │   ├── block-2-reference.md
 │   └── block-3-reference.md
+├── templates/                   # Reusable templates for trainers
+│   ├── weekly-instructor-guide-template.md
+│   ├── weekly-participant-guide-template.md
+│   └── weekly-presentation-template.md
+├── marketing/                   # Marketing and sales materials
+│   └── block1-sales-infographic.md
 ├── updates/                     # Curriculum update implementation plans
 │   ├── update-1.md
 │   └── CHANGELOG-2025-12-31.md
@@ -399,8 +410,8 @@ Each advanced module contains its own appendices with:
 ## Getting Started
 
 1. **Review this README** to understand the program structure
-2. **Complete the [Prerequisites Self-Assessment](prerequisites.md)** to verify readiness
-3. **Start with [Block 1](block-1.md)** after completing prerequisites
+2. **Complete the [Prerequisites Self-Assessment](block-0/prerequisites.md)** to verify readiness
+3. **Start with [Block 1](block-1/block-1.md)** after completing prerequisites
 4. **Complete Week 1** exercises to build your foundation
 5. **Progress through each week** following entry/exit criteria
 6. **Submit your capstone** at Week 8
@@ -434,4 +445,4 @@ This curriculum is proprietary training material. All rights reserved.
 
 ---
 
-**Ready to begin?** Start with **[Block 1: AI Prompting Mastery](block-1.md)**
+**Ready to begin?** Start with **[Block 1: AI Prompting Mastery](block-1/block-1.md)**
