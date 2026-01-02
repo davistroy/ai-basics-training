@@ -153,6 +153,23 @@ Let's start with why we specialize in the first place."
 
 **Graphic:** Quality vs. Scope graph showing decline
 
+**GRAPHICS:**
+
+**Graphic 1: Quality vs. Scope Inverse Relationship**
+- Purpose: Demonstrate that agent quality degrades as scope increases
+- Type: Graph with inverse relationship curve
+- Elements: X-Y axis graph with declining curve
+- Labels:
+  - X-axis: "Agent Scope (number of responsibilities)"
+  - Y-axis: "Output Quality"
+  - Curve: Starts high left (focused) and declines right (bloated)
+  - Sweet spot marker: "Optimal: 1-3 clear responsibilities" (green zone on left)
+  - Danger zone: "Bloated: 5+ responsibilities" (red zone on right)
+  - Annotations:
+    - "Focused agent: High quality, clear role"
+    - "Bloated agent: Poor quality, confused role"
+- Relationships: Inverse correlation; clear inflection point where quality drops; emphasize staying in green zone
+
 **SPEAKER NOTES:**
 
 "[Hook - The principle]"
@@ -223,6 +240,32 @@ Here's a simple test: Can you describe what the agent does in ONE sentence? If y
 **Clear boundaries = better results**
 
 **Graphic:** Four agent icons with clear role labels
+
+**GRAPHICS:**
+
+**Graphic 1: Specialized Agent Roles**
+- Purpose: Show clear examples of focused single-responsibility agents
+- Type: Four-box grid with agent roles
+- Elements: Four distinct agent boxes with role definitions
+- Labels:
+  - Box 1: "RESEARCH AGENT"
+    - Icon: magnifying glass
+    - Does: "Gather information from sources"
+    - Does NOT: "Analyze, write, evaluate"
+  - Box 2: "ANALYSIS AGENT"
+    - Icon: chart/graph
+    - Does: "Analyze data, identify patterns"
+    - Does NOT: "Gather data, produce content"
+  - Box 3: "WRITER AGENT"
+    - Icon: document/pen
+    - Does: "Produce content, format"
+    - Does NOT: "Research, analyze, evaluate"
+  - Box 4: "REVIEWER AGENT"
+    - Icon: checklist/quality badge
+    - Does: "Evaluate quality, provide feedback"
+    - Does NOT: "Create, modify, gather"
+  - Bottom principle: "Clear boundaries = Better results"
+- Relationships: Distinct non-overlapping responsibilities; each agent has single focus; together they form complete pipeline
 
 **SPEAKER NOTES:**
 
@@ -354,6 +397,31 @@ Agent A → Agent B → Agent C → Final Output
 **Like a relay race - pass the baton**
 
 **Graphic:** Pipeline flow diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Sequential Orchestration Pattern**
+- Purpose: Show how agents execute in sequence with each output feeding the next
+- Type: Linear pipeline flow diagram
+- Elements: Four agent boxes connected by arrows showing data flow
+- Labels:
+  - Agent 1: "Research Agent"
+    - Input: "Topic"
+    - Output: "Raw data"
+  - Arrow: "Data flows →"
+  - Agent 2: "Analysis Agent"
+    - Input: "Raw data"
+    - Output: "Insights"
+  - Arrow: "Insights flow →"
+  - Agent 3: "Writer Agent"
+    - Input: "Insights"
+    - Output: "Draft content"
+  - Arrow: "Draft flows →"
+  - Agent 4: "Reviewer Agent"
+    - Input: "Draft content"
+    - Output: "Final content"
+  - Pattern note: "Each agent completes before next starts"
+- Relationships: Strict sequential dependency; no parallelism; clear data transformation chain; failure at any stage stops the pipeline
 
 **SPEAKER NOTES:**
 
@@ -553,6 +621,23 @@ Master (Planner) ─┼→ Worker B ─┼→ Master (Aggregator) → Output
 **Like a manager with team members**
 
 **Graphic:** Fan-out/fan-in diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Master-Worker Fan-Out/Fan-In Pattern**
+- Purpose: Illustrate parallel task distribution and result aggregation in master-worker orchestration
+- Type: Fan-out/fan-in diagram
+- Elements: One master node at top and bottom; multiple worker nodes in middle; distribution and aggregation arrows
+- Labels:
+  - Top: "Master Agent" (orchestrator)
+  - Fan-out arrows: "Distribute tasks"
+  - Middle: "Worker Agent 1", "Worker Agent 2", "Worker Agent 3", "Worker Agent N" (parallel)
+  - Each worker shows: "Process independent subtask"
+  - Fan-in arrows: "Collect results"
+  - Bottom: "Master Agent" (aggregator)
+  - Final output: "Combined result"
+  - Timing note: "Workers run in parallel - faster than sequential"
+- Relationships: One-to-many distribution; many-to-one aggregation; workers independent; master coordinates; parallel execution reduces total time
 
 **SPEAKER NOTES:**
 

@@ -182,6 +182,32 @@ Your agent calls an external service (MCP server, API):
 
 **Graphic:** Diagram showing agent making repeated failing calls to down service, cascading into system overload
 
+**GRAPHICS:**
+
+**Graphic 1: Cascading Failure from Repeated Calls**
+- Purpose: Visualize how repeated calls to failing services cascade into system-wide problems
+- Type: Cascading failure diagram with timeline
+- Elements:
+  - Left: Agent system initiating calls
+  - Center: External service (GitHub MCP) with "DOWN" status
+  - Timeline showing repeated attempts:
+    - Attempt 1: 30s timeout → Fail
+    - Attempt 2: 30s timeout → Fail
+    - Attempt 3: 30s timeout → Fail
+    - Attempt 4: 30s timeout → Fail
+  - Cumulative time counter: 2 minutes wasted
+  - User perspective showing "Agent frozen/unresponsive"
+  - Resource waste indicators:
+    - CPU cycles consumed
+    - Memory held
+    - API quota used
+  - Cascading effects:
+    - Other requests queued/blocked
+    - User frustration
+    - System degradation
+- Labels: "Without circuit breaker: Waste resources on calls that will fail", "Each timeout delays error reporting"
+- Relationships: Each failed attempt compounds the problem, no learning from failures
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -238,6 +264,38 @@ CLOSED (normal) ──(failures > threshold)──→ OPEN (failing)
 **Key Benefit:** Fail fast instead of waiting for timeouts
 
 **Graphic:** Circuit breaker state diagram with transitions labeled
+
+**GRAPHICS:**
+
+**Graphic 1: Circuit Breaker State Machine**
+- Purpose: Illustrate the three states and transitions of a circuit breaker pattern
+- Type: State machine diagram
+- Elements:
+  - Three state nodes:
+    1. **CLOSED** (green circle)
+      - Label: "Normal operation"
+      - Status: "Calls go through"
+      - Indicator: "Monitoring failures"
+    2. **OPEN** (red circle)
+      - Label: "Service failing"
+      - Status: "Immediately return error"
+      - Indicator: "No calls to service"
+      - Timer: "Wait timeout period"
+    3. **HALF-OPEN** (yellow circle)
+      - Label: "Testing recovery"
+      - Status: "Allow one test call"
+      - Indicator: "Checking if service recovered"
+  - Transition arrows with conditions:
+    - CLOSED → OPEN: "failures > threshold (e.g., 5)"
+    - OPEN → HALF-OPEN: "timeout elapsed (e.g., 60s)"
+    - HALF-OPEN → CLOSED: "test call succeeds"
+    - HALF-OPEN → OPEN: "test call fails"
+  - Example counters showing:
+    - Failure count in CLOSED state
+    - Timeout countdown in OPEN state
+    - Test result in HALF-OPEN state
+- Labels: "Fail fast instead of waiting for timeouts", "Automatic recovery testing"
+- Relationships: State transitions protect system while testing for recovery
 
 **SPEAKER NOTES:**
 
@@ -320,6 +378,39 @@ class CircuitBreaker:
 - Half-open test calls: 1
 
 **Graphic:** Code flow diagram showing state transitions
+
+**GRAPHICS:**
+
+**Graphic 1: Circuit Breaker Implementation Flow**
+- Purpose: Show the decision logic and state management in circuit breaker code
+- Type: Flowchart with code snippets
+- Elements:
+  - Entry point: "call(operation)" function
+  - First decision diamond: "state == OPEN?"
+    - Yes branch:
+      - Check: "timeout elapsed?"
+      - Yes → Set state to HALF_OPEN
+      - No → Raise CircuitOpenError
+    - No branch → Try operation
+  - Operation execution box with try/catch:
+    - Success path:
+      - If HALF_OPEN → Set to CLOSED, reset counter
+      - Return result
+    - Failure path:
+      - Increment failure_count
+      - Record last_failure_time
+      - Check: "failure_count >= threshold?"
+      - Yes → Set state to OPEN
+      - Raise exception
+  - State variables shown in sidebar:
+    - state: CLOSED/OPEN/HALF_OPEN
+    - failure_count: counter
+    - last_failure_time: timestamp
+    - threshold: 5
+    - timeout: 60
+  - Color coding: Green for success paths, Red for failure paths, Yellow for transitions
+- Labels: "State tracking enables intelligent failure handling", "Configuration: threshold=5, timeout=60s"
+- Relationships: Decision tree shows how state determines behavior
 
 **SPEAKER NOTES:**
 
@@ -428,6 +519,32 @@ Research Agent fails → In isolated compartment
 
 **Graphic:** Ship bulkhead diagram next to agent isolation diagram
 
+**GRAPHICS:**
+
+**Graphic 1: Bulkhead Metaphor - Ship to Agents**
+- Purpose: Use ship bulkhead analogy to explain agent isolation concept
+- Type: Metaphor comparison diagram
+- Elements:
+  - Left side: "Ship Bulkheads"
+    - Cross-section view of ship with watertight compartments
+    - One compartment flooded (blue water)
+    - Bulkhead doors closed
+    - Other compartments dry and functional
+    - Label: "One compartment floods → Ship stays afloat"
+  - Right side: "Agent Bulkheads"
+    - Four agent compartments: Research, Analysis, Writing, Review
+    - Research Agent compartment showing failure (red)
+    - Isolation barriers between agents
+    - Other three agents continuing normally (green)
+    - Label: "One agent fails → System partially functional"
+  - Arrow connecting the two showing parallel concept
+  - Comparison annotations:
+    - "Isolation contains damage"
+    - "System continues operating"
+    - "Graceful degradation vs total failure"
+- Labels: "Bulkheads = Failure containment", "Partial functionality beats complete shutdown"
+- Relationships: Physical compartmentalization translates to logical resource isolation
+
 **SPEAKER NOTES:**
 
 "Bulkhead isolation comes from ship design.
@@ -482,6 +599,40 @@ This is isolation. Failure in one compartment doesn't cascade."
 ```
 
 **Graphic:** Visual showing isolated agent compartments with separate resource pools
+
+**GRAPHICS:**
+
+**Graphic 1: Agent Bulkhead Implementation**
+- Purpose: Detail the specific resources isolated per agent for bulkhead pattern
+- Type: Resource allocation diagram
+- Elements:
+  - Two agent compartments shown in detail:
+    **Research Agent Compartment:**
+    - Border/container showing isolation
+    - Resource allocations:
+      - Context: 100K tokens (meter showing capacity)
+      - Timeout: 120 seconds (clock)
+      - Retries: 3 attempts (counter)
+      - Token Budget: 1000 tokens (budget meter)
+      - Circuit Breaker: Separate instance (breaker icon)
+    - Status: Can fail independently
+    **Writing Agent Compartment:**
+    - Border/container showing isolation
+    - Resource allocations:
+      - Context: 50K tokens (meter showing capacity)
+      - Timeout: 60 seconds (clock)
+      - Retries: 2 attempts (counter)
+      - Token Budget: 500 tokens (budget meter)
+      - Circuit Breaker: Separate instance (breaker icon)
+    - Status: Continues even if Research fails
+  - Orchestrator layer below monitoring both
+  - Arrows showing:
+    - Separate resource pools (no sharing)
+    - Independent failure modes
+    - Orchestrator monitoring (not controlling resources)
+  - Failure simulation showing Research Agent exhausting its resources without affecting Writing Agent
+- Labels: "Isolated resources prevent cascading failures", "Each agent has independent limits"
+- Relationships: Resource separation enables independent operation and failure
 
 **SPEAKER NOTES:**
 
@@ -578,6 +729,39 @@ Questions on bulkheads before we move to self-healing?"
 
 **Graphic:** Self-healing loop diagram: detect → diagnose → recover → verify
 
+**GRAPHICS:**
+
+**Graphic 1: Self-Healing Mechanism Taxonomy**
+- Purpose: Organize the four self-healing mechanisms with appropriate use cases
+- Type: Decision matrix with mechanisms
+- Elements:
+  - Four mechanism cards arranged in grid:
+    1. **Automatic Retry**
+      - Icon: Circular arrow
+      - Pattern: "Try again with backoff"
+      - Best for: "Transient failures (network glitch)"
+      - Example: "Retry API call after 1s, 2s, 4s delays"
+    2. **Automatic Fallback**
+      - Icon: Alternate path
+      - Pattern: "Use alternative service/data"
+      - Best for: "Service unavailable"
+      - Example: "GitHub down → Use local filesystem"
+    3. **Automatic Recovery**
+      - Icon: Repair wrench
+      - Pattern: "Detect degradation, trigger fixes"
+      - Best for: "System degraded"
+      - Example: "Success rate <80% → Clear caches, reset connections"
+    4. **Checkpoint Recovery**
+      - Icon: Save point flag
+      - Pattern: "Resume from last good state"
+      - Best for: "Mid-execution failure"
+      - Example: "Agent crashes → Resume from last checkpoint"
+  - Center: Self-healing loop diagram
+    - Detect → Diagnose → Recover → Verify → (back to Detect)
+  - Matching table showing failure type → mechanism
+- Labels: "Automatic recovery without human intervention", "Match mechanism to failure type"
+- Relationships: Different failures require different self-healing approaches
+
 **SPEAKER NOTES:**
 
 "Self-healing is about automation. When failures occur, the system recovers itself without waiting for humans.
@@ -650,6 +834,51 @@ Attempt 5: Wait 8s
 
 **Graphic:** Retry timeline showing increasing backoff delays
 
+**GRAPHICS:**
+
+**Graphic 1: Exponential Backoff Timeline**
+- Purpose: Visualize the increasing delay pattern in exponential backoff strategy
+- Type: Timeline diagram with delay visualization
+- Elements:
+  - Horizontal timeline showing 5 retry attempts
+  - Attempt markers with timing:
+    - Attempt 1: Immediate (0s)
+    - Attempt 2: After 1s delay (bar showing 1s)
+    - Attempt 3: After 2s delay (bar showing 2s)
+    - Attempt 4: After 4s delay (bar showing 4s)
+    - Attempt 5: After 8s delay (bar showing 8s)
+  - Visual bars showing increasing delays (exponential growth visible)
+  - Total time: 15 seconds for 5 attempts
+  - Comparison callout: "vs Fixed delay: 5×5s = 25 seconds"
+  - Service recovery indicator showing service might recover during backoff
+  - Prevention note: "Exponential backoff prevents thundering herd problem"
+- Labels: "Smart retries: Wait longer each time", "Gives service time to recover"
+- Relationships: Delay increases exponentially, balancing quick recovery with service protection
+
+**Graphic 2: Retry Policy Configuration**
+- Purpose: Show different retry strategies for different error types
+- Type: Configuration table with visual indicators
+- Elements:
+  - Three policy cards:
+    1. **Network Error Policy**
+      - max_retries: 5
+      - backoff: exponential
+      - initial_delay: 1000ms
+      - max_delay: 30000ms
+      - Rationale: "Often transient, worth multiple tries"
+    2. **Rate Limit (429) Policy**
+      - max_retries: 3
+      - backoff: fixed
+      - delay: 60000ms (1 minute)
+      - Rationale: "Service told us to wait, respect it"
+    3. **Validation Error Policy**
+      - max_retries: 0
+      - Rationale: "Input is wrong, retrying won't help"
+  - Visual indicator showing which errors get which policy
+  - Decision tree: Error type → Policy selection
+- Labels: "Different errors need different strategies", "Don't retry validation errors"
+- Relationships: Error classification determines retry approach
+
 **SPEAKER NOTES:**
 
 "Automatic retry with backoff is your first self-healing mechanism.
@@ -717,6 +946,54 @@ if success_rate < 80%:
 | Web search | Stored results | Limited freshness |
 
 **Graphic:** Decision tree showing primary → fallback flow
+
+**GRAPHICS:**
+
+**Graphic 1: Fallback Strategy Flow**
+- Purpose: Illustrate graceful degradation through fallback mechanisms
+- Type: Decision flow with fallback paths
+- Elements:
+  - Primary service attempt:
+    - Try: "github_mcp.read(path)"
+    - Success → Return fresh data (green path)
+    - Failure → Catch GitHubError (red path)
+  - Fallback activation:
+    - Log: "GitHub unavailable, using local fallback"
+    - Try: "filesystem.read(local_path)"
+    - Return cached/local data
+  - Quality indicator showing trade-off:
+    - Primary: "Fresh, up-to-date data" (optimal)
+    - Fallback: "Slightly stale data" (degraded but functional)
+  - User experience comparison:
+    - Without fallback: "Agent crashes, user sees error"
+    - With fallback: "Agent continues, user gets result"
+  - Multiple fallback example showing chain:
+    - Live API → Cached data → Stored results → Graceful error
+- Labels: "Stale data beats no data", "Graceful degradation > complete failure"
+- Relationships: Fallback chain provides progressive degradation options
+
+**Graphic 2: Automatic Recovery Triggers**
+- Purpose: Show monitoring-based recovery trigger mechanisms
+- Type: Threshold monitoring diagram
+- Elements:
+  - Monitoring dashboard showing metrics:
+    - Success rate gauge: Dropping from 95% to 75%
+    - Threshold line at 80%
+    - Alert triggered when crossing threshold
+  - Recovery procedure triggered:
+    - Action 1: Clear caches (might be corrupt)
+    - Action 2: Restart connections (might be stale)
+    - Action 3: Reset rate limiters (might be wrong)
+    - Action 4: Log recovery event
+  - Timeline showing:
+    - Degradation detection: Automatic
+    - Recovery initiation: Automatic
+    - Service restoration: Monitored
+    - Return to normal: Verified
+  - Success rate recovering back to 95%
+  - No human intervention required indicator
+- Labels: "Automatic degradation detection", "Self-healing without human intervention"
+- Relationships: Continuous monitoring triggers automatic recovery procedures
 
 **SPEAKER NOTES:**
 
@@ -817,6 +1094,43 @@ Questions on self-healing?"
 
 **Graphic:** Checklist with checkboxes and production-ready badge
 
+**GRAPHICS:**
+
+**Graphic 1: Production Hardening Checklist**
+- Purpose: Provide comprehensive pre-deployment verification checklist
+- Type: Interactive checklist with completion tracking
+- Elements:
+  - Eight checklist items with checkboxes:
+    1. ☐ **Failure Handling**
+      - All identified failure modes have handling code
+      - Sub-items: Tool, AI, Orchestration, Resource, External failures
+    2. ☐ **Circuit Breakers**
+      - Implemented for all external calls
+      - Sub-items: MCP servers, APIs, External services
+    3. ☐ **Bulkhead Isolation**
+      - Agents/components properly isolated
+      - Sub-items: Resources separated, Independent limits
+    4. ☐ **Self-Healing**
+      - Retry, fallback, recovery in place
+      - Sub-items: Policies defined, Tested and verified
+    5. ☐ **Graceful Degradation**
+      - Defined for each failure scenario
+      - Sub-items: Acceptable degraded states documented
+    6. ☐ **Monitoring**
+      - Metrics for all components
+      - Sub-items: Success rate, Latency, Error rate
+    7. ☐ **Alerting**
+      - Critical failures trigger notifications
+      - Sub-items: Alert thresholds set, Escalation paths defined
+    8. ☐ **Runbook**
+      - Manual intervention procedures documented
+      - Sub-items: Troubleshooting guides, Recovery procedures
+  - Progress indicator: "X/8 Complete"
+  - Production-ready badge appears when all checked
+  - Formula shown: "Chaos Testing + Reliability Patterns + Documentation = Production Ready"
+- Labels: "Complete ALL items before production deployment", "Don't skip any"
+- Relationships: Each item is prerequisite for production readiness
+
 **SPEAKER NOTES:**
 
 "Production hardening brings everything together.
@@ -877,6 +1191,74 @@ Re-run your chaos experiments after implementing patterns. Verify the improvemen
 | MTTR | 45 min | 3 min | -42 min |
 
 **Graphic:** Dashboard showing metrics with before/after comparison bars
+
+**GRAPHICS:**
+
+**Graphic 1: Reliability Metrics Definitions**
+- Purpose: Define the five key reliability metrics with targets
+- Type: Metric definition cards
+- Elements:
+  - Five metric cards:
+    1. **MTBF (Mean Time Between Failures)**
+      - Definition: "How often does system fail?"
+      - Calculation: "Total uptime / Number of failures"
+      - Target: ">24 hours"
+      - Icon: Clock with gaps
+    2. **MTTR (Mean Time To Recovery)**
+      - Definition: "How quickly does it recover?"
+      - Calculation: "Total downtime / Number of failures"
+      - Target: "<5 minutes"
+      - Icon: Speedometer
+    3. **Availability**
+      - Definition: "Uptime percentage"
+      - Calculation: "Uptime / (Uptime + Downtime)"
+      - Target: ">99%"
+      - Icon: Uptime graph
+      - Note: "99% = 7.2hrs/month downtime, 99.9% = 43min/month"
+    4. **Success Rate**
+      - Definition: "Successful executions percentage"
+      - Calculation: "Successes / Total attempts"
+      - Target: ">95%"
+      - Icon: Checkmark percentage
+    5. **Error Budget**
+      - Definition: "Acceptable failure rate"
+      - Calculation: "1 - Availability target"
+      - Target: "<5%"
+      - Icon: Budget meter
+      - Note: "5% = 1 in 20 can fail"
+  - Each card color-coded and showing icon
+- Labels: "Define success metrics before measuring", "Targets depend on business requirements"
+- Relationships: Metrics provide quantifiable reliability assessment
+
+**Graphic 2: Before vs After Chaos Testing Impact**
+- Purpose: Demonstrate the improvement from chaos testing and reliability patterns
+- Type: Comparison bar chart with metrics
+- Elements:
+  - Four metrics compared:
+    1. **Success Rate**
+      - Before: 87% (yellow bar)
+      - After: 96% (green bar)
+      - Improvement: +9% (green arrow)
+    2. **Graceful Failures**
+      - Before: 20% (red bar)
+      - After: 92% (green bar)
+      - Improvement: +72% (large green arrow)
+      - Note: "Most failures now handled gracefully!"
+    3. **Auto-Healed**
+      - Before: 0% (red bar)
+      - After: 78% (green bar)
+      - Improvement: +78% (green arrow)
+      - Note: "Automation working!"
+    4. **MTTR (Mean Time To Recovery)**
+      - Before: 45 minutes (red bar)
+      - After: 3 minutes (green bar)
+      - Improvement: -42 minutes (green arrow)
+      - Note: "15x faster recovery"
+  - Legend showing: Red = Before hardening, Green = After hardening
+  - Overall improvement indicator: "System Reliability: +73%"
+  - Annotation: "These improvements justify the investment in chaos testing"
+- Labels: "Measurable improvement from systematic testing", "Before/after proves value"
+- Relationships: Each metric shows significant improvement, validating the approach
 
 **SPEAKER NOTES:**
 

@@ -171,6 +171,15 @@ Let's get started."
 
 **Graphic:** Visual showing a workflow breaking - perhaps a flow diagram with an X or error symbol where validation should be
 
+**GRAPHICS:**
+
+**Graphic 1: Workflow Failure Cascade**
+- Purpose: Show how missing validation causes workflow failures
+- Type: Annotated flowchart with error indicators
+- Elements: Workflow steps (Input → AI Generate → Parse → Use Data → Output) with an X or explosion icon at the "Parse" step
+- Labels: "Expected: {name, score}", "Got: {rating, confidence}", "Parser Crash"
+- Relationships: Red arrows showing failure propagating downstream; include annotation "Without validation, failures happen late in the process"
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -224,6 +233,17 @@ Today we're going to solve this. Here's how..."
 **Graphic:** Before/after comparison:
 - Before: AI → Process → ??? → Maybe works
 - After: AI → Validate → Pass/Fail → Process (only valid data)
+
+**GRAPHICS:**
+
+**Graphic 1: Before/After Validation Comparison**
+- Purpose: Contrast workflows with and without validation
+- Type: Side-by-side flowcharts
+- Elements:
+  - LEFT (Before): AI → Process → Output with question marks and uncertainty clouds
+  - RIGHT (After): AI → Schema Validation (diamond decision) → [Pass] Process → Output OR [Fail] Error Handler
+- Labels: "Before: Hope it works", "After: Know it works", "Fail Fast", "Clear Errors"
+- Relationships: Show uncertainty vs. confidence; highlight validation as a quality gate
 
 **SPEAKER NOTES:**
 
@@ -299,6 +319,16 @@ Let me show you what a schema looks like..."
 
 **Graphic:** Flow diagram showing validation points in a workflow
 
+**GRAPHICS:**
+
+**Graphic 1: Validation Points in AI Workflow**
+- Purpose: Show where to apply validation in a complete workflow
+- Type: Annotated flowchart with validation gates highlighted
+- Elements: Form Input → [Validate 1] → AI Prompt → AI Generate → [Validate 2] → Process Result → [Validate 3] → Output
+- Labels: "Validate 1: Input Data", "Validate 2: AI Output", "Validate 3: Final Result", each validation point as a shield icon
+- Relationships: Validation points as quality gates; error paths branching from each validation to an error handler
+- Visual Style: Validation points in different color (green shields) to stand out from process steps
+
 **SPEAKER NOTES:**
 
 "Let's look at specific places where you'll use JSON Schema in your AI workflows:
@@ -355,6 +385,22 @@ Now let's get into the syntax. How do you actually write a schema?"
 
 **Graphic:** Annotated schema with arrows pointing to each element
 
+**GRAPHICS:**
+
+**Graphic 1: Anatomy of JSON Schema**
+- Purpose: Explain the key components of a schema structure
+- Type: Annotated code diagram with callout boxes
+- Elements: The schema code block with colored boxes/arrows pointing to each major section
+- Labels:
+  - "$schema" → "Specifies JSON Schema version"
+  - "$id" → "Unique identifier (URL format)"
+  - "title/description" → "Human-readable documentation"
+  - "type" → "Data type being validated"
+  - "properties" → "Field definitions"
+  - "required" → "Mandatory fields array"
+- Relationships: Group related elements (metadata at top, validation rules below)
+- Visual Style: Use different colors for metadata vs. validation sections
+
 **SPEAKER NOTES:**
 
 "[INSIGHT - Core structure]"
@@ -410,6 +456,23 @@ Let's look at the different types you can validate..."
 | `object` | Key-value structure | `{"a": 1}` |
 
 **Graphic:** Visual showing each type with examples
+
+**GRAPHICS:**
+
+**Graphic 1: JSON Primitive Types Reference**
+- Purpose: Quick visual reference for all JSON data types
+- Type: Icon grid with examples
+- Elements: 7 boxes, one per type (string, number, integer, boolean, null, array, object)
+- Labels:
+  - Each box contains: Type name, icon, example value, use case
+  - string → "abc" icon, "hello", "Text values"
+  - number → 123.45 icon, "3.14", "Any numeric"
+  - integer → 42 icon, "42", "Whole numbers"
+  - boolean → true/false toggle, "true", "Yes/no flags"
+  - null → empty symbol, "null", "No value"
+  - array → [] bracket icon, "[1,2,3]", "Lists"
+  - object → {} brace icon, '{"a":1}', "Key-value pairs"
+- Relationships: Organized in logical order (simple → complex)
 
 **SPEAKER NOTES:**
 
@@ -470,6 +533,22 @@ But types alone aren't enough. You need constraints. Let me show you..."
 ```
 
 **Graphic:** Examples of valid vs invalid strings for each constraint
+
+**GRAPHICS:**
+
+**Graphic 1: String Constraint Validation Examples**
+- Purpose: Show how different string constraints validate data
+- Type: Validation matrix with pass/fail indicators
+- Elements: Table with constraints as rows, test values as columns
+- Labels:
+  - Row headers: "minLength: 1", "maxLength: 100", "pattern: ^[A-Z][a-z]+$", "format: email"
+  - Test values: "", "Hi", "ValidName", "invalid", "user@example.com", "not-an-email"
+  - Cells: ✓ (green checkmark) or ✗ (red X)
+- Relationships: Show that one value can pass some constraints but fail others
+- Examples:
+  - "" fails minLength, passes maxLength
+  - "ValidName" passes pattern (capital + lowercase)
+  - "user@example.com" passes format: email
 
 **SPEAKER NOTES:**
 
@@ -532,6 +611,20 @@ Positive integers only:
 ```
 
 **Graphic:** Number line showing valid/invalid ranges
+
+**GRAPHICS:**
+
+**Graphic 1: Number Constraint Ranges**
+- Purpose: Visualize how number constraints work on a number line
+- Type: Annotated number line diagram
+- Elements: Horizontal number line from -10 to 110 with highlighted valid range
+- Labels:
+  - Range marker showing "minimum: 0" and "maximum: 100"
+  - Green shaded area between 0 and 100 labeled "Valid Range"
+  - Red areas outside this range labeled "Invalid"
+  - Example values plotted: -5 (✗), 0 (✓), 50 (✓), 100 (✓), 105 (✗)
+- Relationships: Visual representation of inclusive minimum/maximum
+- Additional: Small callout showing "multipleOf: 0.5" with examples 50, 50.5, 51 valid; 50.3 invalid
 
 **SPEAKER NOTES:**
 
@@ -633,6 +726,33 @@ Any final questions on basic types and constraints before we move to objects and
 
 **Graphic:** Object visualization showing required vs optional fields
 
+**GRAPHICS:**
+
+**Graphic 1: Object Schema Structure**
+- Purpose: Show how object schemas define and validate structure
+- Type: Layered diagram with visual hierarchy
+- Elements: Object box containing field definitions
+- Labels:
+  - Object container labeled "User Object"
+  - Inside: "name: string" with red asterisk (*) labeled "Required"
+  - Inside: "age: integer (≥0)" with gray text labeled "Optional"
+  - Outside: "additionalProperties: false" with lock icon
+- Relationships:
+  - Required fields marked distinctly (red asterisk or border)
+  - Optional fields in lighter color
+  - additionalProperties setting shown as boundary control
+- Visual Style: Use solid border for required, dashed for optional
+
+**Graphic 2: Valid vs Invalid Object Examples**
+- Purpose: Show what passes or fails object validation
+- Type: Side-by-side comparison with pass/fail indicators
+- Elements: Three example JSON objects with validation results
+- Labels:
+  - Example 1: {"name": "Alice"} → ✓ "Valid (required field present)"
+  - Example 2: {"age": 30} → ✗ "Invalid (missing required name)"
+  - Example 3: {"name": "Bob", "email": "..."} → ✗ "Invalid (additionalProperties:false)"
+- Relationships: Shows how schema rules are applied
+
 **SPEAKER NOTES:**
 
 "[INSIGHT - Objects are where schemas get powerful]"
@@ -709,6 +829,31 @@ List of email addresses:
 
 **Graphic:** Array visualization showing validation of elements
 
+**GRAPHICS:**
+
+**Graphic 1: Array Schema Validation**
+- Purpose: Show how array constraints validate lists
+- Type: Diagram showing array with validation annotations
+- Elements: Visual array representation with brackets and elements
+- Labels:
+  - Array: ["alice@ex.com", "bob@ex.com", "carol@ex.com"]
+  - Top annotation: "items: {type: string, format: email}" with arrows pointing to each element
+  - Left annotation: "minItems: 1 ✓ (has 3 items)"
+  - Right annotation: "maxItems: 10 ✓ (has 3 items)"
+  - Bottom annotation: "uniqueItems: true ✓ (all unique)"
+- Relationships: Show how each constraint checks a different aspect of the array
+- Visual Style: Green checkmarks for passing constraints
+
+**Graphic 2: Array Validation Failures**
+- Purpose: Show common array validation errors
+- Type: Examples with failure indicators
+- Elements: Three failing examples
+- Labels:
+  - Example 1: [] → ✗ "Fails minItems: 1 (empty array)"
+  - Example 2: [15 emails...] → ✗ "Fails maxItems: 10 (too many)"
+  - Example 3: ["a@ex.com", "b@ex.com", "a@ex.com"] → ✗ "Fails uniqueItems (duplicate)"
+- Relationships: Each example demonstrates one validation failure
+
 **SPEAKER NOTES:**
 
 "Arrays are lists of values. Array schemas define what's in the list and how long it can be.
@@ -776,6 +921,32 @@ Now let's combine objects and arrays for complex structures..."
 ```
 
 **Graphic:** Tree diagram showing nested structure
+
+**GRAPHICS:**
+
+**Graphic 1: Nested Schema Structure Tree**
+- Purpose: Visualize the hierarchy of nested objects and arrays
+- Type: Tree diagram with expandable levels
+- Elements: Root node expanding to show full nesting
+- Labels:
+  - Level 1: Root object
+  - Level 2: "client" (object property)
+  - Level 3: "name" (string), "contacts" (array)
+  - Level 4: Array items (objects)
+  - Level 5: "email" (string with format constraint)
+- Relationships: Parent-child connections showing nesting
+- Visual Style: Different shapes for different types (rectangles for objects, brackets for arrays, ovals for primitives)
+- Annotations: Type indicators at each level
+
+**Graphic 2: Schema-to-Data Mapping**
+- Purpose: Show how schema structure maps to actual data
+- Type: Side-by-side comparison
+- Elements: Schema code on left, valid data example on right, with connecting lines
+- Labels:
+  - Left: Schema defining structure
+  - Right: Actual JSON data
+  - Lines: Connect schema definitions to corresponding data elements
+- Relationships: Visual mapping between schema rules and data structure
 
 **SPEAKER NOTES:**
 
@@ -893,6 +1064,22 @@ Task type:
 
 **Graphic:** Dropdown menu visual showing allowed values
 
+**GRAPHICS:**
+
+**Graphic 1: Enum Constraint Visualization**
+- Purpose: Show how enums restrict values to a specific set
+- Type: Dropdown/selection visualization
+- Elements: Dropdown menu style graphic with allowed values
+- Labels:
+  - Dropdown header: "status: string"
+  - Options list: "draft", "review", "published" (all valid, shown in green)
+  - Below: Attempted values with results:
+    - "draft" → ✓ "Allowed"
+    - "Draft" → ✗ "Rejected (case-sensitive)"
+    - "pending" → ✗ "Rejected (not in enum)"
+- Relationships: Shows that only exact matches from enum list are accepted
+- Visual Style: Green for allowed values, red for rejected values
+
 **SPEAKER NOTES:**
 
 "Enums restrict a field to a specific set of allowed values.
@@ -962,6 +1149,29 @@ THEN company_name is required
 
 **Graphic:** Decision tree showing if-then logic
 
+**GRAPHICS:**
+
+**Graphic 1: Conditional Schema Flow**
+- Purpose: Show how if-then conditional validation works
+- Type: Decision tree / flowchart
+- Elements: Diamond decision node with branching paths
+- Labels:
+  - Decision diamond: "type === 'business'?"
+  - Left branch (Yes): "THEN company_name is required" → Shows object with company_name field
+  - Right branch (No): "No additional requirements" → Shows object without company_name
+- Relationships: Conditional logic determining which validation rules apply
+- Visual Style: Use flowchart conventions (diamond for decision, rectangles for outcomes)
+
+**Graphic 2: Conditional Validation Example**
+- Purpose: Show concrete example of conditional validation in action
+- Type: Side-by-side comparison
+- Elements: Two data objects with validation results
+- Labels:
+  - Example 1: {type: "business", company_name: "Acme"} → ✓ "Valid"
+  - Example 2: {type: "business"} → ✗ "Invalid (company_name required when type=business)"
+  - Example 3: {type: "personal"} → ✓ "Valid (company_name not required)"
+- Relationships: Shows how the same schema validates differently based on field values
+
 **SPEAKER NOTES:**
 
 "Sometimes validation rules depend on other fields. That's where conditionals come in.
@@ -1024,6 +1234,30 @@ Result: Both name AND email required
 Result: Must have email OR phone (or both)
 
 **Graphic:** Venn diagram showing set operations
+
+**GRAPHICS:**
+
+**Graphic 1: Schema Combination Operators**
+- Purpose: Visualize how allOf, anyOf, oneOf, and not work using set theory
+- Type: Venn diagram grid (2x2 layout)
+- Elements: Four separate diagrams showing each operator
+- Labels:
+  - **allOf**: Two overlapping circles A and B, only intersection highlighted → "Must match ALL schemas"
+  - **anyOf**: Two overlapping circles, entire area (A + B + intersection) highlighted → "Must match AT LEAST ONE"
+  - **oneOf**: Two overlapping circles, A-only and B-only highlighted (NOT intersection) → "Must match EXACTLY ONE"
+  - **not**: Single circle with shaded area outside → "Must NOT match schema"
+- Relationships: Visual representation of Boolean logic
+- Visual Style: Use consistent colors (green for valid regions, gray for invalid)
+
+**Graphic 2: Practical Combination Example**
+- Purpose: Show real-world use of schema combinations
+- Type: Annotated example
+- Elements: Contact validation scenario
+- Labels:
+  - "anyOf: [email schema, phone schema]"
+  - Valid examples: {email: "..."}, {phone: "..."}, {email: "...", phone: "..."}
+  - Invalid example: {} (neither email nor phone)
+- Relationships: Shows "at least one contact method required" pattern
 
 **SPEAKER NOTES:**
 

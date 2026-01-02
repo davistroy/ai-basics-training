@@ -173,6 +173,28 @@ Your agent works perfectly in testing. Then it hits production and:
 
 **Graphic:** Before/after comparison - agent working smoothly vs. agent failing in production with error cascades
 
+**GRAPHICS:**
+
+**Graphic 1: Testing vs Production Reality**
+- Purpose: Illustrate the gap between controlled testing and production chaos
+- Type: Split-screen before/after comparison
+- Elements:
+  - Left side: "Testing Environment"
+    - Agent system with green checkmarks
+    - All services available and responding
+    - Clean success path
+    - Label: "Everything works perfectly"
+  - Right side: "Production Reality"
+    - Same agent system with multiple red X marks
+    - MCP server icon with "DOWN" label
+    - API with "RATE LIMITED" warning
+    - Network with "TIMEOUT" alert
+    - Agent stuck/frozen indicator
+    - Error cascading through system
+    - Label: "Hidden failures emerge"
+- Labels: "Testing ≠ Production", "Chaos engineering bridges this gap"
+- Relationships: Same system, different conditions lead to different outcomes
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -228,6 +250,26 @@ Today we're going to solve this. Here's how..."
 **Key Benefit:** Find and fix failure modes before production does
 
 **Graphic:** Chaos engineering cycle diagram showing the 6 steps as a continuous loop
+
+**GRAPHICS:**
+
+**Graphic 1: Chaos Engineering Cycle**
+- Purpose: Visualize the continuous cycle of chaos testing and improvement
+- Type: Circular flow diagram with 6 steps
+- Elements:
+  - Six connected nodes in clockwise circle:
+    1. "Define Steady State" - Baseline metrics icon
+    2. "Hypothesize" - Question mark/prediction icon
+    3. "Inject Failure" - Lightning bolt/chaos icon
+    4. "Observe Behavior" - Magnifying glass/monitor icon
+    5. "Fix Weaknesses" - Wrench/repair icon
+    6. "Repeat" - Circular arrow back to step 1
+  - Each node shows brief description
+  - Arrows showing continuous flow
+  - Center label: "Continuous Improvement"
+  - Color gradient from red (failure) through yellow (observation) to green (fixes)
+- Labels: "Break it in testing so it doesn't break in production"
+- Relationships: Iterative cycle, each round finds and fixes more issues
 
 **SPEAKER NOTES:**
 
@@ -304,6 +346,26 @@ Let me show you this in action..."
 | Stateless or simple state | Rich contextual state |
 
 **Graphic:** Diagram showing AI agent dependencies: AI API, MCP servers, tools, orchestration layer, external services
+
+**GRAPHICS:**
+
+**Graphic 1: AI Agent Dependency Map**
+- Purpose: Illustrate the complex dependency web of AI agent systems showing multiple failure points
+- Type: Dependency architecture diagram
+- Elements:
+  - Center: "AI Agent" node
+  - Connected dependency nodes radiating outward:
+    - "Claude AI API" - with note "Non-deterministic responses"
+    - "MCP Servers" - multiple servers shown (filesystem, GitHub, etc.)
+    - "External APIs" - search, data sources
+    - "Orchestration Layer" - state management, agent handoffs
+    - "Context/Memory" - token limits, context windows
+  - Each connection shows potential failure mode:
+    - Red warning icons at connection points
+    - Failure types labeled: "Timeout", "Rate Limit", "Unavailable", "Context Loss", "State Corruption"
+  - Complexity indicator showing interconnected dependencies
+- Labels: "Each dependency = potential failure point", "AI systems have unique challenges"
+- Relationships: Many-to-one dependencies create multiple failure vectors
 
 **SPEAKER NOTES:**
 
@@ -397,6 +459,40 @@ Any final questions on chaos engineering basics before we move to failure modes?
 
 **Graphic:** Visual taxonomy showing the five categories with icons
 
+**GRAPHICS:**
+
+**Graphic 1: Failure Category Taxonomy**
+- Purpose: Organize AI agent failures into clear categories for systematic analysis
+- Type: Category diagram with icons and examples
+- Elements:
+  - Five category boxes arranged in grid:
+    - **Tool Failures** (wrench icon)
+      - API down
+      - Timeout
+      - Rate limited
+      - Wrong response
+    - **AI Failures** (brain/AI icon)
+      - Hallucination
+      - Context lost
+      - Infinite loop
+      - Wrong tool choice
+    - **Orchestration Failures** (network icon)
+      - Agent handoff fails
+      - State corruption
+      - Deadlock
+    - **Resource Failures** (meter/gauge icon)
+      - Token limit exceeded
+      - Memory overflow
+      - Budget exhausted
+    - **External Failures** (cloud/network icon)
+      - Network timeout
+      - Authentication expired
+      - Service unavailable
+  - Color coding by category
+  - Each box shows icon, category name, and 3-4 examples
+- Labels: "Different categories require different handling strategies"
+- Relationships: Comprehensive taxonomy covering all major failure types
+
 **SPEAKER NOTES:**
 
 "Now let's dive into the specific ways AI agents fail.
@@ -453,6 +549,25 @@ The key insight is that each category needs different handling. You can retry to
 
 **Graphic:** Template structure with arrows showing the analysis flow
 
+**GRAPHICS:**
+
+**Graphic 1: Failure Mode Analysis Template**
+- Purpose: Provide structured framework for analyzing each failure mode systematically
+- Type: Template diagram with analysis flow
+- Elements:
+  - Six connected analysis boxes in flowchart:
+    1. "What" - Description box with example text
+    2. "Likelihood" - Scale showing Common/Occasional/Rare
+    3. "Impact" - Scale showing Critical/High/Medium/Low
+    4. "Detection" - How to identify the failure
+    5. "Current Handling" - What happens now (honest assessment)
+    6. "Desired Handling" - What should happen (target state)
+  - Arrows showing flow from description through analysis to remediation
+  - Example populated for "MCP Server Unavailable" visible in template
+  - Priority calculation shown: Likelihood × Impact = Priority
+- Labels: "Systematic analysis leads to prioritized action"
+- Relationships: Each element informs next step, building complete failure profile
+
 **SPEAKER NOTES:**
 
 "For each failure mode, we analyze it systematically using this template.
@@ -502,6 +617,28 @@ Priority = Likelihood × Impact
 **Test high-priority items first**
 
 **Graphic:** 2x2 matrix showing likelihood vs impact quadrants with failures plotted
+
+**GRAPHICS:**
+
+**Graphic 1: Failure Priority Matrix**
+- Purpose: Visualize priority ranking based on likelihood and impact to guide testing order
+- Type: 2x2 priority matrix with plotted failures
+- Elements:
+  - X-axis: Likelihood (Low → Medium → High)
+  - Y-axis: Impact (Low → Medium → High → Critical)
+  - Four quadrants color-coded:
+    - Top-left: Red "High Priority" (Low likelihood, Critical impact)
+    - Top-right: Dark Red "Highest Priority" (High likelihood, Critical/High impact)
+    - Bottom-right: Yellow "Medium Priority" (High likelihood, Low impact)
+    - Bottom-left: Green "Low Priority" (Low likelihood, Low impact)
+  - Specific failures plotted as dots with labels:
+    - "MCP unavailable" - Medium/High (Priority 1)
+    - "Infinite loop" - Low/Critical (Priority 2)
+    - "Network timeout" - High/Medium (Priority 3)
+    - "Token limit" - Medium/Medium (Priority 4)
+  - Priority numbers shown on each dot
+- Labels: "Test highest priority first", "Don't ignore rare but critical failures"
+- Relationships: Matrix position determines testing priority
 
 **SPEAKER NOTES:**
 
@@ -595,6 +732,42 @@ Questions on failure modes before we move to experiment design?"
 
 **Graphic:** Experiment template structure with all six elements connected
 
+**GRAPHICS:**
+
+**Graphic 1: Chaos Experiment Anatomy**
+- Purpose: Show the six required elements of a rigorous chaos experiment
+- Type: Structured template diagram
+- Elements:
+  - Six connected sections in workflow:
+    1. **Hypothesis** box
+      - Icon: Light bulb
+      - "When X fails, system will Y"
+      - Emphasis: "Be specific!"
+    2. **Steady State** box
+      - Icon: Baseline graph
+      - Metrics: Success rate >95%, Response time <30s
+      - "Define 'working'"
+    3. **Failure Injection** box
+      - Icon: Lightning bolt
+      - Method, Duration, Scope
+      - "How to cause failure"
+    4. **Observation Plan** box
+      - Icon: Eyes/monitor
+      - Metrics, Logs, Indicators to watch
+      - "What to monitor"
+    5. **Rollback Plan** box
+      - Icon: Undo arrow
+      - Stop steps, Recovery steps
+      - "Safety first!"
+    6. **Success Criteria** box
+      - Icon: Checklist
+      - Checkboxes for validation
+      - "How to validate"
+  - Arrows showing experiment flow
+  - "ALL SIX REQUIRED" emphasis banner
+- Labels: "Rigorous experiments require structure"
+- Relationships: Each element is essential for valid, safe, reproducible testing
+
 **SPEAKER NOTES:**
 
 "Now let's learn how to design rigorous chaos experiments.
@@ -660,6 +833,41 @@ When filesystem MCP server fails, agent will:
 
 **Graphic:** Experiment workflow from hypothesis to validation
 
+**GRAPHICS:**
+
+**Graphic 1: MCP Server Failure Experiment Workflow**
+- Purpose: Demonstrate complete chaos experiment with concrete example
+- Type: End-to-end experiment visualization
+- Elements:
+  - Timeline flow showing experiment phases:
+    1. **Setup Phase** (0 min)
+      - Steady state baseline: Success 100%, Response <10s
+      - Monitoring activated
+      - Rollback plan ready
+    2. **Injection Phase** (0-1 min)
+      - MCP config renamed
+      - Service becomes unavailable
+      - Timer starts
+    3. **Observation Phase** (0-60 sec)
+      - Real-time monitoring dashboard shown
+      - Expected behaviors checklist:
+        - ☐ Detects within 10s
+        - ☐ Retries 3x with backoff
+        - ☐ Fails gracefully
+        - ☐ State intact
+      - Actual observations recorded alongside
+    4. **Rollback Phase** (60 sec)
+      - Config restored
+      - Claude Desktop restarted
+      - Recovery verified
+    5. **Analysis Phase**
+      - Expected vs Actual comparison table
+      - Issues identified
+      - Hypothesis validated or refuted
+  - Color coding: Green for setup, Red for injection, Blue for observation, Yellow for rollback, Purple for analysis
+- Labels: "Complete experiment from start to finish", "Reproducible and documented"
+- Relationships: Sequential phases with clear transitions and validation points
+
 **SPEAKER NOTES:**
 
 "Here's a complete example experiment.
@@ -706,6 +914,48 @@ In your homework, you'll design 5 experiments like this."
 **Safety:** Always have rollback ready before injection
 
 **Graphic:** Visual showing different injection techniques with safety warnings
+
+**GRAPHICS:**
+
+**Graphic 1: Failure Injection Techniques**
+- Purpose: Catalog common injection methods with safety considerations
+- Type: Technique reference grid
+- Elements:
+  - Six injection method cards:
+    1. **Disable Service**
+      - Icon: Power off switch
+      - Example: "Rename MCP config"
+      - Safety: Low risk (easily reversible)
+      - Use case: Test unavailability
+    2. **Return Errors**
+      - Icon: Error symbol
+      - Example: "Mock API returning 500"
+      - Safety: Low risk (controlled simulation)
+      - Use case: Test error handling
+    3. **Add Latency**
+      - Icon: Clock/delay
+      - Example: "Network delay injection"
+      - Safety: Medium risk (can cascade)
+      - Use case: Test timeout handling
+    4. **Malformed Data**
+      - Icon: Corrupted document
+      - Example: "Return invalid JSON"
+      - Safety: Low risk (validation test)
+      - Use case: Test data validation
+    5. **Resource Limits**
+      - Icon: Meter at max
+      - Example: "Set low token budget"
+      - Safety: Medium risk (monitor closely)
+      - Use case: Test constraint handling
+    6. **Kill Process**
+      - Icon: Stop sign
+      - Example: "Terminate agent mid-execution"
+      - Safety: HIGH RISK (data loss possible)
+      - Use case: Test recovery mechanisms
+  - Safety rating color coding: Green (low), Yellow (medium), Red (high)
+  - Warning banner: "Always have rollback ready BEFORE injection"
+- Labels: "Start with safest methods", "Progressively increase complexity"
+- Relationships: Techniques ordered by risk level and complexity
 
 **SPEAKER NOTES:**
 
@@ -802,6 +1052,43 @@ Questions on experiment design?"
 
 **Graphic:** Safe testing environment diagram showing isolation, monitoring, kill switch
 
+**GRAPHICS:**
+
+**Graphic 1: Safe Chaos Testing Environment Architecture**
+- Purpose: Illustrate the components of a properly isolated and monitored testing environment
+- Type: Architecture diagram with safety features
+- Elements:
+  - Three distinct environment zones:
+    1. **Production** (top, separate)
+      - Red border, locked/protected
+      - Label: "NEVER touch without safeguards"
+    2. **Test/Staging Environment** (center, main focus)
+      - Green border, isolated
+      - Contains:
+        - Cloned agent system
+        - Test data only (no PII)
+        - "CHAOS TEST" label clearly visible
+        - Monitoring dashboard active
+        - Kill switch button prominent
+      - Full observability components:
+        - Real-time log streaming
+        - Metrics dashboard
+        - Alert system
+      - Rollback procedures documented
+    3. **Development** (bottom, separate)
+      - Gray border
+      - Not shown in detail
+  - Firewall/isolation barriers between environments
+  - Connection lines showing monitoring flow to observability tools
+  - Safety checklist sidebar:
+    - ☐ Isolated from production
+    - ☐ Test data only
+    - ☐ Monitoring active
+    - ☐ Rollback ready
+    - ☐ Team notified
+- Labels: "Isolation prevents production impact", "Monitoring enables rapid detection"
+- Relationships: Complete separation with full observability in test environment
+
 **SPEAKER NOTES:**
 
 "Before you start breaking things, you need a safe environment.
@@ -852,6 +1139,59 @@ IF chaos_test_running AND
 ```
 
 **Graphic:** Dashboard mockup showing logs, metrics, and kill switch button
+
+**GRAPHICS:**
+
+**Graphic 1: Chaos Testing Observability Dashboard**
+- Purpose: Show comprehensive monitoring required during chaos experiments
+- Type: Dashboard mockup with live monitoring elements
+- Elements:
+  - Four quadrant layout:
+    1. **Top-Left: Real-Time Logs**
+      - Streaming log entries with timestamps
+      - Color-coded by severity (info, warning, error)
+      - Live scroll indicator
+      - Highlighting for chaos test events
+    2. **Top-Right: Metrics Panel**
+      - Success rate gauge: Current value with threshold line at 95%
+      - Response time graph: Timeline showing latency
+      - Error rate counter: Current errors per minute
+      - All updating in real-time
+    3. **Bottom-Left: Alert Status**
+      - Active alerts list
+      - Alert severity levels
+      - Notification bell icon with count
+      - Recent alert history
+    4. **Bottom-Right: Event Recording**
+      - Experiment timeline
+      - Key events marked
+      - Recording indicator (ACTIVE)
+  - Top banner:
+    - Experiment name: "MCP Server Failure Test"
+    - Status: "IN PROGRESS"
+    - Time elapsed: Counter
+    - **KILL SWITCH** button (red, prominent)
+  - Color scheme: Dark background with bright data visualization
+- Labels: "Real-time visibility is critical", "Kill switch always accessible"
+- Relationships: All monitoring elements feed into operator awareness
+
+**Graphic 2: Kill Switch Logic**
+- Purpose: Illustrate automatic and manual kill switch triggers
+- Type: Logic flowchart
+- Elements:
+  - Trigger conditions in decision diamonds:
+    - "error_rate > 50%" → TRIGGER
+    - "system_unresponsive" → TRIGGER
+    - "user_triggered" → TRIGGER
+  - All trigger paths lead to kill switch activation box
+  - Kill switch actions shown:
+    1. STOP chaos injection immediately
+    2. RESTORE normal operation
+    3. ALERT operator
+  - Status indicators showing before/after states
+  - Manual override button always available
+- Labels: "Automatic safety with manual override", "Protection against runaway failures"
+- Relationships: Multiple trigger conditions all lead to safe shutdown sequence
 
 **SPEAKER NOTES:**
 

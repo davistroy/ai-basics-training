@@ -152,6 +152,22 @@ Your homework implements all of these. By end of week, you'll have a monitored, 
 
 **Graphic:** Five pillars or pentagon diagram
 
+**GRAPHICS:**
+
+**Graphic 1: Five Production-Ready Qualities**
+- Purpose: Define the essential qualities required for production agent deployment
+- Type: Pentagon diagram or five pillars
+- Elements: Five connected sections forming complete production readiness
+- Labels:
+  - Quality 1: "RELIABLE" - "Works consistently without failures"
+  - Quality 2: "OBSERVABLE" - "You can see what's happening"
+  - Quality 3: "RECOVERABLE" - "Failures don't cause data loss"
+  - Quality 4: "EFFICIENT" - "Reasonable cost and time"
+  - Quality 5: "SECURE" - "Doesn't expose sensitive data"
+  - Center: "PRODUCTION READY"
+  - Bottom: "All five required - not optional"
+- Relationships: All five equally important; interdependent; missing any one disqualifies from production; complete coverage needed
+
 **SPEAKER NOTES:**
 
 "What does production-ready mean?

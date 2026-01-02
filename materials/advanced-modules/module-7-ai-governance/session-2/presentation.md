@@ -238,6 +238,29 @@ Today you'll learn a systematic approach to compliance mapping. Let's start with
 
 **Graphic:** EU AI Act pyramid showing risk tiers
 
+**GRAPHICS:**
+
+**Graphic 1: EU AI Act Risk Pyramid**
+- Purpose: Visualize the hierarchical risk classification system with decreasing regulatory burden
+- Type: Pyramid diagram with four tiers
+- Elements: Four horizontal sections stacked in pyramid shape; top (smallest) is Unacceptable/Prohibited in red; second tier is High Risk in orange; third is Limited Risk in yellow; bottom (largest) is Minimal Risk in green; prohibition symbol on top tier
+- Labels: Tier name and regulatory requirement prominently displayed on each level; 3-4 example use cases per tier; compliance burden indicator (High/Medium/Low/None)
+- Relationships: Vertical axis showing increasing regulatory requirements; size of sections indicates proportion of AI systems in each category; arrows showing where most enterprise AI falls (High/Limited tiers)
+
+**Graphic 2: High-Risk Requirements Checklist**
+- Purpose: Detail the seven mandatory requirements for high-risk AI systems
+- Type: Circular hub-and-spoke or checklist diagram
+- Elements: Central circle labeled "High-Risk AI System"; seven spokes radiating outward, each representing one requirement; each spoke terminates in box with requirement details
+- Labels: Requirement names clearly visible; key implementation activities in each box; icons representing each requirement (shield for risk mgmt, database for data governance, etc.)
+- Relationships: All requirements must be met (AND logic); dotted lines showing interdependencies (e.g., risk mgmt informs documentation); color coding showing implementation difficulty or timeline
+
+**Graphic 3: Use Case Classification Guide**
+- Purpose: Help organizations quickly determine which tier their AI system falls into
+- Type: Decision matrix or quadrant chart
+- Elements: Two axes (Impact on fundamental rights, Sector/domain); plotted examples showing where different use cases fall; colored zones corresponding to risk tiers
+- Labels: Axis labels clearly defined; examples plotted with brief description; zone boundaries showing tier transitions; callout boxes for edge cases
+- Relationships: Visual clustering of similar use cases; arrows or guidelines showing how to classify new systems; emphasis on high-risk sector list (employment, credit, healthcare, law enforcement)
+
 **SPEAKER NOTES:**
 
 "The EU AI Act uses a risk-based approach with four tiers.
@@ -398,6 +421,29 @@ Exercise 2.1 gives you the compliance mapping template. Now let's talk about org
 
 **Graphic:** Side-by-side comparison diagrams
 
+**GRAPHICS:**
+
+**Graphic 1: Centralized vs. Federated Org Chart Comparison**
+- Purpose: Visually contrast the two governance models with clear reporting structure
+- Type: Side-by-side organizational hierarchy diagrams
+- Elements: Left side showing centralized model with strong top-down structure; right side showing federated with bidirectional flows; boxes representing organizational units; arrows showing authority/influence flow
+- Labels: Left labeled "Centralized - Command & Control"; right labeled "Federated - Collaborate & Align"; role names in boxes; authority type indicated (Mandates vs. Guidelines)
+- Relationships: Left shows vertical command structure; right shows horizontal collaboration plus vertical guidance; thickness of arrows indicates strength of authority; color coding for decision types (Policy=central, Implementation=local)
+
+**Graphic 2: Decision Authority Matrix**
+- Purpose: Show which governance decisions are made centrally vs. locally in each model
+- Type: Comparison matrix table
+- Elements: Rows listing different decision types (Policy creation, Risk classification, Tool selection, Budget allocation, etc.); columns for Centralized and Federated models; cells indicating Central/Local/Shared authority
+- Labels: Decision category names; authority level (Central/BU/Shared); speed indicator (Fast/Moderate/Slow); typical owners listed
+- Relationships: Color coding showing authority distribution; patterns showing where models differ most; callout boxes for critical decisions
+
+**Graphic 3: Model Selection Decision Tree**
+- Purpose: Guide organizations to choose appropriate governance model
+- Type: Decision tree flowchart
+- Elements: Starting point "Choose Governance Model" → decision diamonds based on org characteristics (Industry regulation, Org size, AI risk profile, Cultural preference) → terminal recommendations (Centralized/Federated/Hybrid)
+- Labels: Clear decision criteria at each node; example organizations for each path; pros/cons callouts; hybrid model option shown as middle path
+- Relationships: Flow from top to bottom; multiple paths leading to same outcome showing flexibility; emphasis on hybrid as most common real-world choice
+
 **SPEAKER NOTES:**
 
 "One of the first design decisions: centralized or federated governance?
@@ -546,6 +592,29 @@ Your capstone requires a structure recommendation with justification. Why is thi
 **Key Principle:** Autonomy level should match risk level and reversibility
 
 **Graphic:** Spectrum showing autonomy levels from 0-4 with human oversight decreasing
+
+**GRAPHICS:**
+
+**Graphic 1: Autonomy Spectrum with Human Oversight Gradient**
+- Purpose: Visualize the five autonomy levels and inverse relationship with human control
+- Type: Horizontal spectrum diagram with gradient
+- Elements: Five levels arranged left to right (0 to 4); human icon decreasing in size from left to right; AI/robot icon increasing in size from left to right; oversight intensity shown as gradient bar below (dark green to light green)
+- Labels: Level number and name prominently displayed for each; brief description under each level; human oversight type indicated; example use case in callout box
+- Relationships: Inverse relationship between autonomy and human control shown visually; transition points between levels marked; risk indicators showing which levels require governance gates
+
+**Graphic 2: Autonomy Level Decision Matrix**
+- Purpose: Help organizations classify their AI agents into appropriate autonomy levels
+- Type: Decision matrix with two axes
+- Elements: Vertical axis showing "Impact/Risk" (Low to High); horizontal axis showing "Reversibility" (Easy to Difficult); five zones plotted corresponding to autonomy levels; example agents plotted in appropriate zones
+- Labels: Axes clearly labeled; zones color-coded by autonomy level; examples with brief descriptions; decision criteria noted in corners
+- Relationships: Higher risk + lower reversibility → lower autonomy level; diagonal pattern showing recommended classifications; arrows showing how agent capabilities might progress over time
+
+**Graphic 3: Human Oversight Models Comparison**
+- Purpose: Detail the three main human oversight patterns and when to use each
+- Type: Three-column comparison diagram
+- Elements: Three columns (Human-in-the-loop, Human-on-the-loop, Human-in-command); each showing timing of human involvement; workflow diagrams for each pattern
+- Labels: Pattern names; timing of intervention (Before/During/After action); typical latency impact; appropriate use cases; compliance considerations
+- Relationships: Show how oversight timing affects system behavior; map oversight patterns to autonomy levels; indicate which pattern satisfies various regulatory requirements
 
 **SPEAKER NOTES:**
 

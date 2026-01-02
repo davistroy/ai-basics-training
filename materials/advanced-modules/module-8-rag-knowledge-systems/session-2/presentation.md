@@ -208,6 +208,29 @@ Top-k results with best of both
 }
 ```
 
+**GRAPHICS:**
+
+**Graphic 1: Hybrid Search Architecture**
+- Purpose: Visualize how semantic and keyword search paths merge
+- Type: Parallel flow diagram with fusion point
+- Elements: Query at top splitting into two parallel paths (semantic on left, keyword on right); each path showing search process; convergence at RRF fusion algorithm; final ranked results at bottom
+- Labels: "Semantic Path" and "Keyword Path" clearly marked; search methods shown (vector similarity vs. BM25); intermediate results from each path; RRF formula visualization; final fused ranking
+- Relationships: Parallel processing shown with split; different strengths highlighted (semantic finds concepts, keyword finds exact); fusion combining best of both; weights shown affecting final scores
+
+**Graphic 2: Reciprocal Rank Fusion (RRF) Formula Visualization**
+- Purpose: Explain RRF algorithm with concrete example
+- Type: Worked example with formula and calculation
+- Elements: Two ranked lists side-by-side (semantic results, keyword results); RRF formula shown; calculation table showing score computation; final fused ranking
+- Labels: Source rankings labeled; RRF formula: score = 1/(k+rank); k parameter explained (typically 60); step-by-step calculation; final combined scores
+- Relationships: Show how ranks from different sources combine; demonstrate why RRF works when scores aren't comparable; highlight winning documents that appear in both lists
+
+**Graphic 3: Hybrid vs. Semantic-Only Performance Comparison**
+- Purpose: Show empirical improvement from hybrid search
+- Type: Bar chart or before/after comparison
+- Elements: Precision metrics for semantic-only vs. hybrid; example queries showing failure modes of semantic-only; success cases for hybrid
+- Labels: Metric names (Precision@3, Precision@5, MRR); percentage improvements; query categories where hybrid excels (technical, names, exact matches)
+- Relationships: Visual comparison showing typical 10-20% improvement; breakdown by query type; cost/latency tradeoff noted
+
 **SPEAKER NOTES:**
 
 "Hybrid search runs both semantic AND keyword search, then fuses the results.
@@ -348,6 +371,29 @@ Router → Search Agent → Synthesis
 | Simple Q&A | RAG as Context |
 | Mixed tasks | RAG as Tool |
 | Complex research | Agentic RAG |
+
+**GRAPHICS:**
+
+**Graphic 1: Three Integration Patterns Side-by-Side**
+- Purpose: Visually compare the three agent-RAG integration approaches
+- Type: Three-column comparison diagram with workflow flows
+- Elements: Three columns (RAG as Tool, RAG as Context, Agentic RAG); each showing workflow from user query to response; agent decision points highlighted; knowledge base interaction points marked
+- Labels: Pattern names; workflow steps labeled; agent reasoning shown with thought bubbles; timing indicators (when retrieval occurs); complexity ratings (Simple/Moderate/Complex)
+- Relationships: Highlight where agent makes decisions vs. automatic behavior; show latency differences; indicate which pattern handles which scenarios best; arrows showing information flow
+
+**Graphic 2: RAG as Tool Detailed Flow**
+- Purpose: Deep dive into the recommended pattern with decision logic
+- Type: Detailed flowchart
+- Elements: User query → Agent reasoning ("Do I need KB?") → decision diamond → if yes: tool call → retrieval → context injection → response; if no: direct response; error handling paths
+- Labels: Decision criteria shown ("Is this company-specific?", "Do I need current data?"); tool definition shown; retry logic; citation formatting; agent reasoning process
+- Relationships: Decision tree showing when agent searches vs. answers directly; feedback loops for query refinement; error handling and fallback paths; emphasis on agent autonomy
+
+**Graphic 3: Integration Pattern Selection Matrix**
+- Purpose: Help users choose appropriate integration pattern for their use case
+- Type: Decision matrix with two axes
+- Elements: Vertical axis showing "Task Complexity" (Simple to Complex); horizontal axis showing "Knowledge Dependency" (Low to High); three zones plotted for each pattern; example use cases plotted in appropriate zones
+- Labels: Axes clearly labeled; pattern zones color-coded; example use cases with brief descriptions; transition zones showing when to upgrade patterns
+- Relationships: Clear zone boundaries; migration paths as complexity grows; hybrid approaches shown in overlap areas; callouts for common scenarios
 
 **SPEAKER NOTES:**
 
@@ -618,6 +664,29 @@ MRR = 1/1 = 1.0 (first result was relevant)
 - Precision@3: >0.70
 - Precision@5: >0.60
 - MRR: >0.80
+
+**GRAPHICS:**
+
+**Graphic 1: Retrieval Metrics Visualization**
+- Purpose: Visually explain precision, recall, and MRR with concrete example
+- Type: Visual diagram showing ranked results with annotations
+- Elements: Ranked list of 10 results; relevant chunks highlighted in green; irrelevant in gray; precision and recall calculations shown; MRR calculation with rank position indicated; total relevant corpus shown separately
+- Labels: "Retrieved Results (Top-10)"; "Relevant" vs "Irrelevant" clearly marked; formula callouts showing calculations; "Total Relevant in Corpus: 8"; metric scores prominently displayed
+- Relationships: Visual connection between top-k and precision calculation; line connecting retrieved relevant to total relevant for recall; rank position of first relevant highlighted for MRR; trade-offs between metrics shown
+
+**Graphic 2: Precision vs. Recall Trade-off Curve**
+- Purpose: Show the inverse relationship between precision and recall with varying k
+- Type: Line graph with two curves
+- Elements: X-axis showing k value (1 to 20); Y-axis showing metric score (0 to 1.0); two lines (Precision in blue decreasing, Recall in green increasing); optimal k zone highlighted
+- Labels: Axes clearly labeled; metric names with color coding; "Sweet Spot (k=3-10)" zone highlighted; example systems plotted; target benchmark lines shown
+- Relationships: Inverse relationship between precision and recall; optimal range indicated; real system performance examples plotted; annotation showing why both metrics matter
+
+**Graphic 3: RAG Evaluation Framework Dashboard**
+- Purpose: Show comprehensive evaluation framework with all metrics
+- Type: Dashboard/scorecard layout
+- Elements: Three sections (Retrieval Metrics, Generation Metrics, End-to-End Metrics); each with current score, target, and trend indicator; color coding (green=on target, yellow=needs improvement, red=failing)
+- Labels: Metric names; current values; targets; trend arrows; last updated timestamp; test set size noted
+- Relationships: Hierarchical relationship showing retrieval feeds generation feeds end-to-end; dependencies highlighted; overall system score calculated from components; drill-down indicators for detailed analysis
 
 **SPEAKER NOTES:**
 

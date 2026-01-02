@@ -171,6 +171,24 @@ Organizations are deploying AI agents at scale with ad-hoc governance, creating 
 
 **Graphic:** Visual showing chaos/risk on left (ungoverned AI) vs. structured framework on right (governed AI). Could include headlines of AI governance failures.
 
+**GRAPHICS:**
+
+**Graphic 1: Ungoverned vs. Governed AI Comparison**
+- Purpose: Visually contrast the chaos of ad-hoc AI governance with structured enterprise governance
+- Type: Split-screen comparison diagram
+- Elements:
+  - Left side (chaos): Multiple AI systems scattered randomly, question marks, warning symbols, disconnected elements, red color scheme
+  - Right side (structure): Organized framework with clear hierarchy, connected systems, checkmarks, governance layers, green color scheme
+- Labels: Left: "Ad-hoc AI Deployment", "No Oversight", "Unknown Risks"; Right: "Structured Governance", "Clear Accountability", "Managed Risk"
+- Relationships: Arrows showing transformation from left to right state through governance implementation
+
+**Graphic 2: Risk Exposure Areas**
+- Purpose: Show the four key risk dimensions organizations face without governance
+- Type: Quadrant diagram or four-pillar visual
+- Elements: Four columns/sections for Compliance Risk, Ethical Risk, Operational Risk, Audit Risk
+- Labels: Each section with icons (gavel for compliance, balance for ethics, gears for operational, magnifying glass for audit) and brief impact statements
+- Relationships: All four pillars supporting/threatening "Enterprise AI Systems" at top
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -236,6 +254,22 @@ Today we're going to build the right side. Here's how..."
 - **MANAGE:** Implement controls and monitor continuously
 
 **Graphic:** NIST framework diagram with clear flow between functions
+
+**GRAPHICS:**
+
+**Graphic 1: NIST AI RMF Four Functions Cycle**
+- Purpose: Illustrate the continuous, cyclical nature of the NIST framework and how functions interconnect
+- Type: Circular process flow diagram with four main nodes
+- Elements: Four boxes/nodes (GOVERN, MAP, MEASURE, MANAGE) arranged in cycle with connecting arrows; feedback loops showing continuous nature; icons for each function (governance icon, map/compass, measurement gauge, management controls)
+- Labels: Each function with 2-3 word descriptor beneath; "Continuous Risk Management Cycle" as title; small text showing sub-activities under each function
+- Relationships: Sequential arrows (GOVERN→MAP→MEASURE→MANAGE); feedback arrow from MANAGE back to GOVERN showing iterative improvement; dotted lines showing cross-function dependencies
+
+**Graphic 2: Framework Maturity Progression**
+- Purpose: Show how organizations progress through implementing the four functions
+- Type: Stair-step or maturity ladder diagram
+- Elements: Four steps/levels showing progression from ad-hoc to mature; each step labeled with one NIST function; organizations can plot current vs. target state
+- Labels: Vertical axis "Governance Maturity" (Low to High); horizontal showing the four functions as progressive steps; indicators for "Most Orgs Start Here" and "Target State"
+- Relationships: Arrows showing recommended implementation sequence; checkboxes for key milestones at each level
 
 **SPEAKER NOTES:**
 
@@ -314,6 +348,22 @@ Let me show you what each function looks like in practice..."
 - Incident response procedures ready
 
 **Graphic:** Four-quadrant visual with icons for each function and key activities
+
+**GRAPHICS:**
+
+**Graphic 1: NIST Functions Four-Quadrant Detail View**
+- Purpose: Provide detailed breakdown of activities within each NIST function
+- Type: Four-quadrant matrix layout
+- Elements: Four equal quadrants, each representing one function; each quadrant contains 4-5 bullet points with icons; distinct color coding for each function
+- Labels: Quadrant titles (GOVERN, MAP, MEASURE, MANAGE); icon for each sub-activity (policy doc, risk tier, metrics, controls); key deliverables noted at bottom of each quadrant
+- Relationships: Central intersection point showing how functions interconnect; arrows or connectors showing flow from one function to next; emphasis on GOVERN as foundation for other three
+
+**Graphic 2: Risk Response Decision Tree (MANAGE Function Detail)**
+- Purpose: Show how the MANAGE function handles different risk scenarios
+- Type: Decision tree flowchart
+- Elements: Risk identified → Risk score assessed → Decision branches (Accept/Mitigate/Transfer/Avoid) → Implementation paths
+- Labels: Decision criteria at each branch point; examples of when to use each response type; typical controls for each path
+- Relationships: Flow from risk identification through decision to implementation; feedback loop to monitoring
 
 **SPEAKER NOTES:**
 
@@ -458,6 +508,22 @@ We're going to close this gap. You'll leave today knowing exactly how to operati
 | **Human Oversight** | Appropriate human control maintained | Approval workflows, intervention points, override capability |
 
 **Graphic:** Six principle icons with visual representations
+
+**GRAPHICS:**
+
+**Graphic 1: Six Principles Hexagon Framework**
+- Purpose: Show the six principles as interconnected pillars of responsible AI
+- Type: Hexagonal diagram with six connected sections
+- Elements: Six hexagon segments arranged in circle; each segment contains principle name, icon, and 2-3 key words; center shows "Responsible AI" with organization logo space
+- Labels: Each principle with distinctive icon (balance scales for Fairness, open book for Transparency, person with checkmark for Accountability, lock for Privacy, shield for Safety, person+robot for Human Oversight)
+- Relationships: All segments connected showing interdependencies; optional highlighting to show which principles are most critical for specific AI use cases
+
+**Graphic 2: Principle-to-Practice Implementation Map**
+- Purpose: Bridge the gap between abstract principles and concrete implementation
+- Type: Three-column flow diagram
+- Elements: Column 1 (Principle names), Column 2 (Implementation activities), Column 3 (Measurable outcomes)
+- Labels: Arrows connecting each principle to its implementations to its metrics; color coding to show difficulty/timeline
+- Relationships: Show how multiple implementations may support multiple principles; highlight quick wins vs. long-term efforts
 
 **SPEAKER NOTES:**
 
@@ -611,6 +677,22 @@ In Exercise 1.2, you'll document the trade-offs for your specific AI system."
 
 **Graphic:** Circular lifecycle diagram showing all six stages with arrows connecting them
 
+**GRAPHICS:**
+
+**Graphic 1: Agent Lifecycle Circular Flow**
+- Purpose: Visualize the continuous nature of AI agent governance from design through retirement
+- Type: Circular process diagram with six major stages
+- Elements: Six segments arranged in circle (Design, Develop, Test, Deploy, Monitor, Retire); each segment with icon and key activity; arrows showing flow; governance gates shown as checkpoints between stages
+- Labels: Stage names prominently displayed; key deliverable under each stage; risk focus noted; color coding by stage type (planning=blue, building=green, operating=yellow, sunset=red)
+- Relationships: Clockwise flow through stages; feedback arrows from Monitor back to Design showing continuous improvement; retirement connecting back to Design for replacement planning; governance gates shown as stop/review points
+
+**Graphic 2: Governance Controls by Lifecycle Stage**
+- Purpose: Show specific governance requirements and controls for each lifecycle phase
+- Type: Matrix or layered diagram
+- Elements: Six columns (one per stage); rows showing different control types (Documentation, Approvals, Testing, Monitoring); cells showing which controls apply at each stage
+- Labels: Control requirements specific to each stage; intensity indicators (Low/Medium/High governance); responsible roles noted
+- Relationships: Show progression of control intensity; highlight stages where governance is most critical; indicate cumulative nature of controls
+
 **SPEAKER NOTES:**
 
 "Now let's talk about agent governance across the full lifecycle.
@@ -738,6 +820,29 @@ Each of these controls maps to a specific exercise deliverable. In Exercise 1.1,
 
 **Graphic:** Flowchart showing risk classification leading to appropriate approval gate
 
+**GRAPHICS:**
+
+**Graphic 1: Risk Classification Decision Tree**
+- Purpose: Guide users through determining the appropriate risk tier for their AI system
+- Type: Decision tree flowchart
+- Elements: Starting point "New AI System" → series of Yes/No decision diamonds based on four criteria (Impact, Reversibility, Scope, Regulatory) → terminal nodes showing Low/Medium/High/Critical classification
+- Labels: Clear questions at each decision point; examples in callout boxes; color coding (green=Low, yellow=Medium, orange=High, red=Critical)
+- Relationships: Decision paths from top to bottom; "AND" logic where multiple high-risk factors elevate classification; visual highlighting of most common paths
+
+**Graphic 2: Approval Gate Process Flow**
+- Purpose: Show the approval workflow for each risk level with roles and timelines
+- Type: Swimlane diagram with four lanes (one per risk level)
+- Elements: Four horizontal lanes; each lane shows approval steps specific to that risk level; checkpoints/gates shown as diamonds; roles shown in boxes; timeline indicated on horizontal axis
+- Labels: Role names in approval boxes; typical duration for each step; required artifacts/documentation at each gate; escalation paths shown with dotted lines
+- Relationships: Sequential flow left to right; increasing complexity from Low to Critical lanes; parallel approvals shown with split paths; final deployment gate at end of each lane
+
+**Graphic 3: Risk Level Examples Matrix**
+- Purpose: Provide concrete examples of AI systems at each risk classification
+- Type: 2x2 or pyramid diagram
+- Elements: Four sections corresponding to risk levels; 3-4 real-world examples in each section with brief description
+- Labels: Risk level prominently shown; industry context noted (Healthcare, Finance, HR, etc.); icons representing each example
+- Relationships: Vertical axis showing increasing risk/impact; annotation showing why each example falls in its classification
+
 **SPEAKER NOTES:**
 
 "This is one of the most important slides in the session: the approval authority matrix.
@@ -854,6 +959,29 @@ Any questions on lifecycle governance?"
 4. **Access:** Who can use this data, and are controls enforced?
 
 **Graphic:** Four pillars supporting "AI Governance" structure
+
+**GRAPHICS:**
+
+**Graphic 1: Four Pillars Supporting AI Governance**
+- Purpose: Visualize data governance as foundational pillars supporting AI systems
+- Type: Classical pillar/temple architecture diagram
+- Elements: Four vertical pillars (Lineage, Quality, Privacy, Access) supporting horizontal platform labeled "AI Governance"; foundation layer showing "Data Sources"; top layer showing "AI Systems"; each pillar with distinct color and icon
+- Labels: Pillar names prominently on each column; key question under each pillar; foundation labeled "Diverse Data Sources"; top platform showing "Trustworthy AI Systems"
+- Relationships: All four pillars necessary to support the structure (remove one and structure fails); arrows from foundation through pillars to top platform; cracks/instability shown if pillar is weak
+
+**Graphic 2: Data Flow Through Governance Controls**
+- Purpose: Show how data moves from source to AI with governance controls at each stage
+- Type: Horizontal flowchart with control gates
+- Elements: Data source → Lineage tracking → Quality validation → Privacy controls → Access authorization → AI Training/Use; governance checkpoints shown as gates between stages
+- Labels: Each stage labeled; key controls listed at each gate; pass/fail indicators; responsible roles noted
+- Relationships: Sequential left-to-right flow; feedback loops when quality/privacy checks fail; parallel paths for different data sensitivity levels; audit trail running below main flow
+
+**Graphic 3: Data Governance Maturity Assessment**
+- Purpose: Allow organizations to assess current state across the four pillars
+- Type: Radar/spider chart with four axes
+- Elements: Four axes extending from center (one per pillar); scale from 1-5 on each axis; plot current state and target state; shaded areas showing gap
+- Labels: Pillar names at end of each axis; maturity level descriptions (1=Ad-hoc through 5=Optimized); current vs. target lines in different colors
+- Relationships: Visual gap between current and target state; larger shaded area indicates bigger governance gaps; balanced shape indicates mature governance
 
 **SPEAKER NOTES:**
 

@@ -137,6 +137,18 @@ Quick question: How many of you have thought about what happens if someone tries
 
 **Graphic:** Comparison diagram showing traditional vs AI security challenges
 
+**GRAPHICS:**
+
+**Graphic 1: Traditional vs AI Security Comparison**
+- Purpose: Illustrate the fundamental differences between traditional software security and AI security paradigms
+- Type: Side-by-side comparison diagram
+- Elements: Two columns with contrasting characteristics
+- Labels:
+  - Left column: "Traditional Software Security" with checkmarks for "Deterministic", "Known I/O", "Clear Attack Vectors"
+  - Right column: "AI Security" with warning symbols for "Non-deterministic", "Natural Language Attacks", "Agent Autonomy", "Tool Access"
+- Relationships: Arrow pointing from traditional to AI column showing "New Challenges", visual barrier between traditional security tools and AI-specific threats
+- Visual Style: Use red/warning colors for AI challenges, green/safe colors for traditional known territories
+
 **SPEAKER NOTES:**
 
 "[Hook - Create urgency]"
@@ -178,6 +190,18 @@ We need new approaches. Let's look at the threat landscape."
 **Most Damaging:** Data Exfiltration + Privilege Escalation
 
 **Graphic:** Six icons representing each category with risk indicators
+
+**GRAPHICS:**
+
+**Graphic 1: AI Threat Category Map**
+- Purpose: Provide visual overview of six major threat categories with relative risk/frequency indicators
+- Type: Icon matrix with risk badges
+- Elements: 6 distinct threat category icons arranged in 2 rows of 3
+- Labels:
+  - Row 1: "Prompt Injection" (skull icon, red badge "60%+"), "Data Exfiltration" (lock with keyhole icon, orange badge "High Impact"), "Privilege Escalation" (ladder/stairs icon, orange badge "High Impact")
+  - Row 2: "Denial of Service" (broken gear icon, yellow badge "Medium"), "Model Manipulation" (broken shield icon, yellow badge "Medium"), "Supply Chain" (broken chain icon, red badge "Critical")
+- Relationships: Color-coded severity (red = critical, orange = high, yellow = medium), size indicates frequency of occurrence
+- Visual Style: Each icon distinct and memorable, risk badges prominent, include brief 3-4 word descriptor under each category
 
 **SPEAKER NOTES:**
 
@@ -238,6 +262,21 @@ Your exercises this week will address all six of these."
 
 **Graphic:** Flow diagram showing attack surfaces at each layer
 
+**GRAPHICS:**
+
+**Graphic 1: Attack Surface Layer Diagram**
+- Purpose: Visualize the five-layer attack surface model showing how attacks can penetrate at multiple levels
+- Type: Vertical flow diagram with threat annotations
+- Elements: 5 sequential boxes connected by downward arrows, threat labels on right side
+- Labels:
+  - Layer 1: "User Input" → threat label "PROMPT INJECTION SURFACE" (red)
+  - Layer 2: "Agent Logic" → threat label "MODEL MANIPULATION SURFACE" (orange)
+  - Layer 3: "Tool Calls" → threat label "PRIVILEGE ESCALATION SURFACE" (orange)
+  - Layer 4: "Data Access" → threat label "DATA EXFILTRATION SURFACE" (red)
+  - Layer 5: "External Systems" → threat label "SUPPLY CHAIN SURFACE" (red)
+- Relationships: Arrows show attack flow progression, dotted lines from each layer to corresponding threat surface, color intensity indicates severity
+- Visual Style: Box-and-arrow flowchart, threat labels in panels on right, use gradient shading to show depth of system
+
 **SPEAKER NOTES:**
 
 "This is how to think about your agent's attack surface.
@@ -293,6 +332,30 @@ Think about your own agent systems. Which of these surfaces are you protecting? 
 - **Risk Score: HIGH** → Immediate action required
 
 **Graphic:** Risk matrix showing Likelihood vs Impact quadrants
+
+**GRAPHICS:**
+
+**Graphic 1: Risk Assessment Matrix**
+- Purpose: Enable visual risk prioritization using likelihood and impact dimensions
+- Type: 2x2 matrix with quadrants
+- Elements: Four quadrants with axes for Likelihood (x-axis) and Impact (y-axis)
+- Labels:
+  - X-axis: "Likelihood" (Low → High)
+  - Y-axis: "Impact" (Low → High)
+  - Quadrant 1 (High/High): "CRITICAL - Address Immediately" (dark red)
+  - Quadrant 2 (Low/High): "HIGH - Plan Remediation" (orange)
+  - Quadrant 3 (High/Low): "MEDIUM - Monitor Closely" (yellow)
+  - Quadrant 4 (Low/Low): "LOW - Monitor" (green)
+- Relationships: Example plot point for "Customer Service Bot Prompt Injection" in Critical quadrant with annotation
+- Visual Style: Color-coded heat map, sample threat plotted with labels, clear grid lines
+
+**Graphic 2: Four-Dimension Assessment Framework**
+- Purpose: Show the complete assessment framework beyond just likelihood and impact
+- Type: Circular diagram with four segments
+- Elements: Circle divided into 4 equal segments around central "Risk Score"
+- Labels: "Likelihood", "Impact", "Detectability", "Business Context" as segment titles with key questions in each
+- Relationships: All four dimensions feed into central risk score, arrows pointing inward
+- Visual Style: Wheel/pie chart format, each segment different color, icons for each dimension
 
 **SPEAKER NOTES:**
 
@@ -358,6 +421,19 @@ AI can't reliably distinguish between legitimate instructions and attacks embedd
 
 **Graphic:** Three examples showing each type visually
 
+**GRAPHICS:**
+
+**Graphic 1: Three Types of Prompt Injection**
+- Purpose: Visually distinguish three attack vectors with concrete examples
+- Type: Three-panel comparison diagram
+- Elements: Three side-by-side panels showing attack flow
+- Labels:
+  - Panel 1: "Direct Injection" - shows user input → agent with malicious text highlighted in red
+  - Panel 2: "Indirect Injection" - shows document → agent with hidden HTML comment magnified
+  - Panel 3: "Payload Injection" - shows encoded text → decoder → malicious command
+- Relationships: Each panel shows attack vector path, red highlighting for malicious content, green box for legitimate content
+- Visual Style: Comic-strip style progression, use code-block styling for examples, danger symbols (⚠️) for malicious elements
+
 **SPEAKER NOTES:**
 
 "[INSIGHT - Reveal the core problem]"
@@ -419,6 +495,29 @@ Agent processes untrusted external content → Hidden instructions → Malicious
 
 **Graphic:** Timeline showing attack progression for one scenario
 
+**GRAPHICS:**
+
+**Graphic 1: Email Agent Attack Scenario Timeline**
+- Purpose: Show step-by-step progression of a real-world indirect injection attack
+- Type: Horizontal timeline with attack stages
+- Elements: 5 sequential stages connected by arrows
+- Labels:
+  - Stage 1: "Attacker sends email with hidden instructions" (timestamp T+0)
+  - Stage 2: "Agent reads email, processes hidden commands" (T+1 min)
+  - Stage 3: "Agent begins forwarding confidential emails" (T+5 min)
+  - Stage 4: "Breach detected by anomaly monitoring" (T+2 hours)
+  - Stage 5: "Incident response initiated" (T+3 hours)
+- Relationships: Arrow progression showing time elapsed, red alert icons at breach point, recovery actions in blue
+- Visual Style: Timeline with icons for each stage, use red for attack actions, orange for system actions, blue for response
+
+**Graphic 2: Attack Pattern Common Elements**
+- Purpose: Highlight the recurring pattern across all three scenarios
+- Type: Flow diagram showing common attack structure
+- Elements: 3-step process that applies to all scenarios
+- Labels: "1. Agent processes untrusted external content" → "2. Hidden instructions embedded" → "3. Agent executes malicious actions"
+- Relationships: Feedback loop showing prevention points at each stage
+- Visual Style: Simplified flowchart, use consistent iconography
+
 **SPEAKER NOTES:**
 
 "These aren't theoretical. These are real scenarios.
@@ -475,6 +574,29 @@ Let's build defenses."
 4. Human approval for high-risk operations
 
 **Graphic:** Layered defense diagram showing all five layers
+
+**GRAPHICS:**
+
+**Graphic 1: Defense in Depth Five-Layer Stack**
+- Purpose: Visualize the multi-layered security approach with effectiveness ratings
+- Type: Stacked horizontal bars with effectiveness indicators
+- Elements: 5 defense layers stacked vertically with effectiveness meters
+- Labels:
+  - Layer 1: "Input Sanitization" - effectiveness bar: Medium (⚠️)
+  - Layer 2: "Instruction Hierarchy" - effectiveness bar: Medium-High (⚡)
+  - Layer 3: "Output Validation" - effectiveness bar: High (✓)
+  - Layer 4: "Content Isolation" - effectiveness bar: High (✓)
+  - Layer 5: "Human-in-the-Loop" - effectiveness bar: Very High (✓✓)
+- Relationships: Each layer adds protection, arrows showing attack attempts being filtered at each level, percentage of attacks blocked at each stage
+- Visual Style: Layered horizontal bars, color intensity increases with effectiveness (light yellow → dark green), icons for each layer
+
+**Graphic 2: Attack Filtering Funnel**
+- Purpose: Show how attacks are progressively filtered through defense layers
+- Type: Funnel diagram
+- Elements: Wide top funnel narrowing to bottom with attack counts
+- Labels: Start with "100 Attacks" at top, decreasing numbers through each layer, ending with "~0-2 Attacks" at bottom
+- Relationships: Visual representation of ~70% filtering at each layer
+- Visual Style: Inverted pyramid/funnel, red attacks becoming green defended, numbers at each stage
 
 **SPEAKER NOTES:**
 
@@ -618,6 +740,18 @@ Permissions:
 
 **Graphic:** Side-by-side comparison with risk indicators
 
+**GRAPHICS:**
+
+**Graphic 1: Least Privilege Comparison - Customer Service Bot**
+- Purpose: Demonstrate the dramatic risk reduction from applying least privilege
+- Type: Side-by-side before/after comparison
+- Elements: Two agent architecture diagrams with permission trees
+- Labels:
+  - Left panel (BAD): "Overly Permissive Agent" with red X, permissions tree showing "Filesystem: Full Access", "Database: All Tables", "Email: Any Address", "Network: Unrestricted" - large explosion icon showing "Full System Compromise" impact
+  - Right panel (GOOD): "Least Privilege Agent" with green checkmark, permissions tree showing "Filesystem: /knowledge-base (read-only)", "Database: customer_faq (read-only)", "Email: verified_customers only", "Network: ticketing_api only" - small contained icon showing "Limited FAQ Exposure" impact
+- Relationships: Arrow between panels showing transformation, color coding (red=dangerous, green=safe), comparative impact icons
+- Visual Style: Tree diagram for permissions, use icons for permission types, stark visual contrast between panels
+
 **SPEAKER NOTES:**
 
 "Let's talk about agent security patterns. First: least privilege.
@@ -679,6 +813,29 @@ Think about your agents. What permissions did you grant? What do they actually n
 ```
 
 **Graphic:** Configuration example with annotations
+
+**GRAPHICS:**
+
+**Graphic 1: Permission Scoping Decision Tree**
+- Purpose: Guide users through systematic permission reduction process
+- Type: Decision flowchart
+- Elements: 5 resource type nodes with decision branches
+- Labels: Start node "Resource Type" branches to "Filesystem", "Tools/MCP", "Data Access", "Network", "Actions" - each has decision point "Required?" with Yes/No branches leading to "Scope to minimum" or "Disable entirely"
+- Relationships: Flowchart logic showing evaluation path for each resource type
+- Visual Style: Standard flowchart with diamond decision nodes, rectangular action nodes, color coded (green=allow scoped, red=disable)
+
+**Graphic 2: Annotated Configuration Example**
+- Purpose: Show real JSON configuration with callout annotations explaining each restriction
+- Type: Code snippet with visual callouts
+- Elements: JSON configuration block with annotation arrows
+- Labels:
+  - Callout 1: Points to read paths → "Only allows reading from uploads directory"
+  - Callout 2: Points to write paths → "Restricts writing to output directory only"
+  - Callout 3: Points to delete:false → "Completely disables deletion capability"
+  - Callout 4: Points to tools array → "Only 2 tools enabled instead of full suite"
+  - Callout 5: Points to network allowlist → "Single API endpoint permitted"
+- Relationships: Arrows from callouts to relevant config lines, highlighting shows restricted areas
+- Visual Style: Code block with syntax highlighting, colorful annotation boxes with arrows
 
 **SPEAKER NOTES:**
 
@@ -747,6 +904,28 @@ sandbox:
 ```
 
 **Graphic:** Container diagram showing sandbox boundaries
+
+**GRAPHICS:**
+
+**Graphic 1: Sandbox Architecture Diagram**
+- Purpose: Illustrate containerization and isolation boundaries for agent execution
+- Type: Nested container diagram with boundary layers
+- Elements: Concentric rectangles showing isolation layers
+- Labels:
+  - Outer layer: "Host System" (gray)
+  - Middle layer: "Sandbox Boundary" (thick border, orange)
+  - Inner layer: "Agent Workspace" (yellow) containing "Allowed Paths", "Blocked Resources", "Resource Limits"
+  - Side panel: Network connection with X through it, indicating "Network Disabled"
+- Relationships: Barriers between layers showing isolation, arrows showing permitted paths in/out, red X symbols showing blocked paths
+- Visual Style: Container/box diagram, use shading to show isolation layers, padlock icons on boundaries, traffic light colors (green=allowed, red=blocked)
+
+**Graphic 2: Four Sandboxing Patterns Matrix**
+- Purpose: Compare different sandboxing approaches and their use cases
+- Type: 2x2 matrix with pattern descriptions
+- Elements: Four quadrants each describing a pattern
+- Labels: "Network Isolation", "Filesystem Isolation", "Resource Limits", "Output Filtering" with icon, brief description, and use case for each
+- Relationships: Patterns can be combined (shown with + symbols between quadrants)
+- Visual Style: Grid layout, icon for each pattern, color-coded by isolation type
 
 **SPEAKER NOTES:**
 
@@ -824,6 +1003,29 @@ def validate_agent_output(output, action):
 
 **Graphic:** Validation flow diagram
 
+**GRAPHICS:**
+
+**Graphic 1: Output Validation Flow**
+- Purpose: Show the complete validation process before agent action execution
+- Type: Flowchart with decision gates
+- Elements: Sequential decision diamonds with action branches
+- Labels:
+  - Start: "Agent Output/Action"
+  - Gate 1: "Contains sensitive data?" → Yes: "Redact & Log" → No: Continue
+  - Gate 2: "Action in allowed set?" → No: "Reject & Alert" → Yes: Continue
+  - Gate 3: "Is anomalous behavior?" → Yes: "Require human approval" → No: Continue
+  - Gate 4: "Log validation" → "Execute action"
+- Relationships: Decision flow with yes/no branches, feedback loops for rejected actions, audit trail tracking
+- Visual Style: Standard flowchart, red paths for rejections, green for approvals, audit log icon at each decision point
+
+**Graphic 2: Validation Checklist Dashboard**
+- Purpose: Visualize the four validation checks as a monitoring dashboard
+- Type: Dashboard widget layout
+- Elements: Four monitoring panels arranged in grid
+- Labels: "Sensitive Data Scan" (with PII indicators), "Action Authorization" (with allowed/denied counter), "Anomaly Detection" (with alert graph), "Audit Logging" (with log stream)
+- Relationships: All four feed into central "Validated Output" indicator, traffic light status for each
+- Visual Style: Dashboard/monitoring interface design, use green/yellow/red status indicators
+
 **SPEAKER NOTES:**
 
 "Output validation is your last line of defense before the agent does something in the real world.
@@ -894,6 +1096,32 @@ Attacker → Compromised Agent → Overpermissive Tool → System Breach
 Treat tools as untrusted. Validate inputs, scope permissions, check outputs.
 
 **Graphic:** Attack chain diagram showing tool compromise path
+
+**GRAPHICS:**
+
+**Graphic 1: Tool Compromise Attack Chain**
+- Purpose: Illustrate how tool vulnerabilities lead to system-wide compromise
+- Type: Linear attack progression diagram
+- Elements: 4-stage attack chain with vulnerability points
+- Labels:
+  - Stage 1: "Attacker" → sends malicious input
+  - Stage 2: "Compromised Agent" → calls tool with malicious parameters
+  - Stage 3: "Overpermissive Tool" → executes without validation (vulnerability points highlighted: "No input validation", "Excessive permissions", "No output checks")
+  - Stage 4: "System Breach" → tool provides unauthorized access
+- Relationships: Arrow progression showing attack flow, vulnerability callouts at each stage, red warning symbols
+- Visual Style: Horizontal flow diagram, use red for attack path, yellow warning triangles for vulnerabilities, explosion icon at final breach
+
+**Graphic 2: Four Tool Security Risks Breakdown**
+- Purpose: Detail the four major tool security risks with examples
+- Type: Quadrant diagram with risk categories
+- Elements: Four panels each showing a risk type
+- Labels:
+  - Risk 1: "Overly Permissive Capabilities" with before/after example
+  - Risk 2: "Insufficient Input Validation" with path traversal attack example
+  - Risk 3: "Excessive Data Access" with database scope example
+  - Risk 4: "Unvalidated Outputs" with malicious response example
+- Relationships: Each risk type can exist independently or compound with others (shown with connecting lines)
+- Visual Style: Grid layout, icon for each risk, red/orange/yellow severity coding
 
 **SPEAKER NOTES:**
 
@@ -966,6 +1194,32 @@ Tools are part of your attack surface."
 - Missing basic security controls
 
 **Graphic:** Security assessment scorecard
+
+**GRAPHICS:**
+
+**Graphic 1: MCP Security Assessment Template Visual**
+- Purpose: Provide visual framework for systematic MCP security review
+- Type: Assessment scorecard with sections and status indicators
+- Elements: Four assessment sections with rating scales
+- Labels:
+  - Section 1: "Capabilities Assessment" - Questions: "What actions?", "What data?", "Failure modes?" - Status: Red/Yellow/Green indicator
+  - Section 2: "Permission Scope" - Shows current vs. required vs. excess in bar chart form
+  - Section 3: "Trust Level" - Source type (Official/3rd-party/Custom) with trust meter
+  - Section 4: "Security Controls" - Checklist with present/missing indicators for Input Validation, Output Sanitization, Rate Limiting, Audit Logging
+- Relationships: Overall security score calculated from four sections, color-coded status rolls up to total
+- Visual Style: Scorecard/report card layout, use traffic light colors, include gauges and meters for visual interest
+
+**Graphic 2: Red Flag Warning Indicators**
+- Purpose: Highlight critical warning signs that require immediate attention
+- Type: Alert banner collection
+- Elements: Four red flag indicators with icons
+- Labels:
+  - "⚠️ Source code unavailable/not reviewed"
+  - "⚠️ Permissions exceed stated purpose"
+  - "⚠️ No updates in 6+ months"
+  - "⚠️ Missing basic security controls"
+- Relationships: Any single red flag = review required, multiple red flags = do not use
+- Visual Style: Warning banners, red/orange color scheme, alert icons, bold text
 
 **SPEAKER NOTES:**
 

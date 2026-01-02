@@ -90,6 +90,15 @@ That's exactly what Block 2 addresses. Let's dive in."
 
 **Graphic:** Visual timeline with orange markers showing session flow
 
+**GRAPHICS:**
+
+**Graphic 1: Session Timeline**
+- Purpose: Show the temporal flow and topics covered across the 45-minute session
+- Type: Horizontal timeline with milestone markers
+- Elements: Timeline bar spanning 0-45 minutes, six segment blocks with different widths, orange circular markers at transition points
+- Labels: Time markers (0, 3, 11, 23, 35, 42, 45 min), segment titles (Opening, Segment 1-4, Close), focus areas for each segment
+- Relationships: Sequential flow from left to right, proportional width of segments representing actual duration
+
 **SPEAKER NOTES:**
 
 "Here's our agenda for today:
@@ -129,6 +138,15 @@ You will be able to:
    - "USB-C for AI" - connect Claude to any tool
 
 **Graphic:** Checklist visual with orange checkmarks, progressing from top to bottom
+
+**GRAPHICS:**
+
+**Graphic 1: Learning Objectives Checklist**
+- Purpose: Present the four key learning objectives as actionable outcomes
+- Type: Vertical checklist with icon set
+- Elements: Four numbered items, orange checkmark icons for each, subtle arrows connecting objectives to show progression
+- Labels: Objective number (1-4), main objective title in bold, sub-bullet explanation for each
+- Relationships: Vertical progression from foundational understanding (objectives 1-2) to practical application (objectives 3-4)
 
 **SPEAKER NOTES:**
 
@@ -175,6 +193,15 @@ LEVEL 4: Orchestration      (Advanced)
 
 **Graphic:** Staircase or pyramid visual showing progression, with Level 2 highlighted in orange
 
+**GRAPHICS:**
+
+**Graphic 1: AI Maturity Staircase**
+- Purpose: Visualize the four-level progression from templates to orchestration, highlighting current position
+- Type: Ascending staircase diagram
+- Elements: Four steps of increasing height, Level 1 in muted gray (completed), Level 2 in bright orange (current), Levels 3-4 in light gray (future), upward arrow showing progression, labels for each Block (Block 1, 2, 3, Advanced)
+- Labels: Level numbers (1-4), maturity stage names (Templates, Workflows, Agents, Orchestration), completion status indicators (COMPLETED, STARTING NOW, FUTURE), "Key Shift" annotation between Levels 1 and 2
+- Relationships: Sequential vertical progression, visual emphasis on Level 2 through color and position, arrows showing directional movement from manual to automated
+
 **SPEAKER NOTES:**
 
 "[Hook - Create context]"
@@ -219,6 +246,15 @@ In Block 1, you were the operator. In Block 2, you become the engineer who desig
 | Repository | MCP server source |
 
 **Graphic:** Flow diagram showing Block 1 outputs feeding into Block 2 workflow
+
+**GRAPHICS:**
+
+**Graphic 1: Block 1 to Block 2 Transformation Flow**
+- Purpose: Demonstrate how Block 1 deliverables become inputs for Block 2 automation
+- Type: Before-and-after flow diagram with transformation arrows
+- Elements: Left side showing four Block 1 assets (prompt library icon, style.json file icon, rubrics icon, GitHub repo icon), right side showing Block 2 workflow components (automation nodes), transformation arrows connecting each asset to its use, central workflow engine symbol
+- Labels: Block 1 asset names on left, Block 2 use cases on right (matching the table content), "Block 1 Foundation" header on left, "Block 2 Automation" header on right
+- Relationships: One-to-one mapping arrows from each Block 1 asset to its automated function, convergence of all assets into unified workflow system
 
 **SPEAKER NOTES:**
 
@@ -266,6 +302,15 @@ See how this builds? You're not starting over. You're leveraging everything you'
 
 **Graphic:** Portfolio preview showing the four components as interconnected elements
 
+**GRAPHICS:**
+
+**Graphic 1: Block 2 Capstone Portfolio**
+- Purpose: Visualize the four capstone deliverables as interconnected parts of a complete toolkit
+- Type: Quadrant diagram with central hub
+- Elements: Central circle labeled "AI Workflow Toolkit", four satellite boxes connected to center (3 Workflow Templates, MCP Demonstration, Performance Documentation, Impact Measurement), connecting lines between center and components, subtle icons for each component type
+- Labels: Component titles, key attributes for each (e.g., "Documented, tested, integrated" under Workflow Templates), "Block 2 Capstone" as title
+- Relationships: All components connect to central toolkit concept, equal importance shown through consistent sizing, interdependencies suggested by connecting lines
+
 **SPEAKER NOTES:**
 
 "Here's what you'll have by the end of Block 2.
@@ -306,6 +351,15 @@ Over the next 7 weeks, we'll build each piece step by step."
 
 **Graphic:** Simple transformation arrow from "Manual" to "Automated"
 
+**GRAPHICS:**
+
+**Graphic 1: Mindset Transformation Arrow**
+- Purpose: Emphasize the fundamental shift from operator to engineer role
+- Type: Before-and-after transformation diagram
+- Elements: Left box with "Manual/Operator" state, right box with "Automated/Engineer" state, large orange transformation arrow between them, person icon on left running a prompt, system icon on right executing automatically
+- Labels: "I run prompts" on left, "I design systems that run prompts" on right, "Block 1" tag on left, "Block 2" tag on right
+- Relationships: Directional transformation from left to right, visual contrast between individual action (left) and systemic design (right)
+
 **SPEAKER NOTES:**
 
 "Before we move on, let me summarize:
@@ -345,6 +399,15 @@ prompts      structure          execution        decisions
 **Today's Focus: The Workflow Layer**
 
 **Graphic:** Horizontal timeline with "Workflows" highlighted and expanded
+
+**GRAPHICS:**
+
+**Graphic 1: Automation Evolution Timeline**
+- Purpose: Show the progression from manual prompting to autonomous agents, with emphasis on current workflow stage
+- Type: Horizontal process flow diagram
+- Elements: Four stages as connected boxes (Manual, Templates, Workflows, Agents), arrows connecting stages, "Workflows" box highlighted in orange and enlarged, descriptive tags under each stage (One-off prompts, Consistent structure, Automated execution, Autonomous decisions)
+- Labels: Stage names in header row, capability descriptions below each stage, "TODAY'S FOCUS" callout pointing to Workflows
+- Relationships: Left-to-right progression showing evolution, visual emphasis on Workflows through size and color, foundational relationship (Workflows enables Agents)
 
 **SPEAKER NOTES:**
 
@@ -387,6 +450,15 @@ To build workflows, we need platforms. Let's look at the landscape."
 
 **Graphic:** Four quadrant diagram with learning curve on one axis, AI capability on another
 
+**GRAPHICS:**
+
+**Graphic 1: Platform Category Positioning Matrix**
+- Purpose: Compare four platform categories on learning curve vs. AI integration capability
+- Type: Two-axis quadrant matrix
+- Elements: Vertical axis (AI Integration: Good to Excellent), horizontal axis (Learning Curve: Easy to Complex), four quadrants with platform categories positioned, colored zones representing No-Code (bottom-left, green), Low-Code (middle, blue), AI-Native (top-right, purple), Enterprise (top-left, gray), recommendation callout box highlighting Make and n8n
+- Labels: Axis titles, platform category names with examples, "Recommended Starting Point" annotation
+- Relationships: Trade-off between ease of use and AI capability, sweet spot identification for consultants (Make/n8n balance)
+
 **SPEAKER NOTES:**
 
 "There are four main categories of automation platforms.
@@ -425,6 +497,15 @@ For most of you, I recommend starting with Make or n8n. Both have excellent AI i
 | **Scalability** | Growth potential | 10% |
 
 **Graphic:** Pie chart showing the weight distribution of criteria
+
+**GRAPHICS:**
+
+**Graphic 1: Selection Criteria Weight Distribution**
+- Purpose: Visualize the relative importance of each evaluation criterion
+- Type: Pie chart with percentage labels
+- Elements: Six pie slices in different colors, AI Integration slice (25%) in orange as largest, Learning Curve (20%) in blue, remaining criteria (15%, 15%, 15%, 10%) in complementary colors, legend with "Why It Matters" explanations
+- Labels: Criterion names, percentage values on each slice, brief rationale text in legend
+- Relationships: Proportional sizing showing AI Integration as highest priority, Learning Curve as second priority, balanced consideration of remaining factors
 
 **SPEAKER NOTES:**
 
@@ -478,6 +559,22 @@ In a moment, I'll show you how to use these in a decision matrix."
 
 **Graphic:** Data flow diagram showing data path through platform and AI
 
+**GRAPHICS:**
+
+**Graphic 1: Data Flow Path Diagram**
+- Purpose: Illustrate how data moves through automation platforms and AI services, highlighting custody points
+- Type: System architecture flow diagram
+- Elements: Client data source (left), automation platform (middle), AI provider (right), data flow arrows showing path, retention boxes indicating where data is stored, warning icons at decision points
+- Labels: "Your Data," "Automation Platform," "AI Provider," retention policy annotations, "Client Obligations" checkpoint marker
+- Relationships: Sequential data flow from source through platform to AI, custody transfer points highlighted, return path for processed results
+
+**Graphic 2: Data Handling Checklist Icons**
+- Purpose: Provide memorable visual anchors for the four key principles
+- Type: Icon set with labels
+- Elements: Four icons representing each principle (flow map for "know your flows," clock for "retention policies," contract document for "client obligations," mask icon for "anonymize")
+- Labels: Icon title and brief description for each
+- Relationships: Equal-importance arrangement, numbered sequence for easy reference
+
 **SPEAKER NOTES:**
 
 "Before we dive into platform selection, a critical point about data handling.
@@ -524,6 +621,15 @@ Document your choices. Know what goes where. That's it."
 
 **Graphic:** Simple decision tree: "Need quick start?" → Make, "Want more control?" → n8n
 
+**GRAPHICS:**
+
+**Graphic 1: Platform Selection Decision Tree**
+- Purpose: Provide quick decision guide for platform selection
+- Type: Binary decision tree flowchart
+- Elements: Diamond decision node "Need quick start?", two branches (Yes → Make box, No → second diamond "Want more control?"), second No branch leads to "Consider Enterprise", Yes branch leads to n8n box, platform logos/icons for visual recognition
+- Labels: Decision questions in diamonds, platform names in endpoint boxes, "Most Consultants" annotation pointing to Make and n8n paths
+- Relationships: Binary yes/no flow, converging paths toward recommended platforms (Make and n8n)
+
 **SPEAKER NOTES:**
 
 "Let me summarize the platform landscape:
@@ -568,6 +674,15 @@ Now let me show you how to make this decision systematically."
 **Scoring:** 1-5 for each criterion (5 = best)
 
 **Graphic:** Empty matrix template ready to be filled in
+
+**GRAPHICS:**
+
+**Graphic 1: Decision Matrix Template**
+- Purpose: Provide clear visual template for systematic platform evaluation
+- Type: Weighted scoring matrix table
+- Elements: Header row with "Criterion," "Weight," and three "Platform" columns, six criterion rows (Learning Curve, AI Integration, Cost, Collaboration, Security, Scalability), weight percentages in second column, empty scoring cells marked with "?", bottom row for weighted totals, subtle shading alternating rows for readability
+- Labels: Column headers, criterion names, weight percentages (20%, 25%, 15%, 15%, 15%, 10%), "Weighted Total" footer row, scoring scale notation "1-5 (5=best)"
+- Relationships: Hierarchical table structure, weight column influences final calculation, visual emphasis on AI Integration row (highest weight)
 
 **SPEAKER NOTES:**
 
@@ -617,6 +732,22 @@ Let me show you how scoring works."
 
 **Graphic:** Thermometer or gauge visual showing the 1-5 scale
 
+**GRAPHICS:**
+
+**Graphic 1: Scoring Scale Gauge**
+- Purpose: Clarify the 1-5 scoring system with concrete examples
+- Type: Horizontal gauge with graduated levels
+- Elements: Five-level horizontal bar from left (1-Missing/Red) to right (5-Excellent/Green), gradient coloring from red through yellow to green, score markers at each level, example descriptions at each level specific to Learning Curve criterion
+- Labels: Score numbers (1-5), quality descriptors (Missing, Poor, Adequate, Good, Excellent), concrete examples from Learning Curve column of table
+- Relationships: Progressive improvement from left to right, color coding reinforces quality levels
+
+**Graphic 2: Information Sources Reference**
+- Purpose: Guide participants on where to research each criterion
+- Type: Reference table with icons
+- Elements: Two-column table listing each criterion with corresponding research source, small icons representing source type (tutorial icon, documentation icon, pricing tag, etc.)
+- Labels: Criterion names, research source descriptions
+- Relationships: One-to-one mapping of criteria to information sources
+
 **SPEAKER NOTES:**
 
 "Here's how to score each criterion.
@@ -662,6 +793,15 @@ This should take about 20-25 minutes of research to complete for 2-3 platforms."
 **What score would you give? 1-5?**
 
 **Graphic:** Screenshot of Make interface or tutorial
+
+**GRAPHICS:**
+
+**Graphic 1: Make Platform Screenshot**
+- Purpose: Provide visual reference for the platform being evaluated
+- Type: Screenshot or mockup
+- Elements: Make.com interface showing workflow builder, sample scenario, key UI elements highlighted (drag-and-drop modules, connection points, settings panel)
+- Labels: Callout annotations pointing to key features mentioned in evaluation (guided tutorial, workflow canvas, module library)
+- Relationships: Visual evidence supporting the scoring factors discussed
 
 **SPEAKER NOTES:**
 
@@ -718,6 +858,15 @@ This is how you'll evaluate each criterion for each platform. You're doing this 
 
 **Graphic:** Flowchart showing the 6-step process
 
+**GRAPHICS:**
+
+**Graphic 1: Platform Decision Process Flowchart**
+- Purpose: Visualize the six-step decision-making workflow
+- Type: Vertical process flowchart
+- Elements: Six sequential boxes connected by arrows (Research, Score, Calculate, Select, Create Account, Complete Tutorial), numbered steps (1-6), checkmarks appearing after each completed step, "If Stuck" decision diamond with escape path to "Default to Make" box
+- Labels: Step numbers, action descriptions, decision point question, fallback recommendation, estimated time for key steps
+- Relationships: Linear sequential flow with one decision point, feedback loop showing iteration possibility, escape hatch for decision paralysis
+
 **SPEAKER NOTES:**
 
 "Here's your decision process in six steps:
@@ -773,6 +922,22 @@ Now let's talk about MCP - the technology that makes AI workflows truly powerful
 
 **Graphic:** Visual showing Claude in center with MCP servers radiating to various tools (files, GitHub, Slack, databases)
 
+**GRAPHICS:**
+
+**Graphic 1: MCP Hub-and-Spoke Diagram**
+- Purpose: Illustrate MCP as universal connector between Claude and various tools
+- Type: Hub-and-spoke radial diagram
+- Elements: Claude logo in center circle, six MCP server nodes radiating outward (filesystem, GitHub, Slack, database, Google Drive, Notion), connection lines from center to each server, tool icons at the end of each spoke, "MCP Protocol" labels on connection lines
+- Labels: "Claude Desktop" in center, server names on middle nodes, tool names at endpoints, "Universal Connection" subtitle
+- Relationships: Central hub (Claude) connects to all servers equally, standardized protocol enables all connections, bidirectional data flow indicated by double-headed arrows
+
+**Graphic 2: USB-C Analogy Comparison**
+- Purpose: Reinforce the "USB-C for AI" analogy visually
+- Type: Before-and-after comparison
+- Elements: Left side showing tangled mess of different cables/connectors (old way), right side showing clean USB-C single connector (new way), parallel comparison below showing old custom integrations vs. MCP standard protocol
+- Labels: "Before USB-C" / "After USB-C" headers, "Before MCP" / "With MCP" headers on tech comparison
+- Relationships: Visual analogy reinforcing standardization benefit
+
 **SPEAKER NOTES:**
 
 "[Hook - The game changer]"
@@ -825,6 +990,15 @@ No custom coding required. You configure, not code."
 
 **Graphic:** Architecture diagram with labeled components
 
+**GRAPHICS:**
+
+**Graphic 1: MCP Three-Layer Architecture**
+- Purpose: Explain the technical architecture of how MCP connects Claude to external tools
+- Type: Layered architecture diagram
+- Elements: Three stacked boxes representing layers (Host/Claude Desktop at top, MCP Server in middle, External Tool at bottom), bidirectional arrows showing MCP Protocol communication between layers, data flow indicators, example labels for each layer
+- Labels: Layer names (HOST, SERVER, CAPABILITY), component descriptions, "MCP Protocol" on connection arrows, role descriptions ("AI interface," "bridge," "files/APIs")
+- Relationships: Vertical layered architecture, Server as middleware/translator, bidirectional communication flow, abstraction layers hiding complexity
+
 **SPEAKER NOTES:**
 
 "Here's how MCP works architecturally.
@@ -871,6 +1045,15 @@ What this means for you: instead of figuring out how to connect Claude to your t
 
 **Graphic:** Screenshot of MCP Server Registry or grid of server icons
 
+**GRAPHICS:**
+
+**Graphic 1: MCP Server Registry Grid**
+- Purpose: Show the ecosystem of available MCP servers organized by category
+- Type: Icon grid with categorization
+- Elements: Two sections (Official Servers and Community Servers), server icons in grid layout, 4 official servers (filesystem, github, slack, postgres/sqlite), 4+ community servers (Google Drive, Notion, Jira, custom), Anthropic logo badge on official servers, download/install indicators
+- Labels: "Official Servers (Anthropic-maintained)" header, "Community Servers" header, server names under each icon, capability one-liners
+- Relationships: Categorical grouping (official vs. community), visual distinction through badging, equal accessibility of all servers
+
 **SPEAKER NOTES:**
 
 "There's already an ecosystem of MCP servers you can use.
@@ -911,6 +1094,15 @@ In your homework, you'll explore this registry and identify which servers are re
 - Installation instructions provided
 
 **Graphic:** Placeholder for live demo or screenshot backup
+
+**GRAPHICS:**
+
+**Graphic 1: MCP Registry Browser View**
+- Purpose: Provide visual reference for navigating the MCP Server Registry during demo
+- Type: Screenshot mockup
+- Elements: GitHub repository page layout, server list with README files, example server detail page showing documentation, installation instructions section, prerequisites list, configuration example code block
+- Labels: "MCP Server Registry" title, server names in list, section headers (Installation, Prerequisites, Configuration), URL reference
+- Relationships: Hierarchical navigation from list to detail, documentation structure showing what participants will explore
 
 **SPEAKER NOTES:**
 
@@ -963,6 +1155,15 @@ Actually configuring and using MCP in workflows
 
 **Graphic:** MCP logo or simple diagram recap
 
+**GRAPHICS:**
+
+**Graphic 1: MCP Summary Infographic**
+- Purpose: Reinforce key MCP concepts in single visual summary
+- Type: Infographic combining icon, tagline, and key points
+- Elements: MCP logo or icon at top, "USB-C for AI" tagline prominently displayed, four key points with icons (universal protocol, pre-built servers, configure not code, growing ecosystem), Week 5 preview callout at bottom
+- Labels: MCP branding, four key takeaways, "Coming in Week 5: Hands-On Configuration" preview text
+- Relationships: Hierarchical information design, visual summary of segment content
+
 **SPEAKER NOTES:**
 
 "Let me summarize MCP:
@@ -1004,6 +1205,15 @@ Questions about MCP before we close?"
 **Critical:** Create platform account and complete getting started tutorial
 
 **Graphic:** Checklist or progress bar showing the three exercises
+
+**GRAPHICS:**
+
+**Graphic 1: Homework Exercise Overview**
+- Purpose: Clearly present the three homework exercises with time allocations and deliverables
+- Type: Table-based visual with progress tracking elements
+- Elements: Three-row table showing exercises, time allocations (25/20/15 min), deliverable file names, skills practiced, progress checkboxes, total time summed at bottom (60 min)
+- Labels: Exercise numbers and names, time estimates, deliverable filenames, skills practiced descriptions, "CRITICAL" flag on platform account creation
+- Relationships: Sequential exercise order, cumulative time tracking, critical path highlighted
 
 **SPEAKER NOTES:**
 
@@ -1047,6 +1257,15 @@ The critical item is creating your platform account and completing the tutorial.
 
 **Graphic:** QR codes or simple icons for quick access
 
+**GRAPHICS:**
+
+**Graphic 1: Resource Links Visual Directory**
+- Purpose: Provide quick visual reference to all key resources with easy access
+- Type: Categorized link directory with icons
+- Elements: Two sections (Platform Documentation and MCP Resources), icons representing each platform/resource type, QR codes for quick mobile access to key links, support channel information in highlighted box
+- Labels: Resource category headers, platform/resource names, URLs (shortened if long), response time notation for support
+- Relationships: Categorical organization, parallel structure between platform and MCP sections, support as separate highlighted element
+
 **SPEAKER NOTES:**
 
 "You have several resources:
@@ -1084,6 +1303,15 @@ Everything you need is in your participant guide."
 Come ready to build. We go from zero to functional workflow in 45 minutes.
 
 **Graphic:** Preview of workflow builder interface or workflow diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Week 2 Workflow Preview**
+- Purpose: Build excitement for next week by previewing what participants will build
+- Type: Workflow diagram mockup
+- Elements: Simple 3-node workflow diagram showing Trigger → AI Processing → Output, sample automation platform interface elements, "You'll Build This" callout, completion checkboxes showing preparation requirements
+- Labels: Workflow node names, Week 2 focus areas (build, error handling, logging), preparation checklist items
+- Relationships: Sequential workflow pattern preview, preparation items as prerequisites enabling the build
 
 **SPEAKER NOTES:**
 

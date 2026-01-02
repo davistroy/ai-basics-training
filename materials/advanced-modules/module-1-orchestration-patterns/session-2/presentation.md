@@ -179,6 +179,25 @@ These tasks CAN'T all run in parallel - they have dependencies. But sequential i
 
 **Graphic:** Diagram showing parallel agents working in isolation vs team agents interacting
 
+**GRAPHICS:**
+
+**Graphic 1: Parallel vs Team Collaboration Comparison**
+- Purpose: Contrast the isolation of parallel execution with the collaboration of team-based patterns
+- Type: Side-by-side comparison diagram
+- Elements:
+  - Left side labeled "Parallel: Isolated Execution"
+    - Four agent boxes with no connections between them
+    - Walls/barriers between agents
+    - All outputs go directly to aggregator
+    - Label: "No interaction", "Fast but inflexible"
+  - Right side labeled "Team-Based: Collaborative Execution"
+    - Four agent boxes with bidirectional arrows between them
+    - Shared workspace surrounding all agents
+    - Agents labeled with roles (Researcher, Analyst, Writer, Reviewer)
+    - Label: "Agents can communicate", "Iterative refinement possible"
+- Labels: "Parallel = Speed", "Team = Quality through collaboration"
+- Relationships: Contrast shows what team-based adds: communication and shared context
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -244,6 +263,27 @@ That's Team-Based orchestration."
 - More complex coordination
 
 **Graphic:** Visual showing team workspace with agents interacting
+
+**GRAPHICS:**
+
+**Graphic 1: Team Workspace Architecture**
+- Purpose: Illustrate the team-based orchestration pattern with shared workspace and agent communication
+- Type: Architectural diagram with workspace container
+- Elements:
+  - Large box labeled "TEAM WORKSPACE" containing all agents
+  - Four agent nodes: Researcher, Analyst, Writer, Reviewer
+  - Bidirectional arrows showing communication:
+    - Researcher ↔ Analyst
+    - Analyst → Writer
+    - Researcher → Writer
+    - Writer → Reviewer
+  - Shared workspace area showing artifacts:
+    - "Research Notes"
+    - "Draft Documents"
+    - "Review Comments"
+  - Output arrow from Reviewer leading outside workspace
+- Labels: "Shared Context", "Inter-Agent Communication", "Iterative Refinement"
+- Relationships: All agents operate within shared workspace, communication flows show collaboration patterns
 
 **SPEAKER NOTES:**
 
@@ -400,6 +440,24 @@ Questions on Team-Based fundamentals before we design actual teams?"
 
 **Graphic:** Icons representing each role archetype
 
+**GRAPHICS:**
+
+**Graphic 1: Agent Role Archetype Icons and Responsibilities**
+- Purpose: Provide visual identity for each agent role type with clear responsibilities
+- Type: Icon grid with role descriptions
+- Elements:
+  - Six role cards in 2x3 grid:
+    - Researcher: Magnifying glass icon, "Gathers information"
+    - Analyst: Bar chart/graph icon, "Finds patterns & insights"
+    - Creator: Pencil/brush icon, "Produces deliverables"
+    - Critic: Checklist/validation icon, "Evaluates quality"
+    - Editor: Polish/refinement icon, "Refines & optimizes"
+    - Coordinator: Network/hub icon, "Manages workflow"
+  - Each card shows: Icon, Role name, Key responsibility, Example tasks
+  - Color coding by function: Blue (information), Green (creation), Orange (evaluation), Purple (coordination)
+- Labels: "Clear, non-overlapping responsibilities", "3-4 roles optimal for most teams"
+- Relationships: Roles complement each other to form complete workflow
+
 **SPEAKER NOTES:**
 
 "When designing agent teams, start with role archetypes.
@@ -462,6 +520,42 @@ Cons: Most complex
 
 **Graphic:** Visual diagrams of each pattern
 
+**GRAPHICS:**
+
+**Graphic 1: Linear Team Pattern**
+- Purpose: Show simple sequential handoff team structure
+- Type: Linear flow diagram
+- Elements:
+  - Four boxes in horizontal line: Researcher → Writer → Editor → Reviewer
+  - Single arrows showing sequential flow
+  - Labels: "Simple handoffs", "Clear stages", "No parallel work"
+- Labels: "Good for: Content creation, report generation"
+- Relationships: Each agent completes before next starts
+
+**Graphic 2: Collaborative Team Pattern**
+- Purpose: Illustrate multi-perspective convergence for analysis
+- Type: Convergence diagram
+- Elements:
+  - Researcher at top feeding two agents
+  - Analyst and Critic working in parallel below Researcher
+  - Both converge to Synthesizer at bottom
+  - Arrows show: Researcher → Analyst, Researcher → Critic, Analyst → Synthesizer, Critic → Synthesizer
+- Labels: "Multiple perspectives", "Convergent analysis"
+- Relationships: Single input feeds multiple analyzers who converge results
+
+**Graphic 3: Parallel + Team Hybrid**
+- Purpose: Show combination of parallel research with collaborative synthesis
+- Type: Hybrid pattern diagram
+- Elements:
+  - Two parallel Researcher boxes (A and B) at top
+  - Both feed into Writer
+  - Writer has bidirectional arrow with Reviewer
+  - Final output from Reviewer
+  - Bracket showing "Parallel Phase" around researchers
+  - Bracket showing "Team Phase" around Writer-Reviewer interaction
+- Labels: "Speed + Quality", "Most complex"
+- Relationships: Parallel execution followed by collaborative refinement
+
 **SPEAKER NOTES:**
 
 "Here are three common team structures:
@@ -521,6 +615,27 @@ Collaboration Guidelines:
 **Key Difference:** Team agents know about each other and how to collaborate
 
 **Graphic:** Side-by-side comparison of prompts
+
+**GRAPHICS:**
+
+**Graphic 1: Standard vs Team-Aware Agent Prompts**
+- Purpose: Demonstrate the critical difference in prompt structure for team agents
+- Type: Side-by-side text comparison with highlighting
+- Elements:
+  - Left panel: "Standard Agent Prompt"
+    - Simple prompt text: "You are an AI agent that [does task]. Input: [description], Output: [description]"
+    - Gray/neutral color
+    - Label: "Isolated perspective"
+  - Right panel: "Team Agent Prompt"
+    - Enhanced prompt sections highlighted:
+      - "You are the [ROLE] on a team" (highlighted)
+      - "Your Teammates:" section (highlighted)
+      - "Collaboration Guidelines:" section (highlighted)
+    - Green/active color for highlighted sections
+    - Label: "Team-aware perspective"
+  - Arrows pointing to key differences
+- Labels: "Team agents know about each other", "Enables collaboration through awareness"
+- Relationships: Enhanced prompt structure creates team capability
 
 **SPEAKER NOTES:**
 
@@ -621,6 +736,31 @@ Questions on team design before we tackle how agents actually communicate?"
 
 **Graphic:** Visual showing all three patterns
 
+**GRAPHICS:**
+
+**Graphic 1: Three Communication Patterns Comparison**
+- Purpose: Illustrate the three fundamental communication patterns for team agents
+- Type: Three-panel comparison diagram
+- Elements:
+  - Panel 1: "Direct Handoff"
+    - Agent A box → Result arrow → Agent B box
+    - One-way flow
+    - Simple relay icon
+    - Label: "Simplest: Like relay race"
+  - Panel 2: "Request-Response"
+    - Agent A box with request arrow to Agent B
+    - Response arrow back to Agent A
+    - Speech bubble icons showing question/answer
+    - Label: "Flexible: Agents can ask for help"
+  - Panel 3: "Shared Workspace"
+    - Multiple agents (A, B, C) around shared center
+    - All with bidirectional arrows to shared workspace
+    - Document/workspace icon in center
+    - Coordinator presence shown
+    - Label: "Most collaborative: Shared context"
+- Labels: "Choose based on collaboration complexity"
+- Relationships: Increasing collaboration capability from left to right, with increasing coordination complexity
+
 **SPEAKER NOTES:**
 
 "Now let's tackle how agents actually communicate.
@@ -682,6 +822,24 @@ orchestrator:
 **Best For:** Linear workflows where each stage builds on previous
 
 **Graphic:** Flowchart showing linear handoff
+
+**GRAPHICS:**
+
+**Graphic 1: Direct Handoff Implementation**
+- Purpose: Show the simple sequential execution pattern with clear handoffs
+- Type: Sequential flow diagram with code overlay
+- Elements:
+  - Three agent boxes: Agent A, Agent B, Agent C
+  - Result data packages flowing between them
+  - Each package labeled: {result_a}, {result_b}, {result_c}
+  - Orchestrator swimlane at bottom showing:
+    - call_agent_a(input)
+    - call_agent_b(result_a)
+    - call_agent_c(result_b)
+  - Green checkmarks showing "Completes" at each handoff
+  - Red note showing "No back-and-forth possible"
+- Labels: "Clear ownership - one agent at a time", "Easy to debug"
+- Relationships: Linear dependency chain, each agent depends on previous completion
 
 **SPEAKER NOTES:**
 
@@ -756,6 +914,43 @@ Writer: "I need competitor pricing data"
 ```
 
 **Graphic:** Diagrams showing message passing and workspace structure
+
+**GRAPHICS:**
+
+**Graphic 1: Request-Response Message Flow**
+- Purpose: Visualize dynamic inter-agent communication through message passing
+- Type: Sequence diagram with message objects
+- Elements:
+  - Writer agent on left
+  - Researcher agent on right
+  - Message 1 (request) flowing left to right:
+    - Speech bubble: "I need competitor pricing data"
+    - JSON structure overlay showing message format
+  - Researcher processing indicator
+  - Message 2 (response) flowing right to left:
+    - Data package icon with pricing data
+    - JSON structure overlay showing response format
+  - Writer continuing work with new data
+- Labels: "Dynamic collaboration", "Agents ask for what they need"
+- Relationships: Bidirectional communication enables just-in-time information requests
+
+**Graphic 2: Shared Workspace Structure**
+- Purpose: Demonstrate shared context model where all agents read/write common artifacts
+- Type: Workspace schema diagram
+- Elements:
+  - Central "Workspace" box containing:
+    - task: "Create analysis report"
+    - artifacts folder with:
+      - research_notes (written by Researcher)
+      - draft_v1 (written by Writer)
+      - review_comments (written by Reviewer)
+    - current_phase indicator
+  - Three agent icons around workspace: Researcher, Writer, Reviewer
+  - Bidirectional arrows from each agent to workspace
+  - Color-coded to show who writes which artifact
+  - Coordinator icon showing management role
+- Labels: "Like shared Google Doc", "All agents contribute"
+- Relationships: All agents have read/write access to shared context, coordinator manages turn-taking
 
 **SPEAKER NOTES:**
 
@@ -863,6 +1058,31 @@ Phase 4: [Sequential] → Finalizer → Output
 
 **Graphic:** Visual showing multi-phase workflow with different patterns
 
+**GRAPHICS:**
+
+**Graphic 1: Hybrid Orchestration Multi-Phase Workflow**
+- Purpose: Illustrate how different orchestration patterns are applied to different workflow phases
+- Type: Multi-layer flow diagram with pattern labels
+- Elements:
+  - Four horizontal phases stacked vertically:
+    - Phase 1 (Sequential): Single Planner box
+      - Label: "Sequential - Single coherent plan"
+      - Color: Blue
+    - Phase 2 (Parallel): Research A, B, C boxes side-by-side
+      - Label: "Parallel - Speed through independence"
+      - Color: Green
+    - Phase 3 (Team-Based): Analyst ↔ Writer collaboration
+      - Label: "Team-Based - Quality through collaboration"
+      - Color: Orange
+      - Workspace shown around agents
+    - Phase 4 (Sequential): Single Finalizer box
+      - Label: "Sequential - Consistent output"
+      - Color: Blue
+  - Vertical flow arrows connecting phases
+  - Pattern icons on right showing which pattern used where
+- Labels: "Use the right pattern for each phase", "Enterprise-grade architecture"
+- Relationships: Each phase uses optimal pattern for its requirements, handoffs connect phases
+
 **SPEAKER NOTES:**
 
 "[Hook - The power of combination]"
@@ -936,6 +1156,42 @@ Sequential: [Formatter] → final deliverable
 ```
 
 **Graphic:** Example hybrid workflow with visual phase boundaries
+
+**GRAPHICS:**
+
+**Graphic 1: Hybrid System Design Process**
+- Purpose: Provide step-by-step framework for designing hybrid orchestration systems
+- Type: Design workflow diagram
+- Elements:
+  - Step 1: "Identify Phases"
+    - Icon showing workflow breakdown
+    - Example phases listed: Planning, Research, Analysis, Synthesis, Finalization
+  - Step 2: "Assess Phase Needs"
+    - Decision matrix showing:
+      - Speed priority? → Consider Parallel
+      - Quality priority? → Consider Team-Based
+      - Coherence priority? → Consider Sequential
+  - Step 3: "Match Patterns"
+    - Visual showing phase-to-pattern assignment
+    - Color coding for each pattern type
+  - Step 4: "Define Handoffs"
+    - Diagram showing data transformation between phases
+    - Questions: "How does Parallel output feed Team-Based input?"
+- Labels: "Systematic design approach", "Match pattern to phase requirements"
+- Relationships: Design process flows from high-level phases to specific pattern selection
+
+**Graphic 2: Strategic Report Example**
+- Purpose: Show concrete hybrid implementation for common use case
+- Type: End-to-end workflow example
+- Elements:
+  - Sequential: Planner box defining scope
+  - Parallel: 4 Researcher boxes (A, B, C, D) gathering data simultaneously
+  - Team: Analyst-Writer-Reviewer collaboration with bidirectional arrows
+  - Sequential: Formatter box creating final deliverable
+  - Time estimates shown for each phase
+  - Data artifacts flowing between phases
+- Labels: "Real-world hybrid system", "4 patterns in one workflow"
+- Relationships: Complete example showing how patterns combine in production system
 
 **SPEAKER NOTES:**
 

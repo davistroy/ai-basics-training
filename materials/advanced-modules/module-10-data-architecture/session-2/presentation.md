@@ -174,6 +174,19 @@ How do we get from messy reality to AI-ready structure?
 
 **Graphic:** Side-by-side comparison showing the gap
 
+**GRAPHICS:**
+
+**Graphic 1: Enterprise Reality vs AI Requirements Gap**
+- Purpose: Visually demonstrate the challenge of transforming messy enterprise data to AI-ready formats
+- Type: Split comparison diagram with gap bridge
+- Elements: Two columns connected by transformation pipeline
+- Labels:
+  - Left column: "Enterprise Reality" with items: "Multiple formats" (chaos icons), "Inconsistent naming" (confusion symbols), "Missing metadata" (empty fields), "Implicit relationships" (broken links), "Scattered across systems" (distributed icons), "Historical conventions" (legacy stamps)
+  - Right column: "AI Requirements" with items: "Consistent structure" (organized grid), "Standardized taxonomy" (controlled vocabularies), "Rich metadata" (complete fields), "Explicit connections" (strong links), "Unified access" (centralized icon), "AI-optimized patterns" (AI-friendly symbols)
+  - Center: Bridge labeled "Transformation Pipelines" with arrow showing conversion
+- Relationships: Gap between enterprise reality and AI requirements bridged by systematic transformation
+- Visual Style: Contrasting visual styles (chaos vs order), use red/orange for reality, green/blue for requirements, prominent bridge/pipeline in center
+
 **SPEAKER NOTES:**
 
 "Here's the reality check:
@@ -219,6 +232,20 @@ Let me show you the architecture..."
 3. **Transform & Enrich:** Normalize, add metadata, restructure
 4. **Load & Index:** Store in target format, make searchable
 
+**GRAPHICS:**
+
+**Graphic 1: Four-Stage ETL Pipeline for AI Readiness**
+- Purpose: Illustrate the complete transformation pipeline architecture with stage details
+- Type: Horizontal process flow diagram with stage annotations
+- Elements: Four connected boxes showing pipeline stages with characteristics beneath
+- Labels:
+  - Stage 1: "SOURCE DATA" box → characteristics below: "Raw formats, No metadata, Inconsistent"
+  - Stage 2: "EXTRACT & VALIDATE" box → characteristics: "Valid data, Basic checks, Type coercion"
+  - Stage 3: "TRANSFORM & ENRICH" box → characteristics: "Structured, + Metadata, + Normalized"
+  - Stage 4: "LOAD & INDEX" box → characteristics: "AI-ready, + Searchable, + Versioned"
+- Relationships: Arrows showing data flow between stages, quality improvement indicators, failure points marked at validation stage
+- Visual Style: Process flow with boxes and arrows, color gradient from red (raw) to green (AI-ready), checkmarks showing quality gates
+
 **SPEAKER NOTES:**
 
 "Here's the four-stage pipeline:
@@ -255,6 +282,20 @@ Let me break down the transformation operations..."
 | **Version** | Track changes | Add version metadata, maintain change history |
 
 **Key Insight:** Each operation improves one or more of the four requirements (Discoverability, Context, Actionability, Reliability)
+
+**GRAPHICS:**
+
+**Graphic 1: Six Transformation Operations Matrix**
+- Purpose: Map each transformation operation to the requirements it improves
+- Type: Matrix diagram showing operations and their impacts
+- Elements: 6 operations × 4 requirements grid with impact indicators
+- Labels:
+  - Rows: Normalize, Enrich, Restructure, Link, Validate, Version
+  - Columns: Discoverability, Context, Actionability, Reliability
+  - Cells marked with checkmarks (✓) or double-checkmarks (✓✓) showing impact level
+  - Examples in cells: "Normalize" row has ✓✓ under Actionability, "Enrich" has ✓✓ under Discoverability and Context
+- Relationships: Each operation addresses specific requirements, some operations multi-purpose
+- Visual Style: Grid matrix, use green checkmarks for improvements, gradient shading for high-impact cells, operation icons in left column
 
 **SPEAKER NOTES:**
 
@@ -326,6 +367,20 @@ You are transforming legacy data into AI-optimized format.
 - When you need guaranteed consistency
 - For very large-scale batch processing
 
+**GRAPHICS:**
+
+**Graphic 1: AI-Assisted Transformation Flow**
+- Purpose: Show how AI can be integrated into transformation pipeline
+- Type: Process flow with AI assistance points
+- Elements: Transformation pipeline with AI helper agents
+- Labels:
+  - Input: "Messy Data" (unstructured text, inconsistent formats)
+  - Process box: "AI Transformation Agent" with sub-tasks: "Extract entities", "Map to taxonomy", "Generate metadata", "Flag ambiguities"
+  - Output: "Structured Data" + "Human Review Queue" (for flagged items)
+  - Feedback loop: "Validation Results" feeding back to improve AI
+- Relationships: AI handles bulk transformation, flags uncertainties for human review, learns from feedback
+- Visual Style: Flowchart with AI agent icon, use robot/AI symbols, show parallel paths for automated vs human-review, green for automated, yellow for review needed
+
 **SPEAKER NOTES:**
 
 "You can use AI agents to help with transformation.
@@ -372,6 +427,22 @@ Now let's tackle enterprise data challenges..."
 | **Databases** | Technical schemas, no semantics | Add business context, readable field names, documentation |
 | **PDFs/Docs** | Layout-dependent, no structure | Extract text, restructure, validate completeness |
 | **Spreadsheets** | Implicit headers, merged cells | Normalize structure, explicit column meanings, data types |
+
+**GRAPHICS:**
+
+**Graphic 1: Enterprise Data Source Transformation Map**
+- Purpose: Provide quick reference guide for transforming common enterprise data sources
+- Type: Icon-based reference matrix
+- Elements: 6 source systems with problem icons and solution pathways
+- Labels:
+  - Row 1: Wiki/Confluence icon → Problems: "Inconsistent structure, stale content" → Solutions: "Template enforcement, freshness metadata"
+  - Row 2: SharePoint icon → Problems: "Poor taxonomy, folder hell" → Solutions: "Re-categorize, flatten structure"
+  - Row 3: Email/Slack icon → Problems: "Unstructured, context-dependent" → Solutions: "Extract decisions, summarize threads"
+  - Row 4: Database icon → Problems: "Technical schemas" → Solutions: "Add business context, readable names"
+  - Row 5: PDF/Docs icon → Problems: "Layout-dependent" → Solutions: "Extract text, restructure"
+  - Row 6: Spreadsheet icon → Problems: "Implicit headers, merged cells" → Solutions: "Normalize, explicit columns"
+- Relationships: Problem → Solution pathways for each source type
+- Visual Style: System logos/icons on left, problem symbols in middle, solution checkmarks on right, color-coded by difficulty
 
 **SPEAKER NOTES:**
 
@@ -436,6 +507,19 @@ New AI-native system → Import/transform on read → Deprecate old
 - Strategy 2: When you can't afford disruption
 - Strategy 3: When you can mandate new system adoption
 
+**GRAPHICS:**
+
+**Graphic 1: Three Migration Strategy Pathways**
+- Purpose: Compare three approaches to migrating enterprise data with decision criteria
+- Type: Three-pathway comparison diagram
+- Elements: Three parallel migration paths with characteristics
+- Labels:
+  - Path 1: "Parallel Structures" → timeline showing "Old System (ongoing)" + "AI Copy (sync)" → characteristics: "Low risk, High maintenance, Preserves workflows"
+  - Path 2: "Progressive Enhancement" → timeline showing gradual stages "Metadata → Restructure → Migrate" → characteristics: "Medium risk, Incremental value, Can stop anytime"
+  - Path 3: "New System, Old Bridge" → timeline showing "New AI-Native System → Import old → Deprecate" → characteristics: "Higher risk, Clean slate, Requires cutover"
+- Relationships: Decision matrix showing when to use each strategy based on organizational constraints
+- Visual Style: Timeline diagrams for each path, use traffic light colors for risk levels, pros/cons lists beneath each path
+
 **SPEAKER NOTES:**
 
 "Three strategies for migrating messy enterprise data:
@@ -497,6 +581,20 @@ Now, a critical skill: handling uncertainty..."
 **Key Principle:**
 When transformation encounters ambiguity, flag it - don't guess.
 
+**GRAPHICS:**
+
+**Graphic 1: Transformation with Confidence Tracking**
+- Purpose: Demonstrate how to handle uncertainty in automated transformation
+- Type: Annotated JSON example with confidence indicators
+- Elements: Structured data output with confidence metadata and flags
+- Labels:
+  - Main data block showing: "client_name", "contract_value", "start_date"
+  - Confidence indicators: Green bar for "high" confidence, Yellow for "medium", Red for "low"
+  - Flags section with: Issue descriptions, Source locations, "Requires Review" badges
+  - Visual callouts pointing to: "Multiple values found" issue, "Relative date interpreted" issue
+- Relationships: Each extracted field has corresponding confidence level and optional flag, human review queue built from flags
+- Visual Style: Code block with syntax highlighting, traffic light colors for confidence bars, warning icons for flags, annotation callouts
+
 **SPEAKER NOTES:**
 
 "Real-world data is ambiguous. Your transformation pipeline must handle this.
@@ -545,6 +643,20 @@ Agent A produces output in its context. Agent B receives input in different cont
 
 **The Solution:**
 Interfaces that make all context explicit
+
+**GRAPHICS:**
+
+**Graphic 1: Agent-to-Agent Context Gap**
+- Purpose: Illustrate the problem of assumed context in agent handoffs
+- Type: Split diagram showing context mismatch
+- Elements: Two agent boxes with thought bubbles and handoff arrow
+- Labels:
+  - Agent A box: "Research Agent" producing output, thought bubble: "I found 5 competitors, used public sources, prices in USD"
+  - Arrow: "Output handed off"
+  - Agent B box: "Analysis Agent" receiving input, thought bubble with question marks: "Which competitors? What sources? What currency? What timeframe?"
+  - Problem statement: "Assumptions don't transfer!"
+- Relationships: What Agent A assumes is known is actually unknown to Agent B, highlighting need for explicit context
+- Visual Style: Comic-style agent representations, thought bubbles showing internal state, red warning symbols for mismatches
 
 **SPEAKER NOTES:**
 
@@ -601,6 +713,20 @@ Let me show you the design principles..."
   "handoff": {...}
 }
 ```
+
+**GRAPHICS:**
+
+**Graphic 1: Four Principles Illustrated**
+- Purpose: Visually represent each interface design principle with examples
+- Type: Four-panel infographic
+- Elements: Four panels showing each principle
+- Labels:
+  - Panel 1: "Self-Describing" → shows interface with embedded schema, icon: 📋
+  - Panel 2: "Complete Context" → shows all assumptions made explicit, icon: 🔗
+  - Panel 3: "Explicit Status" → shows traffic light success/partial/error indicators, icon: 🚦
+  - Panel 4: "Actionable" → shows next steps and requirements listed, icon: ✅
+- Relationships: All four principles work together to create reliable interfaces
+- Visual Style: Grid of four panels, icons representing each principle, before/after examples in each panel, checkmarks for good practices
 
 **SPEAKER NOTES:**
 
@@ -662,6 +788,22 @@ Let me show you the full template..."
 }
 ```
 
+**GRAPHICS:**
+
+**Graphic 1: Standard Output Envelope Anatomy**
+- Purpose: Show complete structure of standardized agent-to-agent interface
+- Type: Annotated JSON structure diagram
+- Elements: JSON envelope with section callouts
+- Labels:
+  - Section 1: "interface_version" → callout: "Enables format evolution"
+  - Section 2: "producer" block → callout: "Who, when, for what task - complete provenance"
+  - Section 3: "status" block → callout: "Complete/Partial/Error + confidence + flags"
+  - Section 4: "output" block → callout: "Actual data with type and schema version"
+  - Section 5: "context" block → callout: "What was requested, sources, limitations, assumptions - critical for Agent B"
+  - Section 6: "handoff" block → callout: "Next steps, who handles it, required actions, deadline"
+- Relationships: Each section serves specific purpose in enabling reliable agent cooperation
+- Visual Style: Code block with colored section highlighting, callout boxes with arrows, purpose annotations
+
 **SPEAKER NOTES:**
 
 "Here's the complete envelope:
@@ -715,6 +857,29 @@ changes:
     change: renamed from 'competitors'
 migration: [migration instructions]
 ```
+
+**GRAPHICS:**
+
+**Graphic 1: Five Interface Patterns Comparison**
+- Purpose: Compare different agent-to-agent communication patterns
+- Type: Pattern comparison matrix
+- Elements: 5 patterns with use case and structure diagrams
+- Labels:
+  - Pattern 1: "Request-Response" → diagram showing synchronous A→B→A flow → use case: "Direct queries"
+  - Pattern 2: "Event" → diagram showing A→[Event Bus]→B asynchronous flow → use case: "Notifications"
+  - Pattern 3: "Document" → diagram showing document handoff with instructions → use case: "Content processing"
+  - Pattern 4: "Delta" → diagram showing incremental changes → use case: "Updates only"
+  - Pattern 5: "Stream" → diagram showing continuous flow with chunks → use case: "Real-time data"
+- Relationships: Each pattern suited for different communication needs, patterns can be combined
+- Visual Style: Grid layout, simple flow diagrams for each pattern, icons representing pattern types, color-coded by synchronous/asynchronous
+
+**Graphic 2: Interface Versioning Strategy**
+- Purpose: Show how to manage interface evolution over time
+- Type: Version timeline with breaking changes
+- Elements: Timeline showing v1.0 → v2.0 evolution
+- Labels: Version markers, breaking changes listed, migration path shown, backward compatibility period
+- Relationships: Clear migration path from old to new version
+- Visual Style: Timeline format, version badges, change annotations, migration arrows
 
 **SPEAKER NOTES:**
 
@@ -773,6 +938,22 @@ Now let's assess AI readiness..."
 | **Access** | Retrievability and searchability |
 
 **Total Score:** 0-100 points
+
+**GRAPHICS:**
+
+**Graphic 1: AI Readiness Scorecard**
+- Purpose: Visualize the five-dimension assessment framework as a dashboard
+- Type: Gauge dashboard with score meters
+- Elements: Five scoring gauges plus total score
+- Labels:
+  - Gauge 1: "Structure" /20 with needle position and score
+  - Gauge 2: "Semantics" /20 with needle position and score
+  - Gauge 3: "Metadata" /20 with needle position and score
+  - Gauge 4: "Freshness" /20 with needle position and score
+  - Gauge 5: "Access" /20 with needle position and score
+  - Central large gauge: "Total AI Readiness" /100 with color zones (red 0-40, yellow 41-60, light green 61-80, dark green 81-100)
+- Relationships: Individual dimension scores aggregate to total readiness score
+- Visual Style: Dashboard/gauge design, color-coded zones, needle indicators, numeric scores displayed
 
 **SPEAKER NOTES:**
 
@@ -836,6 +1017,19 @@ Let me show you the checklist..."
 - [ ] (5) Appropriate for context windows
 - [ ] (5) Security/permissions defined
 
+**GRAPHICS:**
+
+**Graphic 1: Assessment Checklist Visual Grid**
+- Purpose: Present the 20-criteria assessment checklist in scannable visual format
+- Type: Grid checklist with point values
+- Elements: 5 dimensions × 4 criteria grid (20 total items)
+- Labels:
+  - Each cell shows: Criterion description, Point value (5 points), Checkbox
+  - Dimensions color-coded: Structure (blue), Semantics (green), Metadata (purple), Freshness (orange), Access (red)
+  - Example cell: "☐ Consistent format (5 pts)" under Structure
+- Relationships: 20 items totaling 100 points, organized by dimension
+- Visual Style: Checklist grid, color-coded by dimension, point values prominent, checkboxes for each item, progressive disclosure (expand dimension to see criteria)
+
 **SPEAKER NOTES:**
 
 "Here's the detailed checklist - 20 criteria, 5 points each.
@@ -878,6 +1072,20 @@ Let me show you readiness levels..."
 
 **The Goal:**
 Not perfection - meaningful improvement in the dimensions that matter most for your use case
+
+**GRAPHICS:**
+
+**Graphic 1: Readiness Level Journey Map**
+- Purpose: Show progression path from typical starting point to optimal state
+- Type: Journey progression diagram
+- Elements: Four stages on horizontal path with characteristics
+- Labels:
+  - Stage 1: "Not Ready (0-40)" - icon: ❌ - "Most enterprise data starts here" - characteristics: "Major issues across all dimensions"
+  - Stage 2: "Basic (41-60)" - icon: ⚠️ - "Achievable with focused effort" - characteristics: "Usable but requires heavy prompt engineering"
+  - Stage 3: "Good (61-80)" - icon: ✓ - "Target for most use cases" - characteristics: "Reliable agent consumption"
+  - Stage 4: "Excellent (81-100)" - icon: ✓✓ - "Requires systematic approach" - characteristics: "Optimized for AI"
+- Relationships: Progressive improvement path, typical journey 20→60→80, effort vs benefit curve
+- Visual Style: Horizontal journey path, milestone markers at each level, color progression red→yellow→light green→dark green, effort indicators
 
 **SPEAKER NOTES:**
 
@@ -954,6 +1162,20 @@ Start here: High impact, low effort. Things like adding YAML frontmatter to mark
 Standardizing date formats - find and replace, done.
 
 Defining status taxonomy and using it - big semantic improvement, small effort.
+
+**GRAPHICS:**
+
+**Graphic 1: Prioritization Matrix with Examples**
+- Purpose: Help users identify and prioritize improvement opportunities
+- Type: 2×2 matrix with plotted improvement examples
+- Elements: Four quadrants with example improvements plotted
+- Labels:
+  - Quadrant 1 (High Impact, Low Effort): "QUICK WINS" - examples plotted: "Add YAML frontmatter", "Standardize dates", "Define status taxonomy"
+  - Quadrant 2 (High Impact, High Effort): "MAJOR PROJECTS" - examples plotted: "Restructure SharePoint", "Build transformation pipeline"
+  - Quadrant 3 (Low Impact, Low Effort): "CONSIDER LATER" - examples plotted: "Fix typos", "Consistent spacing"
+  - Quadrant 4 (Low Impact, High Effort): "SKIP" - examples plotted: "Perfect formatting", "Comprehensive documentation of everything"
+- Relationships: Strategy: Start with Quick Wins, then Major Projects, defer or skip low-impact work
+- Visual Style: 2×2 matrix, plotted examples as labeled dots, color-coded quadrants (green=quick wins, yellow=major projects, gray=later/skip), size of dots indicates impact magnitude
 
 [Point to Major Projects]
 

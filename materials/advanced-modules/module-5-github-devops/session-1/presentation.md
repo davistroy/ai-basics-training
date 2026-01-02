@@ -167,6 +167,19 @@ You've updated a prompt template, tweaked a configuration, or modified a workflo
 
 **Graphic:** Visual showing manual testing chaos vs. automated pipeline - developer manually testing vs. GitHub Actions running automatically
 
+**GRAPHICS:**
+
+**Graphic 1: Manual vs Automated Testing Comparison**
+- Purpose: Contrast the chaos of manual testing with the reliability of automated pipelines
+- Type: Split-screen comparison diagram
+- Elements:
+  - Left side (Manual): Developer at computer, sticky notes, clipboard, question marks, error symbols
+  - Right side (Automated): Clean GitHub Actions workflow with checkmarks, automated steps flowing
+- Labels:
+  - Manual side: "Slow", "Inconsistent", "Human Error", "Time-Consuming"
+  - Automated side: "Fast", "Consistent", "Reliable", "Automatic"
+- Relationships: Visual contrast using chaotic/messy design on left, clean/orderly design on right
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -215,6 +228,21 @@ Today we're going to eliminate that uncertainty with automated validation pipeli
 **Key Benefit:** Every change is validated automatically before it can affect users.
 
 **Graphic:** Flow diagram showing: Code Push → GitHub Actions Triggers → Validation Steps → Pass/Fail Gate → Merge or Block
+
+**GRAPHICS:**
+
+**Graphic 1: GitHub Actions Validation Pipeline Flow**
+- Purpose: Illustrate the automated validation workflow from code push to merge decision
+- Type: Horizontal process flow diagram
+- Elements:
+  - Developer icon pushing code (commit symbol)
+  - GitHub Actions trigger (lightning bolt/gear icon)
+  - Validation steps box (checklist with items: syntax check, token count, required sections)
+  - Decision diamond (Pass/Fail)
+  - Two outcomes: Green checkmark → "Merge Allowed" or Red X → "Blocked"
+- Labels: Each stage clearly labeled with action and outcome
+- Relationships: Arrows showing sequential flow, conditional branching at Pass/Fail gate
+- Visual cues: Green for success path, red for failure path
 
 **SPEAKER NOTES:**
 
@@ -294,6 +322,25 @@ jobs:
 - `steps:` - Individual validation steps
 
 **Graphic:** Annotated YAML showing each component's purpose
+
+**GRAPHICS:**
+
+**Graphic 1: Annotated GitHub Actions Workflow YAML**
+- Purpose: Explain the structure and purpose of each section in a GitHub Actions workflow
+- Type: Code snippet with callout annotations
+- Elements:
+  - YAML code block displaying the workflow example
+  - Callout boxes with arrows pointing to specific sections
+- Labels/Annotations:
+  - `on:` section: "Triggers - when to run this workflow"
+  - `paths:` section: "Watch these directories for changes"
+  - `jobs:` section: "What to execute"
+  - `runs-on:` section: "Execution environment (Ubuntu Linux)"
+  - `steps:` section: "Individual validation actions"
+  - `uses: actions/checkout@v4`: "Checks out code from repository"
+  - `run:` section: "Command to execute"
+- Relationships: Visual hierarchy showing workflow structure (triggers → jobs → steps)
+- Visual cues: Color coding for different YAML keys (triggers=blue, jobs=green, steps=orange)
 
 **SPEAKER NOTES:**
 
@@ -426,6 +473,20 @@ Any final questions on GitHub Actions architecture before we move to version con
 
 **Graphic:** Messy git history vs. clean versioned structure
 
+**GRAPHICS:**
+
+**Graphic 1: Unstructured Git History vs. Semantic Versioning**
+- Purpose: Show the problem of tracking AI artifacts without version strategy versus a clean approach
+- Type: Before/after comparison
+- Elements:
+  - Left side (Messy): Tangled git commit graph with generic messages like "update prompt", "fix", "try this"
+  - Right side (Clean): Organized folder structure with clear version numbers (v1.0.0, v1.1.0, v2.0.0)
+- Labels:
+  - Messy side: "Which version is in production?", "What changed?", "Hard to rollback"
+  - Clean side: "Clear version history", "Easy deployment", "Simple rollback"
+- Relationships: Visual contrast showing confusion vs. clarity
+- Visual cues: Question marks and confusion symbols on left, checkmarks and organization on right
+
 **SPEAKER NOTES:**
 
 "Now let's talk about a challenge specific to AI systems: version control for prompts and configurations.
@@ -466,6 +527,26 @@ prompts/
 ```
 
 **Graphic:** Directory tree visualization
+
+**GRAPHICS:**
+
+**Graphic 1: Semantic Versioning Directory Structure**
+- Purpose: Visualize the organized folder hierarchy for versioned prompts
+- Type: Hierarchical tree diagram
+- Elements:
+  - Root folder: `prompts/`
+  - Subfolder: `customer-support/`
+  - Version folders: `v1.0.0/`, `v1.1.0/`, `v2.0.0/` (each with folder icon)
+  - Manifest file: `VERSION_MANIFEST.json` (document icon)
+  - Example prompt files within version folders (e.g., `ticket-response.md`)
+- Labels:
+  - Folder icons for directories
+  - Document icons for files
+  - Version numbers in bold
+  - "CURRENT" badge on v2.0.0
+  - "DEPRECATED" badge on v1.0.0
+- Relationships: Tree structure showing parent-child hierarchy, indentation levels
+- Visual cues: Color coding (current version=green, deprecated=gray, supported=blue)
 
 **SPEAKER NOTES:**
 
@@ -517,6 +598,23 @@ The VERSION_MANIFEST.json tracks which versions are current, deprecated, or supp
 
 **Graphic:** Manifest file with annotations showing each field's purpose
 
+**GRAPHICS:**
+
+**Graphic 1: Annotated VERSION_MANIFEST.json**
+- Purpose: Explain the structure and purpose of the version manifest file
+- Type: JSON code snippet with callout annotations
+- Elements:
+  - JSON code block showing the manifest example
+  - Callout boxes with arrows pointing to specific fields
+- Labels/Annotations:
+  - `"current": "2.0.0"`: "Recommended version for new deployments"
+  - `"deprecated": ["1.0.0"]`: "No longer supported - do not use"
+  - `"supported": ["1.1.0", "2.0.0"]`: "Actively maintained versions"
+  - `"lastUpdated"`: "Timestamp of last manifest change"
+  - Prompt path: "Unique identifier for this prompt template"
+- Relationships: Hierarchical JSON structure, version lifecycle (deprecated → supported → current)
+- Visual cues: Color coding (current=green, deprecated=red, supported=blue), arrows showing version progression
+
 **SPEAKER NOTES:**
 
 "The version manifest is your single source of truth.
@@ -562,6 +660,25 @@ main (production prompts)
 - **hotfix/**: Emergency production fixes
 
 **Graphic:** Git branch diagram
+
+**GRAPHICS:**
+
+**Graphic 1: AI Development Branch Strategy**
+- Purpose: Visualize the branching model for AI development with different branch types
+- Type: Git flow diagram
+- Elements:
+  - Main branch (horizontal line at top, in bold): "main (production prompts)"
+  - Develop branch (horizontal line below main): "develop (integration branch)"
+  - Feature branches (branching off develop): "feature/new-customer-prompt", "feature/multilingual-support"
+  - Experiment branch (branching off develop): "experiment/gpt4-optimization"
+  - Release branch (branching from develop): "release/v2.0"
+  - Hotfix branch (branching from main): "hotfix/urgent-prompt-fix"
+- Labels: Branch names clearly labeled, branch type in parentheses
+- Relationships:
+  - Branches diverging from and merging back to parent branches
+  - Arrows showing merge direction (feature → develop → main)
+  - Dotted lines for experiment branches (may not merge)
+- Visual cues: Color coding (main=red, develop=blue, feature=green, experiment=purple, release=orange, hotfix=yellow)
 
 **SPEAKER NOTES:**
 
@@ -612,6 +729,23 @@ AI systems have unique testing requirements:
 
 **Graphic:** Traditional testing pyramid adapted for AI systems
 
+**GRAPHICS:**
+
+**Graphic 1: AI Testing Pyramid**
+- Purpose: Show the distribution and types of tests in an AI system testing strategy
+- Type: Pyramid/triangle diagram with three layers
+- Elements:
+  - Bottom layer (largest): "Unit Tests" - 70% of tests
+  - Middle layer: "Integration Tests" - 25% of tests
+  - Top layer (smallest): "E2E Tests" - 5% of tests
+- Labels:
+  - Unit Tests: "Prompt validation, syntax checks, token limits, required sections"
+  - Integration Tests: "Workflow component interaction, configuration consistency"
+  - E2E Tests: "Full workflow with mock AI, output format validation"
+  - Side annotation: "Fast, focused, many tests" → "Slow, comprehensive, few tests"
+- Relationships: Size of each layer represents proportion of tests, vertical arrangement shows testing hierarchy
+- Visual cues: Color gradient from green (bottom/fast) to red (top/slow), percentages labeled on each layer
+
 **SPEAKER NOTES:**
 
 "Now let's tackle automated testing for AI workflows.
@@ -661,6 +795,24 @@ These are all deterministic checks we can automate."
 - Error handling verification
 
 **Graphic:** Pyramid diagram showing the three layers
+
+**GRAPHICS:**
+
+**Graphic 1: Three-Layer Testing Pyramid with Details**
+- Purpose: Detail what each testing layer includes and validates
+- Type: Pyramid diagram with expanded detail boxes
+- Elements:
+  - Base layer (Unit Tests): Large foundation section
+  - Middle layer (Integration Tests): Medium section
+  - Top layer (E2E Tests): Small peak section
+  - Detail boxes beside each layer explaining contents
+- Labels:
+  - Unit Tests box: "Prompt validation • Syntax checks • Token count limits • Required sections present" with checkmark bullets
+  - Integration Tests box: "Workflow component interaction • Configuration consistency • End-to-end structure validation"
+  - E2E Tests box: "Full workflow execution with mock AI • Output format validation • Error handling verification"
+  - Execution time annotations: "< 1 second each", "< 10 seconds each", "< 60 seconds each"
+- Relationships: Pyramid shape showing volume distribution, connecting lines from boxes to layers
+- Visual cues: Icons (magnifying glass for unit, puzzle pieces for integration, full system icon for E2E)
 
 **SPEAKER NOTES:**
 
@@ -755,6 +907,25 @@ jobs:
 - Clear failure visibility
 
 **Graphic:** Workflow diagram showing job dependencies
+
+**GRAPHICS:**
+
+**Graphic 1: GitHub Actions Job Dependency Flow**
+- Purpose: Illustrate how jobs are sequenced and dependent on each other's success
+- Type: Vertical flowchart with dependency arrows
+- Elements:
+  - Job box 1: "unit-tests" (runs-on: ubuntu-latest)
+  - Dependency arrow with "needs: unit-tests" label
+  - Job box 2: "integration-tests" (runs-on: ubuntu-latest)
+  - Checkmark icon indicating success required to proceed
+  - Failure path: Red X showing workflow stops if unit tests fail
+- Labels:
+  - "unit-tests": "Fast validation - syntax, structure, token limits"
+  - "integration-tests": "Component interaction - only runs if unit tests pass"
+  - "needs: unit-tests": Annotation explaining dependency relationship
+  - "Fail Fast": Label on failure path showing early termination
+- Relationships: Sequential execution flow, conditional progression based on success/failure
+- Visual cues: Green arrows for success path, red indicators for failure, dashed line for "blocked" state
 
 **SPEAKER NOTES:**
 
@@ -941,6 +1112,41 @@ Code merges to main
 
 **Graphic:** Complete pipeline flow diagram
 
+**GRAPHICS:**
+
+**Graphic 1: End-to-End Validation Pipeline**
+- Purpose: Show the complete workflow from code push to production merge
+- Type: Vertical flowchart with decision points
+- Elements:
+  - Start: "Developer pushes code" (developer icon)
+  - Step 1: "GitHub Actions triggers" (automation icon)
+  - Step 2: "Unit tests run" → Decision: Pass/Fail
+  - Step 3: "Integration tests run" → Decision: Pass/Fail (only if unit tests pass)
+  - Step 4: "Quality gate checks coverage" → Decision: Pass/Fail
+  - Step 5: "All checks pass → PR can be merged" (green checkmark)
+  - Step 6: "Branch protection enforces review" (reviewer icon)
+  - End: "Code merges to main" (merge icon)
+- Labels: Each step clearly labeled with action and outcome
+- Relationships: Sequential flow with conditional branching, failure at any point stops pipeline
+- Visual cues:
+  - Green checkmarks for passes
+  - Red X symbols for failures leading to "Pipeline stops"
+  - Shield icon for protection layers
+  - Multiple verification gates highlighted
+
+**GRAPHIC 2: Multiple Layers of Protection**
+- Purpose: Emphasize the defense-in-depth approach of the pipeline
+- Type: Concentric circles or shield layers
+- Elements:
+  - Outer layer: "Automated validation"
+  - Middle layer: "Automated testing"
+  - Inner layer: "Quality gates"
+  - Core: "Human review"
+  - Center: "Production code" (protected)
+- Labels: Each layer labeled with what it catches
+- Relationships: Multiple overlapping protection mechanisms
+- Visual cues: Shield imagery, each layer a different color, arrows pointing to what each layer blocks
+
 **SPEAKER NOTES:**
 
 "Let's see how all these pieces work together.
@@ -1096,6 +1302,22 @@ Next session we'll cover deployment strategies, secrets management, monitoring, 
 Ensure your GitHub Actions workflows are running successfully - we'll build on them next session.
 
 **Graphic:** Preview image showing deployment pipeline
+
+**GRAPHICS:**
+
+**Graphic 1: Next Session Preview - Advanced DevOps Pipeline**
+- Purpose: Tease the topics covered in Session 2 with a visual preview
+- Type: Horizontal pipeline diagram
+- Elements:
+  - Stage 1: "Validate" (checkmark icon) - representing Session 1 content
+  - Stage 2: "Deploy to Staging" (cloud icon with staging label)
+  - Stage 3: "Blue-Green Deployment" (two server icons, one blue, one green)
+  - Stage 4: "Canary Release" (progress bar showing 10% → 100%)
+  - Stage 5: "Monitor & Alert" (dashboard/graph icon)
+  - Secrets vault icon above pipeline showing secure configuration management
+- Labels: Each stage labeled, "Session 1" vs "Session 2" demarcated
+- Relationships: Linear progression through deployment stages
+- Visual cues: Session 1 stages in solid color (completed), Session 2 stages in lighter/preview color, arrow showing progression
 
 **SPEAKER NOTES:**
 

@@ -58,6 +58,22 @@ Your final preparation before evaluation
 
 All five must work together to tell a complete story.
 
+**GRAPHICS:**
+
+**Graphic 1: Five Capstone Components**
+- Purpose: Show the five required elements of a complete Block 3 capstone submission
+- Type: Five-part connected diagram or checklist
+- Elements: Five boxes representing each component with connection lines
+- Labels:
+  - Component 1: "End-to-End Agent System" - demonstrates "Technical Mastery"
+  - Component 2: "Production Documentation" - demonstrates "Professional Quality"
+  - Component 3: "Monitoring & Reliability" - demonstrates "Operational Readiness"
+  - Component 4: "Team Rollout Plan" - demonstrates "Deployment Thinking"
+  - Component 5: "ROI Measurement" - demonstrates "Business Value"
+  - Center connection: "Complete Story"
+  - Bottom note: "All five required for certification"
+- Relationships: Each component essential; interconnected; together form complete professional solution
+
 ---
 
 ## Slide 5: Evaluation Criteria

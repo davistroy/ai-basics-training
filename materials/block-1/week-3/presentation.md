@@ -51,6 +51,15 @@
 
 **Graphic:** Clean title slide with blue color scheme (Block 1 theme).
 
+**GRAPHICS:**
+
+**Graphic 1: Week 3 Title Slide**
+- Purpose: Position JSON and GitHub as infrastructure supporting prompting techniques
+- Type: Title slide with technical/infrastructure theme
+- Elements: Blue gradient background (Block 1 theme), subtle code/structure patterns (JSON braces, version control tree), professional layout
+- Labels: "AI Practitioner Training Program" (top), "Block 1: AI Prompting Mastery" (center), "Week 3 of 8" (subtitle), "JSON Fundamentals + GitHub Basics" title with "Infrastructure for Consistent AI Outputs"
+- Relationships: Visual elements suggesting structure and organization (foundation theme)
+
 **SPEAKER NOTES:**
 
 "[OPENING - Welcome]"
@@ -82,6 +91,15 @@ By the end of today, you'll understand how to store your preferences in a file a
 | 38-45 min | Segment 4 | GitHub Basics |
 
 **Graphic:** Timeline with JSON and GitHub icons
+
+**GRAPHICS:**
+
+**Graphic 1: Week 3 Session Timeline**
+- Purpose: Show balance between JSON (majority) and GitHub (foundation) content
+- Type: Horizontal timeline with technology icons
+- Elements: Five time segments, JSON icon (curly braces) prominent in segments 1-3, GitHub octocat icon in segment 4, arrows connecting segments
+- Labels: Time markers, topic names, "Technical Foundation" theme, JSON and GitHub icons clearly visible
+- Relationships: Left-to-right progression, visual emphasis on JSON syntax segment (longest duration)
 
 **SPEAKER NOTES:**
 
@@ -126,6 +144,15 @@ How do we maintain consistency across ALL prompts?
 
 **Graphic:** Three technique icons from Week 2
 
+**GRAPHICS:**
+
+**Graphic 1: Week 2 Techniques Recap**
+- Purpose: Quick visual refresher of previous week's techniques
+- Type: Icon summary with consistency question
+- Elements: Three technique icons from Week 2 (role mask, example cards, platform logos), arranged horizontally, question mark or connecting lines suggesting need for unifying approach
+- Labels: "Role Prompting", "Few-Shot Learning", "Platform Optimization" with minimal descriptors, "How do we maintain consistency?" question prominently displayed
+- Relationships: Three separate techniques pointing to central challenge of consistency across all prompts
+
 **SPEAKER NOTES:**
 
 "Quick recap of your power tools from Week 2.
@@ -168,6 +195,15 @@ That's what we're solving this week."
 - Easy to update as preferences evolve
 
 **Graphic:** Multiple outputs with inconsistent styles vs. unified style
+
+**GRAPHICS:**
+
+**Graphic 1: Variable Outputs Problem**
+- Purpose: Show frustration of inconsistent AI outputs despite good prompts
+- Type: Problem visualization with variation emphasis
+- Elements: Single "good prompt" box at center, multiple output samples around it showing different tones/styles (formal, casual, technical, etc.), visual indicators of variation (different fonts, colors, styles), confused user icon
+- Labels: "Same prompt, different times", output samples labeled "Formal", "Casual", "Too technical", etc., "No consistent voice" problem statement
+- Relationships: One prompt producing scattered inconsistent outputs, visual chaos emphasizing the problem
 
 **SPEAKER NOTES:**
 
@@ -215,6 +251,15 @@ Store your preferences in a file. Reference that file in every prompt.
 - Easy to version control
 
 **Graphic:** Configuration file connecting to multiple prompts
+
+**GRAPHICS:**
+
+**Graphic 1: Configuration File Solution**
+- Purpose: Show how single config file ensures consistency across all prompts
+- Type: Hub-and-spoke diagram showing centralized configuration
+- Elements: Central `style.json` file icon, multiple prompt templates radiating outward like spokes, consistency indicators showing uniform output, "reference" arrows from prompts to config file
+- Labels: "style.json" (center, highlighted), "Email Template", "Report Template", "Analysis Template" (spokes), "Consistent Voice Every Time" outcome banner
+- Relationships: Single source (config file) influencing multiple destinations (prompts), unity and consistency theme
 
 **SPEAKER NOTES:**
 
@@ -271,6 +316,15 @@ Now let's learn the syntax so you can write your own."
 
 **Graphic:** Diagram showing key → value relationship
 
+**GRAPHICS:**
+
+**Graphic 1: JSON Key-Value Basics**
+- Purpose: Explain fundamental JSON structure pattern
+- Type: Annotated syntax diagram
+- Elements: Large clear code example showing JSON syntax, labeled arrows pointing to key structural elements (curly braces, double quotes, colon, comma), color coding for different parts (keys in one color, values in another)
+- Labels: "Curly braces wrap everything", "Keys in double quotes", "Colon separates", "Comma between items (not after last!)", example showing multiple items
+- Relationships: Visual breakdown of syntax structure, annotations explaining each component's role
+
 **SPEAKER NOTES:**
 
 "Let's start simple.
@@ -323,6 +377,15 @@ Let's look at what types of values you can use."
 | Object | Curly braces | `{"key": "value"}` |
 
 **Graphic:** Type icons with visual examples
+
+**GRAPHICS:**
+
+**Graphic 1: JSON Data Types Visual Reference**
+- Purpose: Provide clear visual guide to all JSON data types
+- Type: Icon grid with type examples
+- Elements: Six rows, each showing type icon, name, syntax example, and visual representation (string with quotes, number without quotes, boolean as switch, null as empty, array as list, object as nested structure)
+- Labels: Type names, syntax examples clearly formatted, usage notes for each type, quick reference table
+- Relationships: Organized by type, visual hierarchy showing most common types (string, number, array, object) prominently
 
 **SPEAKER NOTES:**
 
@@ -377,6 +440,15 @@ Always validate with [JSONLint.com](https://jsonlint.com/) before using.
 
 **Graphic:** Red X marks on errors, green checkmark on JSONLint
 
+**GRAPHICS:**
+
+**Graphic 1: Common JSON Errors**
+- Purpose: Highlight the three most common JSON mistakes
+- Type: Error comparison with solution
+- Elements: Three error example boxes each showing wrong code with red X, annotations pointing to specific errors, fourth box showing correct version with green checkmark, JSONLint logo as solution
+- Labels: "Error 1: Trailing Comma", "Error 2: Single Quotes", "Error 3: Unquoted Keys", "Correct Version", "Always Validate with JSONLint.com"
+- Relationships: Wrong examples leading to correct example, validation as mandatory step
+
 **SPEAKER NOTES:**
 
 "These three errors cause 90% of JSON problems.
@@ -417,6 +489,15 @@ A simple style configuration from scratch
 4. Intentional error → validation → fix
 
 **Graphic:** Demo placeholder
+
+**GRAPHICS:**
+
+**Graphic 1: JSON Building Demo Sequence**
+- Purpose: Show progressive construction of JSON from scratch
+- Type: Step-by-step sequence visualization
+- Elements: Four panels showing progressive building (1: empty braces, 2: first key-value pair, 3: additional pairs, 4: nested object), arrows between steps, editor window mockup
+- Labels: Step numbers, "Start here", "Add key-value", "Add more", "Create nested structure", intentional error example with validation failure
+- Relationships: Linear progression showing JSON construction, validation checkpoint emphasized
 
 **SPEAKER NOTES:**
 
@@ -487,6 +568,15 @@ Clean again. Always validate."
 
 **Graphic:** Flowchart of validation process
 
+**GRAPHICS:**
+
+**Graphic 1: JSON Validation Workflow**
+- Purpose: Establish mandatory validation habit
+- Type: Process flowchart with decision points
+- Elements: Flowchart boxes showing steps (Write/Edit → Paste into JSONLint → Validate → Decision diamond "Valid?"), error path looping back to fix, success path leading to use, common error messages in sidebar
+- Labels: Process steps clearly labeled, "Yes/No" at decision point, "Fix error" in loop, "Use in work" at end, error messages reference box
+- Relationships: Cyclical flow for errors (iterate until valid), linear flow for success, validation as gate before use
+
 **SPEAKER NOTES:**
 
 "Here's the workflow you should follow every time.
@@ -529,6 +619,15 @@ Now let's apply this to something practical - your `style.json`."
 This isn't abstract - it's YOUR actual preferences. What do YOU want your writing to sound like?
 
 **Graphic:** `style.json` sections mapped to output characteristics
+
+**GRAPHICS:**
+
+**Graphic 1: Style.json Sections Mapped to Output**
+- Purpose: Connect configuration sections to their effects on output
+- Type: Mapping diagram showing input-output relationships
+- Elements: Four boxes showing style.json sections (voice, writing, preferences, formatting), arrows pointing to sample output text showing each section's effect
+- Labels: Section names with examples, output samples with annotations ("sounds professional", "medium sentences", "no jargon", "clear headers"), "Your Preferences → Your Voice" theme
+- Relationships: Configuration choices directly influencing output characteristics, personal customization emphasis
 
 **SPEAKER NOTES:**
 
@@ -586,6 +685,15 @@ This isn't abstract. Think about your actual preferences. How do YOU want to wri
 
 **Graphic:** Template with "customize these" callouts
 
+**GRAPHICS:**
+
+**Graphic 1: Style.json Template with Customization Callouts**
+- Purpose: Guide participants to personalize the template
+- Type: Annotated code template
+- Elements: Complete style.json template in code format, callout boxes pointing to customizable values with prompting questions ("What's YOUR tone?", "YOUR sentence preference?", "What do YOU avoid?")
+- Labels: Section names, example values, customization prompts, "Start here, make it yours" instruction
+- Relationships: Template as starting point, emphasis on personal customization rather than copying
+
 **SPEAKER NOTES:**
 
 "Here's a template to start from.
@@ -636,6 +744,15 @@ Now write: [Your request here]
 - Evolves with you (refine as you learn)
 
 **Graphic:** `style.json` connecting to multiple prompts with consistent output
+
+**GRAPHICS:**
+
+**Graphic 1: Style.json Integration Pattern**
+- Purpose: Show how to reference config file in actual prompts
+- Type: Usage pattern diagram with benefits callout
+- Elements: Prompt template showing style.json integration (follow style guide → paste JSON → actual request), multiple prompt examples all referencing same config, consistent output samples, benefits list with icons
+- Labels: "The Pattern" with template code, prompt examples, benefits (same voice, easy updates, shareable, evolves), consistency indicator
+- Relationships: One config file referenced by many prompts, consistency multiplier effect, benefits radiating from central config
 
 **SPEAKER NOTES:**
 
@@ -689,6 +806,15 @@ Version control is like "track changes" for your entire project.
 
 **Graphic:** Messy file versions vs. clean version history
 
+**GRAPHICS:**
+
+**Graphic 1: Version Control Before/After**
+- Purpose: Contrast chaos of manual versioning with clean version control
+- Type: Side-by-side comparison showing disorder vs. order
+- Elements: Left side shows cluttered folder with multiple file versions (style_v2_final_REAL.json, etc.), confusion indicators; right side shows single file with clean version history timeline, organized commits
+- Labels: "Without Version Control" (chaos, confusion, can't undo), "With Version Control" (clean history, rollback capability, collaboration), "Track changes for your entire project" analogy
+- Relationships: Chaotic multiple files vs. single file with history, visual relief on "after" side
+
 **SPEAKER NOTES:**
 
 "Let's talk about why version control matters.
@@ -730,6 +856,15 @@ A repository from Week 1!
 Understanding commits and history.
 
 **Graphic:** Icons for each concept
+
+**GRAPHICS:**
+
+**Graphic 1: GitHub Vocabulary with Analogies**
+- Purpose: Make version control concepts accessible through analogies
+- Type: Definition table with visual analogies
+- Elements: Five rows showing term, definition, and analogy icon (filing cabinet for repository, save icon for commit, cloud upload for push, download for pull, timeline for history)
+- Labels: Terms in bold, clear definitions, relatable analogies, "You already have a repository!" reminder
+- Relationships: Technical terms made accessible through familiar concepts, building on Week 1 setup
 
 **SPEAKER NOTES:**
 
@@ -784,6 +919,15 @@ Bad:  "stuff"
 
 **Graphic:** Flowchart showing the 5 steps
 
+**GRAPHICS:**
+
+**Graphic 1: Git Commit Workflow**
+- Purpose: Teach the five-step commit process
+- Type: Linear process flowchart
+- Elements: Five sequential boxes with icons (1: edit icon, 2: selection icon, 3: message icon, 4: save icon, 5: upload icon), arrows connecting steps, good vs bad commit message examples in sidebar
+- Labels: Step names and descriptions, "Make Changes → Stage → Write Message → Commit → Push", commit message quality examples with green/red indicators
+- Relationships: Linear sequence of steps, emphasis on meaningful commit messages as critical step
+
 **SPEAKER NOTES:**
 
 "Here's the basic workflow.
@@ -825,6 +969,15 @@ In Exercise 3.3, you'll practice making meaningful commits."
 **Next Week:** Quality Rubrics + LLM-as-Judge
 
 **Graphic:** Three exercise cards with icons
+
+**GRAPHICS:**
+
+**Graphic 1: Week 3 Exercise Cards**
+- Purpose: Present homework as progressive skill building
+- Type: Card-based layout consistent with previous weeks
+- Elements: Three cards arranged horizontally, each with icon (JSON braces, style file icon, GitHub logo), time estimate, deliverable, skills practiced
+- Labels: Exercise numbers and names, time allocations (15-25-20 min), deliverables (json-practice.json, style.json, commit history), key reminders ("validate", "customize", "meaningful messages")
+- Relationships: Progressive flow from JSON basics to personal config to version control, building complete infrastructure
 
 **SPEAKER NOTES:**
 
