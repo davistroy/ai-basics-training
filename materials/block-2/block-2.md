@@ -6,7 +6,7 @@
 
 ---
 
-**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | **Block 2** | [Block 3 →](block-3.md)
+**Navigation:** [← README](../../README.md) | [← Block 1](block-1.md) | **Block 2** | [Block 3 →](block-3.md)
 
 ---
 
@@ -3195,4 +3195,4 @@ Upon successful completion of Block 2 Capstone with a score of 22+ points (55%+)
 
 ---
 
-**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | **Block 2** | [Block 3 →](block-3.md)
+**Navigation:** [← README](../../README.md) | [← Block 1](block-1.md) | **Block 2** | [Block 3 →](block-3.md)

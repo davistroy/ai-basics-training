@@ -2,6 +2,8 @@
 
 ## **2 Weeks | 45 min live + 60 min homework per week**
 
+> **Note:** This module requires less homework time (60 min vs. 75 min) because JSON Schema exercises involve focused syntax practice rather than complex debugging cycles.
+
 -----
 
 ## **Prerequisites**
@@ -308,6 +310,8 @@
 **Exercise 1.2: Complex Schema Design (20 minutes)**
 
 *Create schema for your `style.json`*
+
+> **Note:** If you don't have an existing `style.json` from Block 2, you can use the schema provided below to create one from scratch, or use the Block 1 appendix example as a starting point.
 
 ```json
 {

@@ -122,7 +122,7 @@ Required components:
 
 ## Self-Paced Exercises (60 minutes total)
 
-### Exercise 7.1: Finalize All Workflows (Variable - as needed)
+### Exercise 7.1: Finalize All Workflows (30-60 minutes, depending on workflow complexity)
 
 *Complete and polish your workflow toolkit*
 

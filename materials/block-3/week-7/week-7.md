@@ -137,7 +137,7 @@ Phase 3: Full Deploy
 
 ## Self-Paced Exercises (75 minutes total)
 
-### Exercise 7.1: Complete All Agent Documentation (Variable)
+### Exercise 7.1: Complete All Agent Documentation (45-90 minutes, depending on agent complexity)
 
 *Finalize production-ready documentation*
 
@@ -441,6 +441,6 @@ If [X] team members use this agent:
 
 ## Resources
 
-- [Block 3 Capstone Rubric](#appendix-n)
+- [Block 3 Capstone Rubric](#appendix-p-block-3-capstone-rubric)
 - [ROI Calculation Template](../../templates/)
 - [Documentation Examples](../../templates/)

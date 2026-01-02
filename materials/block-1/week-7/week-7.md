@@ -236,7 +236,7 @@ Score = Frequency × Time
 
 ## Self-Paced Exercises (60 minutes total)
 
-### Exercise 7.1: Complete Template Documentation (Variable Time)
+### Exercise 7.1: Complete Template Documentation (20-45 minutes, depending on template count)
 
 *Ensure all templates meet requirements*
 

@@ -1,105 +1,214 @@
-# Advanced Module 5: Advanced GitHub & DevOps for AI Systems
+# **Advanced Module 5: Advanced GitHub & DevOps for AI Systems**
 
-## Module Overview
+## **2 Weeks | 45 min live + 75 min homework per week**
 
-| Attribute | Details |
-|-----------|---------|
-| **Duration** | 2 weeks |
-| **Prerequisites** | Block 3 completion, basic Git/GitHub familiarity |
-| **Difficulty** | Advanced |
-| **Focus** | CI/CD pipelines, GitHub Actions, version control for AI workflows |
+-----
 
-### Learning Objectives
+## **Prerequisites**
 
-By the end of this module, participants will be able to:
+- Block 3 Certification: AI Automation Architect
+- Basic Git/GitHub familiarity (commits, branches, pull requests)
+- Understanding of CI/CD concepts
+- Working AI workflows to version and deploy
+- GitHub account with repository access
 
-1. Design and implement GitHub Actions workflows for AI system automation
-2. Apply version control best practices for prompts, configurations, and AI artifacts
-3. Build CI/CD pipelines that validate and deploy AI workflows
-4. Implement branch strategies suitable for AI development teams
-5. Create automated testing and quality gates for AI systems
+-----
 
----
+## **Module Overview**
 
-## Week 1: GitHub Actions & CI/CD Fundamentals
+**Target Audience:** Block 3 graduates who want to implement professional DevOps practices for AI systems, including CI/CD pipelines, version control strategies, and production deployment workflows.
 
-### Workshop 1.1: GitHub Actions Architecture (45 minutes)
+**Learning Objectives:**
+- Design and implement GitHub Actions workflows for AI system automation
+- Apply version control best practices for prompts, configurations, and AI artifacts
+- Build CI/CD pipelines that validate and deploy AI workflows
+- Implement branch strategies suitable for AI development teams
+- Create automated testing and quality gates for AI systems
 
-#### Understanding GitHub Actions Components
+**Capstone:** Production-Ready AI DevOps System
+- Complete CI/CD pipeline implementation
+- Versioned prompt/configuration repository
+- Automated testing and deployment workflows
+- Monitoring and alerting integration
 
-```yaml
-# .github/workflows/ai-workflow-validation.yml
-name: AI Workflow Validation Pipeline
+-----
 
-on:
-  push:
-    branches: [main, develop]
-    paths:
-      - 'prompts/**'
-      - 'workflows/**'
-      - 'configs/**'
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Target environment'
-        required: true
-        default: 'staging'
-        type: choice
-        options:
-          - staging
-          - production
+## **Week 1: GitHub Actions & Version Control Fundamentals**
 
-env:
-  AI_MODEL_VERSION: "gpt-4"
-  VALIDATION_THRESHOLD: "0.85"
+### **Entry Criteria**
 
-jobs:
-  validate-prompts:
-    runs-on: ubuntu-latest
+- [ ] Block 3 completed with working autonomous agent system
+- [ ] GitHub repository created for AI workflows
+- [ ] Basic understanding of YAML syntax
+- [ ] At least 3 prompt templates ready for version control
+
+### **Exit Criteria**
+
+- [ ] GitHub Actions workflow created and running
+- [ ] Prompt validation automation implemented
+- [ ] Version control strategy defined and documented
+- [ ] First automated test suite passing
+- [ ] Branch protection rules configured
+
+-----
+
+### **Workshop Content (45 minutes)**
+
+**Segment 1: GitHub Actions Architecture (12 min)**
+
+- **GitHub Actions components:**
+  - Workflows, jobs, steps, and actions
+  - Triggers: push, pull_request, schedule, workflow_dispatch
+  - Runners and execution environments
+  - Secrets and environment variables
+
+- **AI-specific workflow pattern:**
+  ```yaml
+  name: AI Workflow Validation Pipeline
+
+  on:
+    push:
+      paths:
+        - 'prompts/**'
+        - 'workflows/**'
+        - 'configs/**'
+    pull_request:
+      branches: [main]
+
+  jobs:
+    validate-prompts:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Validate prompt syntax
+          run: npm run validate:prompts
+  ```
+
+- **When to use different triggers:**
+  | Trigger | Use Case | Example |
+  |---------|----------|---------|
+  | `push` | Validate on code changes | Prompt syntax checks |
+  | `pull_request` | Gate merges with validation | Quality reviews |
+  | `schedule` | Regular maintenance tasks | Daily prompt testing |
+  | `workflow_dispatch` | Manual deployments | Production releases |
+
+**Segment 2: Version Control for AI Artifacts (12 min)**
+
+- **Prompt versioning strategies:**
+  - Semantic versioning (v1.0.0, v1.1.0, v2.0.0)
+  - Directory-based versioning
+  - Git tags for release management
+
+- **Version manifest pattern:**
+  ```json
+  {
+    "prompts": {
+      "customer-support/ticket-response": {
+        "current": "2.0.0",
+        "deprecated": ["1.0.0"],
+        "supported": ["1.1.0", "2.0.0"]
+      }
+    },
+    "lastUpdated": "2024-01-15T10:30:00Z"
+  }
+  ```
+
+- **Branch strategy for AI development:**
+  ```
+  main (production prompts)
+  ├── develop (integration branch)
+  │   ├── feature/new-customer-prompt
+  │   ├── feature/multilingual-support
+  │   └── experiment/gpt4-optimization
+  ├── release/v2.0
+  └── hotfix/urgent-prompt-fix
+  ```
+
+**Segment 3: Automated Testing for AI Workflows (12 min)**
+
+- **Testing pyramid for AI systems:**
+  - Unit tests: Prompt validation, syntax checks, token limits
+  - Integration tests: Workflow component interaction
+  - E2E tests: Full workflow execution with mock AI
+
+- **Unit test example:**
+  ```javascript
+  describe('Customer Support Prompts', () => {
+    test('should have required sections', () => {
+      expect(promptContent).toContain('## System Context');
+      expect(promptContent).toContain('## Instructions');
+      expect(promptContent).toContain('## Output Format');
+    });
+
+    test('should be within token limits', () => {
+      const tokenCount = checkTokenCount(promptContent);
+      expect(tokenCount).toBeLessThan(4000);
+    });
+  });
+  ```
+
+- **GitHub Actions test workflow pattern:**
+  ```yaml
+  jobs:
+    unit-tests:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Run prompt unit tests
+          run: npm run test:prompts
+
+    integration-tests:
+      needs: unit-tests
+      runs-on: ubuntu-latest
+      steps:
+        - name: Run integration tests
+          run: npm run test:integration
+  ```
+
+**Segment 4: Quality Gates and Branch Protection (9 min)**
+
+- **Required status checks:**
+  - Prompt validation must pass
+  - Tests must succeed
+  - Coverage thresholds met
+
+- **Branch protection rules:**
+  - Require pull request reviews
+  - Require status checks before merge
+  - Restrict push access to main
+
+- **Quality gate workflow pattern:**
+  ```yaml
+  quality-gate:
+    needs: [unit-tests, integration-tests]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Check test coverage threshold
+        run: |
+          COVERAGE=$(cat coverage/coverage-summary.json | jq '.total.lines.pct')
+          if (( $(echo "$COVERAGE < 80" | bc -l) )); then
+            echo "Coverage $COVERAGE% is below 80% threshold"
+            exit 1
+          fi
+  ```
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+-----
 
-      - name: Install dependencies
-        run: npm ci
+### **Self-Paced Exercises (75 minutes total)**
 
-      - name: Validate prompt syntax
-        run: npm run validate:prompts
+**Exercise 1.1: Create Your First AI Validation Workflow (25 minutes)**
 
-      - name: Run prompt linting
-        run: npm run lint:prompts
-```
+*Build a workflow that validates prompt files on every push*
 
-#### Workflow Triggers Deep Dive
-
-| Trigger | Use Case | Example |
-|---------|----------|---------|
-| `push` | Validate on code changes | Prompt syntax checks |
-| `pull_request` | Gate merges with validation | Quality reviews |
-| `schedule` | Regular maintenance tasks | Daily prompt testing |
-| `workflow_dispatch` | Manual deployments | Production releases |
-| `repository_dispatch` | External system triggers | Webhook integrations |
-
-#### Exercise 1.1: Create Your First AI Validation Workflow
-
-**Objective**: Build a workflow that validates prompt files on every push
-
-**Steps**:
+**Steps:**
 1. Create `.github/workflows/` directory in your repository
-2. Add a validation workflow file
+2. Add a validation workflow file (`prompt-validation.yml`)
 3. Configure triggers for your prompt directories
-4. Add validation steps
+4. Add validation steps for:
+   - File structure check
+   - Required sections verification
+   - Token count validation
 
-**Starter Template**:
-
+**Starter Template:**
 ```yaml
 name: Prompt Validation
 
@@ -107,7 +216,6 @@ on:
   push:
     paths:
       - 'prompts/**/*.md'
-      - 'prompts/**/*.txt'
 
 jobs:
   validate:
@@ -118,12 +226,10 @@ jobs:
       - name: Check prompt file structure
         run: |
           echo "Validating prompt files..."
-          # Add your validation logic here
           find prompts -name "*.md" -exec echo "Checking: {}" \;
 
       - name: Verify required sections
         run: |
-          # Check that each prompt has required sections
           for file in prompts/**/*.md; do
             if [ -f "$file" ]; then
               echo "Validating: $file"
@@ -132,753 +238,264 @@ jobs:
           done
 ```
 
----
-
-### Workshop 1.2: Version Control for AI Artifacts (45 minutes)
-
-#### Prompt Versioning Strategies
-
-**Strategy 1: Semantic Versioning for Prompts**
-
-```
-prompts/
-├── customer-support/
-│   ├── v1.0.0/
-│   │   └── ticket-response.md
-│   ├── v1.1.0/
-│   │   └── ticket-response.md
-│   └── v2.0.0/
-│       └── ticket-response.md
-├── content-generation/
-│   ├── v1.0.0/
-│   │   └── blog-writer.md
-│   └── v1.2.0/
-│       └── blog-writer.md
-└── VERSION_MANIFEST.json
-```
-
-**VERSION_MANIFEST.json**:
-
-```json
-{
-  "prompts": {
-    "customer-support/ticket-response": {
-      "current": "2.0.0",
-      "deprecated": ["1.0.0"],
-      "supported": ["1.1.0", "2.0.0"]
-    },
-    "content-generation/blog-writer": {
-      "current": "1.2.0",
-      "deprecated": [],
-      "supported": ["1.0.0", "1.2.0"]
-    }
-  },
-  "lastUpdated": "2024-01-15T10:30:00Z"
-}
-```
-
-**Strategy 2: Git Tags for Release Management**
-
-```bash
-# Tag a prompt release
-git tag -a prompts-v1.2.0 -m "Release: Updated customer support prompts"
-
-# Tag with metadata
-git tag -a prompts-v1.2.0 -m "
-Release: Customer Support Prompts v1.2.0
-
-Changes:
-- Improved tone for escalation scenarios
-- Added multi-language support templates
-- Fixed formatting in response templates
-
-Testing:
-- Passed 95% satisfaction threshold
-- A/B tested against v1.1.0 (12% improvement)
-"
-
-# Push tags
-git push origin prompts-v1.2.0
-```
-
-#### Branch Strategy for AI Development
-
-```
-main (production prompts)
-│
-├── develop (integration branch)
-│   │
-│   ├── feature/new-customer-prompt
-│   │   └── Experimental prompt development
-│   │
-│   ├── feature/multilingual-support
-│   │   └── Adding language variants
-│   │
-│   └── experiment/gpt4-optimization
-│       └── Testing with new model
-│
-├── release/v2.0
-│   └── Release candidate preparation
-│
-└── hotfix/urgent-prompt-fix
-    └── Emergency production fixes
-```
-
-#### Exercise 1.2: Implement Prompt Versioning
-
-**Objective**: Set up a versioned prompt structure with manifest tracking
-
-**Deliverables**:
-1. Create versioned directory structure
-2. Implement VERSION_MANIFEST.json
-3. Add a script to validate manifest consistency
-4. Create git hooks for version validation
-
----
-
-### Workshop 1.3: Automated Testing for AI Workflows (45 minutes)
-
-#### Testing Pyramid for AI Systems
-
-```
-                    ┌─────────────────┐
-                    │   E2E Tests     │  ← Full workflow execution
-                    │   (Few, Slow)   │     with real AI calls
-                   ─┼─────────────────┼─
-                  / │ Integration     │ \  ← Workflow component
-                 /  │ Tests           │  \    interaction tests
-                /   │ (Some, Medium)  │   \
-               ─────┼─────────────────┼─────
-              /     │   Unit Tests    │     \  ← Prompt validation,
-             /      │   (Many, Fast)  │      \   config checks
-            /       │                 │       \
-           ─────────┴─────────────────┴─────────
-```
-
-#### Unit Tests for Prompts
-
-```javascript
-// tests/prompts/customer-support.test.js
-const { validatePrompt, checkTokenCount } = require('../utils/prompt-validator');
-const fs = require('fs');
-
-describe('Customer Support Prompts', () => {
-  const promptPath = 'prompts/customer-support/v2.0.0/ticket-response.md';
-  let promptContent;
-
-  beforeAll(() => {
-    promptContent = fs.readFileSync(promptPath, 'utf8');
-  });
-
-  test('should have required sections', () => {
-    expect(promptContent).toContain('## System Context');
-    expect(promptContent).toContain('## Instructions');
-    expect(promptContent).toContain('## Output Format');
-  });
-
-  test('should be within token limits', () => {
-    const tokenCount = checkTokenCount(promptContent);
-    expect(tokenCount).toBeLessThan(4000);
-  });
-
-  test('should not contain placeholder text', () => {
-    expect(promptContent).not.toMatch(/\[INSERT.*\]/i);
-    expect(promptContent).not.toMatch(/TODO:/i);
-    expect(promptContent).not.toMatch(/FIXME:/i);
-  });
-
-  test('should have valid variable placeholders', () => {
-    const variables = promptContent.match(/\{\{(\w+)\}\}/g) || [];
-    const validVariables = ['customer_name', 'ticket_id', 'issue_summary', 'priority'];
-
-    variables.forEach(variable => {
-      const varName = variable.replace(/\{\{|\}\}/g, '');
-      expect(validVariables).toContain(varName);
-    });
-  });
-});
-```
-
-#### Integration Tests for Workflows
-
-```javascript
-// tests/workflows/support-workflow.integration.test.js
-const { WorkflowRunner } = require('../utils/workflow-runner');
-const { MockAIProvider } = require('../mocks/ai-provider');
-
-describe('Customer Support Workflow Integration', () => {
-  let workflow;
-  let mockAI;
-
-  beforeEach(() => {
-    mockAI = new MockAIProvider();
-    workflow = new WorkflowRunner({
-      aiProvider: mockAI,
-      configPath: 'workflows/customer-support/config.json'
-    });
-  });
-
-  test('should process ticket through complete workflow', async () => {
-    const ticket = {
-      id: 'TEST-001',
-      customer: 'John Doe',
-      issue: 'Cannot login to account',
-      priority: 'high'
-    };
-
-    mockAI.setResponse('classify', { category: 'authentication', confidence: 0.95 });
-    mockAI.setResponse('respond', { message: 'Password reset instructions...', tone: 'helpful' });
-
-    const result = await workflow.process(ticket);
-
-    expect(result.status).toBe('completed');
-    expect(result.classification.category).toBe('authentication');
-    expect(result.response.tone).toBe('helpful');
-    expect(mockAI.callCount).toBe(2);
-  });
-
-  test('should handle AI provider errors gracefully', async () => {
-    mockAI.simulateError('classify', new Error('Rate limit exceeded'));
-
-    const ticket = { id: 'TEST-002', issue: 'Test issue' };
-    const result = await workflow.process(ticket);
-
-    expect(result.status).toBe('error');
-    expect(result.fallback).toBe(true);
-    expect(result.errorType).toBe('rate_limit');
-  });
-});
-```
-
-#### GitHub Actions Test Workflow
-
-```yaml
-# .github/workflows/test-ai-workflows.yml
-name: AI Workflow Tests
-
-on:
-  pull_request:
-    branches: [main, develop]
-
-jobs:
-  unit-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run prompt unit tests
-        run: npm run test:prompts
-
-      - name: Run config validation tests
-        run: npm run test:configs
-
-  integration-tests:
-    runs-on: ubuntu-latest
-    needs: unit-tests
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run integration tests
-        run: npm run test:integration
-        env:
-          AI_PROVIDER: mock
-
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: test-results
-          path: coverage/
-
-  quality-gate:
-    runs-on: ubuntu-latest
-    needs: [unit-tests, integration-tests]
-    steps:
-      - name: Check test coverage threshold
-        run: |
-          COVERAGE=$(cat coverage/coverage-summary.json | jq '.total.lines.pct')
-          if (( $(echo "$COVERAGE < 80" | bc -l) )); then
-            echo "Coverage $COVERAGE% is below 80% threshold"
-            exit 1
-          fi
-          echo "Coverage $COVERAGE% meets threshold"
-```
-
----
-
-### Week 1 Homework (60-75 minutes)
-
-#### Assignment 1: Build a Complete CI Pipeline
-
-Create a GitHub Actions workflow that:
-
-1. **Validates** all prompt files for required structure
-2. **Tests** prompt token counts stay within limits
-3. **Checks** for deprecated prompt versions
-4. **Reports** validation results as PR comments
-
-**Acceptance Criteria**:
-- Workflow triggers on PRs to main branch
-- All validation steps must pass for merge
-- Failed checks provide actionable error messages
-- Results posted as PR comment
-
-#### Assignment 2: Implement Git Hooks
-
-Set up local git hooks for:
-
-1. **Pre-commit**: Validate prompt syntax
-2. **Pre-push**: Run unit tests
-3. **Commit-msg**: Enforce conventional commits
-
-**Deliverable**: `.githooks/` directory with working hooks
-
----
-
-## Week 2: Advanced DevOps Patterns
-
-### Workshop 2.1: Deployment Strategies for AI Systems (45 minutes)
-
-#### Blue-Green Deployments for Prompts
-
-```yaml
-# .github/workflows/blue-green-deploy.yml
-name: Blue-Green Prompt Deployment
-
-on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Prompt version to deploy'
-        required: true
-      environment:
-        description: 'Target environment'
-        required: true
-        type: choice
-        options:
-          - staging
-          - production
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: prompts-v${{ inputs.version }}
-
-      - name: Determine current slot
-        id: current
-        run: |
-          CURRENT=$(curl -s ${{ secrets.CONFIG_API }}/active-slot)
-          echo "slot=$CURRENT" >> $GITHUB_OUTPUT
-          echo "Current active slot: $CURRENT"
-
-      - name: Deploy to inactive slot
-        id: deploy
-        run: |
-          if [ "${{ steps.current.outputs.slot }}" == "blue" ]; then
-            TARGET="green"
-          else
-            TARGET="blue"
-          fi
-          echo "target=$TARGET" >> $GITHUB_OUTPUT
-
-          # Deploy prompts to target slot
-          ./scripts/deploy-prompts.sh \
-            --slot $TARGET \
-            --version ${{ inputs.version }} \
-            --environment ${{ inputs.environment }}
-
-      - name: Run smoke tests
-        run: |
-          ./scripts/smoke-test.sh \
-            --slot ${{ steps.deploy.outputs.target }} \
-            --environment ${{ inputs.environment }}
-
-      - name: Switch traffic
-        if: success()
-        run: |
-          curl -X POST ${{ secrets.CONFIG_API }}/switch-slot \
-            -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" \
-            -d '{"slot": "${{ steps.deploy.outputs.target }}"}'
-
-      - name: Rollback on failure
-        if: failure()
-        run: |
-          echo "Deployment failed, keeping traffic on ${{ steps.current.outputs.slot }}"
-          # Cleanup failed deployment
-          ./scripts/cleanup-slot.sh --slot ${{ steps.deploy.outputs.target }}
-```
-
-#### Canary Deployments
-
-```yaml
-# .github/workflows/canary-deploy.yml
-name: Canary Prompt Deployment
-
-jobs:
-  canary-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy canary (10% traffic)
-        run: |
-          ./scripts/deploy-canary.sh \
-            --version ${{ inputs.version }} \
-            --traffic-percentage 10
-
-      - name: Monitor canary metrics
-        id: monitor
-        run: |
-          # Wait and collect metrics
-          sleep 300  # 5 minutes
-
-          METRICS=$(./scripts/collect-metrics.sh --deployment canary)
-          ERROR_RATE=$(echo $METRICS | jq '.errorRate')
-          LATENCY=$(echo $METRICS | jq '.p95Latency')
-          SATISFACTION=$(echo $METRICS | jq '.satisfactionScore')
-
-          echo "error_rate=$ERROR_RATE" >> $GITHUB_OUTPUT
-          echo "latency=$LATENCY" >> $GITHUB_OUTPUT
-          echo "satisfaction=$SATISFACTION" >> $GITHUB_OUTPUT
-
-      - name: Evaluate canary health
-        id: evaluate
-        run: |
-          if (( $(echo "${{ steps.monitor.outputs.error_rate }} > 0.05" | bc -l) )); then
-            echo "healthy=false" >> $GITHUB_OUTPUT
-            echo "reason=Error rate too high" >> $GITHUB_OUTPUT
-          elif (( $(echo "${{ steps.monitor.outputs.satisfaction }} < 0.80" | bc -l) )); then
-            echo "healthy=false" >> $GITHUB_OUTPUT
-            echo "reason=Satisfaction score too low" >> $GITHUB_OUTPUT
-          else
-            echo "healthy=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Progressive rollout
-        if: steps.evaluate.outputs.healthy == 'true'
-        run: |
-          for percentage in 25 50 75 100; do
-            ./scripts/update-traffic.sh --percentage $percentage
-            sleep 180  # Wait 3 minutes between increases
-
-            # Verify health at each stage
-            ./scripts/health-check.sh || exit 1
-          done
-
-      - name: Rollback canary
-        if: steps.evaluate.outputs.healthy == 'false'
-        run: |
-          echo "Canary unhealthy: ${{ steps.evaluate.outputs.reason }}"
-          ./scripts/rollback-canary.sh
-          exit 1
-```
-
-#### Exercise 2.1: Design a Deployment Strategy
-
-**Scenario**: Your team manages prompts for a customer-facing chatbot. You need to:
+**Deliverable:** Working GitHub Actions workflow that runs on push
+
+-----
+
+**Exercise 1.2: Implement Prompt Versioning System (25 minutes)**
+
+*Set up a versioned prompt structure with manifest tracking*
+
+**Steps:**
+1. Create versioned directory structure:
+   ```
+   prompts/
+   ├── customer-support/
+   │   ├── v1.0.0/
+   │   └── v2.0.0/
+   └── VERSION_MANIFEST.json
+   ```
+2. Implement VERSION_MANIFEST.json with current/deprecated/supported versions
+3. Create a validation script that checks manifest consistency
+4. Add git hooks for version validation
+
+**Deliverable:** Versioned prompt structure with working manifest
+
+-----
+
+**Exercise 1.3: Build Automated Test Suite (25 minutes)**
+
+*Create tests for your prompt library*
+
+**Steps:**
+1. Set up testing framework (Jest, Mocha, or similar)
+2. Create unit tests for:
+   - Required section presence
+   - Token count limits
+   - No placeholder text remaining
+   - Valid variable placeholders
+3. Add tests to your GitHub Actions workflow
+4. Configure coverage reporting
+
+**Deliverable:** Test suite with 80%+ coverage on prompt validation
+
+-----
+
+## **Week 2: Advanced DevOps Patterns**
+
+### **Entry Criteria**
+
+- [ ] Week 1 exercises completed
+- [ ] GitHub Actions workflow running successfully
+- [ ] Version control structure implemented
+- [ ] Basic test suite passing
+
+### **Exit Criteria**
+
+- [ ] Deployment strategy implemented (blue-green or canary)
+- [ ] Secrets management configured
+- [ ] Monitoring and alerting operational
+- [ ] Complete CI/CD pipeline functional
+- [ ] Production deployment documented
+
+-----
+
+### **Workshop Content (45 minutes)**
+
+**Segment 1: Deployment Strategies for AI Systems (12 min)**
+
+- **Blue-Green deployments:**
+  - Deploy to inactive slot
+  - Run smoke tests
+  - Switch traffic on success
+  - Rollback by switching back
+
+  ```yaml
+  steps:
+    - name: Deploy to inactive slot
+      run: ./scripts/deploy-prompts.sh --slot $TARGET
+
+    - name: Run smoke tests
+      run: ./scripts/smoke-test.sh --slot $TARGET
+
+    - name: Switch traffic
+      if: success()
+      run: curl -X POST $CONFIG_API/switch-slot
+  ```
+
+- **Canary deployments:**
+  - Deploy to small percentage (10%)
+  - Monitor metrics (error rate, latency, satisfaction)
+  - Progressive rollout (25%, 50%, 75%, 100%)
+  - Automatic rollback on failure
+
+- **Choosing a strategy:**
+  | Strategy | Best For | Risk Level | Complexity |
+  |----------|----------|------------|------------|
+  | Blue-Green | Fast rollback needed | Low | Medium |
+  | Canary | Gradual validation | Low | High |
+  | Rolling | Resource constrained | Medium | Low |
+
+**Segment 2: Secrets & Configuration Management (12 min)**
+
+- **GitHub Secrets hierarchy:**
+  ```
+  Repository Secrets:
+  ├── AI_API_KEY
+  ├── DEPLOYMENT_TOKEN
+  └── MONITORING_WEBHOOK
+
+  Environment Secrets:
+  ├── staging/
+  │   └── AI_API_KEY (staging)
+  └── production/
+      └── AI_API_KEY (production)
+  ```
+
+- **Configuration as code:**
+  ```yaml
+  # configs/environments/production.yml
+  ai:
+    provider: openai
+    model: gpt-4
+    settings:
+      temperature: 0.7
+      max_tokens: 2000
+
+  rate_limits:
+    requests_per_minute: 100
+
+  monitoring:
+    error_threshold: 0.02
+  ```
+
+- **Security best practices:**
+  - Never commit secrets to code
+  - Use environment-specific secrets
+  - Pin actions to SHA for security
+  - Limit workflow permissions
+
+**Segment 3: Monitoring & Observability (12 min)**
+
+- **Health check workflows:**
+  ```yaml
+  on:
+    schedule:
+      - cron: '*/15 * * * *'  # Every 15 minutes
+
+  jobs:
+    health-check:
+      steps:
+        - name: Check AI endpoint health
+          run: |
+            RESPONSE=$(curl -s $AI_HEALTH_ENDPOINT)
+            # Parse and validate response
+
+        - name: Alert on failure
+          if: failure()
+          run: curl -X POST $SLACK_WEBHOOK -d '...'
+  ```
+
+- **Key metrics to track:**
+  - Request volume and success rate
+  - Response latency (p50, p95, p99)
+  - Token usage vs. limits
+  - Error rate by type
+
+- **Alerting patterns:**
+  - Error rate > 5% for 5 minutes → Critical
+  - Latency p95 > 2000ms for 10 minutes → Warning
+  - Health check failure → Immediate alert
+
+**Segment 4: Complete CI/CD Pipeline Assembly (9 min)**
+
+- **Full pipeline stages:**
+  ```
+  Push → Validate → Test → Build → Stage → Approve → Deploy → Monitor
+  ```
+
+- **Pipeline workflow structure:**
+  ```yaml
+  jobs:
+    validate:
+      # Syntax, schema, security checks
+
+    test:
+      needs: validate
+      # Unit and integration tests
+
+    staging:
+      needs: test
+      environment: staging
+      # Auto-deploy to staging
+
+    production:
+      needs: staging
+      environment: production
+      # Manual approval + canary deployment
+  ```
+
+- **Environment protection rules:**
+  - Required reviewers for production
+  - Wait timer between deployments
+  - Deployment branch restrictions
+
+-----
+
+### **Self-Paced Exercises (75 minutes total)**
+
+**Exercise 2.1: Implement Deployment Strategy (30 minutes)**
+
+*Design and implement a deployment workflow for your AI system*
+
+**Scenario:** Your team manages prompts for a customer-facing chatbot. You need to:
 - Deploy prompt updates with zero downtime
 - Quickly rollback if issues arise
 - Validate changes before full rollout
 
-**Deliverable**: Design document with:
-1. Chosen deployment strategy (with justification)
-2. Workflow diagram
-3. Rollback procedure
-4. Monitoring requirements
+**Deliverables:**
+1. Design document with:
+   - Chosen deployment strategy (with justification)
+   - Workflow diagram
+   - Rollback procedure
+2. Implemented deployment workflow in `.github/workflows/`
 
----
+-----
 
-### Workshop 2.2: Secrets & Configuration Management (45 minutes)
+**Exercise 2.2: Configure Monitoring and Alerting (25 minutes)**
 
-#### GitHub Secrets Management
+*Create a monitoring solution for your AI workflows*
 
-```yaml
-# Secrets hierarchy for AI workflows
-Repository Secrets:
-├── AI_API_KEY                 # AI provider authentication
-├── DEPLOYMENT_TOKEN           # Deployment automation
-└── MONITORING_WEBHOOK         # Alerting integration
+**Requirements:**
+1. Health check workflow running every 15 minutes
+2. Alert on failures via Slack, Discord, or email
+3. Track key metrics over time
+4. Generate weekly summary (optional)
 
-Environment Secrets:
-├── staging/
-│   ├── AI_API_KEY            # Staging AI credentials
-│   └── DATABASE_URL          # Staging database
-└── production/
-    ├── AI_API_KEY            # Production AI credentials
-    └── DATABASE_URL          # Production database
-```
+**Deliverable:** Monitoring workflow + alert configuration
 
-#### Configuration as Code
+-----
 
-```yaml
-# configs/environments/production.yml
-ai:
-  provider: openai
-  model: gpt-4
-  settings:
-    temperature: 0.7
-    max_tokens: 2000
-    timeout_seconds: 30
+**Exercise 2.3: Module Capstone - Complete CI/CD Pipeline (20 minutes)**
 
-prompts:
-  version: "2.1.0"
-  cache_ttl: 3600
+*Assemble all components into a production-ready pipeline*
 
-rate_limits:
-  requests_per_minute: 100
-  tokens_per_minute: 40000
+**Requirements:**
+1. **Validation Stage:** Syntax, schema, security checks
+2. **Test Stage:** Unit and integration tests with coverage
+3. **Staging Deployment:** Auto-deploy on merge to develop
+4. **Production Deployment:** Manual approval + canary/blue-green
 
-monitoring:
-  error_threshold: 0.02
-  latency_p95_threshold_ms: 2000
+**Deliverable:** Complete `.github/workflows/` directory with:
+- `validate.yml` - Validation workflow
+- `test.yml` - Test workflow
+- `deploy-staging.yml` - Staging deployment
+- `deploy-production.yml` - Production deployment with approval
+- `monitoring.yml` - Health checks and alerting
 
-feature_flags:
-  new_classification_prompt: false
-  enhanced_response_format: true
-```
+-----
 
-#### Secure Configuration Workflow
-
-```yaml
-# .github/workflows/config-deployment.yml
-name: Deploy Configuration
-
-on:
-  push:
-    paths:
-      - 'configs/**'
-    branches: [main]
-
-jobs:
-  validate-config:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Validate YAML syntax
-        run: |
-          pip install yamllint
-          yamllint configs/
-
-      - name: Validate against schema
-        run: |
-          pip install jsonschema pyyaml
-          python scripts/validate-config-schema.py
-
-      - name: Check for secrets in config
-        run: |
-          # Ensure no secrets are committed in config files
-          if grep -rE "(api_key|password|secret|token):\s*['\"]?[a-zA-Z0-9]+" configs/; then
-            echo "ERROR: Potential secrets found in config files!"
-            exit 1
-          fi
-
-  deploy-config:
-    needs: validate-config
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Deploy configuration
-        run: |
-          ./scripts/deploy-config.sh \
-            --env production \
-            --config configs/environments/production.yml
-        env:
-          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-```
-
----
-
-### Workshop 2.3: Monitoring & Observability (45 minutes)
-
-#### GitHub Actions for Monitoring
-
-```yaml
-# .github/workflows/ai-health-check.yml
-name: AI System Health Check
-
-on:
-  schedule:
-    - cron: '*/15 * * * *'  # Every 15 minutes
-  workflow_dispatch:
-
-jobs:
-  health-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Check AI endpoint health
-        id: health
-        run: |
-          RESPONSE=$(curl -s -w "\n%{http_code}" ${{ secrets.AI_HEALTH_ENDPOINT }})
-          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
-          BODY=$(echo "$RESPONSE" | head -n -1)
-
-          echo "status_code=$HTTP_CODE" >> $GITHUB_OUTPUT
-          echo "response=$BODY" >> $GITHUB_OUTPUT
-
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "healthy=false" >> $GITHUB_OUTPUT
-          else
-            echo "healthy=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Check response quality
-        id: quality
-        run: |
-          # Test with sample prompt
-          RESULT=$(./scripts/test-prompt.sh --prompt "test-health-check")
-          QUALITY_SCORE=$(echo $RESULT | jq '.qualityScore')
-
-          echo "quality_score=$QUALITY_SCORE" >> $GITHUB_OUTPUT
-
-          if (( $(echo "$QUALITY_SCORE < 0.8" | bc -l) )); then
-            echo "quality_ok=false" >> $GITHUB_OUTPUT
-          else
-            echo "quality_ok=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Alert on failure
-        if: steps.health.outputs.healthy == 'false' || steps.quality.outputs.quality_ok == 'false'
-        run: |
-          curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
-            -H "Content-Type: application/json" \
-            -d '{
-              "text": "🚨 AI System Health Check Failed",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "*Health Check Results*\n• Endpoint Status: ${{ steps.health.outputs.status_code }}\n• Quality Score: ${{ steps.quality.outputs.quality_score }}"
-                  }
-                }
-              ]
-            }'
-
-      - name: Update status page
-        run: |
-          curl -X POST ${{ secrets.STATUS_API }}/update \
-            -H "Authorization: Bearer ${{ secrets.STATUS_TOKEN }}" \
-            -d '{
-              "component": "ai-service",
-              "status": "${{ steps.health.outputs.healthy == 'true' && 'operational' || 'degraded' }}",
-              "metrics": {
-                "healthScore": ${{ steps.health.outputs.status_code == '200' && 1 || 0 }},
-                "qualityScore": ${{ steps.quality.outputs.quality_score }}
-              }
-            }'
-```
-
-#### Metrics Dashboard Configuration
-
-```yaml
-# monitoring/dashboard-config.yml
-dashboards:
-  ai-operations:
-    title: "AI Workflow Operations"
-    refresh: 30s
-
-    panels:
-      - title: "Request Volume"
-        type: graph
-        metrics:
-          - ai_requests_total
-          - ai_requests_success
-          - ai_requests_failed
-
-      - title: "Response Latency"
-        type: graph
-        metrics:
-          - ai_response_latency_p50
-          - ai_response_latency_p95
-          - ai_response_latency_p99
-        thresholds:
-          warning: 1000
-          critical: 2000
-
-      - title: "Token Usage"
-        type: gauge
-        metrics:
-          - ai_tokens_used
-          - ai_tokens_limit
-
-      - title: "Error Rate"
-        type: stat
-        metrics:
-          - ai_error_rate
-        thresholds:
-          warning: 0.01
-          critical: 0.05
-
-alerts:
-  - name: "High Error Rate"
-    condition: ai_error_rate > 0.05
-    duration: 5m
-    severity: critical
-    notify:
-      - slack: "#ai-alerts"
-      - pagerduty: "ai-oncall"
-
-  - name: "Elevated Latency"
-    condition: ai_response_latency_p95 > 2000
-    duration: 10m
-    severity: warning
-    notify:
-      - slack: "#ai-alerts"
-```
-
----
-
-### Week 2 Homework (60-75 minutes)
-
-#### Assignment 1: Complete CI/CD Pipeline
-
-Build a production-ready CI/CD pipeline that includes:
-
-1. **Validation Stage**: Syntax, schema, security checks
-2. **Test Stage**: Unit and integration tests
-3. **Staging Deployment**: Auto-deploy to staging
-4. **Production Deployment**: Manual approval + canary
-
-**Deliverable**: Complete `.github/workflows/` directory with all workflows
-
-#### Assignment 2: Monitoring Implementation
-
-Create a monitoring solution that:
-
-1. Runs health checks every 15 minutes
-2. Alerts on failures via Slack/Discord
-3. Tracks key metrics over time
-4. Generates weekly summary reports
-
-**Deliverable**: Monitoring workflow + documentation
-
----
-
-## Assessment Rubric
+## **Assessment Rubric**
 
 ### Practical Assessment (70%)
 
@@ -905,11 +522,13 @@ Create a monitoring solution that:
 | Developing | 70-79% | Core concepts, needs refinement |
 | Beginning | Below 70% | Significant gaps, needs review |
 
----
+-----
 
-## Appendix A: GitHub Actions Reference
+## **APPENDICES**
 
-### Commonly Used Actions
+### **Appendix A: GitHub Actions Reference**
+
+#### Commonly Used Actions
 
 | Action | Purpose | Example |
 |--------|---------|---------|
@@ -920,7 +539,7 @@ Create a monitoring solution that:
 | `actions/upload-artifact@v4` | Store build outputs | Test results, coverage |
 | `actions/github-script@v7` | Run GitHub API calls | PR comments, issues |
 
-### Workflow Syntax Quick Reference
+#### Workflow Syntax Quick Reference
 
 ```yaml
 # Conditional execution
@@ -954,11 +573,11 @@ jobs:
       url: https://app.example.com
 ```
 
----
+-----
 
-## Appendix B: Troubleshooting Guide
+### **Appendix B: Troubleshooting Guide**
 
-### Common Issues and Solutions
+#### Common Issues and Solutions
 
 | Issue | Cause | Solution |
 |-------|-------|----------|
@@ -968,7 +587,7 @@ jobs:
 | Deployment failing | Permission denied | Check environment protection rules |
 | Tests timing out | Resource constraints | Increase timeout or optimize tests |
 
-### Debug Mode
+#### Debug Mode
 
 ```yaml
 # Enable debug logging
@@ -982,14 +601,13 @@ env:
     echo "Event: ${{ github.event_name }}"
     echo "Ref: ${{ github.ref }}"
     echo "SHA: ${{ github.sha }}"
-    echo "Actor: ${{ github.actor }}"
 ```
 
----
+-----
 
-## Appendix C: Security Checklist
+### **Appendix C: Security Checklist**
 
-### Pre-Deployment Security Review
+#### Pre-Deployment Security Review
 
 - [ ] No secrets in code or config files
 - [ ] All sensitive values use GitHub Secrets
@@ -1000,7 +618,7 @@ env:
 - [ ] Dependency scanning active
 - [ ] Secret scanning enabled
 
-### Secure Workflow Patterns
+#### Secure Workflow Patterns
 
 ```yaml
 # Pin actions to SHA for security

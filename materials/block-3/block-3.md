@@ -6,7 +6,7 @@
 
 ---
 
-**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | [← Block 2](block-2.md) | **Block 3**
+**Navigation:** [← README](../../README.md) | [← Block 1](block-1.md) | [← Block 2](block-2.md) | **Block 3**
 
 ---
 
@@ -26,7 +26,7 @@
 - 20+ workflow executions completed
 
 **Pre-Work (Complete before Week 1):**
-- Review [Agent Memory Meta-Framework Presentation](archive/presentation.md), slides 1-30
+- Review [Agent Memory Meta-Framework Presentation](../../archive/presentation.md), slides 1-30
 - Focus on: The Three Pillars of Domain Memory, Why Agents Fail, The Daily Contractor Analogy
 - Time required: ~30 minutes
 
@@ -3652,4 +3652,4 @@ Approved by: ___________________ Date: ___________
 
 ---
 
-**Navigation:** [← README](README.md) | [← Block 1](block-1.md) | [← Block 2](block-2.md) | **Block 3**
+**Navigation:** [← README](../../README.md) | [← Block 1](block-1.md) | [← Block 2](block-2.md) | **Block 3**

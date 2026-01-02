@@ -72,6 +72,12 @@ The curriculum follows a progressive maturity model:
 - **[Agent Memory Meta-Framework Presentation](archive/presentation.md)** - 48-slide presentation on agent memory architecture
 - **[Glossary](glossary.md)** - Key terms and definitions used throughout the curriculum
 
+### Marketing Materials
+
+- **[Block 1 Sales Infographic](marketing/block1-sales-infographic.md)** - AI Prompting Mastery marketing specification
+- **[Block 2 Sales Infographic](marketing/block2-sales-infographic.md)** - AI Workflow Engineering marketing specification
+- **[Block 3 Sales Infographic](marketing/block3-sales-infographic.md)** - AI Automation Architecture marketing specification
+
 ---
 
 ## Block Summaries
@@ -342,7 +348,7 @@ Each certification requires:
 ai-basics-training/
 ├── README.md                    # This file - program overview
 ├── CLAUDE.md                    # Claude Code guidance
-├── facilitator-guide.md         # Delivery guidance for trainers
+├── archive/facilitator-guide.md # Delivery guidance for trainers
 ├── learning-path.mermaid        # Visual learning path diagram
 ├── materials/                   # All curriculum content
 │   ├── block-0/                 # Pre-program materials
