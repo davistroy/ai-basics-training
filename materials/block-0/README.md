@@ -1,0 +1,3 @@
+Block 0 is for future use - ignore for now
+
+The future intent of Block 0 is to give a perspective on why people and organizations are not getting the value that they intend out of artificial intelligence and to talk about the things that need to be done to actually get value out of artificial intelligence. It will then give an overview of the following Blocks 1, 2, and 3 as well as some of the advanced topics and also describe why it's important for people to gain these skills and undertake this training.
