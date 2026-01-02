@@ -2,11 +2,13 @@
 
 ## **2 Weeks | 45 min live + 60 min homework per week**
 
+> **Note:** This module requires less homework time (60 min vs. 75 min) because Mermaid diagram exercises are focused and iterative, with immediate visual feedback that speeds the learning cycle.
+
 -----
 
 ## **Prerequisites**
 
-- Block 1 Certification: AI Prompting Practitioner (minimum)
+- Block 2 Certification: AI Workflow Engineer (minimum)
 - Familiarity with Markdown
 - Understanding of workflow concepts
 - GitHub repository for documentation

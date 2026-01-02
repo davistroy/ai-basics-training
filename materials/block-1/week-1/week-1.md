@@ -7,7 +7,7 @@
 
 ## Entry Criteria
 
-- [ ] Self-assessment completed (prerequisites.md)
+- [ ] Self-assessment completed ([prerequisites.md](../../block-0/prerequisites.md))
 - [ ] GitHub account created
 - [ ] AI platform access confirmed (Claude or ChatGPT)
 - [ ] Understand basic text formatting concepts
