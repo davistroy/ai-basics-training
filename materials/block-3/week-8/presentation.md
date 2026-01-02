@@ -71,6 +71,24 @@ Self-paced evaluation and submission week
 
 **Certification:** 34+ points (85%) = AI Automation Architect
 
+**GRAPHICS:**
+
+**Graphic 1: Eight Evaluation Criteria Grid**
+- Purpose: Visual summary of the eight dimensions used to evaluate capstone projects
+- Type: 2x4 grid with scoring
+- Elements: Eight boxes arranged in grid; each showing criterion and scoring
+- Labels:
+  - Box 1: "Agent Architecture" (5 pts max)
+  - Box 2: "Reliability & Error Handling" (5 pts max)
+  - Box 3: "Performance & Optimization" (5 pts max)
+  - Box 4: "Monitoring & Observability" (5 pts max)
+  - Box 5: "Documentation Quality" (5 pts max)
+  - Box 6: "Production Readiness" (5 pts max)
+  - Box 7: "Business Impact" (5 pts max)
+  - Box 8: "Team Deployment Potential" (5 pts max)
+  - Bottom: "Total: 40 points | Certification: 34+ (85%)"
+- Relationships: Equal weight (5 pts each); all contribute to final score; clear passing threshold
+
 ---
 
 ## Slide 5: Criterion 1 - Agent Architecture

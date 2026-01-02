@@ -224,6 +224,29 @@ Today we're building the right side. Here's how..."
 
 **Graphic:** Flow diagram showing the RAG pipeline with arrows and icons for each step
 
+**GRAPHICS:**
+
+**Graphic 1: Complete RAG Pipeline Flow**
+- Purpose: Illustrate the end-to-end RAG process from document ingestion to response generation
+- Type: Two-part horizontal flow diagram (indexing phase + retrieval phase)
+- Elements: Top half showing offline indexing (Documents → Chunking → Embedding → Vector Store); bottom half showing online retrieval (Query → Embed → Search → Retrieve → Generate); connecting arrow from vector store to search
+- Labels: Phase names clearly marked (Indexing/Offline vs. Retrieval/Online); step names under each component; icons for each step (document, scissors for chunking, neural net for embedding, database, magnifying glass for search, LLM brain); timing indicators (one-time vs. per-query)
+- Relationships: Sequential flow in each phase; vector store as bridge between phases; feedback loop showing document updates; emphasis on query embedding using same model as documents
+
+**Graphic 2: RAG vs. Traditional LLM Comparison**
+- Purpose: Contrast how RAG-enabled and traditional LLMs answer questions
+- Type: Side-by-side comparison flow diagram
+- Elements: Left side "Traditional LLM" showing Query → LLM (with training data) → Response; right side "RAG-enabled LLM" showing Query → Retrieval → LLM + Context → Response; visual indicators of hallucination risk and accuracy
+- Labels: "Training Data (Months Old)" on left; "Current Documents" on right; hallucination warning icon on left; citation/source icon on right; timestamps showing data freshness
+- Relationships: Highlight key differences with callout boxes; show where hallucination typically occurs; indicate cost and latency tradeoffs
+
+**Graphic 3: RAG Benefits Quadrant**
+- Purpose: Visualize the four key benefits of RAG in enterprise context
+- Type: Four-quadrant benefit diagram
+- Elements: Four quadrants (Current Information, Citations/Audit, Reduced Hallucination, Cost Efficiency); each with icon and 2-3 supporting points; center showing "Enterprise RAG Advantages"
+- Labels: Benefit names; specific examples for each (e.g., "Update docs not models" for Current Info); business impact indicators; use case callouts
+- Relationships: All four benefits interconnected; emphasis on how benefits compound; mapping to enterprise requirements (compliance, accuracy, TCO)
+
 **SPEAKER NOTES:**
 
 "[INSIGHT - Deliver the solution]"
@@ -411,6 +434,29 @@ Let me show you four strategies for getting this right..."
 
 **Graphic:** Four-quadrant visual showing each strategy with example chunks
 
+**GRAPHICS:**
+
+**Graphic 1: Chunking Strategies Comparison Matrix**
+- Purpose: Compare the four chunking approaches across key dimensions
+- Type: Four-column comparison matrix
+- Elements: Four columns (one per strategy); rows showing Complexity, Quality, Speed, Cost, Best Use Case; cells with ratings/descriptions; sample document shown being chunked four different ways
+- Labels: Strategy names prominently displayed; visual quality indicators (stars or bars); cost symbols ($-$$$$); example output for each strategy
+- Relationships: Trade-off arrows showing inverse relationships (quality vs. speed, simplicity vs. sophistication); recommended progression path from fixed to agentic; decision criteria at bottom
+
+**Graphic 2: Good vs. Bad Chunking Visual Example**
+- Purpose: Illustrate the impact of chunking quality on retrieval
+- Type: Before/after comparison with sample text
+- Elements: Sample paragraph from policy document; two chunking approaches shown (bad=mid-sentence split, good=semantic boundary); retrieval scenarios showing which approach succeeds
+- Labels: "Bad Chunking" and "Good Chunking" clearly marked; red X on bad example showing context loss; green checkmark on good showing preserved meaning; retrieval query examples
+- Relationships: Show how bad chunking breaks semantic coherence; demonstrate failure mode in retrieval; highlight importance of overlap in fixed-size chunking
+
+**Graphic 3: Hierarchical Chunking Architecture**
+- Purpose: Explain multi-level chunking strategy and retrieval advantages
+- Type: Tree/pyramid diagram showing document hierarchy
+- Elements: Document at top; branches to Sections; sections branch to Subsections; subsections to Paragraphs; each level shows summary + full text storage; retrieval paths shown at different granularities
+- Labels: Level names (Document/Section/Subsection/Paragraph); storage approach at each level (summary vs. full text); retrieval strategies for different query types; metadata inheritance shown
+- Relationships: Parent-child relationships between levels; different retrieval paths for different query types (broad=section level, specific=paragraph level); summary propagation up the tree
+
 **SPEAKER NOTES:**
 
 "There are four main chunking strategies. Let's walk through each:
@@ -545,6 +591,29 @@ Not similar to: "Employees receive vacation benefits"
 - Captures relationships and context
 
 **Graphic:** Visual showing text converting to vectors, with similar concepts clustering together in vector space
+
+**GRAPHICS:**
+
+**Graphic 1: Text to Vector Transformation**
+- Purpose: Visualize how text is converted to numerical vectors through embedding
+- Type: Process flow with visual transformation
+- Elements: Text sentence at top → Embedding model (neural network icon) in middle → Vector array at bottom; similar texts shown converging to nearby vectors; dissimilar texts shown far apart
+- Labels: "Input Text" at top; "Embedding Model" in center (with model name like text-embedding-3); "Vector (1536 dimensions)" at bottom; similarity scores shown between vectors
+- Relationships: Multiple example texts flowing through same model; arrows connecting similar concepts in vector space; distance/proximity indicating semantic similarity; 3D visualization showing vector clustering
+
+**Graphic 2: Vector Space Clustering Visualization**
+- Purpose: Show how semantically similar concepts cluster together in vector space
+- Type: 2D/3D scatter plot (simplified from high dimensions)
+- Elements: Points representing embedded text chunks; color-coded clusters by topic (HR policies=blue, Finance=green, IT procedures=red, etc.); query vector shown with search radius; similar items within radius highlighted
+- Labels: Cluster labels; distance metrics shown; query point clearly marked; nearest neighbors highlighted; axes labeled "Semantic Dimension 1" and "Semantic Dimension 2" (note: simplified from 1536D)
+- Relationships: Clusters showing topical grouping; overlap areas showing related concepts; search radius demonstrating similarity threshold; arrows from query to retrieved results
+
+**Graphic 3: Embedding Model Selection Decision Tree**
+- Purpose: Guide users through choosing appropriate embedding model
+- Type: Decision tree with model recommendations
+- Elements: Decision nodes based on criteria (Domain specificity, Scale, Privacy requirements, Budget); terminal nodes recommending specific models (OpenAI, Cohere, open-source options)
+- Labels: Decision criteria clearly stated; model names with key specs (dimensions, cost, performance); pros/cons for each recommendation; use case examples
+- Relationships: Flow from requirements to recommendations; trade-off visualization between cost/quality/control; migration paths showing evolution as needs change
 
 **SPEAKER NOTES:**
 

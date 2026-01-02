@@ -50,6 +50,15 @@
 
 **Graphic:** Clean title slide with green theme (Block 3 color). Include program branding and visual of agent concept.
 
+**GRAPHICS:**
+
+**Graphic 1: Agent Concept Visualization**
+- Purpose: Establish visual identity for Block 3 and introduce the concept of autonomous agents
+- Type: Abstract conceptual illustration
+- Elements: Circular agent icon with interconnected nodes representing observe-think-act loops; subtle background pattern suggesting automation/architecture
+- Labels: "Block 3: AI Automation Architecture" with green accent (#00CC99)
+- Relationships: Agent icon positioned as centerpiece with subtle connections radiating outward suggesting autonomous decision-making
+
 **SPEAKER NOTES:**
 
 "[OPENING - Welcome]"
@@ -168,6 +177,18 @@ Level 3: AI Automation Architecture (Block 3) ← YOU ARE HERE
 
 **Graphic:** Ascending staircase or pyramid showing three levels, with Level 3 highlighted in green
 
+**GRAPHICS:**
+
+**Graphic 1: Three-Level Maturity Progression**
+- Purpose: Show the learning journey from Block 1 through Block 3 and current position
+- Type: Ascending staircase diagram or stepped pyramid
+- Elements: Three distinct levels/steps, each progressively higher; checkmarks on Levels 1 and 2; "YOU ARE HERE" indicator on Level 3 with green highlight
+- Labels:
+  - Level 1: "AI Prompting Mastery" with "Templated workflows" subtitle
+  - Level 2: "AI Workflow Engineering" with "Quality gates, MCP" subtitle
+  - Level 3: "AI Automation Architecture" (highlighted in green #00CC99) with "Autonomous agents" subtitle
+- Relationships: Each level builds upon the previous (visual foundation/support relationship); arrow or pathway showing progression upward
+
 **SPEAKER NOTES:**
 
 "[Hook - Create context]"
@@ -201,6 +222,21 @@ Each level builds on the previous. Everything you learned still applies. But now
 | Executes what you specify | Achieves goals you define |
 
 **Graphic:** Visual showing a linear workflow transforming into an adaptive decision tree
+
+**GRAPHICS:**
+
+**Graphic 1: Workflow to Agent Transformation**
+- Purpose: Illustrate the fundamental difference between rigid workflow execution and adaptive agent decision-making
+- Type: Before/after transformation diagram
+- Elements:
+  - Left side: Linear flowchart with fixed sequential steps (boxes connected by straight arrows)
+  - Center: Transformation arrow or divider
+  - Right side: Dynamic decision tree with multiple branches, decision nodes, and adaptive pathways
+- Labels:
+  - Left: "WORKFLOW - Executes Steps" with "Predetermined, rigid" annotation
+  - Right: "AGENT - Makes Decisions" with "Dynamic, adaptive" annotation
+  - Decision nodes on right marked with "AI decides" indicators
+- Relationships: Show contrast between fixed path (left) vs. multiple possible paths based on context (right)
 
 **SPEAKER NOTES:**
 
@@ -242,6 +278,21 @@ But here's the catch: agents are expensive and complex. That's why Block 3 exist
 
 **Graphic:** Bridge visual connecting "Why Agents Fail" to "How Agents Succeed"
 
+**GRAPHICS:**
+
+**Graphic 1: Pre-Work to Block 3 Connection Bridge**
+- Purpose: Show the progression from understanding problems (pre-work) to implementing solutions (Block 3)
+- Type: Bridge/connection diagram
+- Elements:
+  - Left side: "Pre-Work Concepts" platform with key concepts listed
+  - Right side: "Block 3 Skills" platform with implementation skills listed
+  - Bridge connecting the two platforms
+- Labels:
+  - Left platform: "WHY Agents Fail" with bullets "Memory problems, Unreliable amnesiacs, Three Pillars theory, Daily Contractor concept"
+  - Right platform: "HOW to Build Reliable Agents" with bullets "Architecture patterns, Domain Memory implementation, Production systems"
+  - Bridge: "Block 3 = Theory → Practice"
+- Relationships: Arrow flow from left to right showing progression; bridge as transformation mechanism
+
 **SPEAKER NOTES:**
 
 "Your pre-work laid the groundwork.
@@ -277,6 +328,26 @@ Week 7: Documentation and planning
 Week 8: Final submission
 
 **Graphic:** Roadmap showing the 8-week journey with milestones
+
+**GRAPHICS:**
+
+**Graphic 1: Block 3 Eight-Week Roadmap**
+- Purpose: Provide clear visual timeline of capstone development progression
+- Type: Horizontal timeline/roadmap
+- Elements: Eight week markers with milestone indicators; three phase groupings
+- Labels:
+  - Phase 1 (Weeks 1-4): "AGENT FUNDAMENTALS & CONSTRUCTION" with milestones:
+    - Week 1: "Design & Planning"
+    - Week 2: "Build Reliable Agent"
+    - Week 3: "MCP Integration"
+    - Week 4: "Testing & Refinement"
+  - Phase 2 (Weeks 5-6): "ORCHESTRATION & OPTIMIZATION" with milestones:
+    - Week 5: "Multi-Agent Orchestration"
+    - Week 6: "Performance Optimization"
+  - Phase 3 (Weeks 7-8): "DEPLOYMENT & SUBMISSION" with milestones:
+    - Week 7: "Documentation & Rollout Plan"
+    - Week 8: "Final Submission & Presentation"
+- Relationships: Progressive flow left to right; phase groupings with distinct visual separation; "YOU ARE HERE" indicator at Week 1
 
 **SPEAKER NOTES:**
 
@@ -359,6 +430,18 @@ Let's break down how to decide."
 
 **Graphic:** Flowchart with fixed paths, all branches clearly defined
 
+**GRAPHICS:**
+
+**Graphic 1: Workflow Fixed-Path Flowchart**
+- Purpose: Demonstrate the predictable, predetermined nature of workflow automation
+- Type: Traditional flowchart diagram
+- Elements: Start node, decision diamonds, process rectangles, end node; all paths clearly mapped
+- Labels:
+  - Example flow: "Receive input" → "Check format" (diamond) → "Process Type A" / "Process Type B" → "Output result"
+  - All decision paths explicitly defined
+  - "ALL PATHS PRE-DEFINED" annotation
+- Relationships: Every branch has a defined outcome; no ambiguity or dynamic decision-making; closed system
+
 **SPEAKER NOTES:**
 
 "Workflows are what you built in Block 2. Let's be clear about their strengths.
@@ -405,6 +488,20 @@ Observe → Think → Act → Observe → Think → Act → ...
 
 **Graphic:** Circular loop diagram showing Observe-Think-Act cycle
 
+**GRAPHICS:**
+
+**Graphic 1: Agent Execution Loop**
+- Purpose: Illustrate the continuous, iterative decision-making process that defines agent behavior
+- Type: Circular process flow diagram
+- Elements: Three connected nodes forming a continuous cycle with directional arrows; cycle repeats until goal achieved
+- Labels:
+  - "OBSERVE" node: "Take in information, read state"
+  - "THINK" node: "Decide next action, evaluate options"
+  - "ACT" node: "Use tool, update state, produce output"
+  - "REPEAT" arrow cycling back to Observe
+  - "Until goal achieved or escalation needed" condition
+- Relationships: Continuous circular flow; arrows showing direction; emphasis on repetition; exit condition noted outside loop
+
 **SPEAKER NOTES:**
 
 "Agents operate differently.
@@ -446,6 +543,22 @@ But agents cost more - more tokens, more complexity, more things that can go wro
 > "If you can draw every possible path, use a workflow. If you can't, consider an agent."
 
 **Graphic:** Decision matrix with green (agent) and blue (workflow) coding
+
+**GRAPHICS:**
+
+**Graphic 1: Workflow vs Agent Decision Matrix**
+- Purpose: Provide quick reference framework for choosing between workflows and agents
+- Type: Decision matrix/table with color coding
+- Elements: Two-column comparison table with checkmarks; color-coded recommendations
+- Labels:
+  - Column headers: "Workflow" (blue #4A90E2) | "Agent" (green #00CC99)
+  - Rows with decision criteria and checkmarks indicating which approach fits
+  - Bottom: "Rule of Thumb" callout box
+- Relationships:
+  - Mutually exclusive checkmarks per row (either workflow OR agent)
+  - Visual clustering of similar criteria
+  - Rule of thumb as summary decision aid
+- Color coding: Blue checkmarks for workflow criteria, green checkmarks for agent criteria
 
 **SPEAKER NOTES:**
 
@@ -551,6 +664,23 @@ The boundary isn't always clear. When in doubt, start simpler."
 
 **Graphic:** Illustration of an agent losing memory between sessions (thought bubbles disappearing)
 
+**GRAPHICS:**
+
+**Graphic 1: Agent Memory Loss Between Sessions**
+- Purpose: Visualize the critical problem of agent amnesia between execution sessions
+- Type: Sequential time-based illustration
+- Elements:
+  - Three time periods shown horizontally: Session 1, Session 2, Session 3
+  - Agent icon (consistent across sessions)
+  - Thought bubbles above agent containing information/context
+  - Bubbles progressively fade/disappear between sessions
+- Labels:
+  - "Session 1": Full thought bubble with "Task A complete, working on B, tried approach X"
+  - "Session 2": Empty thought bubble with "?" - agent has no memory of Session 1
+  - "Session 3": Empty thought bubble with "?" - repeating same failures
+  - "AMNESIA BETWEEN SESSIONS" annotation with warning indicator
+- Relationships: Show disconnection between sessions; emphasize that context is lost completely; no persistence
+
 **SPEAKER NOTES:**
 
 "[INSIGHT - The breakthrough]"
@@ -597,6 +727,35 @@ WORKER AGENT (runs repeatedly, stateless)
 
 **Graphic:** Two-agent diagram with Setup Agent on left, multiple Worker Agents on right, connected by "Structured Records" in the middle
 
+**GRAPHICS:**
+
+**Graphic 1: Two-Agent Architecture Pattern**
+- Purpose: Illustrate the core architectural pattern that solves agent memory problems through external state
+- Type: System architecture diagram
+- Elements:
+  - Left box: Setup Agent (runs once)
+  - Center: Structured Records (persistent state file/database)
+  - Right: Multiple Worker Agent instances (3-4 shown, each identical)
+  - Human icon providing initial request to Setup Agent
+  - Bidirectional arrows between Workers and Structured Records
+- Labels:
+  - Setup Agent: "Runs ONCE" with sub-tasks "Parse request, Create structure, Define goals, STOP"
+  - Structured Records: "goals.json, progress.json, procedures.md" (persistent external memory)
+  - Worker Agent: "Runs REPEATEDLY (stateless)" with sub-tasks "Read state, Pick ONE task, Do work, Update records, STOP"
+  - Each worker numbered (Worker 1, Worker 2, Worker 3...) showing sequential execution
+- Relationships:
+  - Setup Agent writes to Structured Records (one-way arrow)
+  - Each Worker reads from and writes to Structured Records (bidirectional arrows)
+  - Workers do NOT connect to each other (emphasizing stateless nature)
+  - Time arrow showing sequential worker execution
+
+**Graphic 2: Memory Location Emphasis**
+- Purpose: Highlight that memory lives in the project, not the agents
+- Type: Annotation overlay on architecture
+- Elements: Large callout box pointing to Structured Records
+- Labels: "MEMORY LIVES HERE" with "Not in agents - in the PROJECT" subtitle
+- Relationships: Visual emphasis (highlight, glow, or border) around Structured Records to show it as the critical component
+
 **SPEAKER NOTES:**
 
 "This is the Two-Agent Architecture Pattern.
@@ -642,6 +801,29 @@ Any worker can pick up where the last one left off because all the state is exte
 
 **Graphic:** Construction site with job board, showing different contractors checking the board
 
+**GRAPHICS:**
+
+**Graphic 1: Daily Contractor Analogy**
+- Purpose: Make the Two-Agent Pattern concrete through relatable real-world analogy
+- Type: Illustrated analogy diagram
+- Elements:
+  - Construction site scene
+  - Large job board/task board on wall (central element)
+  - Three different contractor figures at different times checking the board
+  - Task cards on board with status indicators
+  - Progress log clipboard hanging on board
+  - Procedures/standards document posted on board
+- Labels:
+  - Job Board sections: "TO DO", "IN PROGRESS", "DONE"
+  - Sample tasks: "Install windows - Floor 2", "Paint lobby - Pending", "Electrical - Complete"
+  - Contractors labeled "Monday Contractor", "Tuesday Contractor", "Wednesday Contractor" (different people, same role)
+  - "PROJECT MEMORY" banner above job board
+  - "Contractors = Amnesiac" caption with "Board = Persistent State" caption
+- Relationships:
+  - Each contractor independently checking board (no direct interaction between contractors)
+  - Board is single source of truth
+  - Any contractor can pick up where others left off by reading board
+
 **SPEAKER NOTES:**
 
 "The Daily Contractor Analogy makes this concrete.
@@ -686,6 +868,20 @@ Every agent has:
 
 **Graphic:** Pentagon or star diagram with five components
 
+**GRAPHICS:**
+
+**Graphic 1: Five Core Agent Components**
+- Purpose: Show the essential building blocks present in every agent system
+- Type: Pentagon diagram with interconnected components
+- Elements: Pentagon shape with each point representing one component; agent icon in center
+- Labels (at each pentagon point):
+  - Top: "GOAL" with "What to achieve" subtitle and example "Generate RFP response"
+  - Upper right: "CONTEXT" with "What it knows" subtitle and example "Structured records, progress"
+  - Lower right: "TOOLS" with "What it can do" subtitle and example "File ops, APIs, MCP"
+  - Lower left: "REASONING" with "How it decides" subtitle and example "Decision criteria, priorities"
+  - Upper left: "OUTPUT" with "What it produces" subtitle and example "Documents, updates, logs"
+- Relationships: Lines connecting each component to center agent icon; subtle connections between adjacent points showing interdependencies
+
 **SPEAKER NOTES:**
 
 "Every agent - regardless of complexity - has these five components.
@@ -724,6 +920,23 @@ Your design document in Exercise 1.2 will define each of these."
 > "If you can't test it, it's not a goal - it's a wish."
 
 **Graphic:** Three pillars holding up "Reliable Agents" structure
+
+**GRAPHICS:**
+
+**Graphic 1: Three Pillars of Domain Memory**
+- Purpose: Visualize the foundational framework that enables reliable agent operation
+- Type: Architectural pillars diagram
+- Elements:
+  - Three classical columns/pillars on foundation
+  - Roof structure labeled "Reliable Agents" supported by pillars
+  - Foundation labeled "External Persistent State"
+- Labels:
+  - Left Pillar: "EXPLICIT GOALS" with "Testable success criteria" subtitle and example "Run login_test.py - all pass"
+  - Center Pillar: "PROGRESS RECORDS" with "What's done/tried" subtitle and example "Tuesday: Tried A → timeout"
+  - Right Pillar: "OPERATING PROCEDURES" with "How to validate, escalate" subtitle and example "After 3 failures → escalate"
+  - Roof beam: "RELIABLE AGENTS"
+  - Foundation: "Structured External State (JSON, Markdown, Database)"
+- Relationships: Pillars support roof equally; all three required for stability; foundation supports all pillars; each pillar is distinct but complementary
 
 **SPEAKER NOTES:**
 
@@ -774,6 +987,41 @@ Your agent design document will define all three."
 - STOP
 
 **Graphic:** Flow diagram showing Setup Agent creating plan, then multiple Worker Agents processing sections
+
+**GRAPHICS:**
+
+**Graphic 1: RFP Response Agent Workflow**
+- Purpose: Demonstrate Two-Agent Pattern with concrete consulting domain example
+- Type: Process flow diagram with two phases
+- Elements:
+  - Phase 1 (left): Setup Agent flow
+  - Phase 2 (right): Worker Agent loop
+  - Center: response_plan.json file
+  - RFP document as input
+- Labels:
+  - Input: "RFP Document - 47 requirements, 8 sections"
+  - Setup Agent box: "Parse requirements → Map to templates → Create response_plan.json → STOP"
+  - response_plan.json: Visual representation showing sections with status fields
+  - Worker Agent loop (repeated 3 times):
+    - "Worker 1: Read plan → Exec Summary → Update plan → STOP"
+    - "Worker 2: Read plan → Technical Approach → Update plan → STOP"
+    - "Worker 3: Read plan → Pricing → Update plan → STOP"
+  - Time arrow showing sequential execution
+- Relationships:
+  - Setup runs once (emphasized with "1x" badge)
+  - Workers run repeatedly (emphasized with "Nx" badge)
+  - All workers interact only with response_plan.json (no worker-to-worker connections)
+  - Each worker updates status in plan before stopping
+
+**GRAPHIC 2: Section Status Progression**
+- Purpose: Show how state changes as workers complete sections
+- Type: State transition table
+- Elements: response_plan.json shown at three time points
+- Labels:
+  - "After Setup": All sections status="pending"
+  - "After Worker 1": Exec summary status="complete", quality_score=4.2
+  - "After Worker 2": Technical approach status="complete", quality_score=4.5
+- Relationships: Visual progression showing state evolution; highlight changing status fields
 
 **SPEAKER NOTES:**
 
@@ -960,6 +1208,20 @@ Great ideas. These will become your Exercise 1.2 focus. Now let's preview your h
 | **Total** | **75 min** | | |
 
 **Graphic:** Exercise flow showing progression from analysis to design to setup
+
+**GRAPHICS:**
+
+**Graphic 1: Homework Exercise Flow**
+- Purpose: Show the logical progression and dependencies between the three exercises
+- Type: Process flow diagram with time allocation
+- Elements: Three connected boxes representing exercises; arrows showing dependencies; time indicators
+- Labels:
+  - Exercise 1.1 box: "Agent vs. Workflow Analysis" with "20 min" badge and "Identify best candidate" outcome
+  - Exercise 1.2 box: "Agent Design Document" with "35 min" badge and "Complete planning" outcome
+  - Exercise 1.3 box: "Agent Skeleton Setup" with "20 min" badge and "Create structure" outcome
+  - Arrow labels: "Candidate selected" → "Design complete" →
+  - Total time: "75 minutes" prominently displayed
+- Relationships: Sequential flow left to right; each exercise builds on previous; outputs become inputs to next step
 
 **SPEAKER NOTES:**
 

@@ -181,6 +181,20 @@ Let's get started with where to validate."
 
 **Graphic:** Flow diagram showing validation gates in a workflow pipeline
 
+**GRAPHICS:**
+
+**Graphic 1: Four Validation Gates**
+- Purpose: Show the four critical validation points in a workflow
+- Type: Workflow diagram with numbered validation gates
+- Elements: Linear workflow with four validation checkpoints highlighted
+- Labels:
+  - Gate 1: "Input Validation" (Form → Validate → Process)
+  - Gate 2: "AI Output Validation" (AI Generate → Validate → Use)
+  - Gate 3: "Inter-Step Validation" (Step 1 → Validate → Step 2)
+  - Gate 4: "Final Validation" (Result → Validate → Deliver)
+- Relationships: Each gate has error path branching to error handler
+- Visual Style: Validation gates shown as shield icons in green; error paths in red
+
 **SPEAKER NOTES:**
 
 "[Hook - Multiple validation points]"
@@ -250,6 +264,21 @@ Let me show you what this looks like in practice..."
 4. Handle errors gracefully
 
 **Graphic:** Flowchart showing the pattern with decision points
+
+**GRAPHICS:**
+
+**Graphic 1: Standard Validation Flow Pattern**
+- Purpose: Show the universal pattern for validation at any point
+- Type: Detailed flowchart with branching logic
+- Elements: Sequential steps with decision diamond
+- Labels:
+  - Step 1: "Data Source"
+  - Step 2: "Parse JSON" (with TRY/CATCH indicator)
+  - Step 3: "Validate Against Schema" (diamond decision)
+  - Branch A (✓): "Continue Workflow"
+  - Branch B (✗): "Error Handler" → "Log Error" → "Format Message" → "Return/Retry/Escalate"
+- Relationships: Show both success and failure paths clearly
+- Visual Style: Green path for success, red path for errors; use flowchart standard shapes
 
 **SPEAKER NOTES:**
 
@@ -413,6 +442,22 @@ AI might return:
 
 **Graphic:** Examples of AI output variations
 
+**GRAPHICS:**
+
+**Graphic 1: AI Output Format Variations**
+- Purpose: Show real examples of how AI output can deviate from schema
+- Type: Comparison table with validation results
+- Elements: Three columns showing prompt request, expected schema, and actual AI outputs
+- Labels:
+  - Column 1: "Requested Format" → {score: number, reason: string}
+  - Column 2-4: "Actual AI Outputs" with validation results
+    - Output 1: {score: "4", reason: "Good"} → ✗ "score is string, not number"
+    - Output 2: {rating: 4, reason: "Good"} → ✗ "wrong field name (rating vs score)"
+    - Output 3: {score: 4} → ✗ "missing required field (reason)"
+    - Output 4: {score: 4, reason: "Good"} → ✓ "Valid!"
+- Relationships: Shows that even with clear prompts, AI can vary output structure
+- Visual Style: Red X for invalid, green checkmark for valid
+
 **SPEAKER NOTES:**
 
 "[Hook - AI is unpredictable]"
@@ -535,6 +580,24 @@ CATCH ParseError:
 
 **Graphic:** Decision tree for handling validation failures
 
+**GRAPHICS:**
+
+**Graphic 1: Post-Generation Validation Flow**
+- Purpose: Show the complete validation and recovery process
+- Type: Detailed flowchart with error handling branches
+- Elements: Multi-step process with decision points
+- Labels:
+  - Start: "AI Generate Response"
+  - Step 1: "Parse JSON" → ParseError? → "Handle Parse Error (retry with stricter prompt)"
+  - Step 2: "Validate Schema" → Valid? → "Use Data"
+  - If Invalid: "Handle Schema Error" → Decision tree:
+    - Option 1: "Auto-Fix Minor Issues" (coerce types, defaults)
+    - Option 2: "Retry with Stricter Prompt" (max 2-3)
+    - Option 3: "Use Partial Data" (if some fields valid)
+    - Option 4: "Escalate to Human"
+- Relationships: Show decision logic for each recovery strategy
+- Visual Style: Color-code strategies (green=auto-fix, yellow=retry, orange=partial, red=escalate)
+
 **SPEAKER NOTES:**
 
 "Here's what post-generation validation looks like:
@@ -653,6 +716,26 @@ Questions on AI output validation before we move to error handling?"
 
 **Graphic:** Side-by-side comparison of raw vs formatted errors
 
+**GRAPHICS:**
+
+**Graphic 1: Raw vs Useful Error Messages**
+- Purpose: Contrast machine-readable errors with human-readable ones
+- Type: Side-by-side comparison with before/after
+- Elements: Two error message formats
+- Labels:
+  - LEFT (Raw): `{"valid": false, "errors": [{"keyword": "required", "dataPath": "/client"}]}`
+    - Annotation: "Cryptic", "Hard to debug", "Machine-focused"
+  - RIGHT (Useful):
+    ```
+    Field: client.name
+    Problem: Required property missing
+    Expected: string
+    Received: undefined
+    ```
+    - Annotation: "Clear", "Actionable", "Human-focused"
+- Relationships: Show transformation from raw to useful
+- Visual Style: Raw in gray/technical font, useful in clear readable format with highlighting
+
 **SPEAKER NOTES:**
 
 "[INSIGHT - Error quality matters]"
@@ -714,6 +797,24 @@ function formatErrors(schemaErrors) {
 ```
 
 **Graphic:** Transformation from machine format to human format
+
+**GRAPHICS:**
+
+**Graphic 1: Error Formatting Transformation**
+- Purpose: Show the process of transforming error data
+- Type: Data transformation pipeline
+- Elements: Three-stage transformation
+- Labels:
+  - Stage 1 (Input): Raw validator errors → `[{path: "/score", keyword: "minimum", limit: 0, value: -5}]`
+  - Stage 2 (Transform): Format function → "Extract path, create message, show expected vs received"
+  - Stage 3 (Output): Human-readable →
+    ```
+    1. score: Value below minimum
+       Expected: >= 0
+       Received: -5
+    ```
+- Relationships: Show data flowing through transformation stages
+- Visual Style: Use pipeline/arrow visual to show progression
 
 **SPEAKER NOTES:**
 
@@ -778,6 +879,21 @@ Validation Failures
 ```
 
 **Graphic:** Continuous improvement cycle
+
+**GRAPHICS:**
+
+**Graphic 1: Validation Improvement Loop**
+- Purpose: Show how validation failures drive continuous improvement
+- Type: Circular improvement cycle diagram
+- Elements: 4-stage cycle with feedback arrows
+- Labels:
+  - Stage 1: "Validation Failures Occur" (log all attempts with full context)
+  - Stage 2: "Analyze Patterns" (which fields fail? which prompts need work?)
+  - Stage 3: "Improve Prompts/Schemas" (tighten prompts, adjust constraints)
+  - Stage 4: "Fewer Failures" (measure improvement)
+  - Cycle back to Stage 1
+- Relationships: Circular arrows showing continuous loop; include metrics annotation "Track failure rate over time"
+- Visual Style: Use cycle diagram with arrows; include data icons (charts/graphs)
 
 **SPEAKER NOTES:**
 
@@ -897,6 +1013,21 @@ Now let's look at using schemas as documentation."
 
 **Graphic:** Schema with documentation annotations highlighted
 
+**GRAPHICS:**
+
+**Graphic 1: Self-Documenting Schema Elements**
+- Purpose: Highlight the documentation fields within a schema
+- Type: Annotated schema code with highlighting
+- Elements: Schema code with documentation fields emphasized
+- Labels:
+  - Highlight `"title"` field → "Describes what this schema validates"
+  - Highlight `"description"` field → "Explains purpose and context"
+  - Highlight each property's `"description"` → "Documents field meaning and usage"
+  - Highlight constraints (minimum, maximum) → "Documents allowed values"
+  - Annotation: "These fields serve dual purpose: validation AND documentation"
+- Relationships: Show how schema fields map to documentation needs
+- Visual Style: Use color highlighting or callout boxes for documentation fields
+
 **SPEAKER NOTES:**
 
 "One of the best benefits of JSON Schema is that it serves double duty: validation and documentation.
@@ -967,6 +1098,22 @@ Output from a completed workflow execution
 
 **Graphic:** Schema → Tool → Documentation
 
+**GRAPHICS:**
+
+**Graphic 1: Documentation Generation Pipeline**
+- Purpose: Show how tools convert schemas to documentation
+- Type: Linear process flow
+- Elements: Three-stage pipeline with tool in middle
+- Labels:
+  - Input: "JSON Schema File" (schema.json icon)
+  - Process: "Documentation Generator" (json-schema-to-markdown, docson, or redoc logo/icon)
+  - Output: Split to multiple formats:
+    - "Markdown Docs" (GitHub icon)
+    - "HTML Interactive Docs" (browser icon)
+    - "API Reference" (API doc icon)
+- Relationships: One schema → multiple documentation outputs
+- Visual Style: Pipeline with branching outputs; emphasize "one source, many formats"
+
 **SPEAKER NOTES:**
 
 "You don't have to manually write documentation from schemas. Tools can generate it automatically.
@@ -1026,6 +1173,22 @@ The workflow is: write schemas for validation, generate documentation automatica
 - Automatic documentation
 
 **Graphic:** Schema-driven development cycle
+
+**GRAPHICS:**
+
+**Graphic 1: Schema-Driven Development Workflow**
+- Purpose: Show the schema-first development pattern
+- Type: Sequential workflow diagram with feedback loops
+- Elements: 5-step workflow with schemas at center
+- Labels:
+  - Step 1: "Define Schema First" (before writing code or prompts)
+  - Step 2: "Generate Examples" (tools create valid sample data from schema)
+  - Step 3: "Include in AI Prompts" (schema embedded in prompt)
+  - Step 4: "Validate Runtime" (all data validated against schema)
+  - Step 5: "Generate Docs" (documentation auto-generated from schema)
+  - Center: "Schema = Single Source of Truth"
+- Relationships: Schema at center connecting to all steps; show how schema drives all activities
+- Visual Style: Star/hub pattern with schema in center, or linear flow with schema referenced at each step
 
 **SPEAKER NOTES:**
 

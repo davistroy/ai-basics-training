@@ -183,6 +183,15 @@ Let's start with architecture."
 
 **Graphic:** Architecture diagram with labeled components
 
+**GRAPHICS:**
+
+**Graphic 1: Complete MCP Architecture**
+- Purpose: Show how all MCP components connect in complete system
+- Type: Layered system architecture diagram
+- Elements: Claude Desktop (Host layer), MCP Server layer (filesystem, github, slack servers), External Resources layer (files, repos, APIs), bidirectional arrows showing MCP protocol, workflow platform connection
+- Labels: Component names, layer labels, communication paths, "Your Workflow" integration point
+- Relationships: Layered architecture with multiple servers providing different capabilities, workflow automation leveraging MCP
+
 **SPEAKER NOTES:**
 
 "[Hook - The architecture]"
@@ -272,6 +281,15 @@ You configure it once. Then you just chat naturally. 'Read my `style.json`' - Cl
 > MCP servers run locally. Your files, your machine, your control.
 
 **Graphic:** Security shield with local execution emphasis
+
+**GRAPHICS:**
+
+**Graphic 1: MCP Local Execution Security Model**
+- Purpose: Illustrate security advantage of local MCP execution
+- Type: Comparison diagram with security emphasis
+- Elements: Cloud approach showing data leaving machine, MCP local approach showing data containment, security shield on local side, data flow arrows showing boundaries
+- Labels: "Cloud: Data Leaves Machine" vs "MCP: Data Stays Local," security indicators, data protection callout
+- Relationships: Contrast showing security advantage of local execution, client data protection
 
 **SPEAKER NOTES:**
 

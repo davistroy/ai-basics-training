@@ -95,6 +95,15 @@ Let's get building."
 
 **Graphic:** Visual timeline with orange markers, emphasizing the live build segment
 
+**GRAPHICS:**
+
+**Graphic 1: Session Timeline with Demo Emphasis**
+- Purpose: Show session flow with visual emphasis on the hands-on live build segment
+- Type: Horizontal timeline with emphasis marker
+- Elements: Timeline bar 0-45 minutes, six time blocks, extra-large orange highlight box around Segment 2 (Live Build), "DEMO" badge on the build segment
+- Labels: Time markers, segment names, focus descriptions, "HANDS-ON" label on Segment 2
+- Relationships: Sequential flow with Segment 2 visually emphasized as the centerpiece activity
+
 **SPEAKER NOTES:**
 
 "Here's our agenda:
@@ -133,6 +142,15 @@ You will be able to:
    - Track from day one
 
 **Graphic:** Checklist with workflow icon, orange checkmarks
+
+**GRAPHICS:**
+
+**Graphic 1: Learning Objectives Checklist**
+- Purpose: Present four hands-on learning objectives
+- Type: Checklist with workflow iconography
+- Elements: Four numbered items with orange checkmarks, workflow gear icon beside each, connecting arrows showing progression from principles to practice
+- Labels: Objective titles in bold, sub-descriptions for each
+- Relationships: Progression from conceptual (principles, micro-agent) to practical (build, error handling, logging)
 
 **SPEAKER NOTES:**
 
@@ -179,6 +197,15 @@ Trigger → Step 1 → Step 2 → Step 3 → Output
 
 **Graphic:** Visual comparing single prompt vs. multi-step workflow
 
+**GRAPHICS:**
+
+**Graphic 1: Single Prompt vs Multi-Step Workflow Comparison**
+- Purpose: Illustrate the fundamental mindset shift from Block 1 to Block 2
+- Type: Before-and-after comparison diagram
+- Elements: Left side showing single prompt box with manual "You run it" notation, right side showing 5-step flow (Trigger → Step 1 → Step 2 → Step 3 → Output) with "System runs automatically" notation, transformation arrow between them
+- Labels: "Block 1 Approach" header on left, "Block 2 Approach" header on right, "Manual Execution" vs "Automated Execution" tags
+- Relationships: Contrast between monolithic manual approach and decomposed automated approach
+
 **SPEAKER NOTES:**
 
 "[Hook - The mindset shift]"
@@ -220,6 +247,15 @@ This is the workflow mindset: think in steps, not single prompts."
 | **5. Output** | Where does result go? | Email, Slack, Google Doc |
 
 **Graphic:** Flow diagram showing five connected boxes with arrows
+
+**GRAPHICS:**
+
+**Graphic 1: Five Core Workflow Components**
+- Purpose: Visualize the universal structure of AI workflows
+- Type: Horizontal process flow diagram
+- Elements: Five sequential boxes connected by arrows (Trigger, Data Gathering, AI Processing, Quality Check, Output), icons representing each component (play button for trigger, database for data, brain for AI, checkmark for quality, target for output), examples listed under each box
+- Labels: Component names as headers, purpose questions (What starts it?, What info needed?, etc.), concrete examples for each
+- Relationships: Left-to-right sequential flow, AI Processing as the central transformation step, Quality Check as gate before Output
 
 **SPEAKER NOTES:**
 
@@ -268,6 +304,15 @@ Step A → Step B → Step C → Step D
 - Research: agents degrade after 10-20 turns
 
 **Graphic:** Side-by-side comparison with AI section highlighted
+
+**GRAPHICS:**
+
+**Graphic 1: Micro-Agent Pattern Diagram**
+- Purpose: Illustrate how bounded AI steps embed within deterministic workflows
+- Type: Comparative architecture diagram
+- Elements: Top row showing traditional DAG (4 identical boxes in sequence), bottom row showing micro-agent pattern (deterministic box, highlighted AI section with 5-10 sub-steps, deterministic box), visual boundary box around AI section with "Bounded AI: 3-20 steps" label, flexibility icon in AI section, predictability icons in deterministic sections
+- Labels: "Traditional DAG: All Deterministic" header, "Micro-Agent Pattern: Bounded AI" header, step annotations, "Why 3-20 steps?" callout with bullet points
+- Relationships: Contrast between fully rigid vs strategically flexible approaches, AI section as contained exception to determinism
 
 **SPEAKER NOTES:**
 
@@ -319,6 +364,15 @@ Build workflows you can trust to run unattended.
 
 **Graphic:** Comparison of demo vs. production expectations
 
+**GRAPHICS:**
+
+**Graphic 1: Demo vs Production Reality Check**
+- Purpose: Visually emphasize the difference between impressive demos and reliable production systems
+- Type: Split comparison with emotional impact
+- Elements: Left side "DEMO" with 90% success gauge (green), happy emoji, "Impressive!" tag; Right side "PRODUCTION" with 10% failure gauge (red), worried emoji, "Unacceptable!" tag, comparison to web app that crashes 10% of time with broken browser icon
+- Labels: "90% Success Rate" on left, "10% Failure Rate" on right (same thing, different framing), "Would you use this?" question
+- Relationships: Reframing the same metric to show how demo-thinking vs production-thinking evaluates reliability differently
+
 **SPEAKER NOTES:**
 
 "Let me give you a reality check.
@@ -355,6 +409,15 @@ This is why we handle errors and log everything."
 Live build of a complete workflow
 
 **Graphic:** Simple recap icons for each principle
+
+**GRAPHICS:**
+
+**Graphic 1: Design Principles Icon Summary**
+- Purpose: Reinforce the four key design principles with memorable icons
+- Type: Icon grid with labels
+- Elements: Four quadrants each with icon and text (steps icon for "Think in Steps," five-box diagram for "Five Components," bounded box for "Micro-Agent Pattern," warning icon with "90% isn't enough")
+- Labels: Principle titles, brief one-liner for each
+- Relationships: Equal-weight presentation of four foundational concepts participants need before building
 
 **SPEAKER NOTES:**
 
@@ -404,6 +467,15 @@ Now let's build."
 
 **Graphic:** Simple 3-step workflow diagram
 
+**GRAPHICS:**
+
+**Graphic 1: Demo Workflow Architecture**
+- Purpose: Show the structure of the workflow about to be built in demo
+- Type: Linear process flow with annotations
+- Elements: Three connected boxes (Manual Trigger, AI: Summarize, Email Output), connecting arrows, data flow annotations showing what passes between steps, "Watch For:" callout box listing key observation points
+- Labels: Component names, data labels (sample data, AI request, AI response, formatted email), observation checklist
+- Relationships: Sequential three-step flow, data transformation at each stage
+
 **SPEAKER NOTES:**
 
 "[DEMO - Start]"
@@ -437,6 +509,15 @@ Ready? Let's do this."
 Example: `Email Summary - Summarize - v1`
 
 **Graphic:** Screenshot of new scenario creation
+
+**GRAPHICS:**
+
+**Graphic 1: Platform Scenario Creation Screenshot**
+- Purpose: Provide visual reference for first step of workflow building
+- Type: Annotated screenshot
+- Elements: Platform interface showing "Create New Scenario" button, naming field with example name "Email Summary - Summarize - v1", save button, naming convention callout box
+- Labels: UI element labels, naming convention formula, step numbers (1, 2, 3)
+- Relationships: Step-by-step visual guide matching the demo flow
 
 **SPEAKER NOTES:**
 
@@ -479,6 +560,15 @@ Now we have a blank canvas. Time to add our first step."
 ```
 
 **Graphic:** Trigger configuration screenshot
+
+**GRAPHICS:**
+
+**Graphic 1: Trigger Configuration Interface**
+- Purpose: Show how to configure trigger with sample data
+- Type: Annotated screenshot with data flow visualization
+- Elements: Trigger module configuration panel, sample JSON data input area, variable panel showing created variables (content, format, length), data flow arrows showing how trigger data becomes available downstream
+- Labels: "Sample Data" header, variable names, "Available Downstream" annotation, JSON field names
+- Relationships: Input data structure creates variables accessible in subsequent workflow steps
 
 **SPEAKER NOTES:**
 
@@ -526,6 +616,15 @@ Length: {{trigger.length}}
 ```
 
 **Graphic:** AI module configuration screenshot
+
+**GRAPHICS:**
+
+**Graphic 1: AI Module Configuration with Variable Mapping**
+- Purpose: Show how Block 1 templates integrate with workflow variable system
+- Type: Annotated screenshot showing prompt construction
+- Elements: AI module configuration panel, prompt text area showing template with variable placeholders ({{trigger.content}}, {{trigger.format}}), variable insertion dropdown/panel, API connection settings (collapsed), response parsing configuration
+- Labels: "Your Block 1 Template Goes Here" callout, variable placeholder syntax, "Data from Trigger" arrows pointing to variables
+- Relationships: Block 1 static template + workflow dynamic variables = personalized AI processing
 
 **SPEAKER NOTES:**
 
@@ -579,6 +678,15 @@ Each step shows green checkmark
 Output received at destination
 
 **Graphic:** Execution view with success indicators
+
+**GRAPHICS:**
+
+**Graphic 1: Successful Workflow Execution View**
+- Purpose: Show what successful execution looks like with all success indicators
+- Type: Annotated workflow execution screenshot
+- Elements: Three workflow modules in sequence, green checkmarks on each module, execution time stamps, data preview bubbles showing what passed between steps, "Run Once" button, execution time counter
+- Labels: Success indicators (green checks), execution times, "Output Received" confirmation, step-by-step data previews
+- Relationships: Sequential execution visualization showing data transformation through each successful step
 
 **SPEAKER NOTES:**
 
@@ -642,6 +750,15 @@ It's not IF something will fail, it's WHEN.
 
 **Graphic:** Warning icons next to each failure type
 
+**GRAPHICS:**
+
+**Graphic 1: Common Failure Types Matrix**
+- Purpose: Categorize failures by type and frequency to prioritize error handling
+- Type: Table with visual severity indicators
+- Elements: Five-row table with failure types, warning icons (⚠️) with color coding by frequency (red for common, yellow for occasional, gray for rare), cause descriptions, frequency badges
+- Labels: Failure names, causes, frequency labels, "It's not IF, it's WHEN" callout
+- Relationships: Frequency-based prioritization showing which failures need immediate handling vs eventual handling
+
 **SPEAKER NOTES:**
 
 "Now let's talk about what goes wrong.
@@ -694,6 +811,15 @@ Notice I said 'when' not 'if'. Things WILL break. The question is whether your w
 
 **Graphic:** Error handling flow diagram
 
+**GRAPHICS:**
+
+**Graphic 1: Error Handling Flow Pattern**
+- Purpose: Illustrate the standard error handling pattern for workflow steps
+- Type: Branching flow diagram
+- Elements: Central AI step box with two exit paths (Success path going right to Output box, Failure path going down to Log Error box then to Alert Me box), green arrow for success path, red arrow for failure path, action labels on each box (Log: "what, when, with what input", Alert: "email/Slack notification")
+- Labels: "Success" and "Failure" path labels, action descriptions, "Graceful Failure" annotation
+- Relationships: Binary branching from each critical step, error path as contained and logged rather than crashing
+
 **SPEAKER NOTES:**
 
 "Here's the basic error handling pattern.
@@ -741,6 +867,15 @@ Focus on:
 > Handle the 3-4 things that actually break.
 
 **Graphic:** 80/20 visual with common issues highlighted
+
+**GRAPHICS:**
+
+**Graphic 1: 80/20 Error Handling Priority**
+- Purpose: Show which errors to handle first using 80/20 principle
+- Type: Pareto chart / priority matrix
+- Elements: Large orange box containing 4 common failures (API unavailable, Rate limits, Invalid input, Timeouts) labeled "80% of failures - HANDLE THESE," small gray box containing edge cases labeled "20% of failures - SKIP FOR NOW," visual sizing showing 80/20 proportion
+- Labels: "Focus On" header for main box, "Skip (for now)" header for small box, examples of exotic edge cases with humorous "What if sun explodes?" reference
+- Relationships: Proportional sizing reinforcing 80/20 focus, clear delineation between actionable and theoretical concerns
 
 **SPEAKER NOTES:**
 
@@ -790,6 +925,15 @@ In your homework, you'll add error handling to at least one step."
 
 **Graphic:** Comparison of with/without logging scenarios
 
+**GRAPHICS:**
+
+**Graphic 1: With vs Without Logging Comparison**
+- Purpose: Demonstrate the value of logging through contrasting scenarios
+- Type: Before-and-after comparison with dialogue
+- Elements: Left side "Without Logging" with confused person icon and vague quotes in speech bubbles ("It was working yesterday..."), right side "With Logging" with confident person icon and specific quotes with data ("Execution #47 at 3pm failed with error X"), visual contrast in certainty/professionalism
+- Labels: "Flying Blind" vs "Data-Driven" headers, sample quotes, "You can't improve what you don't measure" principle at bottom
+- Relationships: Contrast between guesswork and precision, emotional/professional difference logging provides
+
 **SPEAKER NOTES:**
 
 "Before we close, logging.
@@ -834,6 +978,15 @@ Google Sheets - one row per execution
 
 **Graphic:** Sample log spreadsheet
 
+**GRAPHICS:**
+
+**Graphic 1: Workflow Execution Log Template**
+- Purpose: Provide concrete example of simple logging structure
+- Type: Spreadsheet screenshot/mockup
+- Elements: Google Sheets layout with 8 columns (Timestamp, Workflow Name, Trigger Type, Input Summary, Output Summary, Duration, Status, Notes), 3-4 sample execution rows with realistic data, header row highlighted, status column using color coding (green for Success)
+- Labels: Column headers from table, sample data entries, "One Row Per Execution" annotation
+- Relationships: Columnar data structure showing how each execution is tracked, chronological ordering by timestamp
+
 **SPEAKER NOTES:**
 
 "What should you log?
@@ -874,6 +1027,15 @@ Exercise 2.3 - Set up logging, capture 3 executions
 
 **Graphic:** Logging icon with checkmark
 
+**GRAPHICS:**
+
+**Graphic 1: Logging Summary Icon**
+- Purpose: Simple visual reinforcement of logging takeaways
+- Type: Icon with key points
+- Elements: Logging/clipboard icon with checkmark, four key points listed below (log every execution, Google Sheets, track basics, needed for Week 4), Exercise 2.3 reference badge
+- Labels: Key points, homework reference
+- Relationships: Summary icon connecting logging practice to upcoming optimization needs
+
 **SPEAKER NOTES:**
 
 "Summary on logging:
@@ -913,6 +1075,15 @@ Let's wrap up."
 **Critical:** You need a working workflow for Week 3
 
 **Graphic:** Progress bar showing the three exercises
+
+**GRAPHICS:**
+
+**Graphic 1: Homework Exercise Breakdown**
+- Purpose: Clearly present homework structure and time allocation
+- Type: Table with progress visualization
+- Elements: Three-row table showing exercises with time estimates (35/15/10 min), deliverables, skills practiced, cumulative progress bar showing 60-minute total, "CRITICAL" badge on first exercise
+- Labels: Exercise names, time allocations, deliverable descriptions, skills practiced, total time
+- Relationships: Sequential exercise structure, cumulative time building to 60 minutes, dependency on Exercise 2.1 for Week 3
 
 **SPEAKER NOTES:**
 
@@ -956,6 +1127,15 @@ You need a working workflow for Week 3. We'll be adding quality checks to it. If
 
 **Graphic:** QR codes or icons for quick access
 
+**GRAPHICS:**
+
+**Graphic 1: Categorized Resource Directory**
+- Purpose: Organize resources by category for easy reference
+- Type: Three-column categorized list with icons
+- Elements: Three sections (Platform Documentation, Error Handling, API Reference), icons for each platform/service, URLs or QR codes for quick access, support channel callout box with "Screenshots help!" tip
+- Labels: Category headers, platform/service names, URL references, support information
+- Relationships: Categorical organization matching the three technical areas covered in homework
+
 **SPEAKER NOTES:**
 
 "Resources:
@@ -994,6 +1174,15 @@ If you get stuck, post in support with screenshots. The more context you provide
 Your workflow will evaluate its own output before delivering.
 
 **Graphic:** Preview of quality check flow
+
+**GRAPHICS:**
+
+**Graphic 1: Week 3 Quality Check Flow Preview**
+- Purpose: Build excitement for next week by previewing quality automation
+- Type: Enhanced workflow diagram
+- Elements: Expanded workflow showing Trigger → AI Processing → Quality Check (new, highlighted) → Output, quality check step with rubric icon and pass/fail branches, "NEW IN WEEK 3" badge on quality check, preparation checklist on side
+- Labels: Workflow step names, "LLM-as-Judge Pattern" annotation on quality check, preparation requirements
+- Relationships: Quality check as new gate between AI processing and output, builds on Week 2 workflow foundation
 
 **SPEAKER NOTES:**
 

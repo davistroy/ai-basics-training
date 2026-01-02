@@ -172,6 +172,20 @@ Total: 10 minutes
 
 **Graphic:** Timeline showing four tasks running sequentially with wasted parallel capacity
 
+**GRAPHICS:**
+
+**Graphic 1: Sequential Execution Timeline**
+- Purpose: Visualize the time waste in sequential execution of independent tasks
+- Type: Horizontal timeline diagram
+- Elements:
+  - Four horizontal bars representing tasks A, B, C, D
+  - Each bar labeled "Task A (2.5 min)", "Task B (2.5 min)", etc.
+  - Bars placed end-to-end showing sequential execution
+  - Time axis at bottom showing 0, 2.5, 5, 7.5, 10 minutes
+  - Shaded area above bars showing "Unused Capacity"
+- Labels: "Total Time: 10 minutes", "Wasted Parallel Opportunity"
+- Relationships: Sequential dependencies shown by positioning, empty space above represents missed parallelization
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -226,6 +240,21 @@ Same 4 tasks: 2.5 minutes total (not 10!)
 **Key Benefit:** Reduce total execution time to the duration of the slowest parallel task
 
 **Graphic:** Visual showing parallel execution paths converging at aggregator
+
+**GRAPHICS:**
+
+**Graphic 1: Parallel Orchestration Flow Diagram**
+- Purpose: Illustrate how parallel execution reduces total time by running tasks simultaneously
+- Type: Flow diagram with parallel paths
+- Elements:
+  - Single "Start" node on left
+  - Four parallel horizontal arrows branching from Start
+  - Each arrow labeled "Agent A (Task 1)", "Agent B (Task 2)", "Agent C (Task 3)", "Agent D (Task 4)"
+  - All arrows converge to "Aggregator" node
+  - Final arrow to "Output" node
+  - Vertical dotted line showing time elapsed (2.5 min total)
+- Labels: "Same 4 tasks: 2.5 minutes total (not 10!)", "All execute simultaneously"
+- Relationships: Parallel arrows show simultaneous execution, convergence shows synchronization point
 
 **SPEAKER NOTES:**
 
@@ -288,6 +317,22 @@ Let me show you when this works..."
 **Quick Test:** If Task B needs Task A's output, they CANNOT run in parallel
 
 **Graphic:** Decision tree or flowchart for choosing parallel vs sequential
+
+**GRAPHICS:**
+
+**Graphic 1: Parallel vs Sequential Decision Tree**
+- Purpose: Provide clear decision framework for when to use parallel orchestration
+- Type: Decision tree flowchart
+- Elements:
+  - Root node: "Analyze your tasks"
+  - First decision diamond: "Does Task B need Task A's output?"
+  - "Yes" branch → "Use Sequential" (red/cautionary color)
+  - "No" branch → Second decision diamond: "Are resources constrained (API limits)?"
+  - "Yes" → "Use Sequential" (red/cautionary color)
+  - "No" → "Use Parallel" (green/success color)
+  - Side callout boxes with examples for each path
+- Labels: "Quick Test: If data flows from A→B, they CANNOT run in parallel"
+- Relationships: Arrows show decision flow, colors indicate recommended patterns
 
 **SPEAKER NOTES:**
 
@@ -397,6 +442,23 @@ ORCHESTRATOR:
 - **Await all**: Block until all parallel tasks complete
 
 **Graphic:** Diagram showing async call pattern with futures
+
+**GRAPHICS:**
+
+**Graphic 1: Async Call Pattern with Futures**
+- Purpose: Visualize the async execution pattern and futures collection mechanism
+- Type: Sequence diagram with time progression
+- Elements:
+  - Left column: "Orchestrator" swimlane
+  - Right columns: "Agent A", "Agent B", "Agent C" swimlanes
+  - Horizontal arrow from Orchestrator to each agent labeled "async_call()" with "Future A", "Future B", "Future C"
+  - All arrows start at same time point (simultaneous launch)
+  - Agents show execution bars of different lengths
+  - Dashed arrows returning "Result" from each agent
+  - Orchestrator has "await_all()" box collecting all futures
+  - Final "aggregate()" step
+- Labels: "Futures = promises of results", "All launched before waiting"
+- Relationships: Simultaneous launches shown by aligned timing, await_all() shows synchronization
 
 **SPEAKER NOTES:**
 
@@ -575,6 +637,20 @@ You launched 4 agents in parallel. They all finished. Now you have 4 different o
 
 **Graphic:** Visual showing 4 agent outputs → ? → single output
 
+**GRAPHICS:**
+
+**Graphic 1: Aggregation Challenge Visualization**
+- Purpose: Illustrate the problem of combining multiple parallel agent outputs into one coherent result
+- Type: Funnel diagram with question mark
+- Elements:
+  - Four document icons on left labeled "Agent 1 Output", "Agent 2 Output", "Agent 3 Output", "Agent 4 Output"
+  - Each with different colored borders
+  - Large question mark "?" in center with four options listed: "Merge All?", "Best Result?", "Consensus?", "Synthesis?"
+  - Single unified document icon on right labeled "Client Expects ONE Result"
+  - Arrows flowing from four outputs through question mark to single output
+- Labels: "Which strategy fits your use case?"
+- Relationships: Many-to-one relationship emphasizes aggregation challenge
+
 **SPEAKER NOTES:**
 
 "Now we have a new problem - a good problem, but still a problem.
@@ -620,6 +696,23 @@ Let's walk through each strategy and when to use it."
 **Cons:** Output can be large, no quality filtering
 
 **Graphic:** Visual showing all results merged into structured object
+
+**GRAPHICS:**
+
+**Graphic 1: Merge All Strategy Visualization**
+- Purpose: Show how all results are combined into a comprehensive structured output
+- Type: Diagram showing data aggregation
+- Elements:
+  - Four boxes on left representing individual agent results:
+    - "Competitor 1 Analysis" box
+    - "Competitor 2 Analysis" box
+    - "Competitor 3 Analysis" box
+    - "Competitor 4 Analysis" box
+  - Arrows pointing right to larger combined box
+  - Combined box shows JSON-like structure with all four analyses as properties
+  - Visual indicator showing "No information loss"
+- Labels: "Complete Picture", "All perspectives included"
+- Relationships: All inputs preserved in output structure, no filtering or selection
 
 **SPEAKER NOTES:**
 
@@ -674,6 +767,41 @@ synthesis_agent(results) → combined_insight
 Good for: Research compilation, multi-perspective analysis
 
 **Graphic:** Visual examples of each strategy's output
+
+**GRAPHICS:**
+
+**Graphic 1: Best Result Strategy**
+- Purpose: Illustrate quality-based selection from multiple options
+- Type: Comparison diagram with scoring
+- Elements:
+  - Four output boxes with quality scores: "Result A: 7.2", "Result B: 8.9", "Result C: 7.5", "Result D: 6.8"
+  - Scoring stars or bars above each
+  - Highlighted box around Result B (highest score)
+  - Arrow pointing to "Selected Output: Result B"
+- Labels: "Quality score determines selection"
+- Relationships: Comparative evaluation leads to single best selection
+
+**Graphic 2: Consensus Strategy**
+- Purpose: Show agreement-based validation across multiple sources
+- Type: Venn diagram or agreement matrix
+- Elements:
+  - Four agent icons with their conclusions
+  - Agreement indicator showing "3 out of 4 agree: Value = X"
+  - Green checkmark for consensus reached
+  - Alternative path showing "Disagreement → Flag for Review"
+- Labels: "Majority threshold: 60%", "Agreement indicates truth"
+- Relationships: Agreement detection leads to trusted output
+
+**Graphic 3: Synthesis Strategy**
+- Purpose: Demonstrate AI-driven integration of multiple perspectives
+- Type: Flow diagram with synthesis agent
+- Elements:
+  - Four input result boxes feeding into synthesis agent icon
+  - Synthesis agent labeled "5th Agent: Synthesizer"
+  - Combined insights flowing to unified output
+  - Visual showing "Multiple perspectives" transforming to "Coherent integrated analysis"
+- Labels: "AI combines insights", "Most sophisticated approach"
+- Relationships: All inputs inform synthesis agent which produces integrated output
 
 **SPEAKER NOTES:**
 
@@ -771,6 +899,21 @@ Questions on aggregation before we move to failure handling?"
 
 **Graphic:** Visual showing 4 parallel agents with one failing
 
+**GRAPHICS:**
+
+**Graphic 1: Partial Failure in Parallel System**
+- Purpose: Illustrate that partial failures are normal and expected in parallel systems
+- Type: Status diagram showing mixed success/failure
+- Elements:
+  - Four parallel agent execution paths
+  - Three agents with green checkmarks labeled "Success"
+  - One agent with red X labeled "Failed"
+  - All paths flowing to aggregator
+  - Aggregator with decision logic: "3/4 succeeded - Proceed?"
+  - Two outcome paths: "Yes: Use 3 results" and "No: Retry failed agent"
+- Labels: "Most common scenario: Partial success", "Design for graceful degradation"
+- Relationships: Shows that system can continue functioning with partial results
+
 **SPEAKER NOTES:**
 
 "Here's something critical about parallel systems: failure is normal.
@@ -820,6 +963,23 @@ ELSE:
 - Content generation: 1/3 might be enough
 
 **Graphic:** Flowchart showing failure decision logic
+
+**GRAPHICS:**
+
+**Graphic 1: Failure Handling Decision Flowchart**
+- Purpose: Provide clear decision logic for handling partial failures in parallel systems
+- Type: Flowchart with decision diamonds
+- Elements:
+  - Start: "await_all_with_timeout() completes"
+  - Process box: "Separate successful vs failed results"
+  - Decision diamond: "successful.count >= minimum_required?"
+  - "Yes" branch → "proceed_with(successful)" → "log_failures(failed)"
+  - "No" branch → Second decision: "Retry possible?"
+  - "Yes" → "retry_failed(failed)"
+  - "No" → "escalate_to_human()"
+  - Color coding: Green for success path, yellow for retry, red for escalation
+- Labels: "Define minimum_required threshold upfront", "Business decision, not technical"
+- Relationships: Shows complete decision tree for handling mixed results
 
 **SPEAKER NOTES:**
 

@@ -51,6 +51,15 @@
 
 **Graphic:** Clean title slide with blue color scheme (Block 1 theme).
 
+**GRAPHICS:**
+
+**Graphic 1: Week 2 Title Slide**
+- Purpose: Establish continuity with Week 1 while introducing advanced techniques
+- Type: Title slide with progressive theme
+- Elements: Blue gradient background (Block 1 consistent theme), "power tools" iconography suggesting enhanced capabilities, subtle progression indicator from Week 1
+- Labels: "AI Practitioner Training Program" (top), "Block 1: AI Prompting Mastery" (center), "Week 2 of 8" (subtitle), "Advanced Prompting + Platform Optimization"
+- Relationships: Visual connection to Week 1 style, progression markers showing advancement in curriculum
+
 **SPEAKER NOTES:**
 
 "[OPENING - Welcome]"
@@ -84,6 +93,15 @@ Great to hear. Today we're building on that foundation."
 | 41-45 min | Close | Thinking Prompts & Homework |
 
 **Graphic:** Timeline with three main technique icons
+
+**GRAPHICS:**
+
+**Graphic 1: Week 2 Session Timeline**
+- Purpose: Show progression through three advanced techniques
+- Type: Horizontal timeline with technique icons
+- Elements: Five time segments, three central segments highlighted with icons (role mask/persona for role prompting, example cards for few-shot, platform logos for optimization), arrows connecting segments
+- Labels: Time markers for each segment, technique names with brief descriptors, "Thinking Prompts" bonus callout
+- Relationships: Left-to-right flow showing technique sequence, visual emphasis on three main techniques
 
 **SPEAKER NOTES:**
 
@@ -123,6 +141,15 @@ Let's start with a quick recap of where we left off."
 - Being specific enough in ASK section
 
 **Graphic:** ASK-CONTEXT-CONSTRAINTS-EXAMPLE framework visual from Week 1
+
+**GRAPHICS:**
+
+**Graphic 1: Framework Recap**
+- Purpose: Quick visual reminder of Week 1 foundation
+- Type: Four-box framework diagram (simplified version from Week 1)
+- Elements: Four connected boxes showing ASK, CONTEXT, CONSTRAINTS, EXAMPLE with icons, simplified compared to Week 1 full version
+- Labels: Four section names with one-line descriptors, "Your Foundation" header, common issues callout boxes
+- Relationships: Same visual style as Week 1 to trigger recognition, annotations pointing to common mistakes
 
 **SPEAKER NOTES:**
 
@@ -168,6 +195,15 @@ Review this code for issues.
 Would you ask a generalist or a specialist to review critical code?
 
 **Graphic:** Generic figure vs. expert figure with credentials
+
+**GRAPHICS:**
+
+**Graphic 1: Generic vs Expert Perspective**
+- Purpose: Illustrate the difference between asking anyone vs asking a specialist
+- Type: Comparison diagram with personas
+- Elements: Left side shows generic stick figure with question mark and generic/shallow response bubble, right side shows professional figure with expertise badges/credentials and detailed response bubble
+- Labels: "Generic AI" (left with surface-level comments), "Expert AI" (right with domain-specific insights), "Who would you trust?" question prompt
+- Relationships: Side-by-side contrast showing output quality difference, visual weight emphasizing expert advantage
 
 **SPEAKER NOTES:**
 
@@ -215,6 +251,15 @@ Review this code for potential issues...
 
 **Graphic:** Key unlocking different expertise areas
 
+**GRAPHICS:**
+
+**Graphic 1: Role as Key to Expertise**
+- Purpose: Show how role specification activates different knowledge domains
+- Type: Metaphor diagram with key/lock concept
+- Elements: Central key labeled "Role Prompting", multiple doors/locks around it representing different expertise domains (engineering, analysis, writing, consulting), each door opening to reveal domain-specific knowledge patterns
+- Labels: "Role Prompting" (key), expertise domains on each door, "Activates relevant patterns" subtitle
+- Relationships: One key (technique) unlocking multiple domains (expertise areas), radial arrangement showing versatility
+
 **SPEAKER NOTES:**
 
 "[INSIGHT - Deliver the solution]"
@@ -254,6 +299,15 @@ Let me show you."
 The role determines what gets emphasized and how it's communicated.
 
 **Graphic:** Four quadrant showing different outputs from same data
+
+**GRAPHICS:**
+
+**Graphic 1: Same Data, Different Roles**
+- Purpose: Demonstrate how roles change perspective and output
+- Type: Four-quadrant grid comparison
+- Elements: Central hub showing "Customer Satisfaction Data", four quadrants radiating out, each showing different role icon and sample output style (charts for analyst, relationship diagram for CSM, process flow for operations, executive summary for executive)
+- Labels: Role names in each quadrant, output type descriptors, focus area for each role, "Same Input, Different Perspectives" title
+- Relationships: Single data source branching to four distinct perspectives, visual differentiation of output types
 
 **SPEAKER NOTES:**
 
@@ -300,6 +354,15 @@ You are a [role] with expertise in [relevant domain].
 Add more only if output needs adjustment.
 
 **Graphic:** Slider showing "Too Simple" → "Sweet Spot" → "Too Complex"
+
+**GRAPHICS:**
+
+**Graphic 1: Role Specification Spectrum**
+- Purpose: Show the balance between under- and over-specification
+- Type: Horizontal spectrum/slider diagram
+- Elements: Horizontal bar with three zones marked, left zone in red ("Too Simple"), center zone in green ("Sweet Spot"), right zone in red ("Too Complex"), slider indicator positioned at sweet spot
+- Labels: Left: "You are an expert" (too vague), Center: "You are a senior consultant with expertise in X" (optimal), Right: "You are a 45-year-old consultant with PhD who worked at..." (overspecified), effectiveness curve shown below
+- Relationships: Bell curve or inverted U showing effectiveness peaking at sweet spot, declining on either side
 
 **SPEAKER NOTES:**
 
@@ -350,6 +413,15 @@ Questions on role prompting before we move to few-shot learning?"
 
 **Graphic:** Multiple different outputs from same prompt, with question marks
 
+**GRAPHICS:**
+
+**Graphic 1: Inconsistent Output Problem**
+- Purpose: Visualize the frustration of unpredictable formats
+- Type: Problem diagram showing variation
+- Elements: Single prompt box at center, three different output boxes around it showing varying formats (different lengths, structures, styles), question marks between outputs indicating unpredictability, frustrated user icon
+- Labels: "Same Prompt" (center), "Run 1", "Run 2", "Run 3" (outputs), "Why the variation?" question, inconsistency indicators highlighting differences
+- Relationships: One input producing multiple inconsistent outputs, visual emphasis on undesirable variation
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -399,6 +471,15 @@ Output:
 - "Teaching" through demonstration
 
 **Graphic:** Input→Output pattern with arrows showing repetition
+
+**GRAPHICS:**
+
+**Graphic 1: Few-Shot Pattern Structure**
+- Purpose: Show the input→output pattern that AI learns to replicate
+- Type: Pattern flow diagram
+- Elements: Sequence of input→output pairs (Example 1, Example 2) shown with arrows, followed by new input with blank output, pattern learning visualization showing AI recognizing the format
+- Labels: "Example 1: Input → Output", "Example 2: Input → Output", "Your Turn: Input → Output", "AI learns the pattern" annotation
+- Relationships: Vertical flow showing examples stacking to teach pattern, final arrow showing pattern application
 
 **SPEAKER NOTES:**
 
@@ -451,6 +532,15 @@ Output:
 
 **Graphic:** Demo placeholder
 
+**GRAPHICS:**
+
+**Graphic 1: Few-Shot Demo Structure**
+- Purpose: Visualize the complete few-shot prompt structure
+- Type: Annotated prompt structure diagram
+- Elements: Multi-section layout showing Task section, Format specification, two Example boxes with input/output pairs clearly formatted, and "Your Turn" section, annotations pointing to key elements
+- Labels: Section headers (Task, Format, Examples, Your Turn), callout boxes explaining each section's purpose, example content visible within structure
+- Relationships: Top-to-bottom flow through prompt sections, examples establishing pattern for final input
+
 **SPEAKER NOTES:**
 
 "[DEMO - Show, don't tell]"
@@ -499,6 +589,15 @@ See? Exact match to my example structure. That's the power of few-shot."
 - Forgetting to include "Your Turn" section
 
 **Graphic:** Balance scale showing quality vs. quantity
+
+**GRAPHICS:**
+
+**Graphic 1: Example Quality vs Quantity**
+- Purpose: Emphasize that 2-3 quality examples beat many mediocre ones
+- Type: Balance scale comparison
+- Elements: Traditional balance scale, left side showing 2-3 high-quality examples (glowing/highlighted), right side showing 10+ examples (dimmed/cluttered), scale tipped toward quality side
+- Labels: Left: "2-3 Quality Examples" (weighted heavy), Right: "Too Many Examples" (weighted light), "Quality > Quantity" principle statement
+- Relationships: Visual weight showing quality examples outweighing quantity, clutter on quantity side suggesting diminishing returns
 
 **SPEAKER NOTES:**
 
@@ -550,6 +649,15 @@ Each AI platform has formatting preferences and capabilities.
 | Gemini | Long documents | Extended context window |
 
 **Graphic:** Three platform logos with strength indicators
+
+**GRAPHICS:**
+
+**Graphic 1: Platform Strengths Overview**
+- Purpose: Compare key capabilities across major AI platforms
+- Type: Comparison chart with platform icons
+- Elements: Three columns for Claude, ChatGPT, and Gemini, each with platform logo, strength bars showing relative capabilities (complex instructions, conversational refinement, long documents), special feature icons
+- Labels: Platform names, capability categories with strength indicators, "Universal Techniques" section listing common approaches
+- Relationships: Side-by-side comparison showing differentiated strengths, universal techniques bar spanning all platforms
 
 **SPEAKER NOTES:**
 
@@ -607,6 +715,15 @@ Before answering, think through your reasoning step by step.
 
 **Graphic:** Claude logo with technique icons
 
+**GRAPHICS:**
+
+**Graphic 1: Claude Optimization Techniques**
+- Purpose: Highlight Claude-specific optimization strategies
+- Type: Feature diagram with examples
+- Elements: Claude logo as anchor, three technique boxes radiating out (XML tags with code snippet, thinking requests with brain icon, long context with document stack icon), capability indicators
+- Labels: "Claude Strengths" header, technique names with code examples, "200K context" specification, "Complex instructions" emphasis
+- Relationships: Central logo with technique spokes, visual hierarchy showing primary strengths
+
 **SPEAKER NOTES:**
 
 "If you're using Claude, here are optimizations that work well.
@@ -662,6 +779,15 @@ You don't have to use these - standard Markdown works fine. But if you want to o
 
 **Graphic:** ChatGPT logo with technique icons
 
+**GRAPHICS:**
+
+**Graphic 1: ChatGPT Optimization Techniques**
+- Purpose: Highlight ChatGPT-specific optimization strategies
+- Type: Feature diagram with examples
+- Elements: ChatGPT logo as anchor, three technique boxes (Custom Instructions with settings icon, Iterative Refinement with conversation bubbles showing progressive improvement, JSON Mode with structured data icon)
+- Labels: "ChatGPT Strengths" header, technique names, iterative conversation flow example, "Conversational refinement" emphasis
+- Relationships: Central logo with technique spokes, conversation flow showing iteration pattern
+
 **SPEAKER NOTES:**
 
 "ChatGPT has different strengths.
@@ -704,6 +830,15 @@ Run identical prompt on Claude and ChatGPT
 - Handling of constraints
 
 **Graphic:** Side-by-side comparison placeholder
+
+**GRAPHICS:**
+
+**Graphic 1: Platform Comparison Demo Layout**
+- Purpose: Show evaluation framework for comparing platform outputs
+- Type: Side-by-side comparison template
+- Elements: Two columns (Claude vs ChatGPT), prompt text box at top spanning both, response boxes below each platform, rating indicators (1-5 scales) for quality and instruction following, observation notes sections
+- Labels: Platform names, "Same Prompt" header, rating categories, "Notable Differences" section, comparison criteria listed
+- Relationships: Identical prompt input branching to two platform responses, parallel evaluation structure enabling direct comparison
 
 **SPEAKER NOTES:**
 
@@ -763,6 +898,15 @@ Slower response, but more accurate and debuggable.
 
 **Graphic:** Brain icon with step indicators
 
+**GRAPHICS:**
+
+**Graphic 1: Thinking Prompts Visualization**
+- Purpose: Show how thinking prompts improve accuracy through visible reasoning
+- Type: Process diagram with cognitive emphasis
+- Elements: Brain icon at center, step-by-step progression showing: 1) receive prompt, 2) think through reasoning, 3) show work, 4) provide answer, accuracy improvement indicator
+- Labels: "Think Step-by-Step" prompt example, reasoning chain visualization, "Higher Accuracy" outcome indicator, trade-off note "Slower but more accurate"
+- Relationships: Linear flow showing reasoning process, before/after accuracy comparison
+
 **SPEAKER NOTES:**
 
 "One more quick technique before homework.
@@ -795,6 +939,15 @@ You can combine this with role prompting and few-shot. They all work together."
 | **Total** | **60 min** | | |
 
 **Graphic:** Three exercise cards with technique icons
+
+**GRAPHICS:**
+
+**Graphic 1: Week 2 Exercise Cards**
+- Purpose: Present three homework exercises as distinct practice opportunities
+- Type: Card-based layout matching Week 1 style
+- Elements: Three cards arranged horizontally, each with technique icon (role mask for 2.1, example cards for 2.2, platform logos for 2.3), time estimate, deliverable filename, skills practiced
+- Labels: Exercise numbers and names, time allocations (20-25-15 min), deliverable filenames, technique focus for each
+- Relationships: Left-to-right sequence showing technique progression from role to few-shot to platform comparison
 
 **SPEAKER NOTES:**
 
@@ -834,6 +987,15 @@ For 2.3, you need access to two platforms. Both Claude and ChatGPT have free tie
 
 **Graphic:** Resource icons and QR codes
 
+**GRAPHICS:**
+
+**Graphic 1: Week 2 Resource Access**
+- Purpose: Organize resources by type for easy reference
+- Type: Icon grid with categorized resources
+- Elements: Three sections (Templates & Guides, Platform Documentation, Support), each with appropriate icons, optional QR codes for quick mobile access to documentation links
+- Labels: Resource category headers, specific resource names (Role Template, Few-Shot Template, Platform docs), access methods
+- Relationships: Organized by resource type, visual hierarchy showing templates first (immediate use), then documentation (reference), then support (help)
+
 **SPEAKER NOTES:**
 
 "Resources for this week.
@@ -868,6 +1030,15 @@ Creating structured configuration files (`style.json`) and mastering GitHub vers
 - We'll capture this in JSON
 
 **Graphic:** JSON code snippet preview
+
+**GRAPHICS:**
+
+**Graphic 1: Week 3 JSON Preview**
+- Purpose: Tease next week's JSON configuration concept
+- Type: Preview graphic with code snippet
+- Elements: Sample JSON structure showing style preferences (tone, format, constraints), "style.json" filename prominently displayed, connection arrow from "Your Preferences" to structured configuration
+- Labels: "Next Week: JSON Fundamentals", "style.json file", "Capture your voice in code" tagline, preview of structure elements
+- Relationships: Progression from this week's techniques to next week's structured configuration, building on foundation visual theme
 
 **SPEAKER NOTES:**
 

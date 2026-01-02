@@ -168,6 +168,24 @@ Your AI workflows involve multiple agents, decision trees, error handling, and i
 
 **Graphic:** Split image showing messy whiteboard sketch vs. clean Mermaid diagram
 
+**GRAPHICS:**
+
+**Graphic 1: Documentation Challenges - Before/After**
+- Purpose: Show the contrast between traditional documentation and Mermaid
+- Type: Split-screen comparison
+- Elements: Left side shows problems, right side shows solution
+- Labels:
+  - LEFT: "Traditional Approach"
+    - Photo of messy whiteboard with arrows and boxes
+    - PowerPoint screenshot with shapes and connectors
+    - Text note "Lost after meeting", "Hard to update", "Not version-controlled"
+  - RIGHT: "Mermaid Approach"
+    - Clean rendered Mermaid diagram
+    - Simple text syntax shown below
+    - Text note "Lives in GitHub", "Easy to update", "Version-controlled"
+- Relationships: Show same workflow represented both ways
+- Visual Style: Left side looks chaotic/temporary, right side clean/permanent
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -207,6 +225,24 @@ That's Mermaid."
 **Key Benefit:** Documentation that evolves with your system
 
 **Graphic:** Side-by-side showing Mermaid text syntax and resulting rendered diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Text-to-Diagram Transformation**
+- Purpose: Show how simple text becomes professional diagrams
+- Type: Side-by-side with transformation arrow
+- Elements: Code on left, rendered diagram on right
+- Labels:
+  - LEFT: Mermaid syntax
+    ```
+    graph TD
+      A[Start] --> B[Process]
+      B --> C[End]
+    ```
+  - MIDDLE: Large arrow labeled "Auto-Renders"
+  - RIGHT: Professional-looking flowchart with Start, Process, End boxes connected by arrows
+- Relationships: Direct mapping between text and visual elements
+- Visual Style: Code in monospace font, diagram clean and professional
 
 **SPEAKER NOTES:**
 
@@ -362,6 +398,24 @@ AI workflows aren't linear - they have:
 
 **Graphic:** Example of a complex AI workflow with decisions and loops
 
+**GRAPHICS:**
+
+**Graphic 1: Complex AI Workflow Example**
+- Purpose: Show why flowcharts are needed for non-linear workflows
+- Type: Annotated flowchart
+- Elements: Complete workflow with decision points, loops, and multiple paths
+- Labels:
+  - Start → "Receive Input"
+  - Decision 1: "Valid?" (Yes/No branches)
+  - Process: "AI Generate"
+  - Decision 2: "Quality Score" (3-way branch: High/Medium/Low)
+  - High → "Deliver"
+  - Medium → "Human Review" → "Approved?" → Yes: Deliver, No: Retry
+  - Low → "Retry" (loops back to AI Generate)
+  - Annotations: "Decision Point", "Retry Loop", "Multiple End States"
+- Relationships: Show multiple paths and loops clearly
+- Visual Style: Use colors to distinguish paths (green=success, yellow=review, red=retry)
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -410,6 +464,33 @@ A -.-> B     Dotted (optional/async)
 ```
 
 **Graphic:** Visual reference showing each shape and connection type
+
+**GRAPHICS:**
+
+**Graphic 1: Flowchart Shape Reference**
+- Purpose: Quick reference for all available node shapes
+- Type: Visual glossary/cheat sheet
+- Elements: Grid showing each shape with syntax and use case
+- Labels:
+  - Row 1: `A[Rectangle]` → Rendered rectangle → "Process step"
+  - Row 2: `B{Diamond}` → Rendered diamond → "Decision point"
+  - Row 3: `C[(Database)]` → Rendered cylinder → "Data storage"
+  - Row 4: `D((Circle))` → Rendered circle → "Start/end point"
+  - Row 5: `E([Stadium])` → Rendered stadium → "Subprocess"
+- Relationships: Three columns (syntax, rendered shape, use case)
+- Visual Style: Clean grid layout, syntax in code font
+
+**Graphic 2: Connection Types Reference**
+- Purpose: Show different arrow and line styles
+- Type: Visual reference with examples
+- Elements: List of connection types
+- Labels:
+  - `A --> B` → Solid arrow → "Standard flow"
+  - `A -.-> B` → Dotted arrow → "Optional/async"
+  - `A -->|label| B` → Labeled arrow → "Conditional flow"
+  - `A --- B` → Line (no arrow) → "Association"
+- Relationships: Shows visual difference between connection types
+- Visual Style: Actual rendered examples for each
 
 **SPEAKER NOTES:**
 
@@ -505,6 +586,26 @@ This is the pattern you'll use for most AI workflows."
 
 **Graphic:** Comparison showing cluttered diagram vs. clean, well-labeled one
 
+**GRAPHICS:**
+
+**Graphic 1: Bad vs Good Flowchart Comparison**
+- Purpose: Demonstrate best practices through contrast
+- Type: Side-by-side comparison with annotations
+- Elements: Two flowcharts showing same workflow
+- Labels:
+  - LEFT (Bad Example):
+    - Vague labels ("Process", "Check", "Do thing")
+    - Too many nodes (20+) crammed together
+    - Unclear decision branches (no labels on arrows)
+    - Annotation: "❌ Hard to read", "❌ Vague labels", "❌ Too complex"
+  - RIGHT (Good Example):
+    - Specific labels ("Validate Input", "Quality Score ≥ 4?", "Format Output")
+    - Focused (10-12 nodes, well-spaced)
+    - Clear branch labels ("|Pass|", "|Fail|")
+    - Annotation: "✓ Clear labels", "✓ Logical flow", "✓ Readable"
+- Relationships: Same workflow, different presentation quality
+- Visual Style: Use red highlights for bad example issues, green for good example strengths
+
 **SPEAKER NOTES:**
 
 "Let me share some best practices that make the difference between amateur and professional flowcharts.
@@ -554,6 +655,20 @@ graph TD
 - Grouping related operations
 
 **Graphic:** Rendered diagram with subgraphs showing clear phases
+
+**GRAPHICS:**
+
+**Graphic 1: Subgraph Organization Example**
+- Purpose: Show how subgraphs group related operations
+- Type: Multi-phase flowchart with visual grouping
+- Elements: Workflow divided into three subgraphs
+- Labels:
+  - Subgraph 1: "Preparation Phase" containing "Gather Data" → "Validate Input"
+  - Subgraph 2: "Processing Phase" containing "AI Generate" → "Quality Check"
+  - Subgraph 3: "Delivery Phase" containing "Format Output" → "Send to Client"
+  - Arrows connecting between subgraphs
+- Relationships: Show phases as containers with operations inside; connections between phases
+- Visual Style: Each subgraph has distinct background color or border; labeled phase names
 
 **SPEAKER NOTES:**
 
@@ -645,6 +760,23 @@ Sequence diagrams show WHO does WHAT and WHEN.
 
 **Graphic:** Simple sequence diagram showing agent collaboration
 
+**GRAPHICS:**
+
+**Graphic 1: Sequence vs Flowchart Distinction**
+- Purpose: Clarify when to use sequence diagrams vs flowcharts
+- Type: Comparison showing same scenario in both formats
+- Elements: Two diagrams side by side
+- Labels:
+  - LEFT: "Flowchart - Shows WHAT happens"
+    - Standard flowchart: Input → Process → Output
+    - Annotation: "Good for: Workflow logic, decision trees"
+  - RIGHT: "Sequence Diagram - Shows WHO does WHAT and WHEN"
+    - Sequence diagram with User, Orchestrator, Agent participants
+    - Messages flowing between them over time
+    - Annotation: "Good for: Agent interactions, API calls, timing"
+- Relationships: Show that both represent the same system but emphasize different aspects
+- Visual Style: Flowchart uses standard boxes/arrows, sequence uses lifelines and messages
+
 **SPEAKER NOTES:**
 
 "[Hook - Create distinction]"
@@ -697,6 +829,30 @@ sequenceDiagram
 - `loop` - Show repetition
 
 **Graphic:** Visual reference of arrow types and features
+
+**GRAPHICS:**
+
+**Graphic 1: Sequence Diagram Arrow Types**
+- Purpose: Quick reference for sequence diagram message styles
+- Type: Visual glossary with examples
+- Elements: Table showing arrow types
+- Labels:
+  - Row 1: `->>` → Solid arrow → "Synchronous call/request"
+  - Row 2: `-->>` → Dashed arrow → "Response/async return"
+  - Row 3: `-x` → Arrow with X → "Failed call"
+  - Row 4: `Note over A,B: text` → Note box → "Explanatory note"
+- Relationships: Show syntax → rendered arrow → meaning
+- Visual Style: Actual rendered examples from Mermaid
+
+**Graphic 2: Advanced Sequence Features**
+- Purpose: Show control flow elements in sequences
+- Elements: Mini examples of each feature
+- Labels:
+  - `alt/else` block → Shows conditional branching
+  - `loop` block → Shows repetition
+  - `activate/deactivate` → Shows processing time (vertical bars)
+- Relationships: Demonstrates how to add logic to sequences
+- Visual Style: Small rendered examples for each feature
 
 **SPEAKER NOTES:**
 
@@ -760,6 +916,27 @@ sequenceDiagram
 ```
 
 **Graphic:** Rendered sequence diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Multi-Agent Sequence Flow**
+- Purpose: Show complete agent collaboration pattern
+- Type: Annotated sequence diagram
+- Elements: Full multi-agent interaction
+- Labels:
+  - Participants: Orchestrator, Researcher, Writer, Quality Agent
+  - Message flow annotations:
+    - "Delegation" (Orchestrator → Researcher)
+    - "Data gathering" (Researcher processing, shown with activate)
+    - "Handoff" (Research results → Writer)
+    - "Content creation" (Writer processing)
+    - "Quality gate" (Quality evaluation with alt block)
+  - Callout boxes explaining:
+    - "activate/deactivate shows processing time"
+    - "alt/else handles success vs failure"
+    - "Dashed lines indicate responses"
+- Relationships: Time flows top to bottom; messages left to right
+- Visual Style: Color-code different message types; highlight key patterns
 
 **SPEAKER NOTES:**
 
@@ -863,6 +1040,25 @@ graph TD
 - Accessibility (avoid red/green only)
 
 **Graphic:** Before/after showing basic vs. styled diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Styling Impact - Before/After**
+- Purpose: Show how styling enhances diagram readability
+- Type: Comparison of same diagram with and without styling
+- Elements: Two versions of the same flowchart
+- Labels:
+  - TOP (Before): Basic diagram with default colors
+    - All nodes same color (gray/white)
+    - Annotation: "Functional but flat"
+  - BOTTOM (After): Styled diagram
+    - Start node in green
+    - End node in red
+    - Process nodes in blue
+    - Decision nodes in yellow
+    - Annotation: "Visual hierarchy makes flow clearer"
+- Relationships: Same structure, different visual treatment
+- Visual Style: Show actual Mermaid styling with classDef examples
 
 **SPEAKER NOTES:**
 

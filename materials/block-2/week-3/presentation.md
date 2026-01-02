@@ -86,6 +86,15 @@ Here's what we're solving: Your workflow produces output, but how do you know if
 
 **Graphic:** Visual timeline with orange markers
 
+**GRAPHICS:**
+
+**Graphic 1: Week 3 Session Timeline**
+- Purpose: Show session flow emphasizing quality and JSON segments
+- Type: Horizontal timeline with segment markers
+- Elements: Timeline bar 0-45 minutes, five segments with varying durations, orange highlights on Segments 2-3 (quality and JSON focus areas)
+- Labels: Time markers, segment names, key topics
+- Relationships: Sequential flow building from quality concepts to practical JSON implementation
+
 **SPEAKER NOTES:**
 
 "Here's our agenda:
@@ -172,6 +181,15 @@ Without automated quality, you either:
 
 **Graphic:** Graph showing review effort vs. output volume
 
+**GRAPHICS:**
+
+**Graphic 1: Manual Review Scalability Challenge**
+- Purpose: Demonstrate exponential growth of review effort as output volume increases
+- Type: Line graph with threshold zones
+- Elements: X-axis showing outputs/day (10, 50, 100, 500), Y-axis showing review effort/time, exponential curve showing effort, color zones (green "Easy", yellow "Manageable", orange "Exhausting", red "Impossible"), breaking point annotation at 100-500 range
+- Labels: Axis titles, zone labels, "Scale Problem" annotation showing gap between effort available and effort required
+- Relationships: Exponential relationship showing manual review becomes unsustainable, visual justification for automation need
+
 **SPEAKER NOTES:**
 
 "[Hook - The scale problem]"
@@ -210,6 +228,15 @@ This is why we need automated quality checks. Not because we don't trust AI, but
 > Quality systems ARE operating procedures. Your Block 1 rubrics become automated checks.
 
 **Graphic:** Three pillars visual with Block 2 components mapped
+
+**GRAPHICS:**
+
+**Graphic 1: Three Pillars of Quality Systems**
+- Purpose: Connect Block 3 framework preview to current Block 2 implementations
+- Type: Three-column pillar diagram with mappings
+- Elements: Three architectural pillars (Explicit Goals, Progress Records, Operating Procedures), Block 2 component mapped under each pillar (quality thresholds, logging system, evaluation prompts), foundation showing connection to Block 1 rubrics
+- Labels: Pillar names, purposes, Block 2 implementations, "Foundation: Block 1 Rubrics" annotation
+- Relationships: Pillars as structural framework, Block 2 work as practical implementation of each pillar, preview of Block 3 depth
 
 **SPEAKER NOTES:**
 
@@ -260,6 +287,15 @@ Input → [PRE-GENERATION] → AI → [POST-GENERATION] → Output
 3. **Human review:** Escalation when needed
 
 **Graphic:** Flow diagram with three gates highlighted
+
+**GRAPHICS:**
+
+**Graphic 1: Three-Layer Quality Gate Architecture**
+- Purpose: Show the complete quality checking flow with three intervention points
+- Type: Process flow with decision gates
+- Elements: Linear workflow (Input → Pre-Gen Check → AI → Post-Gen Check → Output) with two decision diamonds, failure paths leading down to Human Review layer, success paths continuing right, gate type labels (Validate, Evaluate, Escalate)
+- Labels: Gate names, check descriptions ("Complete? Valid?" at pre-gen, "Score against rubric" at post-gen), "Today's Focus" callout on post-generation gate
+- Relationships: Sequential gates as quality filters, failure escalation to human review, post-generation as primary focus point
 
 **SPEAKER NOTES:**
 
@@ -396,6 +432,15 @@ Now let's see how to actually implement this."
 The evaluator AI follows your criteria, not its own.
 
 **Graphic:** Flow diagram with four connected steps
+
+**GRAPHICS:**
+
+**Graphic 1: LLM-as-Judge Pattern Flow**
+- Purpose: Illustrate the four-step pattern for automated quality evaluation
+- Type: Horizontal process flow with data annotations
+- Elements: Four sequential boxes (Generate Content, Evaluate Quality, Parse Score, Route Based On Score), connecting arrows with data labels ("generated content", "evaluation result", "parsed score", "routing decision"), AI icon on Generate and Evaluate steps showing two separate AI calls
+- Labels: Step names, data passing between steps, "1st AI Call" and "2nd AI Call" annotations, "Your Criteria Applied Here" callout on Evaluate step
+- Relationships: Two-AI-call pattern showing separation of generation and evaluation, structured data flow from text to score to decision
 
 **SPEAKER NOTES:**
 
@@ -592,6 +637,15 @@ but could use some improvement in clarity..."
 
 **Graphic:** Side-by-side comparison of unstructured vs. JSON
 
+**GRAPHICS:**
+
+**Graphic 1: Unstructured vs JSON Comparison**
+- Purpose: Show why JSON is necessary for reliable workflow automation
+- Type: Before-and-after comparison with problems highlighted
+- Elements: Left side showing unstructured text response with parsing challenges highlighted (variable format, ambiguous values, hard to extract), right side showing JSON with clear structure and easy parsing, parsing code snippets showing difficulty vs ease
+- Labels: "Unstructured Text (Problems)" header, "JSON (Reliable)" header, problem annotations on left, benefits annotations on right
+- Relationships: Contrast showing JSON as solution to unstructured text parsing unreliability
+
 **SPEAKER NOTES:**
 
 "Why do we insist on JSON for quality scores?
@@ -639,6 +693,15 @@ JSON is structured, parseable, standard, and AI generates it well when you ask c
 - Brackets must match
 
 **Graphic:** Color-coded JSON with element types labeled
+
+**GRAPHICS:**
+
+**Graphic 1: JSON Anatomy with Syntax Highlighting**
+- Purpose: Teach JSON structure through visual syntax highlighting
+- Type: Annotated code example
+- Elements: JSON example with color coding (keys in blue, strings in green, numbers in orange, booleans in purple), element type labels (object, array, string, number, boolean), bracket/brace matching indicators
+- Labels: Data type annotations, structural element names (root object, nested object, array), syntax markers
+- Relationships: Hierarchical nesting shown through indentation and bracket matching, type system illustrated through color coding
 
 **SPEAKER NOTES:**
 
@@ -859,6 +922,15 @@ Variant 2: Email Summarizer
 - Input/output mappings
 
 **Graphic:** Template branching into variants
+
+**GRAPHICS:**
+
+**Graphic 1: Template Workflow Branching Pattern**
+- Purpose: Show how one base workflow spawns multiple variants
+- Type: Tree diagram showing template and variants
+- Elements: Base workflow at top (Workflow Template v1), three variant branches below (Content Summarizer v1, Email Responder v1, Report Generator v1), arrows showing clone/adapt relationship, percentage indicators showing what percentage of template remains unchanged
+- Labels: "Base Template" header, variant names, "Clone & Adapt" arrows, commonality percentages (85% shared, 15% customized per variant)
+- Relationships: One-to-many relationship from template to variants, visual emphasis on reuse efficiency
 
 **SPEAKER NOTES:**
 

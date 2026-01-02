@@ -215,6 +215,29 @@ Phase 2: EXECUTE
 
 **Graphic:** Two-phase flow diagram
 
+**GRAPHICS:**
+
+**Graphic 1: Two-Phase Agent Approach**
+- Purpose: Illustrate separation of planning from execution for complex multi-step tasks
+- Type: Two-phase sequential diagram
+- Elements: Phase 1 and Phase 2 boxes with distinct activities; connecting arrow
+- Labels:
+  - Phase 1 box: "PLAN" (blue)
+    - "Analyze full task"
+    - "Break into discrete steps"
+    - "Identify dependencies"
+    - "Estimate effort/risk"
+    - Output: "Execution Plan (JSON)"
+  - Arrow: "Plan becomes roadmap →"
+  - Phase 2 box: "EXECUTE" (green)
+    - "Execute steps in order"
+    - "Validate each step"
+    - "Adjust plan if needed"
+    - "Report progress"
+    - Output: "Completed Task + State"
+  - Key insight: "Planning uses full context | Execution uses focused context"
+- Relationships: Sequential phases; plan informs execution; validation creates feedback loop
+
 **SPEAKER NOTES:**
 
 "The two-phase approach.
@@ -257,6 +280,25 @@ Planning uses the big picture to create a good roadmap. Execution focuses on one
    - Where to validate, what to check, go/no-go criteria
 
 **Graphic:** Planning prompt structure diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Planning Prompt Structure**
+- Purpose: Show the four essential sections of an effective planning prompt
+- Type: Structured template diagram
+- Elements: Four stacked sections representing planning components
+- Labels:
+  - Section 1: "TASK ANALYSIS"
+    - "Core objective? Key deliverables? Constraints?"
+  - Section 2: "STEP BREAKDOWN"
+    - "Step name, description, inputs, outputs, tools"
+    - "Dependencies, complexity, failure points"
+  - Section 3: "EXECUTION ORDER"
+    - "Sequence, parallel opportunities, critical path"
+  - Section 4: "VALIDATION CHECKPOINTS"
+    - "Where to validate, what to check, go/no-go criteria"
+  - Output arrow: "Complete Execution Plan"
+- Relationships: Progressive detail from high-level to specific; each section builds on previous
 
 **SPEAKER NOTES:**
 
@@ -439,6 +481,29 @@ The solution is the Four Tiers of Context - a framework for deciding what goes w
 > "Find the SMALLEST set of HIGH-SIGNAL tokens."
 
 **Graphic:** Pyramid showing tiers with examples
+
+**GRAPHICS:**
+
+**Graphic 1: Four-Tier Context Strategy Pyramid**
+- Purpose: Visualize the hierarchy of context management from compact to expansive
+- Type: Pyramid diagram with four tiers
+- Elements: Pyramid with four horizontal sections; each tier larger than the one above
+- Labels (bottom to top):
+  - Tier 4 (base, largest): "LONG-TERM MEMORY"
+    - "External files, databases"
+    - "Rarely accessed, comprehensive history"
+    - Example: "All past meeting notes"
+  - Tier 3: "SESSION CONTEXT"
+    - "Current conversation thread"
+    - Example: "Today's discussion thread"
+  - Tier 2: "WORKING MEMORY"
+    - "Current task, active variables"
+    - Example: "Step 3 of 7, last result: Success"
+  - Tier 1 (top, smallest): "IMMEDIATE FOCUS"
+    - "What agent is doing RIGHT NOW"
+    - Example: "Reading file: config.json"
+  - Principle: "Keep each tier minimal - only what's needed"
+- Relationships: Increasing scope bottom to top; each tier serves different purpose; most-used at top (immediate focus)
 
 **SPEAKER NOTES:**
 
@@ -771,6 +836,24 @@ FOR each step:
 - Validate at each step
 
 **Graphic:** Checkpoint flow diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Checkpoint Save/Resume Flow**
+- Purpose: Show how checkpoints enable task recovery after interruptions
+- Type: Flow diagram with save and resume paths
+- Elements: Execution flow with checkpoint save points and resume entry
+- Labels:
+  - Main flow: "Step 1" → "Step 2" → "Step 3" → "Step 4" → "Step 5" → "Complete"
+  - After each step: "Save checkpoint" (downward arrow to storage)
+  - Storage: "Checkpoint Files" (persistent state)
+  - Interruption point: "⚠ FAILURE at Step 3"
+  - Resume flow: "Read checkpoint 2" → "Resume at Step 3" → Continue
+  - Comparison:
+    - Without checkpoints: "FAILURE → Restart from Step 1" (red path)
+    - With checkpoints: "FAILURE → Resume from Step 3" (green path)
+  - Time saved: "60% of work preserved"
+- Relationships: Checkpoints create recovery points; failures don't require full restart; resume from last successful state
 
 **SPEAKER NOTES:**
 

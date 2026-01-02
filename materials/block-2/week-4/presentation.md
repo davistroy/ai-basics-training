@@ -171,6 +171,15 @@ Let's start with the data."
 
 **Graphic:** Dashboard mockup showing key metrics
 
+**GRAPHICS:**
+
+**Graphic 1: Workflow Metrics Dashboard**
+- Purpose: Show comprehensive view of workflow performance across all three dimensions
+- Type: Dashboard mockup with metric tiles
+- Elements: Three metric sections (Speed: avg execution time, p95 time; Cost: per-execution cost, monthly total; Quality: avg score, pass rate), trend indicators, target thresholds marked
+- Labels: Metric names, current values, targets, trends
+- Relationships: Three pillars of optimization shown as interconnected metrics
+
 **SPEAKER NOTES:**
 
 "[Hook - The data you've collected]"
@@ -295,6 +304,15 @@ Now let's talk about the biggest optimization opportunity for most people: conte
 - Complete histories often perform WORSE than curated excerpts
 
 **Graphic:** Attention distribution curve showing high attention at start/end, low in middle
+
+**GRAPHICS:**
+
+**Graphic 1: LLM Attention Distribution Curve**
+- Purpose: Illustrate how LLMs pay more attention to beginning and end of prompts
+- Type: U-shaped attention curve graph
+- Elements: Curve with peaks at start/end, valley in middle, shaded high-attention zones, "Lost in the Middle" phenomenon annotation
+- Labels: "Position in Prompt" (X-axis), "Attention Weight" (Y-axis), optimal placement annotations
+- Relationships: U-shaped distribution showing strategic placement guidance for prompt optimization
 
 **SPEAKER NOTES:**
 

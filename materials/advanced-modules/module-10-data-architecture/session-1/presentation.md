@@ -167,6 +167,18 @@ Fill gaps from memory            Limited to provided context
 
 **Graphic:** Split-screen visual contrasting human and AI approaches to data consumption
 
+**GRAPHICS:**
+
+**Graphic 1: Human vs AI Data Consumption Split Screen**
+- Purpose: Illustrate the fundamental cognitive differences in how humans and AI agents process data
+- Type: Side-by-side comparison with thought bubbles
+- Elements: Two panels showing same data being processed differently
+- Labels:
+  - Left panel: "Human" reading meeting notes with thought bubbles showing inferences ("John must be the finance person", "Wait means defer decision", "Next week based on meeting date")
+  - Right panel: "AI Agent" reading same notes with question marks showing confusion ("Who is John?", "Wait for what?", "Which week?")
+- Relationships: Same input, different interpretation capabilities highlighted with checkmarks (human) vs X marks (AI)
+- Visual Style: Comic-style split panel, thought bubbles for inferences, use green for human capabilities, red for AI gaps
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -224,6 +236,20 @@ Today we're going to bridge this gap. Here's how..."
 
 **Graphic:** Four-quadrant diagram showing each requirement with icons
 
+**GRAPHICS:**
+
+**Graphic 1: Four Requirements for AI-Ready Data**
+- Purpose: Present the foundational requirements that all AI-ready data must satisfy
+- Type: Quadrant diagram with icons and descriptions
+- Elements: Four equal quadrants arranged in 2x2 grid
+- Labels:
+  - Quadrant 1: "Discoverability" with magnifying glass icon - "Can the agent find what it needs? Indexed, tagged, searchable?"
+  - Quadrant 2: "Context" with network/connection icon - "Does it understand what it found? Relationships, definitions, scope explicit?"
+  - Quadrant 3: "Actionability" with gear icon - "Can it use what it found? Parseable, structured formats?"
+  - Quadrant 4: "Reliability" with shield/checkmark icon - "Is data trustworthy? Status, freshness, authority clear?"
+- Relationships: All four requirements must be satisfied (shown with "AND" connectors), arrows pointing to central "AI-Ready Data" badge
+- Visual Style: Professional quadrant layout, distinct color for each requirement, icons in corners, brief bulleted text
+
 **SPEAKER NOTES:**
 
 "[INSIGHT - Deliver the solution]"
@@ -271,6 +297,20 @@ Let me show you what happens when we ignore them..."
 > "Structure your data as if the reader has no background knowledge, unlimited attention to detail, and zero tolerance for ambiguity."
 
 **Graphic:** Table with real examples of each failure mode
+
+**GRAPHICS:**
+
+**Graphic 1: Data Structure Failure Modes**
+- Purpose: Show concrete consequences of poor data structure with real-world examples
+- Type: Table with symptom-impact mapping
+- Elements: Four-row table with problem/symptom/impact columns
+- Labels:
+  - Row 1: "Missing Context" → Agent symptom: "Hallucinates 'John' is CEO" → Impact: "Incorrect analysis delivered to client"
+  - Row 2: "Ambiguous Structure" → Agent symptom: "Interprets 'wait' as 5-day delay vs defer indefinitely" → Impact: "Misaligned project timeline"
+  - Row 3: "Inconsistent Format" → Agent symptom: "Fails to parse '10/5' vs '05-10' dates" → Impact: "Broken automation, manual intervention needed"
+  - Row 4: "Implicit Meaning" → Agent symptom: "Misses action items hidden in pronouns 'he should follow up'" → Impact: "Dropped tasks, missed deadlines"
+- Relationships: Arrow flow from problem → symptom → impact, color coding for severity
+- Visual Style: Clean table layout, use icons (⚠️ for symptoms, 💥 for impacts), red highlighting for critical issues
 
 **SPEAKER NOTES:**
 
@@ -337,6 +377,19 @@ Sarah disagrees. Decision: revisit next week.
 
 **Graphic:** Before/after comparison
 
+**GRAPHICS:**
+
+**Graphic 1: Implicit to Explicit Transformation**
+- Purpose: Demonstrate the dramatic difference semantic structuring makes with side-by-side example
+- Type: Before/after comparison panels
+- Elements: Two document snippets side by side with annotation callouts
+- Labels:
+  - Left panel: "IMPLICIT (Bad)" - meeting notes with red highlighting on ambiguous elements: "John" (who?), "more" (how much?), "next week" (which date?), pronoun "we" (who exactly?)
+  - Right panel: "EXPLICIT (Good)" - same content restructured with green highlighting: "John Smith (Finance)", "15% budget increase", "Oct 22 meeting", "Sarah Chen (Operations)"
+  - Callout arrows pointing to specific transformations
+- Relationships: Transformation arrows showing how each implicit reference becomes explicit, information density comparison (same facts, clearer structure)
+- Visual Style: Document mockup style, use red for problems (left), green for solutions (right), annotation arrows with labels
+
 **SPEAKER NOTES:**
 
 "[DEMO - Show transformation]"
@@ -395,6 +448,20 @@ Type: [Defined list for your domain]
 
 **Graphic:** Four-quadrant layout with examples of each pattern
 
+**GRAPHICS:**
+
+**Graphic 1: Four Core Semantic Patterns**
+- Purpose: Provide visual examples of each semantic structuring pattern
+- Type: Quadrant layout with pattern examples
+- Elements: Four quadrants each demonstrating a different pattern
+- Labels:
+  - Quadrant 1: "Explicit Labels" - Example showing "he" → "John Smith (Project Lead)", highlighting transformation
+  - Quadrant 2: "Consistent Taxonomy" - Visual taxonomy tree showing Status values (Draft|Review|Approved|Archived), Priority values (Critical|High|Medium|Low)
+  - Quadrant 3: "Context Headers" - Example header block with "Purpose:", "Scope:", "Related:" fields filled in
+  - Quadrant 4: "Actionable Structure" - Structured decision block with "Question:", "Options:", "Deadline:", "Decision Maker:" fields
+- Relationships: All four patterns work together (shown with connecting arrows to center), each addresses different aspect of explicitness
+- Visual Style: Grid layout, before/after snippets for each pattern, use color coding (red=before, green=after)
+
 **SPEAKER NOTES:**
 
 "Here are the four core patterns:
@@ -437,6 +504,21 @@ Before finalizing any document or data structure, ask:
 ```
 
 **Graphic:** Checklist format with red X / green checkmark examples
+
+**GRAPHICS:**
+
+**Graphic 1: Five-Question Semantic Checklist**
+- Purpose: Provide actionable checklist for evaluating semantic clarity
+- Type: Checklist with good/bad examples
+- Elements: Five checkbox items with contrasting examples
+- Labels:
+  - ☐ "Who/what is being discussed?" → ❌ "They decided" vs ✅ "John Smith (Finance) and Sarah Chen (Operations) decided"
+  - ☐ "When?" → ❌ "next quarter" vs ✅ "2024-Q1 (January-March 2024)"
+  - ☐ "What's the status?" → ❌ "almost done" vs ✅ "Status: Review (from taxonomy)"
+  - ☐ "What action is needed?" → ❌ "follow up" vs ✅ "John Smith will review proposal by 2024-10-20"
+  - ☐ "Who owns it?" → ❌ "the team" vs ✅ "Owner: Sarah Chen (sarah.chen@company.com)"
+- Relationships: Each question builds toward complete explicit documentation
+- Visual Style: Checklist format, split panel for each item (bad example with ❌, good example with ✅), use red and green color coding
 
 **SPEAKER NOTES:**
 
@@ -523,6 +605,21 @@ Level 1: DOMAIN CONTEXT
 
 **Graphic:** Tree diagram showing hierarchical context layers
 
+**GRAPHICS:**
+
+**Graphic 1: Hierarchical Context Layers**
+- Purpose: Visualize how context builds from broad to specific in proper document structure
+- Type: Inverted tree/pyramid diagram
+- Elements: Five levels of progressively narrower context
+- Labels:
+  - Level 1 (widest): "DOMAIN CONTEXT" - "What area of knowledge? (e.g., HR Policies, Engineering Standards)"
+  - Level 2: "DOCUMENT PURPOSE" - "Why does this exist? (e.g., Define onboarding process)"
+  - Level 3: "SECTION CONTENT" - "What specific information? (e.g., Equipment provisioning)"
+  - Level 4: "DETAILS" - "Supporting specifics (e.g., Laptop model, software licenses)"
+  - Level 5 (narrowest): "EXAMPLES" - "Concrete illustrations"
+- Relationships: Each level provides context for levels below, arrows showing context flow downward
+- Visual Style: Inverted pyramid or tree structure, color gradient from broad (dark blue) to specific (light blue), labeled arrows showing context inheritance
+
 **SPEAKER NOTES:**
 
 "Document structure needs to build context hierarchically.
@@ -579,6 +676,22 @@ Let me show you the template..."
 
 **Graphic:** Document structure diagram
 
+**GRAPHICS:**
+
+**Graphic 1: AI-Optimized Document Template Structure**
+- Purpose: Show the standard document structure with purpose of each section
+- Type: Document outline with annotations
+- Elements: Document template with section blocks and purpose annotations
+- Labels:
+  - Section 1: "Header Block (Purpose, Audience, Date, Owner)" → annotation: "Critical metadata upfront"
+  - Section 2: "Overview" → annotation: "Decision point - should agent read further?"
+  - Section 3: "Context" → annotation: "Prerequisites, relationships, scope explicitly stated"
+  - Section 4: "Main Content" → annotation: "Structured content following domain patterns"
+  - Section 5: "Summary" → annotation: "Key takeaways reinforcement"
+  - Section 6: "Metadata" → annotation: "Tags, categories for discoverability"
+- Relationships: Flow from metadata → filtering → comprehension → action, each section serves agent's needs
+- Visual Style: Document mockup with section blocks, annotation arrows pointing to purpose statements, color-coded by section type
+
 **SPEAKER NOTES:**
 
 "Here's your standard template for AI-ready documents.
@@ -628,6 +741,20 @@ Notice what this enables..."
 
 **Graphic:** Examples of good vs bad navigation patterns
 
+**GRAPHICS:**
+
+**Graphic 1: Navigation Aids Good vs Bad**
+- Purpose: Demonstrate effective vs ineffective navigation elements for AI
+- Type: Comparison table with examples
+- Elements: Four rows comparing bad and good navigation practices
+- Labels:
+  - Row 1: "Table of Contents" → ❌ "Section 3" vs ✅ "Section 3: Authentication Requirements - API security setup"
+  - Row 2: "Cross-References" → ❌ "See Section 3" vs ✅ "See Section 3: Authentication Requirements for API security details"
+  - Row 3: "Summaries" → ❌ "Summary at end only" vs ✅ "Summary at start (filtering) AND end (reinforcement)"
+  - Row 4: "Heading Patterns" → ❌ "Inconsistent H1/H2/H3" vs ✅ "H1=document, H2=major section, H3=subsection (consistent)"
+- Relationships: Each good practice adds discoverability and context
+- Visual Style: Two-column table, red X for bad examples, green checkmark for good, mini document previews showing structure
+
 **SPEAKER NOTES:**
 
 "Agents need navigation aids just like humans - but more explicit.
@@ -667,6 +794,21 @@ One more critical piece: chunking..."
 **Key Insight:** Chunk at semantic boundaries, not arbitrary lengths
 
 **Graphic:** Visual showing different chunking strategies
+
+**GRAPHICS:**
+
+**Graphic 1: Content Type Chunking Strategies**
+- Purpose: Illustrate appropriate chunk sizes and boundaries for different content types
+- Type: Horizontal content blocks with size indicators
+- Elements: Five content type examples with visual chunk boundaries
+- Labels:
+  - Type 1: "Reference Docs" - small blocks (500-1000 tokens each) with semantic breaks between concepts
+  - Type 2: "Procedures" - one complete block (all steps together) with warning "Don't split mid-procedure"
+  - Type 3: "Policies" - medium blocks (by section) with note "Context-dependent sections"
+  - Type 4: "Meeting Notes" - blocks per topic/decision with dividers between discussions
+  - Type 5: "Code Docs" - blocks per function/class with logical unit boundaries
+- Relationships: Chunk boundaries align with semantic breaks, size varies by content needs not arbitrary limits
+- Visual Style: Content blocks as rectangles with dotted lines showing chunk boundaries, size comparison scale, icons for content types
 
 **SPEAKER NOTES:**
 
@@ -712,6 +854,19 @@ This is document design. Now let's talk formats..."
 | **XML** | Complex hierarchies, schemas | Strong validation | Verbose, complex to process |
 
 **Graphic:** Format comparison matrix
+
+**GRAPHICS:**
+
+**Graphic 1: Format Comparison Matrix for AI Use Cases**
+- Purpose: Enable informed format selection based on strengths/weaknesses for AI
+- Type: Comparison table with ratings
+- Elements: Table with 5 formats × 4 characteristics matrix
+- Labels:
+  - Rows: JSON, YAML, Markdown, CSV, XML
+  - Columns: "Best For", "Agent Strengths" (with ✅ ratings), "Agent Weaknesses" (with ⚠️ ratings), "Use Case Icons"
+  - Cell examples: JSON → Strengths: "Precise parsing ✅✅", Type safety ✅✅" | Weaknesses: "Verbose ⚠️", "Hard to read in prompts ⚠️"
+- Relationships: No single "winner" - each format optimal for specific use cases
+- Visual Style: Clean table grid, use checkmarks and warning symbols for strengths/weaknesses, color coding (green=strength, yellow=weakness)
 
 **SPEAKER NOTES:**
 
@@ -762,6 +917,23 @@ START
 ```
 
 **Graphic:** Decision tree flowchart
+
+**GRAPHICS:**
+
+**Graphic 1: Format Selection Decision Tree**
+- Purpose: Guide users through systematic format selection based on data characteristics
+- Type: Decision tree flowchart
+- Elements: Start node with 6 decision branches leading to format recommendations
+- Labels:
+  - Start: "What is the nature of your data?"
+  - Branch 1: "Tabular + flat structure?" → YES → "CSV (or JSON Lines)"
+  - Branch 2: "Need strict typing/validation?" → YES → "JSON with schema"
+  - Branch 3: "Human-edited configuration?" → YES → "YAML"
+  - Branch 4: "Primarily narrative/documents?" → YES → "Markdown with frontmatter"
+  - Branch 5: "Complex nested relationships?" → YES → "JSON (or XML if validation critical)"
+  - Branch 6: "Mixed structure + narrative?" → YES → "Markdown with embedded JSON/YAML"
+- Relationships: Decision logic flows from data characteristics to format recommendation, mutually exclusive paths
+- Visual Style: Standard decision tree with diamond nodes for questions, rectangular nodes for format recommendations, color-coded by format type
 
 **SPEAKER NOTES:**
 
@@ -828,6 +1000,20 @@ tags: [requirements, phase-1, approved]
 
 **Graphic:** Annotated example showing three layers: YAML metadata, Markdown narrative, embedded JSON data
 
+**GRAPHICS:**
+
+**Graphic 1: Hybrid Pattern Three-Layer Architecture**
+- Purpose: Demonstrate how multiple formats combine in a single document for optimal AI consumption
+- Type: Annotated code example with layer callouts
+- Elements: Document example with three distinct format layers highlighted
+- Labels:
+  - Layer 1 (top): "YAML Frontmatter" - highlighted in blue with callout: "Machine-readable metadata for discoverability"
+  - Layer 2 (middle): "Markdown Narrative" - highlighted in green with callout: "Human-readable content, natural in prompts"
+  - Layer 3 (embedded): "JSON Data Block" - highlighted in orange with callout: "Structured data with type safety"
+  - Side annotation: "Agents parse all three layers seamlessly"
+- Relationships: Three formats coexist in one document, each serving different purpose, no conflicts
+- Visual Style: Code snippet with syntax highlighting, colored borders around each layer, annotation arrows pointing to purpose statements
+
 **SPEAKER NOTES:**
 
 "This is a hybrid pattern - combining formats for maximum effectiveness.
@@ -877,6 +1063,29 @@ One critical rule..."
 **Why It Matters:** Agents learn patterns. Consistency = reliability.
 
 **Graphic:** Consistency diagram showing format decisions
+
+**GRAPHICS:**
+
+**Graphic 1: Format Consistency Across System**
+- Purpose: Illustrate the importance of consistent format choices for agent reliability
+- Type: System architecture diagram with format assignments
+- Elements: Data type inventory with format mappings
+- Labels:
+  - Data Type 1: "Meeting Notes" → assigned format: "Markdown + YAML frontmatter" (all 15 files shown with same icon)
+  - Data Type 2: "API Configs" → assigned format: "JSON with schema" (all 8 files shown with same icon)
+  - Data Type 3: "Requirements" → assigned format: "Markdown + embedded JSON" (all 22 files shown with same icon)
+  - Warning panel: "❌ Mixing formats" showing chaos with different icons for same data type
+  - Success panel: "✅ Consistent formats" showing uniform icons
+- Relationships: One format per data type rule, consistency enables pattern learning
+- Visual Style: Architecture diagram, use icons for file types, contrasting panels for good/bad examples, connecting lines showing format assignments
+
+**Graphic 2: Format Decision Documentation**
+- Purpose: Show how to document format decisions for team alignment
+- Type: Decision record template
+- Elements: Format decision record with rationale
+- Labels: "Format Decision Record", "Data Type:", "Selected Format:", "Rationale:", "Alternatives Considered:", "Conversion Utilities:"
+- Relationships: Each format decision documented and findable
+- Visual Style: Document template mockup, structured form layout
 
 **SPEAKER NOTES:**
 

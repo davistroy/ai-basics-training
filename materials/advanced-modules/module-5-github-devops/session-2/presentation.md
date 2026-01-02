@@ -167,6 +167,21 @@ You've updated a critical prompt. It passed all tests. You're ready to deploy. B
 
 **Graphic:** Diagram showing risky all-or-nothing deployment vs. safe gradual deployment
 
+**GRAPHICS:**
+
+**Graphic 1: All-or-Nothing vs. Gradual Deployment Risk Comparison**
+- Purpose: Contrast traditional risky deployment with safe gradual rollout strategies
+- Type: Side-by-side comparison with risk indicators
+- Elements:
+  - Left side (All-or-Nothing): Single large arrow pointing from "Old Version" to "New Version" affecting all users at once
+  - Right side (Gradual): Multiple smaller arrows showing phased rollout (10% → 25% → 50% → 100%)
+  - User icons showing impact (all users affected vs. subset affected)
+- Labels:
+  - All-or-nothing: "All 10,000 users", "No testing with real traffic", "Risky rollback with downtime"
+  - Gradual: "10% initially", "Validate with real users", "Easy rollback", "Incremental risk"
+- Relationships: Impact radius visualization (large blast radius vs. controlled exposure)
+- Visual cues: Red/warning colors for all-or-nothing, green/safe colors for gradual, danger icons vs. checkmarks
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -232,6 +247,25 @@ That's what blue-green and canary deployments solve."
 
 **Graphic:** Diagram showing Blue (active) and Green (deploying) slots, then traffic switch
 
+**GRAPHICS:**
+
+**Graphic 1: Blue-Green Deployment Architecture**
+- Purpose: Visualize the two-environment deployment pattern with instant rollback capability
+- Type: Multi-stage diagram showing deployment flow
+- Elements:
+  - Stage 1: Blue environment (active, receiving 100% traffic), Green environment (idle)
+  - Stage 2: New version deployed to Green environment, Blue still active
+  - Stage 3: Smoke tests running on Green (test icon)
+  - Stage 4: Traffic switch - load balancer redirects 100% traffic from Blue to Green
+  - Stage 5: Green now active, Blue becomes standby for instant rollback
+- Labels:
+  - Load balancer at top routing traffic
+  - "Blue" and "Green" environment labels
+  - Traffic percentage indicators (100% → 0% on Blue, 0% → 100% on Green)
+  - "Deploy", "Test", "Switch", "Rollback Ready" stage labels
+- Relationships: Sequential stages showing deployment progression, bidirectional arrow showing rollback capability
+- Visual cues: Blue and green color coding for environments, arrows showing traffic flow, lightning bolt for instant switch
+
 **SPEAKER NOTES:**
 
 "Blue-Green deployment uses two identical environments: Blue and Green.
@@ -276,6 +310,24 @@ This is perfect when you need fast rollback capability. The tradeoff is you need
 
 **Graphic:** Progressive rollout visualization (10% → 25% → 50% → 100%)
 
+**GRAPHICS:**
+
+**Graphic 1: Canary Deployment Progressive Rollout**
+- Purpose: Illustrate gradual traffic increase with metric monitoring at each stage
+- Type: Horizontal timeline with monitoring gates
+- Elements:
+  - Timeline bar showing four stages: 10% → 25% → 50% → 100%
+  - Each stage has a monitoring checkpoint (dashboard icon)
+  - User population icons showing percentage allocation (small group → full population)
+  - Metric gauges at each checkpoint: Error rate, Latency, Success rate
+  - Decision diamond at each stage: "Metrics healthy?" → Continue or Rollback
+- Labels:
+  - Stage percentages: "10% canary", "25%", "50%", "100% (full rollout)"
+  - Metric thresholds: "Error rate < 5%", "Latency P95 < 2s", "Success > 95%"
+  - Decision points: "Continue" (green) or "Auto-rollback" (red)
+- Relationships: Progressive flow with validation gates, rollback arrows from any stage back to previous version
+- Visual cues: Color-coded traffic bars (growing from small to full width), green checkmarks for healthy metrics, red warning for rollback triggers
+
 **SPEAKER NOTES:**
 
 "Canary deployment is gradual rollout.
@@ -313,6 +365,24 @@ This is perfect when you want gradual validation with real production traffic. T
 - **Just getting started?** → Blue-Green (simpler)
 
 **Graphic:** Decision tree for choosing deployment strategy
+
+**GRAPHICS:**
+
+**Graphic 1: Deployment Strategy Decision Tree**
+- Purpose: Guide users through selecting the appropriate deployment strategy based on requirements
+- Type: Flowchart decision tree
+- Elements:
+  - Start: "Choose Deployment Strategy"
+  - Decision 1: "Need instant rollback?" → Yes: Blue-Green, No: Continue
+  - Decision 2: "Need gradual validation with real users?" → Yes: Canary, No: Continue
+  - Decision 3: "Limited infrastructure resources?" → Yes: Rolling, No: Blue-Green (default)
+  - Decision 4: "Just getting started?" → Yes: Blue-Green (simpler), No: Evaluate based on needs
+- Labels:
+  - Each decision box clearly states the question
+  - Each outcome path labeled with recommendation
+  - Key characteristics in boxes: "Simple", "Safe", "Resource-efficient"
+- Relationships: Tree structure with yes/no branches, multiple paths leading to recommendations
+- Visual cues: Color-coded outcomes (Blue-Green=blue, Canary=yellow, Rolling=green), icons representing each strategy
 
 **SPEAKER NOTES:**
 
@@ -395,6 +465,22 @@ Questions before we move to secrets management?"
 
 **Graphic:** Crossed-out bad practice (keys in code) vs. correct practice (GitHub Secrets)
 
+**GRAPHICS:**
+
+**Graphic 1: Secrets Management - Wrong vs. Right**
+- Purpose: Clearly show the danger of committing secrets vs. proper secrets management
+- Type: Before/after comparison with strong visual warnings
+- Elements:
+  - Left side (WRONG): Code file with API key visible in plain text, red X overlay
+  - Right side (RIGHT): GitHub Secrets vault icon, encrypted key icon, workflow accessing secret securely
+  - Danger symbols on wrong side (skull, warning signs)
+  - Security shields on right side (lock, checkmark)
+- Labels:
+  - Wrong: "API key in code", "Committed to git", "EXPOSED", "Cannot rotate easily"
+  - Right: "GitHub Secrets", "Encrypted storage", "SECURE", "Easy rotation", "Audited access"
+- Relationships: Arrows showing wrong practice leading to compromised security, right practice leading to protected system
+- Visual cues: Red danger zone for wrong practice, green security zone for right practice, "DO NOT" symbol prominently on left
+
 **SPEAKER NOTES:**
 
 "Your deployment workflow needs API keys. OpenAI keys, deployment tokens, monitoring webhooks.
@@ -444,6 +530,25 @@ Environments:
 - Production secrets: Always environment-scoped
 
 **Graphic:** Hierarchy diagram showing repository and environment secrets
+
+**GRAPHICS:**
+
+**Graphic 1: GitHub Secrets Hierarchy**
+- Purpose: Show the two-level organization of secrets (repository vs. environment-specific)
+- Type: Hierarchical tree diagram with scope visualization
+- Elements:
+  - Top level: Repository icon
+  - Level 2a: "Repository Secrets" box containing: AI_API_KEY, DEPLOYMENT_TOKEN, MONITORING_WEBHOOK
+  - Level 2b: "Environments" box branching to two environments
+  - Level 3: "staging/" environment with AI_API_KEY (staging)
+  - Level 3: "production/" environment with AI_API_KEY (production)
+  - Scope indicators showing which secrets are available to which workflows
+- Labels:
+  - "Repository Secrets: Available to all workflows"
+  - "Environment Secrets: Specific to environment"
+  - "Production secrets require approval" badge on production environment
+- Relationships: Tree structure showing containment and inheritance, arrows from workflows to accessible secrets
+- Visual cues: Color coding (repository=blue, staging=yellow, production=red), lock icons on environment-specific secrets, shield icon on production
 
 **SPEAKER NOTES:**
 
@@ -624,6 +729,26 @@ Questions on secrets before we move to monitoring?"
 
 **Graphic:** Alert system visualization - system health → monitoring → alerts
 
+**GRAPHICS:**
+
+**Graphic 1: Monitoring and Alerting Flow**
+- Purpose: Show how system health is continuously monitored and alerts are triggered
+- Type: Flow diagram with feedback loop
+- Elements:
+  - AI System (server/cloud icon) at center
+  - Health metrics emanating: Response time, Error rate, Token usage, Success rate
+  - Monitoring service (eye/dashboard icon) collecting metrics
+  - Threshold evaluation (decision diamond): "Metrics within thresholds?"
+  - Alert channels: Slack (icon), Email (icon), PagerDuty (icon)
+  - Response loop: Team → Investigate → Fix → System
+- Labels:
+  - "Continuous monitoring (every 15 min)"
+  - "Threshold checks" with example values
+  - "Alert routing" based on severity
+  - "Incident response"
+- Relationships: Circular flow showing continuous monitoring, conditional alerts, response actions
+- Visual cues: Green for healthy metrics, yellow for warnings, red for critical alerts, arrows showing data flow
+
 **SPEAKER NOTES:**
 
 "Your AI system is deployed. How do you know if it's working?
@@ -679,6 +804,25 @@ jobs:
 
 **Graphic:** Timeline showing health checks running every 15 minutes
 
+**GRAPHICS:**
+
+**Graphic 1: Automated Health Check Timeline**
+- Purpose: Visualize the continuous nature of scheduled health checks
+- Type: Horizontal timeline with recurring events
+- Elements:
+  - Timeline bar spanning 2 hours
+  - Health check events (heartbeat icon) at 15-minute intervals (00:00, 00:15, 00:30, 00:45, etc.)
+  - Each check shows: Request sent → Response received → Status evaluated
+  - One failed check shown with alert notification
+  - Most checks showing green success status
+- Labels:
+  - "Every 15 minutes (cron: */15 * * * *)"
+  - Success checks: "✓ Health OK"
+  - Failed check: "✗ Health check failed → Alert sent to Slack"
+  - Timeline markers showing times
+- Relationships: Recurring pattern, failed check triggering immediate alert
+- Visual cues: Green checkmarks for successful checks, red X for failure, alert icon (bell) on failure, GitHub Actions logo indicating automated execution
+
 **SPEAKER NOTES:**
 
 "Health check workflows use schedule triggers.
@@ -720,6 +864,25 @@ The beauty is this runs continuously, automatically. Your AI system is monitored
 - Error types and frequencies
 
 **Graphic:** Dashboard visualization showing these metrics
+
+**GRAPHICS:**
+
+**Graphic 1: AI System Monitoring Dashboard**
+- Purpose: Show the key metrics and thresholds for monitoring AI systems
+- Type: Dashboard mockup with gauges and graphs
+- Elements:
+  - Metric panel 1: Error Rate gauge (current: 2.3%, threshold: 5%, status: green)
+  - Metric panel 2: Latency graph showing P50/P95/P99 lines (P95 current: 1.8s, threshold: 2s, status: green)
+  - Metric panel 3: Token Usage progress bar (current: 65%, warning: 90%, status: green)
+  - Metric panel 4: Success Rate gauge (current: 97.5%, threshold: 95%, status: green)
+  - Metric panel 5: Health Endpoint status (current: OK, any failure = critical)
+  - Alert indicator panel showing current alert status
+- Labels:
+  - Each metric clearly labeled with current value and threshold
+  - Status indicators: "Healthy", "Warning", "Critical"
+  - Time range selector (Last 1 hour / 24 hours / 7 days)
+- Relationships: All metrics feeding into overall system health status
+- Visual cues: Color-coded status (green=healthy, yellow=warning, red=critical), trend arrows showing direction, threshold lines on graphs
 
 **SPEAKER NOTES:**
 
@@ -772,6 +935,24 @@ You don't need fancy dashboards to start. Log these metrics, alert on thresholds
 - Actionable: Each alert should have clear next steps
 
 **Graphic:** Alert severity levels pyramid
+
+**GRAPHICS:**
+
+**Graphic 1: Alert Severity Pyramid**
+- Purpose: Show the hierarchy and volume of different alert types
+- Type: Inverted pyramid with three tiers
+- Elements:
+  - Top tier (smallest, red): "Critical" - Immediate action required
+  - Middle tier (medium, yellow): "Warning" - Investigate soon
+  - Bottom tier (largest, blue): "Info" - Awareness only
+  - Volume indicators showing relative frequency
+- Labels:
+  - Critical examples: "Health check failure", "Error rate > 5%", "Success rate < 95%"
+  - Warning examples: "Latency P95 > 2s", "Token usage > 90%", "Error rate 2-5%"
+  - Info examples: "Deployment completed", "Daily summary", "Version rollout milestone"
+  - Response times: Critical (immediate), Warning (within 1 hour), Info (no action needed)
+- Relationships: Inverse pyramid showing fewer critical alerts, more info alerts
+- Visual cues: Color coding (red/yellow/blue), alert icons (bell, flag, info icon), urgency indicators
 
 **SPEAKER NOTES:**
 
@@ -872,6 +1053,28 @@ Monitor (health checks, alerts)
 - `monitoring.yml` - Health checks
 
 **Graphic:** Complete pipeline flow diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Complete CI/CD Pipeline Stages**
+- Purpose: Show the end-to-end pipeline from commit to production monitoring
+- Type: Vertical flowchart with stage gates
+- Elements:
+  - Stage 1: "Developer commits" (developer icon)
+  - Stage 2: "Validate" (syntax, schema, security) - automated
+  - Stage 3: "Test" (unit, integration, coverage) - automated
+  - Stage 4: "Deploy to Staging" - automated on success
+  - Stage 5: "Staging Tests" (smoke tests) - automated
+  - Stage 6: "Deploy to Production" - MANUAL APPROVAL required
+  - Stage 7: "Production Deployment" (blue-green/canary) - automated after approval
+  - Stage 8: "Monitor" (health checks, alerts) - continuous
+- Labels:
+  - Each stage clearly labeled with actions
+  - Automation indicators: "Auto" vs. "Manual approval required"
+  - Success criteria at each gate
+  - "STOP" indicators on failure paths
+- Relationships: Sequential flow with gates, failures stop progression, monitoring as continuous loop
+- Visual cues: Green arrows for automated progression, orange for manual approval, red for failure paths, continuous monitoring loop around production
 
 **SPEAKER NOTES:**
 
@@ -982,6 +1185,27 @@ jobs:
 
 **Graphic:** Dependency graph showing job relationships
 
+**GRAPHICS:**
+
+**Graphic 1: Workflow Job Dependencies**
+- Purpose: Visualize how jobs depend on each other and execute in sequence
+- Type: Directed acyclic graph (DAG)
+- Elements:
+  - Job node 1: "validate" (no dependencies)
+  - Job node 2: "test" (depends on validate)
+  - Job node 3: "deploy-staging" (depends on test, has environment: staging)
+  - Job node 4: "deploy-production" (depends on deploy-staging, has environment: production, requires approval)
+  - Dependency arrows with "needs:" labels
+  - Environment shields on deployment jobs
+  - Approval gate icon on production deployment
+- Labels:
+  - Each job labeled with name and key attributes
+  - "needs: validate", "needs: test", "needs: deploy-staging" on arrows
+  - "Manual approval required" on production job
+  - Environment names clearly marked
+- Relationships: Directed arrows showing execution order, no job runs until dependencies complete
+- Visual cues: Color coding by stage (validate=blue, test=green, deploy=orange), approval icon (hand/checkmark), environment badges
+
 **SPEAKER NOTES:**
 
 "Workflow jobs use dependencies to create ordered execution.
@@ -1067,6 +1291,27 @@ This is production-ready DevOps for AI systems."
 - Complete documentation
 
 **Graphic:** Pipeline diagram showing all workflow files
+
+**GRAPHICS:**
+
+**Graphic 1: Complete CI/CD Workflow Files Architecture**
+- Purpose: Show all the workflow files and how they interconnect in the complete system
+- Type: Architecture diagram with file references
+- Elements:
+  - File stack showing `.github/workflows/` directory
+  - Workflow file 1: `validate.yml` - Validation checks
+  - Workflow file 2: `test.yml` - Automated tests
+  - Workflow file 3: `deploy-staging.yml` - Staging deployment
+  - Workflow file 4: `deploy-production.yml` - Production deployment with approval
+  - Workflow file 5: `monitoring.yml` - Health checks and alerting
+  - Environment configurations: staging/, production/ (with secrets)
+  - Documentation: README, deployment procedures
+- Labels:
+  - Each file labeled with purpose and trigger conditions
+  - Arrows showing execution flow and dependencies
+  - Environment associations clearly marked
+- Relationships: Files triggering each other, dependencies between workflows, environments linked to deployment workflows
+- Visual cues: File icons, workflow connections with arrows, environment badges, color coding by workflow type
 
 **SPEAKER NOTES:**
 

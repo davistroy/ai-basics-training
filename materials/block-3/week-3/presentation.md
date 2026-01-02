@@ -168,6 +168,22 @@ Agent (Claude) ← MCP Protocol → Server 1 (Files)
 
 **Graphic:** Hub-and-spoke diagram with agent at center, servers around it
 
+**GRAPHICS:**
+
+**Graphic 1: Agent-Centric MCP Architecture**
+- Purpose: Visualize how a single agent connects to multiple MCP servers simultaneously
+- Type: Hub-and-spoke network diagram
+- Elements: Central agent node; multiple server nodes in orbit; connection lines representing MCP protocol
+- Labels:
+  - Center hub: "AGENT (Claude)" with brain/processor icon
+  - Spoke 1: "Filesystem Server" - folder icon - "Read/write local files"
+  - Spoke 2: "GitHub Server" - git icon - "Repository operations"
+  - Spoke 3: "Database Server" - database icon - "SQL queries"
+  - Spoke 4: "API Server" - cloud icon - "External service integration"
+  - Connection lines: "MCP Protocol" label on each connection
+  - Bottom callout: "Without MCP: text only | With MCP: world interaction"
+- Relationships: All connections bidirectional; agent as central orchestrator; servers as capability providers; equal distance from center showing peer relationship
+
 **SPEAKER NOTES:**
 
 "[Hook - The power of MCP]"
@@ -208,6 +224,31 @@ That's a massive capability expansion."
 3. What systems must my agent INTEGRATE with?
 
 **Graphic:** Three-column visual with icons for each server type
+
+**GRAPHICS:**
+
+**Graphic 1: Three Types of MCP Servers**
+- Purpose: Categorize MCP servers by primary function to guide server selection
+- Type: Three-column comparison chart
+- Elements: Three distinct columns with headers, icons, examples, and use cases
+- Labels:
+  - Column 1 - DATA SERVERS (blue icon: database/folder):
+    - "Purpose: Read information"
+    - Examples: "Filesystem, PostgreSQL, SQLite, Memory"
+    - Use case: "When agent needs to READ data"
+  - Column 2 - ACTION SERVERS (green icon: lightning bolt/action):
+    - "Purpose: Perform operations"
+    - Examples: "Email, Slack, Puppeteer, Document creation"
+    - Use case: "When agent needs to TAKE ACTION"
+  - Column 3 - INTEGRATION SERVERS (orange icon: link/connector):
+    - "Purpose: Connect platforms"
+    - Examples: "GitHub, Google Drive, Notion, Jira"
+    - Use case: "When agent needs PLATFORM INTEGRATION"
+  - Bottom section: "Selection Questions"
+    - "What data to READ? → Data servers"
+    - "What actions to TAKE? → Action servers"
+    - "What systems to INTEGRATE? → Integration servers"
+- Relationships: Three mutually exclusive categories; clear functional separation; selection strategy maps to categories
 
 **SPEAKER NOTES:**
 
@@ -336,6 +377,27 @@ One agent can leverage many specialized servers through a single protocol.
 
 **Graphic:** Layered architecture diagram
 
+**GRAPHICS:**
+
+**Graphic 1: Complete Agent-MCP Stack**
+- Purpose: Show the layered architecture from agent through protocol to specialized servers
+- Type: Layered architecture diagram (vertical stack)
+- Elements: Three distinct layers with clear separation and connection points
+- Labels:
+  - Top layer: "AGENT LAYER"
+    - Box containing: "Agent (System Prompt + Context + Reasoning)"
+    - Capabilities: "Decision-making, Tool selection, Task planning"
+  - Middle layer: "PROTOCOL LAYER"
+    - Box containing: "MCP (Model Context Protocol)"
+    - Functions: "Standardized communication, Tool discovery, Resource management"
+  - Bottom layer: "SERVER LAYER"
+    - Three boxes side-by-side:
+      - "Data Servers" (Filesystem, DB)
+      - "Action Servers" (Email, Slack)
+      - "Integration Servers" (GitHub, Drive)
+  - Connections: Bidirectional arrows between layers
+- Relationships: Top-down architecture; single agent, single protocol, multiple servers; MCP abstracts server diversity; one-to-many relationship
+
 **SPEAKER NOTES:**
 
 "Here's the complete picture.
@@ -393,6 +455,23 @@ Now let's get practical with configuration."
 
 **Graphic:** Config file with annotations
 
+**GRAPHICS:**
+
+**Graphic 1: Annotated Multi-Server Configuration**
+- Purpose: Explain the structure and key elements of a production MCP configuration file
+- Type: Annotated code block
+- Elements: JSON configuration with callout annotations pointing to key sections
+- Labels:
+  - Main structure: `mcpServers` object
+  - Annotation 1 pointing to "filesystem": "Server name (your choice)"
+  - Annotation 2 pointing to "command": "Always 'npx' for npm packages"
+  - Annotation 3 pointing to "args": "Server package + optional parameters"
+  - Annotation 4 pointing to filesystem path: "Restricts access to this directory only"
+  - Annotation 5 pointing to "env": "Environment variables for this server"
+  - Annotation 6 pointing to "${GITHUB_TOKEN}": "Pulls from environment - NEVER hardcode tokens"
+  - Security callout: "Credentials use ${VAR} syntax - resolved at runtime"
+- Relationships: Hierarchical JSON structure; each server independently configured; environment variable pattern prevents credential leaks
+
 **SPEAKER NOTES:**
 
 "Here's what a multi-server config looks like.
@@ -434,6 +513,29 @@ Notice tokens use ${VAR_NAME} syntax. That pulls from your environment - don't p
 - Test each independently
 
 **Graphic:** Decision tree for server selection
+
+**GRAPHICS:**
+
+**Graphic 1: Server Selection Decision Tree**
+- Purpose: Guide practitioners through systematic server selection based on agent needs
+- Type: Decision tree flowchart
+- Elements: Root question branching into three main categories, then specific server recommendations
+- Labels:
+  - Root: "What does my agent need to do?"
+  - Branch 1: "READ DATA?"
+    - "Local files?" → "Filesystem server"
+    - "Database queries?" → "PostgreSQL/SQLite server"
+    - "Store/retrieve info?" → "Memory server"
+  - Branch 2: "TAKE ACTIONS?"
+    - "Send notifications?" → "Email/Slack server"
+    - "Automate browser?" → "Puppeteer server"
+    - "Create documents?" → "Document server"
+  - Branch 3: "INTEGRATE SYSTEMS?"
+    - "Code repositories?" → "GitHub server"
+    - "Cloud storage?" → "Google Drive server"
+    - "Project management?" → "Notion/Jira server"
+  - Bottom advice: "Start with 2-3 essential servers, add more as needs emerge"
+- Relationships: Top-down decision flow; questions lead to specific recommendations; emphasis on starting small
 
 **SPEAKER NOTES:**
 
@@ -479,6 +581,25 @@ Custom API Server → May require auth server
 - Rotate regularly
 
 **Graphic:** Dependency diagram showing connections
+
+**GRAPHICS:**
+
+**Graphic 1: Server Dependency Chain**
+- Purpose: Illustrate dependencies between servers and their prerequisites
+- Type: Dependency graph with prerequisites
+- Elements: Server nodes with arrows showing dependencies and prerequisites
+- Labels:
+  - Foundation layer: "Prerequisites"
+    - "Valid GitHub token" node
+    - "Running PostgreSQL instance" node
+    - "Environment variables configured" node
+  - Server layer: "MCP Servers"
+    - "GitHub Server" (depends on token)
+    - "PostgreSQL Server" (depends on running instance)
+    - "Custom API Server" (depends on env vars)
+  - Dependency arrows labeled: "requires", "needs", "depends on"
+  - Testing order annotation: "1. Verify prerequisites → 2. Test individual servers → 3. Combine"
+- Relationships: Prerequisites must exist before servers; upward dependencies showing what each server needs; testing sequence follows dependency chain
 
 **SPEAKER NOTES:**
 
@@ -573,6 +694,30 @@ If things don't work: Check JSON syntax - missing commas break everything. Verif
 
 **Graphic:** Verification checklist flowchart
 
+**GRAPHICS:**
+
+**Graphic 1: MCP Server Verification Flow**
+- Purpose: Provide step-by-step verification process to ensure servers are working correctly
+- Type: Sequential flowchart with decision points
+- Elements: Process boxes, decision diamonds, success/failure paths
+- Labels:
+  - Step 1: "Configure ONE server in config file"
+  - Step 2: "Restart Claude Desktop completely"
+  - Step 3: "Test with simple prompt" (Example: "List your available tools")
+  - Decision: "Tool appears?"
+    - YES path: "Test functionality" → "Works correctly?"
+      - YES → "Server verified ✓" → "Add next server, repeat"
+      - NO → "Check permissions/credentials" → Loop back to Step 1
+    - NO path: "Common issues?"
+      - "Restart again" → Loop to Step 2
+      - "Check JSON syntax" → Loop to Step 1
+      - "Verify paths exist" → Loop to Step 1
+  - Side panel: "Common Issues → Solutions"
+    - "Tool not found → Restart Claude"
+    - "Permission denied → Check token/paths"
+    - "Invalid JSON → Validate syntax"
+- Relationships: Iterative testing process; one server at a time; decision points for troubleshooting; emphasis on systematic approach
+
 **SPEAKER NOTES:**
 
 "Don't configure everything at once and hope it works.
@@ -618,6 +763,25 @@ Test each server independently before combining. Debugging multiple broken serve
 - Agent decides what to chain based on goal
 
 **Graphic:** Single tool vs. chain comparison
+
+**GRAPHICS:**
+
+**Graphic 1: Single Tool vs. Tool Chain Comparison**
+- Purpose: Illustrate the power multiplication that comes from chaining tools together
+- Type: Side-by-side before/after comparison
+- Elements: Left side shows isolated tools; right side shows connected chain
+- Labels:
+  - Left side: "SINGLE TOOLS (Limited)"
+    - Individual boxes: "Read file", "Search web", "Send email" (disconnected)
+    - Capability: "Each does one thing"
+    - Example outcome: "File contents" OR "Search results" OR "Email sent"
+  - Right side: "CHAINED TOOLS (Powerful)"
+    - Connected sequence: "Search web" → "Read file" → "Write summary" → "Email result"
+    - Capability: "Combined to accomplish complex task"
+    - Example outcome: "Researched, synthesized, delivered report"
+  - Center divider: "→ CHAINING CREATES VALUE →"
+  - Bottom emphasis: "Agent decides what to chain based on goal"
+- Relationships: Contrast isolated vs. integrated; show data flowing through chain; emphasize emergent capabilities from combination
 
 **SPEAKER NOTES:**
 
@@ -666,6 +830,31 @@ Search files → Read file → Extract data → Write to database
 
 **Graphic:** Linear flow diagram with arrows
 
+**GRAPHICS:**
+
+**Graphic 1: Sequential Tool Chaining Pattern**
+- Purpose: Show how output from one tool becomes input to the next in a linear chain
+- Type: Linear flow diagram with data transformation
+- Elements: Sequential tool boxes with data flow arrows and transformation labels
+- Labels:
+  - Tool 1: "Search files"
+    - Output: [list of .md files]
+  - Arrow: "List becomes input →"
+  - Tool 2: "Read each file"
+    - Output: [file contents]
+  - Arrow: "Contents become input →"
+  - Tool 3: "Extract headings"
+    - Output: [heading list]
+  - Arrow: "Headings become input →"
+  - Tool 4: "Write to index.json"
+    - Output: [index file created]
+  - Characteristics box:
+    - "Each output feeds next input"
+    - "Clear data transformation path"
+    - "Failure stops chain (or triggers recovery)"
+  - Bottom note: "Execute in ORDER - sequence matters"
+- Relationships: Strict sequential dependency; data transformation at each step; linear progression; failure propagation shown
+
 **SPEAKER NOTES:**
 
 "Sequential chaining is the most common pattern.
@@ -711,6 +900,30 @@ Check condition → IF true: Tool A → Tool B
 
 **Graphic:** Branching flow diagram
 
+**GRAPHICS:**
+
+**Graphic 1: Conditional Tool Chaining Pattern**
+- Purpose: Illustrate how agents make dynamic decisions to choose different tool paths
+- Type: Branching flow diagram with decision logic
+- Elements: Decision diamond with two distinct paths; tools on each branch
+- Labels:
+  - Start: "Agent receives task"
+  - Decision diamond: "Does config.json exist?"
+  - TRUE branch (green):
+    - Tool: "Read config.json"
+    - Tool: "Use settings from file"
+    - Outcome: "Configured with user preferences"
+  - FALSE branch (orange):
+    - Tool: "Create config.json with defaults"
+    - Tool: "Use default settings"
+    - Outcome: "Configured with defaults"
+  - Both paths converge: "Continue with task"
+  - Characteristics box:
+    - "Agent decides path based on results"
+    - "Dynamic flow control"
+    - "Handles variations gracefully"
+- Relationships: Branching based on condition; agent makes intelligent choice; different paths achieve same goal; paths reconverge
+
 **SPEAKER NOTES:**
 
 "Conditional chaining adds intelligence.
@@ -754,6 +967,28 @@ Start →┬→ Search Web ──────┬→ Combine → Output
 - Building comprehensive views
 
 **Graphic:** Parallel flow diagram with merge point
+
+**GRAPHICS:**
+
+**Graphic 1: Parallel Tool Use Pattern**
+- Purpose: Show how multiple tools can execute simultaneously and results combined
+- Type: Parallel flow diagram with merge/aggregation point
+- Elements: Start point splitting into parallel paths; merge point combining results
+- Labels:
+  - Start: "Research task begins"
+  - Split point: "Query multiple sources simultaneously"
+  - Parallel path 1: "Search Web" → [web results]
+  - Parallel path 2: "Search Files" → [local results]
+  - Parallel path 3: "Query Database" → [DB results]
+  - Merge point: "Combine & Synthesize"
+    - Aggregation logic: "Merge results, deduplicate, rank relevance"
+  - Output: "Comprehensive answer from all sources"
+  - Characteristics box:
+    - "Multiple tools simultaneously"
+    - "Results aggregated"
+    - "Faster than sequential for independent data"
+  - Side note: "Use when data sources are independent"
+- Relationships: Parallel execution (no dependencies between paths); convergence at merge point; aggregation logic required; handle partial results if one path fails
 
 **SPEAKER NOTES:**
 
@@ -806,6 +1041,30 @@ Report progress at each step.
 
 **Graphic:** Chain with validation checkpoints
 
+**GRAPHICS:**
+
+**Graphic 1: Tool Chain with Validation Checkpoints**
+- Purpose: Show best practices for robust tool chaining with validation between steps
+- Type: Flow diagram with validation gates
+- Elements: Tool sequence with checkpoint diamonds between each step
+- Labels:
+  - Tool 1: "Tool A - Get data"
+  - Checkpoint 1: "Validate output format" (diamond)
+    - PASS → Continue
+    - FAIL → "Handle error (retry/fallback/escalate)"
+  - Tool 2: "Tool B - Transform data"
+  - Checkpoint 2: "Validate transformation" (diamond)
+    - PASS → Continue
+    - FAIL → "Handle error"
+  - Tool 3: "Tool C - Deliver result"
+  - Final validation: "Verify complete"
+  - Best practices box:
+    - "✓ Clear handoff prompts between tools"
+    - "✓ Validate output before next step"
+    - "✓ Handle partial failures gracefully"
+    - "✓ Report progress at each step"
+- Relationships: Validation gates prevent error propagation; early detection of issues; graceful degradation on partial failures; progress tracking throughout chain
+
 **SPEAKER NOTES:**
 
 "Chains don't work automatically. You need to design them.
@@ -855,6 +1114,30 @@ When asked to research a topic:
 ```
 
 **Graphic:** Complete chain with data flow
+
+**GRAPHICS:**
+
+**Graphic 1: Complete Research Chain Example**
+- Purpose: Provide concrete end-to-end example of tool chaining for a research task
+- Type: Detailed flow diagram with data annotations
+- Elements: Four-step chain with data flowing through each stage
+- Labels:
+  - Input: "User asks: 'Research AI agents and summarize'"
+  - Step 1: "Web Search Tool"
+    - Action: "Search for 'AI agents 2025 best practices'"
+    - Output data: [5 relevant articles with URLs]
+  - Step 2: "Filesystem Read Tool"
+    - Action: "Read /context/background.md"
+    - Output data: [Company standards, writing style, focus areas]
+  - Step 3: "Analysis (Agent Reasoning)"
+    - Action: "Combine web sources + internal context"
+    - Output data: [Synthesized analysis matching company style]
+  - Step 4: "Filesystem Write Tool"
+    - Action: "Write to /output/ai-agents-summary.md"
+    - Output data: [Saved file with comprehensive summary]
+  - Final result: "Deliverable: Research summary in company format"
+  - System prompt snippet shown: "When researching: 1. Search web, 2. Read context, 3. Synthesize, 4. Save output"
+- Relationships: Sequential with clear data transformation; external + internal data combined; reasoning step synthesizes; output matches specifications
 
 **SPEAKER NOTES:**
 
@@ -941,6 +1224,33 @@ These principles make agents debuggable and maintainable. Not black boxes."
 Only `/projects/agent` is accessible - not entire filesystem.
 
 **Graphic:** Security shield with principles
+
+**GRAPHICS:**
+
+**Graphic 1: MCP Security Principles Shield**
+- Purpose: Visualize the four critical security principles for production MCP deployments
+- Type: Shield diagram with four quadrants
+- Elements: Shield shape divided into four sections; each section represents a principle
+- Labels:
+  - Top-left quadrant: "LEAST PRIVILEGE" (lock icon)
+    - "Only enable servers you need"
+    - "Minimize attack surface"
+    - Example: "Don't add email if agent doesn't send mail"
+  - Top-right quadrant: "TOKEN MANAGEMENT" (key icon)
+    - "Environment variables only"
+    - "Never hardcode credentials"
+    - "Rotate tokens regularly"
+  - Bottom-left quadrant: "DATA BOUNDARIES" (fence icon)
+    - "Restrict filesystem to specific directories"
+    - "Limit database access scopes"
+    - Example: `/projects/agent` only, not entire filesystem
+  - Bottom-right quadrant: "AUDIT LOGGING" (clipboard icon)
+    - "Log every tool call"
+    - "Track who, what, when"
+    - "Monitor for unusual patterns"
+  - Shield center: "PRODUCTION-READY MCP"
+  - Bottom banner: "All four required for secure deployment"
+- Relationships: Four equal pillars of security; all must be implemented; defensive layers; production requirement not optional
 
 **SPEAKER NOTES:**
 

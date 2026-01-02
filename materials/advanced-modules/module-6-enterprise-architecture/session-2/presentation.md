@@ -171,6 +171,27 @@ Poor scaling leads to rate limit errors, latency spikes, cost overruns, or outag
 
 **Graphic:** Graph showing traffic spike with different scaling responses
 
+**GRAPHICS:**
+
+**Graphic 1: AI Workload Scaling Challenge**
+- Purpose: Illustrate how different scaling approaches respond to traffic spikes
+- Type: Line graph with scaling response comparison
+- Elements:
+  - X-axis: Time
+  - Y-axis: Requests/second
+  - Line 1: Actual traffic (spikes from 100 to 1000 req/s)
+  - Line 2: Manual scaling (flat line, unable to handle spike, shows failures)
+  - Line 3: CPU-based auto-scaling (lags behind traffic, some failures)
+  - Line 4: Token-aware auto-scaling (matches traffic, no failures)
+  - Failure zones marked in red where capacity < demand
+- Labels:
+  - Traffic spike event marker
+  - "Token limit hit" annotation on CPU-based line
+  - "Scaling lag" annotation
+  - "Optimal response" annotation on token-aware line
+- Relationships: Comparison showing different scaling strategies' effectiveness
+- Visual cues: Red zones for failures/errors, green zone for successful handling, dotted lines for capacity limits
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -329,6 +350,30 @@ User A, Message 3 → Instance 1 (continues conversation)
 
 **Graphic:** Load balancer diagram with session affinity highlighted
 
+**GRAPHICS:**
+
+**Graphic 1: Load Balancing with Session Affinity**
+- Purpose: Show how session affinity ensures conversation continuity for multi-turn interactions
+- Type: Architecture diagram with session flow
+- Elements:
+  - Top: Load Balancer (icon)
+  - Bottom: Three backend instances (Instance 1, 2, 3)
+  - User A's requests (3 sequential messages) all routed to Instance 1 (highlighted)
+  - User B's requests routed to Instance 2
+  - User C's requests distributed to Instance 3
+  - Context storage shown within each instance
+- Labels:
+  - "Session Affinity: Same user → Same instance"
+  - "User A Conversation Context" stored in Instance 1
+  - "Multi-turn conversation preserved"
+  - Arrows showing routing decisions
+- Relationships: Sticky sessions maintaining user-to-instance mapping
+- Visual cues:
+  - Color coding per user (User A=blue, User B=green, User C=purple)
+  - Arrows from load balancer to instances
+  - Session ID cookies/tokens shown
+  - Context icon (chat bubbles) in instances
+
 **SPEAKER NOTES:**
 
 "Load balancing for AI has unique considerations:
@@ -421,6 +466,26 @@ At very high volume, self-hosted models can be cheaper than cloud APIs.
 
 **Graphic:** Decision tree for cloud vs hybrid vs on-prem
 
+**GRAPHICS:**
+
+**Graphic 1: Cloud vs. Hybrid vs. On-Premises Decision Tree**
+- Purpose: Guide users through the decision of where to deploy AI workloads
+- Type: Decision flowchart
+- Elements:
+  - Start: "Where to deploy AI?"
+  - Decision 1: "Data sovereignty requirements?" → Yes: On-premises or Hybrid
+  - Decision 2: "Air-gapped environment?" → Yes: On-premises only
+  - Decision 3: "Volume > 10M requests/day?" → Yes: Consider on-premises for cost
+  - Decision 4: "Need specific cloud models?" → Yes: Cloud or Hybrid
+  - Decision 5: "Ultra-low latency required?" → Yes: Edge/On-premises
+  - Default: Cloud
+- Labels:
+  - Each decision clearly stated
+  - Outcomes: "Cloud", "Hybrid", "On-Premises"
+  - Key factors noted on each path
+- Relationships: Decision tree with multiple paths to different deployment models
+- Visual cues: Cloud icon, building/server icon for on-prem, hybrid icon (cloud + server), color coding for recommendations
+
 **SPEAKER NOTES:**
 
 "Most of this module focuses on cloud AI. But many enterprises need hybrid or on-premises deployments.
@@ -443,6 +508,45 @@ We'll explore the architecture patterns."
 
 [Slides 10-13 would follow similar pattern covering hybrid architectures, on-premises options, connectivity, and segment summary]
 
+**GRAPHICS:**
+
+**Graphic for Hybrid Architecture Patterns (Slide 10-12):**
+
+**Graphic 1: Hybrid Architecture - Data On-Prem, AI in Cloud**
+- Purpose: Show how to keep sensitive data on-premises while leveraging cloud AI
+- Type: Split architecture diagram
+- Elements:
+  - Left box: On-Premises (data center icon)
+    - Data Sources (database icon)
+    - Results Storage (storage icon)
+  - Right box: Cloud (cloud icon)
+    - AI API (model icon)
+  - Secure connection between (VPN/Direct Connect line)
+  - Data flow arrows: On-prem → Cloud (encrypted), Cloud → On-prem (results)
+- Labels:
+  - "On-Premises: Data stays local"
+  - "Cloud: AI processing"
+  - "Encrypted tunnel: VPN/Direct Connect"
+  - "Data sovereignty maintained"
+- Relationships: Bidirectional secure flow, data residency compliance
+- Visual cues: Shield/lock icons on connection, arrows showing data movement, firewall icons
+
+**Graphic 2: Edge Processing with Cloud AI**
+- Purpose: Illustrate multi-tier architecture with edge filtering and cloud processing
+- Type: Three-tier architecture diagram
+- Elements:
+  - Tier 1: Edge (building/device icon) - Filter & Cache
+  - Tier 2: Regional (regional data center icon) - Process & Route
+  - Tier 3: Central Cloud (cloud icon) - Cloud AI API
+  - Data flow: Edge → Regional → Cloud → back
+- Labels:
+  - "Edge: Filter, cache, reduce traffic"
+  - "Regional: Processing and routing"
+  - "Central: AI inference"
+  - Latency indicators at each tier
+- Relationships: Hierarchical flow with caching at each level
+- Visual cues: Performance/speed indicators, cache icons, traffic reduction visualization
+
 ---
 
 ## SEGMENT 3: OPERATIONS AND OBSERVABILITY
@@ -450,7 +554,25 @@ We'll explore the architecture patterns."
 
 ### SLIDE 14: OBSERVABILITY STACK
 
-[Content covering monitoring, metrics, logs, traces, dashboards]
+**GRAPHICS:**
+
+**Graphic 1: Three-Pillar Observability Stack**
+- Purpose: Show the complete observability architecture with metrics, logs, and traces
+- Type: Layered architecture diagram
+- Elements:
+  - Top layer: Dashboards & Alerts (Grafana, Datadog, CloudWatch icons)
+  - Middle layer: Three pillars:
+    - Metrics (Prometheus icon): Request rates, latency, errors
+    - Logs (ELK/CloudWatch icon): Request/response logs, errors
+    - Traces (Jaeger icon): Distributed tracing across services
+  - Bottom layer: AI Agent System (components generating telemetry)
+  - Data flow arrows from system to pillars to dashboards
+- Labels:
+  - Each pillar clearly labeled with tools and purpose
+  - "Unified view of system health"
+  - Key metrics listed (token usage, latency, error rate)
+- Relationships: Three independent data streams feeding unified dashboard
+- Visual cues: Column icons for each pillar, upward arrows for data flow, dashboard visualization at top
 
 ---
 
@@ -459,7 +581,37 @@ We'll explore the architecture patterns."
 
 ### SLIDE 19: PHASED DEPLOYMENT
 
-[Content covering pilot, limited, general availability phases]
+**GRAPHICS:**
+
+**Graphic 1: Three-Phase Deployment Strategy**
+- Purpose: Visualize the staged rollout approach from pilot to general availability
+- Type: Timeline with phase gates
+- Elements:
+  - Phase 1: Pilot (Weeks 1-6)
+    - 10 users
+    - Validate approach
+    - Success criteria: Positive feedback, SLAs met
+    - Go/No-Go gate
+  - Phase 2: Limited Availability (Weeks 7-18)
+    - 100 users
+    - Scale validation
+    - Success criteria: SLAs met, performance validated
+    - Go/No-Go gate
+  - Phase 3: General Availability (Week 19+)
+    - All users
+    - Full rollout
+    - Ongoing optimization
+- Labels:
+  - Each phase clearly labeled with duration and user count
+  - Success criteria listed
+  - Go/No-Go decision points marked
+  - User icons showing growth
+- Relationships: Sequential progression with gates, can halt at any gate
+- Visual cues:
+  - Growing user base visualization (10 → 100 → all)
+  - Green checkmarks for completed phases
+  - Decision diamonds at gates
+  - Timeline bar showing weeks
 
 ---
 
@@ -499,6 +651,55 @@ We'll explore the architecture patterns."
 **Time:** 25 minutes (reuse + synthesize existing work)
 
 **Graphic:** Diagram showing how exercises feed into capstone
+
+**GRAPHICS:**
+
+**Graphic 1: Capstone Integration Flow**
+- Purpose: Show how all previous exercises combine into the final deliverable
+- Type: Integration flow diagram
+- Elements:
+  - Center: "Enterprise Architecture Proposal" (document icon)
+  - Feeding in from left:
+    - Session 1, Ex 1.1: Platform Comparison → "Platform Recommendation" section
+    - Session 1, Ex 1.2: Security Architecture → "Security Architecture" section
+    - Session 1, Ex 1.3: Cost Model → "Cost Analysis" section
+  - Feeding in from right:
+    - Session 2, Ex 2.1: Deployment Strategy → "Implementation Roadmap" section
+    - Session 2, Ex 2.2: Operations Runbook → "Operations" appendix
+  - Output: Complete proposal document + Executive presentation
+- Labels:
+  - Each exercise labeled with source and destination section
+  - "Reuse & synthesize" notation
+  - "25 minutes to complete" time indicator
+- Relationships: All exercises feeding into comprehensive deliverable
+- Visual cues:
+  - Arrows showing integration
+  - Document sections highlighted
+  - Checkmarks on completed exercises
+  - Color coding by session (Session 1=blue, Session 2=green)
+
+**GRAPHICS:**
+
+**Graphic 2: Capstone Deliverable Structure**
+- Purpose: Outline the complete structure of the final deliverable
+- Type: Document outline/table of contents
+- Elements:
+  - Section 1: Executive Summary
+  - Section 2: Business Requirements & Success Criteria
+  - Section 3: Platform Recommendation (from Ex 1.1)
+  - Section 4: Reference Architecture (synthesis)
+  - Section 5: Security Architecture (from Ex 1.2)
+  - Section 6: Cost Analysis & ROI (from Ex 1.3)
+  - Section 7: Implementation Roadmap (from Ex 2.1)
+  - Section 8: Next Steps
+  - Appendices: A (Cost detail), B (Security detail), C (Platform comparison), D (Operations runbook from Ex 2.2)
+  - Bonus: Executive Presentation (10-15 slides)
+- Labels:
+  - Source exercises noted for each section
+  - "Client-ready quality" badge
+  - Page/slide counts estimated
+- Relationships: Hierarchical document structure
+- Visual cues: Document icon, section numbers, completion checkboxes
 
 **SPEAKER NOTES:**
 

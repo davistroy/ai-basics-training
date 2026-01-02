@@ -161,6 +161,19 @@ Let's start with what makes agents reliable."
 
 **Graphic:** Visual of agent losing memory between sessions
 
+**GRAPHICS:**
+
+**Graphic 1: Agent Reliability Problem (Groundhog Day)**
+- Purpose: Reinforce the core memory problem that Domain Memory solves
+- Type: Sequential illustration showing repeated failures
+- Elements: Same agent icon at three different sessions; thought bubbles showing repeated attempts at same task; calendar pages turning
+- Labels:
+  - "Session 1": Agent tries approach A, fails, thought bubble "Tried A - failed"
+  - "Session 2": Agent tries approach A again (amnesia!), thought bubble "Let me try A..."
+  - "Session 3": Agent tries approach A AGAIN, thought bubble "Maybe A will work?"
+  - "GROUNDHOG DAY LOOP" warning banner
+- Relationships: Show that agent has no memory of previous attempts; emphasize wasteful repetition; no learning between sessions
+
 **SPEAKER NOTES:**
 
 "[Hook - Recall the problem]"
@@ -232,6 +245,27 @@ Your Week 1 design document maps to these pillars. It's the Setup Agent output!"
 
 **Graphic:** Arrows connecting design document sections to Domain Memory pillars
 
+**GRAPHICS:**
+
+**Graphic 1: Design Document to Domain Memory Mapping**
+- Purpose: Show how Week 1 design document sections directly map to Domain Memory implementation
+- Type: Connection/mapping diagram
+- Elements:
+  - Left side: Three design document sections (from Week 1 template)
+  - Right side: Three Domain Memory pillars
+  - Connecting arrows with transformation labels
+- Labels:
+  - Left boxes:
+    - "Goal Definition Section" (from design doc)
+    - "Domain Memory Design Section" (from design doc)
+    - "Risk Assessment + Metrics" (from design doc)
+  - Right pillars:
+    - "Explicit Goals" (testable criteria)
+    - "Progress Records" (execution logs)
+    - "Operating Procedures" (error handling)
+  - Arrow annotations: "Becomes →"
+- Relationships: One-to-one mapping showing design doc IS the Setup Agent output; emphasize continuity from planning to implementation
+
 **SPEAKER NOTES:**
 
 "Let's connect this to YOUR work.
@@ -272,6 +306,22 @@ Your design document IS the Setup Agent output. Now we implement it."
 Are your success criteria testable?
 
 **Graphic:** Side-by-side comparison with checkmarks and X marks
+
+**GRAPHICS:**
+
+**Graphic 1: Goals vs Wishes Comparison**
+- Purpose: Clearly distinguish between vague wishes and testable goals
+- Type: Side-by-side comparison table
+- Elements: Two columns with contrasting examples; visual indicators for good vs bad
+- Labels:
+  - Left column header: "WISH ❌" (in red/orange)
+  - Right column header: "GOAL ✅" (in green)
+  - Row comparisons:
+    - "Build a good login" vs "Run login_test.py - all 15 assertions pass"
+    - "Make the UI better" vs "Reduce form completion time to < 30 seconds"
+    - "Improve performance" vs "API response time < 200ms for 95th percentile"
+  - Evaluation criteria shown: Specific? Measurable? Testable?
+- Relationships: Red X marks on wishes for each criterion; green checkmarks on goals; clear visual distinction between acceptable and unacceptable
 
 **SPEAKER NOTES:**
 
@@ -324,6 +374,25 @@ END
 
 **Graphic:** Loop diagram with clear flow arrows
 
+**GRAPHICS:**
+
+**Graphic 1: Detailed Agent Execution Loop**
+- Purpose: Show the complete agent execution cycle with all decision points
+- Type: Vertical flow diagram with loop-back
+- Elements: Sequential process boxes connected by arrows; decision diamond; loop-back arrow; start and end nodes
+- Labels (top to bottom):
+  - "START" node
+  - "Receive task/context" box
+  - "Analyze situation" box (loop entry point)
+  - "Decide next action" box
+  - "Execute action using tool" box
+  - "Observe result" box
+  - "Goal achieved?" decision diamond with "Yes" and "No" paths
+  - "No" path loops back to "Analyze situation" with "Update state" annotation
+  - "Yes" path continues to "Generate final output" box
+  - "END" node
+- Relationships: Clear directional arrows; loop-back arrow emphasizing iteration; decision point clearly marked; "iteration counter ++" annotation on loop-back
+
 **SPEAKER NOTES:**
 
 "This is the agent execution loop.
@@ -360,6 +429,21 @@ The agent decides when to stop. That's what makes it an agent, not a workflow."
 **Every Loop Needs Bounds**
 
 **Graphic:** Loop with safety rails illustrated
+
+**GRAPHICS:**
+
+**Graphic 1: Agent Loop with Safety Bounds**
+- Purpose: Visualize the safety mechanisms that prevent infinite loops and runaway execution
+- Type: Loop diagram with safety guardrails
+- Elements: Central loop with surrounding safety mechanisms; visual barriers/limits
+- Labels:
+  - Center: "Agent Execution Loop" circle
+  - Top rail: "Max Iterations = 50" with counter display
+  - Right rail: "Timeout = 30 min" with clock icon
+  - Bottom rail: "Circuit Breaker" with electrical switch icon
+  - Left rail: "State Management" with memory/database icon
+  - Inside loop: "Iteration counter", "Elapsed time tracker", "Error counter"
+- Relationships: Safety rails surround and constrain the loop; visual barriers preventing loop from going out of bounds; "SAFE EXECUTION ZONE" annotation
 
 **SPEAKER NOTES:**
 
@@ -462,6 +546,30 @@ Notice the agent decides 'COMPLETE' - that's the completion detection. Your succ
 
 **Graphic:** Traffic light visual - green (success), yellow (graceful), red (immediate)
 
+**GRAPHICS:**
+
+**Graphic 1: Three-Tier Stop Condition Traffic Light**
+- Purpose: Categorize stop conditions by urgency and type of handling required
+- Type: Traffic light metaphor diagram
+- Elements: Three traffic light sections (green, yellow, red) with associated conditions and actions
+- Labels:
+  - Green light section: "STOP SUCCESSFULLY"
+    - "Goal achieved (criteria met)"
+    - "All tasks complete"
+    - "Quality threshold met"
+    - Action: "Return final output ✓"
+  - Yellow light section: "STOP GRACEFULLY"
+    - "Max iterations reached"
+    - "Timeout exceeded"
+    - "Escalation triggered"
+    - Action: "Save progress, report status ⚠"
+  - Red light section: "STOP IMMEDIATELY"
+    - "Unrecoverable error"
+    - "Safety constraint violated"
+    - "Circuit breaker tripped"
+    - Action: "Emergency stop, alert ⛔"
+- Relationships: Descending order of desirability; visual urgency increases from green to red; different actions for each tier
+
 **SPEAKER NOTES:**
 
 "Agents need multiple stop conditions.
@@ -505,6 +613,27 @@ Your system prompt should specify all three types."
 **All Four Types Will Happen**
 
 **Graphic:** Four quadrant diagram with failure types
+
+**GRAPHICS:**
+
+**Graphic 1: Four Types of Agent Failures**
+- Purpose: Categorize all possible agent failure modes for systematic handling
+- Type: Four-quadrant matrix
+- Elements: 2x2 grid with each quadrant representing a failure type; icons for each type
+- Labels:
+  - Top-left quadrant: "TOOL FAILURES" (wrench/tool icon)
+    - Examples: "API down", "Timeout", "Rate limit", "Permission denied"
+    - Recovery: "Retry with backoff, fallback"
+  - Top-right quadrant: "REASONING FAILURES" (brain/thought icon)
+    - Examples: "Confused", "Infinite loop", "Wrong decisions", "Lost context"
+    - Recovery: "Simplify task, provide examples"
+  - Bottom-left quadrant: "CONTEXT FAILURES" (file/document icon)
+    - Examples: "Lost goal", "Forgot state", "Missing information"
+    - Recovery: "Reload context, check state"
+  - Bottom-right quadrant: "QUALITY FAILURES" (clipboard/checkmark icon)
+    - Examples: "Wrong answer", "Incomplete", "Poor format", "Failed validation"
+    - Recovery: "Regenerate, iterate with feedback"
+- Relationships: Clear quadrant separation; each type has distinct recovery strategy; "ALL FOUR WILL HAPPEN" banner across top
 
 **SPEAKER NOTES:**
 
@@ -555,6 +684,26 @@ For each action:
 3. **Escalate** - Stop and get help
 
 **Graphic:** Flow diagram showing try-catch-decide pattern
+
+**GRAPHICS:**
+
+**Graphic 1: Try-Catch-Decide Error Handling Flow**
+- Purpose: Illustrate the systematic decision tree for handling any error
+- Type: Flow diagram with decision points
+- Elements: Sequential flow with try/catch blocks and decision diamonds
+- Labels:
+  - "Execute Tool" box (try block)
+  - "Validate Result" box (try block)
+  - Decision diamond: "Error occurred?"
+  - "Yes" path to "Log Error" box
+  - Decision diamond: "Retryable?"
+    - "Yes" → "Retry with Backoff" → loops back to Execute
+    - "No" → Decision diamond: "Fallback available?"
+      - "Yes" → "Use Fallback" → Continue
+      - "No" → "Escalate to Human" → STOP
+  - "No" (no error) path → "Continue" → Success
+  - Backoff counter: "Attempts: 1, 2, 3 → Max reached → Escalate"
+- Relationships: Clear decision logic; all error paths covered; no unhandled errors; emphasis on systematic approach vs random recovery
 
 **SPEAKER NOTES:**
 
@@ -608,6 +757,27 @@ class CircuitBreaker:
 
 **Graphic:** Electrical circuit breaker illustration
 
+**GRAPHICS:**
+
+**Graphic 1: Circuit Breaker Pattern Diagram**
+- Purpose: Visualize the three conditions that trip the circuit breaker to stop runaway agents
+- Type: Circuit breaker illustration with monitoring gauges
+- Elements: Electrical circuit breaker switch in center; three monitoring gauges; trip conditions
+- Labels:
+  - Center: Circuit breaker switch (initially ON/closed, can trip to OFF/open)
+  - Left gauge: "Iteration Counter" showing 0-100 scale
+    - Red zone: "> 100 iterations"
+    - "TRIP" indicator
+  - Top gauge: "Elapsed Time" showing 0-30 min scale
+    - Red zone: "> 30 minutes"
+    - "TRIP" indicator
+  - Right gauge: "Consecutive Errors" showing 0-3 scale
+    - Red zone: ">= 3 errors"
+    - "TRIP" indicator
+  - When any gauge hits red zone: Circuit breaker trips to OPEN (OFF)
+  - Status indicators: "NORMAL" (green) vs "TRIPPED" (red)
+- Relationships: All three gauges monitored continuously; any one can trip the breaker; breaker stops all agent execution when tripped
+
 **SPEAKER NOTES:**
 
 "The Circuit Breaker is your safety net.
@@ -653,6 +823,26 @@ if consecutive_failures >= 3:
 ```
 
 **Graphic:** Strike counter showing "Strike 1, Strike 2, Strike 3 - Escalate!"
+
+**GRAPHICS:**
+
+**Graphic 1: 3-Failure Rule Counter**
+- Purpose: Visualize the escalation trigger based on consecutive failures
+- Type: Strike counter/baseball metaphor
+- Elements: Three strike indicators with status and action labels
+- Labels:
+  - "Strike 1": Yellow warning indicator
+    - "First failure - might be a fluke"
+    - "Action: Log error, retry with backoff"
+  - "Strike 2": Orange warning indicator
+    - "Second consecutive failure - concerning pattern"
+    - "Action: Log pattern, retry with longer backoff"
+  - "Strike 3": Red alert indicator
+    - "Third consecutive failure - AGENT IS STUCK"
+    - "Action: ESCALATE TO HUMAN immediately"
+  - Bottom banner: "Consecutive failures on SAME TASK"
+  - Note: "Counter resets on success"
+- Relationships: Progressive severity indicators; emphasize "consecutive" nature; clear escalation at strike 3; counter reset mechanism
 
 **SPEAKER NOTES:**
 
@@ -707,6 +897,23 @@ Attempt 3: Wait 4 seconds
 
 **Graphic:** Timeline showing increasing delays between retries
 
+**GRAPHICS:**
+
+**Graphic 1: Exponential Backoff Timeline**
+- Purpose: Show how retry delays increase exponentially to allow services time to recover
+- Type: Horizontal timeline with increasing intervals
+- Elements: Timeline with attempt markers and delay periods visualized
+- Labels:
+  - Time 0s: "Initial attempt" (marked with attempt icon)
+  - Time 1s: "Attempt 1 fails" → wait 1 second (short delay bar)
+  - Time 2s: "Attempt 2 (retry 1)" → wait 2 seconds (medium delay bar)
+  - Time 4s: "Attempt 3 (retry 2)" → wait 4 seconds (long delay bar)
+  - Time 8s: "Max attempts reached → ESCALATE"
+  - Delay bars shown growing in length: 1s, 2s, 4s
+  - Formula annotation: "Delay = initial_delay × 2^(attempt-1)"
+  - Bottom note: "Why? Gives service time to recover, avoids hammering failing systems"
+- Relationships: Visual representation of increasing delays; exponential growth pattern clear; finite number of attempts before escalation
+
 **SPEAKER NOTES:**
 
 "When you retry, don't retry immediately.
@@ -751,6 +958,33 @@ Sub-agents should return structured failure info, not crash.
 - Escalate to human
 
 **Graphic:** Parent agent receiving failure info from child agent
+
+**GRAPHICS:**
+
+**Graphic 1: Multi-Agent Error Propagation**
+- Purpose: Show how sub-agent failures are communicated to parent agents for recovery decisions
+- Type: Agent hierarchy with error flow
+- Elements: Parent agent at top, child/sub-agent at bottom, structured error message between them
+- Labels:
+  - Top: "Parent/Orchestrator Agent" box
+  - Bottom: "Sub-Agent / Worker" box
+  - Upward arrow from sub-agent to parent labeled "Structured Failure Response"
+  - Error response structure (JSON format shown):
+    ```
+    {
+      "success": false,
+      "partial_work": {...},
+      "error": "Timeout on step 3",
+      "can_retry": true,
+      "context": {...}
+    }
+    ```
+  - Parent decision box with three options:
+    - "Option 1: Retry sub-agent"
+    - "Option 2: Work around failure"
+    - "Option 3: Escalate to human"
+  - Key principle: "Sub-agents return structured info, don't crash"
+- Relationships: Upward error propagation; parent makes recovery decision; failure contained not cascaded; structured communication prevents chaos
 
 **SPEAKER NOTES:**
 
@@ -922,6 +1156,29 @@ Questions about what you saw?"
 Start with happy path → Systematically break things → Document all failures → Build handling for each
 
 **Graphic:** Testing funnel from happy path to stress cases
+
+**GRAPHICS:**
+
+**Graphic 1: Agent Testing Pyramid/Funnel**
+- Purpose: Show the recommended testing progression from simple to complex scenarios
+- Type: Inverted pyramid or funnel diagram
+- Elements: Four testing tiers in descending order; width represents effort/test count
+- Labels:
+  - Top tier (widest): "HAPPY PATH" (green)
+    - "Normal inputs, everything works"
+    - "Most tests here - build confidence"
+    - "Example: Standard query, all tools available"
+  - Second tier: "EDGE CASES" (yellow)
+    - "Unusual but valid inputs"
+    - "Example: Very long query, special characters"
+  - Third tier: "ERROR CASES" (orange)
+    - "Invalid inputs, forced failures"
+    - "Example: Missing file, API timeout, bad format"
+  - Bottom tier (narrowest): "STRESS CASES" (red)
+    - "Large inputs, many iterations, complexity"
+    - "Example: Complex multi-part query, 50+ iterations"
+  - Side annotation: "Start simple → systematically break things → document → fix"
+- Relationships: Progressive complexity top to bottom; most tests at happy path level; fewer but more complex tests at stress level
 
 **SPEAKER NOTES:**
 

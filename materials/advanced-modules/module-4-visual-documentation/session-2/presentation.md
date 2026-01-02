@@ -175,6 +175,23 @@ Your agents don't just process tasks linearly - they move through states: idle, 
 
 **Graphic:** Side-by-side flowchart vs. state diagram showing the difference
 
+**GRAPHICS:**
+
+**Graphic 1: Flowchart vs State Diagram Comparison**
+- Purpose: Clarify the distinction between flowcharts and state diagrams
+- Type: Side-by-side comparison with annotations
+- Elements: Two diagrams representing the same agent system
+- Labels:
+  - LEFT: "Flowchart - Shows PROCESS STEPS"
+    - Linear flow: Receive Task → Analyze → Execute → Observe → Respond
+    - Annotation: "Shows WHAT steps happen in sequence"
+  - RIGHT: "State Diagram - Shows STATES & TRANSITIONS"
+    - States: Idle, Analyzing, Executing, Observing, Responding
+    - Arrows labeled with events: "task received", "plan ready", "action complete"
+    - Annotation: "Shows WHAT STATES exist and HOW to move between them"
+- Relationships: Same system, different perspectives
+- Visual Style: Flowchart uses rectangles, state diagram uses rounded rectangles with transition labels
+
 **SPEAKER NOTES:**
 
 "[Hook - Create distinction]"
@@ -223,6 +240,24 @@ stateDiagram-v2
 **Rendering:** Clean state boxes with labeled transitions
 
 **Graphic:** Rendered state diagram showing agent states
+
+**GRAPHICS:**
+
+**Graphic 1: Basic State Diagram Anatomy**
+- Purpose: Explain the components of a state diagram
+- Type: Annotated state diagram with callouts
+- Elements: Simple state diagram with annotations
+- Labels:
+  - `[*]` symbol → "Start state (begin lifecycle)"
+  - State boxes: "Idle", "Processing", "Completed", "Failed"
+  - Transition arrows with event labels: "Start", "Success", "Error", "Retry"
+  - `[*]` at end → "End state (lifecycle complete)"
+  - Callout boxes explaining:
+    - "States = boxes representing system conditions"
+    - "Transitions = arrows showing how to move between states"
+    - "Events = labels on arrows describing what triggers transition"
+- Relationships: Show how components work together
+- Visual Style: Clean, annotated example with clear callouts
 
 **SPEAKER NOTES:**
 
@@ -279,6 +314,24 @@ stateDiagram-v2
 
 **Graphic:** Rendered composite state diagram
 
+**GRAPHICS:**
+
+**Graphic 1: Composite State Structure**
+- Purpose: Show how composite states contain sub-states
+- Type: Nested state diagram with visual hierarchy
+- Elements: State diagram with composite state highlighted
+- Labels:
+  - Outer state: "Active" (shown as container)
+  - Inner states: "Planning", "Executing", "Evaluating" (inside Active)
+  - Internal transitions: Between sub-states within Active
+  - External transitions: Entering/exiting Active state
+  - Annotations:
+    - "Composite State = container with internal states"
+    - "Internal lifecycle runs inside Active"
+    - "External events can exit Active directly (Critical error → Failed)"
+- Relationships: Show nesting and internal vs external transitions
+- Visual Style: Use border or shading to show composite state boundary
+
 **SPEAKER NOTES:**
 
 "Sometimes a state is actually a group of sub-states. That's where composite states come in.
@@ -334,6 +387,24 @@ stateDiagram-v2
 ```
 
 **Graphic:** Rendered state diagram with highlights on key paths
+
+**GRAPHICS:**
+
+**Graphic 1: Complete Agent State Machine**
+- Purpose: Show full agent execution state diagram with all paths
+- Type: Comprehensive state diagram with path highlighting
+- Elements: Complete state diagram with multiple paths
+- Labels:
+  - States: Idle, Analyzing, ToolSelection (composite), Executing, Observing, Responding, ErrorState
+  - Happy path: Idle → Analyzing → ToolSelection → Executing → Observing → Responding → Idle (highlighted in green)
+  - Error path: Executing → ErrorState → Retry or → Idle (highlighted in red)
+  - Iteration loop: Observing → Analyzing (more work needed, highlighted in yellow)
+  - Annotations:
+    - "Happy path: Successful execution"
+    - "Error handling: Retry with backoff"
+    - "Iteration: Need more work"
+- Relationships: Show how all paths interact
+- Visual Style: Color-code different paths; use composite state for ToolSelection
 
 **SPEAKER NOTES:**
 
@@ -424,6 +495,27 @@ How do you show the structure of your system - what components exist and how the
 - Technical specification
 
 **Graphic:** Example class diagram showing Orchestrator, Agent, Tool relationships
+
+**GRAPHICS:**
+
+**Graphic 1: Class Diagram Components Explained**
+- Purpose: Show the anatomy of a class diagram
+- Type: Annotated class diagram
+- Elements: Three classes with relationship lines
+- Labels:
+  - Class box structure:
+    - Top section: "Class Name" (e.g., "Orchestrator")
+    - Middle section: "Properties" (e.g., "+agents: Agent[]", "+state: State")
+    - Bottom section: "Methods" (e.g., "+execute(task)", "+route(result)")
+  - Relationship lines:
+    - `"1" --> "*"` → "One-to-many relationship"
+    - Arrow direction shows dependency
+  - Annotations:
+    - "+ means public"
+    - "Type notation: property: Type"
+    - "Cardinality: 1 to many (*)"
+- Relationships: Shows class structure and connections
+- Visual Style: UML-style class boxes with sections
 
 **SPEAKER NOTES:**
 
@@ -576,6 +668,24 @@ Stakeholders ask "What does your system look like?" and "How does it connect to 
 
 **Graphic:** C4 model pyramid showing context → containers → components
 
+**GRAPHICS:**
+
+**Graphic 1: C4 Model Hierarchy**
+- Purpose: Explain the four levels of architecture diagrams
+- Type: Pyramid/hierarchy diagram
+- Elements: Four-level pyramid with examples at each level
+- Labels:
+  - Level 1 (top): "Context" → "Who/what interacts with system" (widest view)
+  - Level 2: "Containers" → "Major components inside system"
+  - Level 3: "Components" → "Details within a container"
+  - Level 4 (bottom): "Code" → "Classes/modules (optional, use class diagrams)"
+  - Annotations:
+    - "Zoom in: Context → Containers → Components"
+    - "Most AI workflows need Context + Containers"
+    - "Use Component view for complex subsystems"
+- Relationships: Shows progressive zoom/detail levels
+- Visual Style: Pyramid or nested boxes showing hierarchy
+
 **SPEAKER NOTES:**
 
 "[Hook - Stakeholder question]"
@@ -642,6 +752,26 @@ graph TB
 **What This Shows:** System boundary and external dependencies
 
 **Graphic:** Rendered context diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Context Diagram Structure**
+- Purpose: Show how context diagrams establish system boundaries
+- Type: Context diagram with annotations
+- Elements: Three-group diagram with connections
+- Labels:
+  - Subgraph 1: "Users" (Consultant, Manager) - shown outside system
+  - Subgraph 2: "AI Workflow System" (Orchestrator, Agent Pool, Quality Engine) - the system itself
+  - Subgraph 3: "External Systems" (GitHub, Claude API, Slack) - integrations
+  - Arrows showing interactions:
+    - Users → System (requests)
+    - System → External Systems (data/API calls)
+  - Annotations:
+    - "System boundary = what we own/control"
+    - "External dependencies = what we integrate with"
+    - "Users = who interacts with the system"
+- Relationships: Clear inside/outside boundary
+- Visual Style: Use subgraph containers with distinct styling for each group
 
 **SPEAKER NOTES:**
 
@@ -713,6 +843,26 @@ graph TB
 
 **Graphic:** Rendered container diagram showing layers
 
+**GRAPHICS:**
+
+**Graphic 1: Container Diagram Layered Architecture**
+- Purpose: Show how container diagrams reveal internal system structure
+- Type: Layered architecture diagram
+- Elements: System divided into logical layers
+- Labels:
+  - Layer 1: "User Interface" (Web Forms, Email triggers)
+  - Layer 2: "Orchestration Layer" (Automation Platform, Quality Engine)
+  - Layer 3: "Agent Layer" (Research Agent, Writing Agent, Review Agent)
+  - Layer 4: "Integration Layer" (MCP Servers, External APIs)
+  - Layer 5: "Data Layer" (Templates, Logs, Outputs)
+  - Data flow arrows between layers
+  - Annotations:
+    - "Layers organize by function"
+    - "Data flows down (requests) and up (responses)"
+    - "Each layer has specific responsibilities"
+- Relationships: Show layer dependencies and data flow
+- Visual Style: Horizontal layers with arrows showing vertical flow
+
 **SPEAKER NOTES:**
 
 "Container diagrams show the major components inside your system.
@@ -770,6 +920,31 @@ graph LR
 **What This Shows:** Local vs. cloud, service dependencies
 
 **Graphic:** Rendered deployment diagram
+
+**GRAPHICS:**
+
+**Graphic 1: Deployment Diagram - Physical Architecture**
+- Purpose: Show where components are physically deployed
+- Type: Deployment diagram with location grouping
+- Elements: Two main deployment contexts
+- Labels:
+  - Subgraph 1: "Local Machine" (developer's computer)
+    - Claude Desktop
+    - MCP Servers
+    - Local file system
+  - Subgraph 2: "Cloud Services" (remote infrastructure)
+    - GitHub (version control)
+    - Make.com (automation platform)
+    - Anthropic API (AI processing)
+  - Connection arrows:
+    - Local → Cloud (API calls, data sync)
+    - Cloud ↔ Cloud (service integrations)
+  - Annotations:
+    - "Local: Development and MCP tools"
+    - "Cloud: Production automation and AI"
+    - "Network boundary: API authentication required"
+- Relationships: Show physical separation and network dependencies
+- Visual Style: Use different colors/shading for local vs cloud
 
 **SPEAKER NOTES:**
 
@@ -861,6 +1036,42 @@ Creating diagrams that sit in random files and are never found or updated
 
 **Graphic:** Good vs. bad documentation structure
 
+**GRAPHICS:**
+
+**Graphic 1: Documentation Structure - Bad vs Good**
+- Purpose: Show proper documentation organization
+- Type: File tree comparison
+- Elements: Two folder structures side by side
+- Labels:
+  - LEFT (Bad):
+    ```
+    /
+      diagram1.md
+      diagram_old.md
+      misc_diagrams.md
+      some_workflow.md
+      README.md
+    ```
+    - Annotations: "❌ Flat structure", "❌ Unclear naming", "❌ Hard to find diagrams"
+  - RIGHT (Good):
+    ```
+    /
+      README.md (with key diagrams)
+      /docs
+        /architecture
+          overview.md
+          deployment.md
+        /workflows
+          main-workflow.md
+          quality-workflow.md
+        /agents
+          agent-states.md
+          interactions.md
+    ```
+    - Annotations: "✓ Logical grouping", "✓ Clear hierarchy", "✓ Easy to navigate"
+- Relationships: Show organization impact on discoverability
+- Visual Style: File tree visualization with color coding (red=bad, green=good)
+
 **SPEAKER NOTES:**
 
 "[Hook - Reality check]"
@@ -913,6 +1124,33 @@ Let me show you how..."
 - Details in /docs
 
 **Graphic:** Folder structure visualization
+
+**GRAPHICS:**
+
+**Graphic 1: Recommended Documentation Folder Structure**
+- Purpose: Show the recommended folder organization
+- Type: Detailed file tree with annotations
+- Elements: Complete documentation structure
+- Labels:
+  ```
+  /
+    README.md ← "Landing page with overview + key diagrams"
+    /docs
+      /architecture
+        overview.md ← "Context, container diagrams"
+        deployment.md ← "Deployment diagram"
+        components.md ← "Component details"
+      /workflows
+        main-workflow.md ← "Primary workflow flowchart"
+        quality-workflow.md ← "Quality check flowchart"
+        error-handling.md ← "Error handling flowchart"
+      /agents
+        agent-states.md ← "State diagrams for agents"
+        interactions.md ← "Sequence diagrams"
+        collaboration.md ← "Multi-agent patterns"
+  ```
+- Relationships: Show grouping by type and purpose
+- Visual Style: Tree with icons for folders/files; annotations showing purpose
 
 **SPEAKER NOTES:**
 
@@ -973,6 +1211,37 @@ It also makes them maintainable. When your quality workflow changes, you know ex
 ```
 
 **Graphic:** Maintenance checklist
+
+**GRAPHICS:**
+
+**Graphic 1: Diagram Maintenance Triggers**
+- Purpose: Show when to update different diagram types
+- Type: Trigger-action matrix
+- Elements: Table mapping system changes to diagram updates
+- Labels:
+  | System Change | Diagrams to Update |
+  |---------------|-------------------|
+  | New agent added | → Architecture (context, container), Agent states |
+  | Workflow logic changed | → Flowcharts, Sequence diagrams |
+  | Integration added/removed | → Context diagram, Deployment diagram |
+  | Agent state behavior changed | → State diagrams |
+  | Quality thresholds changed | → Quality workflow, Sequence diagrams |
+  | New external service | → Context, Deployment |
+- Relationships: Maps changes to required documentation updates
+- Visual Style: Clear table with arrows showing impact
+
+**Graphic 2: Maintenance Workflow**
+- Purpose: Show the process of keeping diagrams current
+- Type: Circular workflow
+- Elements: 4-step maintenance cycle
+- Labels:
+  1. "Code Change" (developer makes system change)
+  2. "Update Diagrams" (modify affected .md files)
+  3. "Review in PR" (reviewer checks diagram accuracy)
+  4. "Merge & Deploy" (documentation stays in sync)
+  - Annotation: "Diagrams updated IN SAME PR as code changes"
+- Relationships: Show continuous maintenance loop
+- Visual Style: Cycle diagram with integration into development workflow
 
 **SPEAKER NOTES:**
 

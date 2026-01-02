@@ -169,6 +169,25 @@ Your client asks: "Which cloud AI platform should we use?" They have existing cl
 
 **Graphic:** Logos of AWS Bedrock, Azure OpenAI, Google Vertex AI with question marks between them
 
+**GRAPHICS:**
+
+**Graphic 1: Platform Selection Challenge**
+- Purpose: Visualize the complexity of choosing between major cloud AI platforms
+- Type: Decision diagram with platform logos
+- Elements:
+  - Center: Large question mark with "Which Platform?" text
+  - Three branches radiating out to platform logos:
+    - AWS Bedrock (orange logo)
+    - Azure OpenAI (blue logo)
+    - Google Vertex AI (multi-color logo)
+  - Decision factors floating around: "Cost?", "Models?", "Integration?", "Compliance?"
+- Labels:
+  - Platform names clearly labeled
+  - Key decision criteria as question bubbles
+  - "No universal 'best' choice" caption
+- Relationships: Equal distance from center indicating no inherent preference, arrows pointing both ways showing comparison needed
+- Visual cues: Question mark emphasizing uncertainty, balanced layout showing need for structured evaluation
+
 **SPEAKER NOTES:**
 
 "[Hook - Create tension]"
@@ -214,6 +233,27 @@ Today we're going to build the framework you need to make this recommendation co
 | **Compliance** | FedRAMP, HIPAA | FedRAMP, HIPAA | FedRAMP, HIPAA |
 
 **Graphic:** Comparison table with color coding for strengths
+
+**GRAPHICS:**
+
+**Graphic 1: Cloud AI Platform Capabilities Matrix**
+- Purpose: Provide side-by-side comparison of key capabilities across the Big Three platforms
+- Type: Comparison matrix/table
+- Elements:
+  - Row headers: Model Access, Fine-tuning, Agents, RAG Support, Enterprise SSO, Compliance
+  - Column headers: AWS Bedrock, Azure OpenAI, Google Vertex AI
+  - Each cell filled with capability details from the table
+- Labels:
+  - Platform logos in column headers
+  - Capability categories in row headers
+  - Checkmarks for full support, partial for limited support
+- Relationships: Side-by-side comparison enabling quick evaluation
+- Visual cues:
+  - Green highlighting for strongest capabilities
+  - Yellow for moderate capabilities
+  - Icons: checkmark (supported), star (best-in-class), tilde (limited)
+  - Model names in bold (GPT-4, Claude, Gemini)
+  - Color coding: AWS=orange accents, Azure=blue accents, Google=multi-color accents
 
 **SPEAKER NOTES:**
 
@@ -275,6 +315,28 @@ The key insight: model availability is often the first decision filter."
 - Complexity vs flexibility trade-offs
 
 **Graphic:** Six-pointed star diagram with factors, or decision matrix
+
+**GRAPHICS:**
+
+**Graphic 1: Platform Selection Six-Factor Framework**
+- Purpose: Show the six key factors that should drive platform selection decisions
+- Type: Hexagonal radar/star diagram
+- Elements:
+  - Center point representing the platform decision
+  - Six axes radiating outward:
+    1. Existing Cloud Footprint
+    2. Model Requirements
+    3. Compliance Needs
+    4. Team Expertise
+    5. Integration Points
+    6. Pricing Structure
+  - Each axis can be scored/weighted
+- Labels:
+  - Each factor clearly labeled on its axis
+  - Brief descriptor for each (e.g., "Model Requirements: Specific models vs. flexibility")
+  - Weight percentages can be shown
+- Relationships: Interconnected factors all contributing to central decision
+- Visual cues: Star/hexagon shape showing balanced consideration, could overlay different platform scores for comparison
 
 **SPEAKER NOTES:**
 
@@ -436,6 +498,26 @@ You've selected a platform. Now your client asks: "What's the actual architectur
 
 **Graphic:** Simple diagram showing user load increasing over time with architecture question mark
 
+**GRAPHICS:**
+
+**Graphic 1: Scaling Challenge Visualization**
+- Purpose: Illustrate the problem of scaling from prototype to enterprise production
+- Type: Growth chart with architecture question
+- Elements:
+  - X-axis: Time (Prototype → Production)
+  - Y-axis: Users (100 → 100,000)
+  - Growth curve showing exponential increase
+  - Laptop icon at start (prototype)
+  - Large question mark at end: "How to deploy?"
+  - Requirements bubbles: "Scale", "Reliability", "Cost Control", "Low Latency"
+- Labels:
+  - "100 users" at start
+  - "100,000 users" at end
+  - "Architecture decision point" at inflection
+  - Key requirements listed
+- Relationships: User growth creating pressure for architectural decision
+- Visual cues: Steep growth curve, concern/challenge indicators, scaling arrows
+
 **SPEAKER NOTES:**
 
 "Selecting a platform was step one. Now you need to design the actual deployment architecture.
@@ -500,6 +582,30 @@ We're going to look at three proven deployment patterns. Each solves different p
 - Stateless complexity
 
 **Graphic:** Architecture diagram as shown
+
+**GRAPHICS:**
+
+**Graphic 1: Serverless Agent Architecture Diagram**
+- Purpose: Show the complete serverless deployment pattern with all components and data flow
+- Type: Technical architecture diagram
+- Elements:
+  - Top layer: API Gateway (icon) - entry point for requests
+  - Middle layer: Lambda/Cloud Function (icon) - execution environment
+  - Bottom layer: Three parallel services:
+    - AI API (Bedrock/OpenAI/Vertex icon)
+    - DynamoDB/NoSQL (database icon) for state
+    - S3/Object Storage (storage icon) for files
+  - Request/response flow arrows
+- Labels:
+  - "API Gateway: Rate limiting, Auth"
+  - "Lambda/Cloud Function: Agent Orchestration Logic"
+  - "AI API: Model inference"
+  - "DynamoDB: State persistence"
+  - "S3: File storage"
+  - "Best for: Variable workloads, cost optimization"
+  - "Limitations: Cold starts, execution time limits"
+- Relationships: Request flow from top to bottom, parallel access to three backend services
+- Visual cues: Cloud icons, serverless lightning bolts, arrows showing data flow, color coding (API Gateway=orange, compute=blue, storage=green)
 
 **SPEAKER NOTES:**
 
@@ -566,6 +672,35 @@ Also, Lambda has execution time limits - typically 15 minutes max. If your agent
 
 **Graphic:** Architecture diagram as shown
 
+**GRAPHICS:**
+
+**Graphic 1: Containerized Agent Architecture Diagram**
+- Purpose: Show the Kubernetes-based deployment pattern with container orchestration
+- Type: Technical architecture diagram
+- Elements:
+  - Top layer: Load Balancer (icon) distributing traffic
+  - Middle layer: Kubernetes Cluster (large box containing):
+    - Agent Pod 1 (container icon)
+    - Agent Pod 2 (container icon)
+    - Agent Pod 3 (container icon)
+  - Bottom layer: Three parallel services:
+    - AI API (cloud icon)
+    - Redis (cache icon)
+    - Postgres (database icon)
+  - Traffic distribution arrows from load balancer to pods
+  - Data access arrows from pods to backend services
+- Labels:
+  - "Load Balancer: Traffic distribution"
+  - "Kubernetes Cluster: Container orchestration"
+  - "Agent Pods: Always-on, consistent performance"
+  - "AI API: Model inference"
+  - "Redis: Response caching"
+  - "Postgres: State persistence"
+  - "Best for: Consistent performance, complex orchestration"
+  - "Limitations: Higher baseline cost, operational complexity"
+- Relationships: Load balancer distributes to multiple pods, pods access shared backend services
+- Visual cues: Container/pod icons, K8s logo, arrows showing load distribution and data flow
+
 **SPEAKER NOTES:**
 
 "Pattern 2 is containerized architecture using Kubernetes.
@@ -621,6 +756,31 @@ Plus Kubernetes operational complexity - you need someone who knows how to run a
 
 **Graphic:** Architecture diagram as shown
 
+**GRAPHICS:**
+
+**Graphic 1: Queue-Based Processing Architecture Diagram**
+- Purpose: Show the asynchronous queue-based pattern for batch processing
+- Type: Technical architecture diagram
+- Elements:
+  - Left: API Gateway (icon) - request entry point
+  - Middle: Queue/Message Broker (SQS/Pub/Sub icon)
+  - Right: Worker Pool/Agent Fleet (multiple worker icons)
+  - Bottom center: Status Database (database icon)
+  - Bidirectional arrows showing workflow
+- Labels:
+  - "API Gateway: Immediate response with request ID"
+  - "Queue (SQS/Pub/Sub): Work buffer"
+  - "Worker Pool: Agent fleet processing tasks"
+  - "Status DB: Job status tracking"
+  - "Client polls status or receives webhook"
+  - "Best for: Batch processing, rate limiting, async workflows"
+  - "Limitations: Not suitable for real-time, status tracking complexity"
+- Relationships:
+  - Request → Queue → Workers (asynchronous flow)
+  - Workers update Status DB
+  - API Gateway reads Status DB for status queries
+- Visual cues: Queue icon (stacked items), worker icons (gears/processors), async arrows (dashed), status indicators
+
 **SPEAKER NOTES:**
 
 "Pattern 3 is queue-based processing.
@@ -670,6 +830,22 @@ Exercise 1.2 - Security Architecture Design using selected pattern
 
 **Graphic:** Decision tree or comparison matrix
 
+**GRAPHICS:**
+
+**Graphic 1: Deployment Pattern Selection Guide**
+- Purpose: Help users quickly choose the right deployment pattern for their needs
+- Type: Decision matrix with visual quick-reference
+- Elements:
+  - Three columns for Serverless, Containerized, Queue-based
+  - Rows for: Workload Type, Latency Needs, Cost Model, Complexity, Best Use Case
+  - Visual indicators (thumbs up/down, stars) for each combination
+- Labels:
+  - Serverless: "Variable workload ⭐", "Cost-conscious ⭐", "Cold starts OK"
+  - Containerized: "Consistent latency ⭐", "Complex workflows ⭐", "Higher baseline cost"
+  - Queue-based: "Batch processing ⭐", "Async OK ⭐", "Real-time ✗"
+- Relationships: Side-by-side comparison enabling quick pattern selection
+- Visual cues: Green checkmarks for ideal fits, yellow for acceptable, red X for poor fits, star ratings for strength in category
+
 **SPEAKER NOTES:**
 
 "Key takeaways on deployment patterns:
@@ -716,6 +892,23 @@ Questions before we talk about security?"
 Enterprise AI systems need AI-specific security controls beyond traditional application security.
 
 **Graphic:** Comparison showing traditional app vs AI app attack vectors
+
+**GRAPHICS:**
+
+**Graphic 1: Traditional vs. AI Security Threats**
+- Purpose: Highlight the unique security challenges specific to AI systems
+- Type: Side-by-side comparison diagram
+- Elements:
+  - Left side: Traditional App attack vectors (SQL injection, XSS, CSRF, etc.)
+  - Right side: AI-specific attack vectors (Prompt injection, Training data exposure, Model manipulation, PII leakage, etc.)
+  - Overlap area showing shared concerns (Authentication, Authorization, Network security)
+- Labels:
+  - Traditional: "Standard web app threats"
+  - AI-specific: "New AI system threats"
+  - Shared: "Common security concerns"
+  - Each threat type with icon (lock, shield, warning symbol)
+- Relationships: Venn diagram or side-by-side showing AI systems face both traditional AND new threats
+- Visual cues: Red/warning colors for threat categories, shield icons for defenses needed, arrows pointing to specific vulnerabilities
 
 **SPEAKER NOTES:**
 
@@ -769,6 +962,29 @@ Layer 5: Monitoring (Logging, Anomaly detection, Alerts)
 
 **Graphic:** Layered diagram showing the five layers
 
+**GRAPHICS:**
+
+**Graphic 1: Defense-in-Depth Five-Layer Security Architecture**
+- Purpose: Visualize the layered security approach with each layer protecting the core
+- Type: Layered/concentric diagram (like an onion or castle walls)
+- Elements:
+  - Outermost Layer 1: Network Security (VPC, Private Endpoints, Firewalls)
+  - Layer 2: Identity & Access Management (OAuth, API Keys, Service Accounts)
+  - Layer 3: Application Security (Input validation, Output filtering, WAF)
+  - Layer 4: Data Protection (Encryption at rest/transit, Tokenization, DLP)
+  - Layer 5 (innermost): Monitoring & Audit (Logging, Anomaly detection, Alerts)
+  - Center: "Protected AI System"
+- Labels:
+  - Each layer clearly labeled with name and key controls
+  - "Defense-in-Depth: Security at every layer"
+  - Brief description of what each layer protects against
+- Relationships: Concentric layers showing multiple barriers, attacker must breach all layers
+- Visual cues:
+  - Shield/wall imagery for each layer
+  - Color gradient from outer (blue) to inner (red) showing increasing sensitivity
+  - Arrows showing attack vectors blocked at each layer
+  - Checkmarks showing protection mechanisms
+
 **SPEAKER NOTES:**
 
 "We apply defense-in-depth using five layers:
@@ -818,6 +1034,26 @@ The key: if an attacker bypasses one layer, the others still protect you."
 
 **Graphic:** Comparison table of patterns
 
+**GRAPHICS:**
+
+**Graphic 1: Secrets Management Patterns Comparison**
+- Purpose: Compare three approaches to managing secrets in AI deployments
+- Type: Comparison table with use case guidance
+- Elements:
+  - Three columns: Vault-based, Environment Variables, Managed Identity
+  - Rows: Implementation, Use Case, Complexity, Security Level, Rotation Capability
+  - Implementation details for each pattern
+- Labels:
+  - Vault-based: "HashiCorp Vault, AWS Secrets Manager" | "Dynamic secrets, rotation" | "High complexity, High security"
+  - Environment: "Kubernetes Secrets, Parameter Store" | "Simple deployments" | "Medium complexity, Medium security"
+  - Managed Identity: "AWS IAM Roles, Azure MSI" | "Cloud-native apps" | "Low complexity, High security"
+- Relationships: Trade-offs between complexity and capabilities
+- Visual cues:
+  - Security rating (stars or locks)
+  - Complexity indicator (1-3 gears)
+  - Checkmarks for capabilities
+  - Color coding: Green for recommended, yellow for acceptable, red for limitations
+
 **SPEAKER NOTES:**
 
 "Let's talk about secrets management.
@@ -865,6 +1101,36 @@ What you NEVER do: hard-code API keys in your code, commit them to git, or store
 - Output sanitization (PII redaction)
 
 **Graphic:** API Gateway with controls illustrated
+
+**GRAPHICS:**
+
+**Graphic 1: API Gateway Security Controls Stack**
+- Purpose: Show all the security layers enforced at the API Gateway level
+- Type: Layered architecture diagram with control annotations
+- Elements:
+  - Center: API Gateway icon/box
+  - Top (incoming): Request flow with threats (malicious requests, DDoS, etc.)
+  - Security control layers within gateway:
+    1. Rate Limiting (speedometer icon)
+    2. Request Validation (checkmark/clipboard icon)
+    3. Authentication (key icon)
+    4. Authorization (shield icon)
+    5. IP Allowlisting (network icon)
+    6. DDoS Protection (armor icon)
+  - Bottom (outgoing): Clean, validated requests to backend
+  - Side annotations for AI-specific controls: Prompt size limits, Content filtering, Output sanitization
+- Labels:
+  - Each control labeled with purpose
+  - "Rate Limiting: Per client/tenant"
+  - "Authentication: JWT/OAuth validation"
+  - "Authorization: RBAC/ABAC policies"
+  - AI-specific labels highlighted
+- Relationships: Sequential filtering showing each control as a gate
+- Visual cues:
+  - Red threats blocked at each layer
+  - Green validated requests passing through
+  - Shield/protection icons
+  - Traffic flow arrows
 
 **SPEAKER NOTES:**
 
@@ -961,6 +1227,29 @@ Questions on security before we talk about decision frameworks?"
 
 **Graphic:** Icons representing decision tree and scoring matrix
 
+**GRAPHICS:**
+
+**Graphic 1: Two-Part Decision Framework Overview**
+- Purpose: Introduce the two complementary approaches for platform selection
+- Type: Process flow with method icons
+- Elements:
+  - Left side: Decision Tree (tree/flowchart icon)
+    - "Narrow the field"
+    - "Binary filters"
+    - "Hard requirements"
+  - Arrow pointing right labeled "THEN"
+  - Right side: Weighted Scoring (spreadsheet/calculator icon)
+    - "Compare finalists"
+    - "Quantitative analysis"
+    - "Data-driven choice"
+  - Bottom: Final output "Platform Recommendation with Justification"
+- Labels:
+  - "Step 1: Filter" on decision tree
+  - "Step 2: Score" on weighted matrix
+  - "Documented, defensible decision" at output
+- Relationships: Sequential process showing both methods working together
+- Visual cues: Funnel imagery (many options → few options → one choice), numbered steps, arrows showing progression
+
 **SPEAKER NOTES:**
 
 "You can't just say 'use Azure' without justification.
@@ -1011,6 +1300,33 @@ Let me show you how."
 
 **Graphic:** Flowchart visualization
 
+**GRAPHICS:**
+
+**Graphic 1: Platform Selection Decision Tree**
+- Purpose: Provide a clear decision path for narrowing platform choices
+- Type: Flowchart decision tree
+- Elements:
+  - Start node: "Platform Selection"
+  - Level 1: "Existing cloud infrastructure?" → Yes/No branches
+    - Yes → "Prefer that platform for integration" → (AWS/Azure/GCP logo)
+    - No → Continue to Level 2
+  - Level 2: "Specific models required?"
+    - "OpenAI GPT-4 only?" → Yes → Azure OpenAI (decision end)
+    - "Claude only?" → Yes → AWS Bedrock or Google Vertex
+    - "Flexibility needed?" → Yes → AWS Bedrock (most models)
+  - Level 3: "Compliance requirements?"
+    - Government/FedRAMP → All three support (continue)
+    - Data residency → Check regional availability
+    - Industry-specific → Verify certifications
+  - Level 4: "Team expertise?"
+    - Existing skills → Weight platform by familiarity
+- Labels:
+  - Each decision clearly stated as question
+  - Outcomes labeled with platform names and logos
+  - "Decision point" markers
+- Relationships: Tree structure with yes/no branches, multiple paths to recommendations
+- Visual cues: Decision diamonds, outcome boxes, platform logos at endpoints, green highlighting for recommended paths
+
 **SPEAKER NOTES:**
 
 "The decision tree works like this:
@@ -1057,6 +1373,35 @@ This tree gets you to one or two finalists. Then you score them."
 **Document:** Rationale for each score
 
 **Graphic:** Scoring table with example scores
+
+**GRAPHICS:**
+
+**Graphic 1: Weighted Scoring Model Template**
+- Purpose: Show the scoring methodology with example values filled in
+- Type: Scoring matrix/table
+- Elements:
+  - Column headers: Factor, Weight, Platform A (AWS), Platform B (Azure), Platform C (GCP)
+  - Rows:
+    - Model availability: 25% | 7/10 | 10/10 | 8/10
+    - Existing integration: 20% | 3/10 | 10/10 | 4/10
+    - Security/Compliance: 20% | 9/10 | 9/10 | 9/10
+    - Cost structure: 15% | 7/10 | 6/10 | 8/10
+    - Team expertise: 10% | 4/10 | 9/10 | 3/10
+    - Support/SLAs: 10% | 8/10 | 9/10 | 7/10
+  - Bottom row: Weighted Total | 6.5 | 9.0 | 7.1
+  - Winner highlight on Platform B
+- Labels:
+  - Each factor clearly labeled
+  - Weights shown as percentages (total 100%)
+  - Scores shown as X/10
+  - Calculated weighted totals
+  - "RECOMMENDED" badge on winner
+- Relationships: Weighted calculation showing how scores combine to final decision
+- Visual cues:
+  - Color gradient on scores (green=high, yellow=medium, red=low)
+  - Bold/highlight on winning platform
+  - Weight percentages in separate column
+  - Calculation arrows showing weight × score
 
 **SPEAKER NOTES:**
 
