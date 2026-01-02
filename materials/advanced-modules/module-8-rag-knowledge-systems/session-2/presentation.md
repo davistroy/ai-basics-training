@@ -1,0 +1,1115 @@
+# **POWERPOINT PRESENTATION: ADVANCED MODULE 8 SESSION 2**
+## **Production RAG & Agent Integration**
+
+**Module:** Advanced Module 8: RAG & Knowledge Systems
+**Session Number:** 2 of 2
+**Session Duration:** 45 minutes
+**Delivery Format:** Live MS Teams workshop
+
+**Target Audience:** Block 3 graduates who have completed Session 1 with basic RAG system designed and tested
+
+**Session Learning Objectives:** By the end of this session, participants will:
+1. Implement advanced retrieval patterns including hybrid search and re-ranking
+2. Integrate RAG systems with agent workflows using appropriate patterns
+3. Establish evaluation frameworks to measure RAG quality objectively
+4. Address production considerations for enterprise RAG deployment
+
+**Entry Criteria:**
+- [ ] RAG architecture designed (Session 1 Exercise 1.1)
+- [ ] Chunking pipeline implemented (Session 1 Exercise 1.2)
+- [ ] Basic retrieval tested (Session 1 Exercise 1.3)
+- [ ] Understanding of retrieval quality issues
+
+**Exit Criteria:**
+- [ ] Advanced retrieval patterns implemented
+- [ ] Agent-RAG integration functional
+- [ ] Evaluation framework established
+- [ ] Production considerations documented
+- [ ] Module capstone completed
+
+**Presentation Structure:**
+1. Opening & Session 1 Recap (3 min) - Slides 1-3
+2. Segment 1: Advanced Retrieval Patterns (12 min) - Slides 4-7
+3. Segment 2: Agent + RAG Integration (12 min) - Slides 8-11
+4. Segment 3: RAG Evaluation Framework (12 min) - Slides 12-15
+5. Segment 4: Production Considerations (9 min) - Slides 16-18
+6. Module Wrap-up & Capstone Preview (3 min) - Slides 19-21
+
+**Total Slides:** 21
+
+---
+
+## Slide Definitions
+
+### SLIDE 1: TITLE SLIDE
+
+**Title:** Advanced Module 8 Session 2: Production RAG & Agent Integration
+
+**Subtitle:** Building Enterprise-Ready Knowledge Agents
+
+**Content:**
+- [Instructor Name]
+- [Date/Cohort identifier]
+- AI Practitioner Training Program - Advanced Module
+
+**Graphic:** Clean title slide with green tones. Show an advanced RAG system with agent integration and production monitoring.
+
+**SPEAKER NOTES:**
+
+"Welcome back to Module 8, Session 2. Last session, you learned RAG fundamentals and designed your first RAG system.
+
+Today we're taking it to production. We'll enhance your retrieval with hybrid search and re-ranking. We'll integrate RAG with your agent systems. We'll build evaluation frameworks to measure quality. And we'll address production concerns like scaling, security, and updates.
+
+By the end of today, you'll have a production-ready, knowledge-enabled agent system."
+
+---
+
+### SLIDE 2: SESSION 1 RECAP
+
+**Title:** What We Built in Session 1
+
+**Content:**
+
+**Session 1 Achievements:**
+- ✓ RAG architecture designed
+- ✓ Chunking strategies implemented
+- ✓ Embeddings and vector storage configured
+- ✓ Basic retrieval tested with metrics
+
+**Key Learnings:**
+- RAG retrieves before generating
+- Chunking quality = retrieval quality
+- Embeddings enable semantic search
+- Top-k balances coverage and precision
+
+**Common Issues from Session 1:**
+- Retrieval missing relevant chunks
+- Keyword-dependent queries failing
+- Low precision on complex queries
+
+**Today:** We'll solve these issues and go to production
+
+**SPEAKER NOTES:**
+
+"Quick recap: Session 1 covered RAG fundamentals. You designed architectures, implemented chunking, and tested basic retrieval.
+
+Most of you found issues - retrieval missing relevant information, keyword-dependent queries failing, complex queries with low precision.
+
+Today we solve those problems with advanced retrieval. Then we integrate with agents and prepare for production.
+
+Any questions from Session 1 homework before we dive in?"
+
+---
+
+### SLIDE 3: TODAY'S JOURNEY
+
+**Title:** Session 2 Overview
+
+**Content:**
+
+| Time | Topic | Outcome |
+|------|-------|---------|
+| 0-3 min | Opening | Recap & Preview |
+| 3-15 min | Advanced Retrieval | Hybrid search, re-ranking |
+| 15-27 min | Agent Integration | Three integration patterns |
+| 27-39 min | Evaluation | Metrics and testing frameworks |
+| 39-48 min | Production | Scaling, security, monitoring |
+| 48-51 min | Wrap-up | Capstone overview |
+
+**Graphic:** Timeline with emphasis on building production-ready systems
+
+**SPEAKER NOTES:**
+
+"Here's our path today: Advanced retrieval patterns to improve quality. Agent integration patterns to connect RAG with your Block 3 agents. Evaluation frameworks to measure quality objectively. And production considerations for enterprise deployment.
+
+The capstone ties it all together - a complete knowledge-enabled agent system.
+
+Let's start with making retrieval better."
+
+---
+
+## SEGMENT 1: ADVANCED RETRIEVAL PATTERNS
+### Duration: 12 minutes | Slides 4-7
+
+---
+
+### SLIDE 4: BEYOND BASIC SEMANTIC SEARCH
+
+**Title:** Why We Need Advanced Retrieval
+
+**Content:**
+
+**The Problem with Basic Semantic Search:**
+- Misses exact matches (names, codes, SKUs)
+- Struggles with technical terminology
+- Can't differentiate similar concepts
+- Single-pass retrieval limits quality
+
+**Real Impact:**
+```
+Query: "What's the policy for PTO in California?"
+Semantic only: Might miss "California" requirement
+Keyword only: Might miss "paid time off" = "PTO"
+Hybrid: Catches both semantic meaning AND exact term
+```
+
+**The Solutions:**
+1. Hybrid search (semantic + keyword)
+2. Re-ranking (refine results)
+3. Query transformation (optimize query)
+
+**SPEAKER NOTES:**
+
+"Session 1's semantic search works well for conceptual queries, but it has gaps.
+
+It misses exact matches - if someone searches 'Product SKU-12345', semantic search might not find it. It struggles with technical terms. And it can't differentiate subtle differences.
+
+The solution: combine semantic with keyword search for hybrid. Add re-ranking to refine results. Use query transformation to optimize queries.
+
+Let me show you how each works..."
+
+---
+
+### SLIDE 5: HYBRID SEARCH
+
+**Title:** Combining Semantic and Keyword Retrieval
+
+**Content:**
+
+**How Hybrid Search Works:**
+```
+Query: "remote work policy"
+     ↓
+Semantic Search → [Chunks about remote work, WFH, telecommuting]
+Keyword Search → [Chunks with exact term "remote work policy"]
+     ↓
+Fusion (RRF) → Combined ranking
+     ↓
+Top-k results with best of both
+```
+
+**Reciprocal Rank Fusion (RRF):**
+- Combines rankings from multiple sources
+- Score = 1/(k + rank) for each source
+- Sum scores across sources
+- Works even when similarity scores aren't comparable
+
+**When Hybrid Helps:**
+- Technical terms, names, codes
+- Legal/compliance queries (exact language matters)
+- Mixed semantic + keyword requirements
+
+**Configuration:**
+```json
+{
+  "semantic_weight": 0.7,
+  "keyword_weight": 0.3,
+  "fusion_method": "rrf"
+}
+```
+
+**SPEAKER NOTES:**
+
+"Hybrid search runs both semantic AND keyword search, then fuses the results.
+
+The query goes to semantic search - finds conceptually similar chunks. Same query goes to keyword search - finds exact term matches. RRF combines the rankings.
+
+Reciprocal Rank Fusion is elegant: score each result as 1/(60+rank). Sum scores from both searches. This works even when semantic gives 0.8 similarity and keyword gives match/no-match.
+
+You weight the combination - typically 70% semantic, 30% keyword. Adjust based on your domain.
+
+In Exercise 2.1, you'll implement hybrid search and compare to your Session 1 baseline."
+
+---
+
+### SLIDE 6: RE-RANKING FOR QUALITY
+
+**Title:** Two-Stage Retrieval: Fast Then Accurate
+
+**Content:**
+
+**The Re-ranking Pattern:**
+```
+Stage 1: Fast retrieval (top-50)
+  - Bi-encoder (semantic)
+  - ANN search
+  - Fast but lower precision
+     ↓
+Stage 2: Accurate re-ranking (top-5)
+  - Cross-encoder model
+  - Scores query + chunk together
+  - Slow but high precision
+```
+
+**Bi-encoder vs. Cross-encoder:**
+
+| Model Type | Speed | Accuracy | Use |
+|------------|-------|----------|-----|
+| Bi-encoder | Fast | Good | Initial retrieval |
+| Cross-encoder | Slow | Excellent | Re-ranking |
+
+**Cost-Benefit:**
+- 10-20% precision improvement
+- 200-500ms added latency
+- Use for high-stakes queries
+
+**SPEAKER NOTES:**
+
+"Re-ranking is a two-stage pattern.
+
+Stage 1: Use fast bi-encoder semantic search to get top-50 candidates. This is approximate but fast.
+
+Stage 2: Use slow but accurate cross-encoder to re-rank those 50 into the final top-5.
+
+Why does this work? Bi-encoders embed query and chunks separately, then compare. Fast but limited. Cross-encoders score the query and chunk together as a pair. Much more accurate but too slow for full corpus.
+
+The pattern: use fast method to narrow down, use accurate method to refine.
+
+Typical results: 10-20% precision improvement, 200-500ms added latency. Worth it for important queries."
+
+---
+
+### SLIDE 7: SEGMENT 1 SUMMARY
+
+**Title:** Advanced Retrieval - Key Takeaways
+
+**Content:**
+
+**Key Patterns:**
+- **Hybrid search:** Combine semantic + keyword for best of both
+- **Re-ranking:** Fast retrieval → Accurate refinement
+- **Query transformation:** Expand, rephrase, or hypothesize
+
+**When to Use:**
+- Hybrid: Almost always beneficial
+- Re-ranking: High-stakes queries, when precision matters most
+- Transformation: Complex or ambiguous queries
+
+**Implementation Order:**
+1. Start with basic semantic (Session 1)
+2. Add hybrid search (biggest win)
+3. Add re-ranking if needed
+4. Experiment with transformation
+
+**You'll Practice:** Exercise 2.1 - Implement hybrid + re-ranking
+
+**SPEAKER NOTES:**
+
+"Three advanced patterns: hybrid search, re-ranking, query transformation.
+
+Hybrid search is almost always beneficial - implement it first. Re-ranking for high-stakes scenarios. Query transformation for complex queries.
+
+Implementation order: start basic, add hybrid, add re-ranking if needed, experiment with transformation.
+
+In Exercise 2.1, you'll add hybrid and re-ranking to your Session 1 system and measure the improvement.
+
+Now let's connect RAG to agents..."
+
+---
+
+## SEGMENT 2: AGENT + RAG INTEGRATION
+### Duration: 12 minutes | Slides 8-11
+
+---
+
+### SLIDE 8: THREE INTEGRATION PATTERNS
+
+**Title:** How Agents Use Knowledge
+
+**Content:**
+
+**Pattern 1: RAG as Tool**
+```
+Agent decides when to search knowledge base
+search_knowledge_base(query) → chunks
+```
+- **Pro:** Agent controls when to use KB
+- **Con:** Requires good tool-use reasoning
+
+**Pattern 2: RAG as Context**
+```
+Always retrieve context, inject into prompt
+```
+- **Pro:** Simple, always has knowledge
+- **Con:** May retrieve when not needed
+
+**Pattern 3: Agentic RAG**
+```
+Multi-agent system for retrieval
+Router → Search Agent → Synthesis
+```
+- **Pro:** Sophisticated, handles complex queries
+- **Con:** More complexity, latency
+
+**Decision Framework:**
+
+| Your Use Case | Pattern |
+|---------------|---------|
+| Simple Q&A | RAG as Context |
+| Mixed tasks | RAG as Tool |
+| Complex research | Agentic RAG |
+
+**SPEAKER NOTES:**
+
+"Three ways to connect agents and RAG.
+
+Pattern 1: RAG as Tool. Your agent has a search_knowledge_base tool. It decides when to search. Natural for tool-using agents from Block 3. Requires the agent to reason about when knowledge is needed.
+
+Pattern 2: RAG as Context. Always retrieve, inject context into every prompt. Simple - no tool reasoning needed. But you retrieve even when not needed, wasting cost.
+
+Pattern 3: Agentic RAG. Full multi-agent system. Router agent decides what to do. Search agent handles retrieval with sophisticated strategies. Response agent synthesizes. Most powerful but most complex.
+
+Use the decision framework: simple Q&A → context. Mixed tasks → tool. Complex research → agentic.
+
+Let me show you each in detail..."
+
+---
+
+### SLIDE 9: RAG AS TOOL (RECOMMENDED)
+
+**Title:** Letting Agents Control Knowledge Access
+
+**Content:**
+
+**Tool Definition:**
+```json
+{
+  "name": "search_knowledge_base",
+  "description": "Search company knowledge for policies, procedures, documentation",
+  "parameters": {
+    "query": "Search query",
+    "filters": "Optional metadata filters"
+  }
+}
+```
+
+**Agent System Prompt:**
+```
+You are an assistant with access to company knowledge.
+
+When users ask about policies, procedures, or company info:
+1. Use search_knowledge_base tool
+2. Cite sources in your response
+3. If not found, say so clearly
+```
+
+**Flow:**
+```
+User: "What's our vacation policy?"
+  ↓
+Agent: Decides to use search_knowledge_base
+  ↓
+Tool: Returns chunks from policy handbook
+  ↓
+Agent: Generates response with citations
+```
+
+**Benefits:**
+- Agent controls cost (only searches when needed)
+- Can refine queries if first search fails
+- Natural extension of Block 3 patterns
+
+**SPEAKER NOTES:**
+
+"RAG as Tool is the recommended pattern for most use cases.
+
+You define search_knowledge_base as a tool in your agent's toolkit. The agent decides when to use it based on the user query.
+
+System prompt guides the agent: use the tool for company-specific questions, cite sources, admit when information isn't found.
+
+The flow is natural - user asks a question, agent reasons 'this needs knowledge base', calls the tool, gets chunks, generates a cited response.
+
+Benefits: cost control (only search when needed), ability to refine queries, and it's a natural extension of what you learned in Block 3.
+
+This is what you'll implement in Exercise 2.2."
+
+---
+
+### SLIDE 10: CITATION BEST PRACTICES
+
+**Title:** Making RAG Responses Trustworthy
+
+**Content:**
+
+**Why Citations Matter:**
+- Compliance and audit trails
+- User trust and transparency
+- Debugging and improvement
+- Legal and regulatory requirements
+
+**Citation Formats:**
+
+**Inline:**
+```
+According to the Employee Handbook (p. 23), vacation accrues at...
+```
+
+**Footnote:**
+```
+Vacation accrues at 15 days per year.[1]
+
+[1] Employee Handbook, Section 4.2, p. 23
+```
+
+**Structured:**
+```json
+{
+  "answer": "Vacation accrues at 15 days per year",
+  "sources": [
+    {
+      "document": "employee-handbook.pdf",
+      "section": "4.2",
+      "page": 23,
+      "chunk_id": "doc-123-chunk-45"
+    }
+  ]
+}
+```
+
+**Best Practices:**
+- Include document name, section, page
+- Link to source if possible
+- Distinguish between direct quotes and paraphrasing
+- Log what was retrieved for debugging
+
+**SPEAKER NOTES:**
+
+"Citations aren't optional for enterprise RAG - they're essential.
+
+Why? Compliance needs audit trails. Users need trust. You need debugging visibility. Legal and regulatory often require knowing what information informed decisions.
+
+Three citation formats:
+
+Inline - weave sources into the response. Natural but can be verbose.
+
+Footnote - number citations, list at bottom. Professional, familiar from academic writing.
+
+Structured - separate answer and sources. Enables UI flexibility.
+
+Best practices: always include document, section, page. Link if possible. Distinguish quotes from paraphrasing. Log retrievals for debugging.
+
+Your agent should never answer from knowledge without citing the source."
+
+---
+
+### SLIDE 11: SEGMENT 2 SUMMARY
+
+**Title:** Agent Integration - Key Takeaways
+
+**Content:**
+
+**Integration Patterns:**
+- RAG as Tool: Agent controls (recommended)
+- RAG as Context: Always inject
+- Agentic RAG: Multi-agent sophistication
+
+**Implementation Checklist:**
+- [ ] Choose integration pattern
+- [ ] Define tool or context template
+- [ ] Update system prompt with guidelines
+- [ ] Implement citation format
+- [ ] Test with diverse scenarios
+
+**Critical Guidelines:**
+- Always cite sources
+- Admit when information isn't found
+- Filter by user permissions
+- Log what was retrieved
+
+**You'll Practice:** Exercise 2.2 - Integrate RAG with your agent
+
+**SPEAKER NOTES:**
+
+"Key points on agent integration:
+
+Three patterns - tool (recommended), context (simple), agentic (sophisticated).
+
+Implementation checklist: choose pattern, define tool or template, update system prompt, implement citations, test thoroughly.
+
+Critical guidelines: always cite, admit ignorance, respect permissions, log retrievals.
+
+In Exercise 2.2, you'll integrate your RAG system with your Block 3 agent and test with realistic scenarios.
+
+Now let's talk about measuring quality..."
+
+---
+
+## SEGMENT 3: RAG EVALUATION FRAMEWORK
+### Duration: 12 minutes | Slides 12-15
+
+---
+
+### SLIDE 12: WHY EVALUATION MATTERS
+
+**Title:** You Can't Improve What You Don't Measure
+
+**Content:**
+
+**The Problem:**
+```
+PM: "Is the RAG system working well?"
+You: "Um... it seems okay?"
+PM: "How do you know?"
+You: "Users haven't complained much?"
+```
+
+**The Solution:**
+```
+PM: "Is the RAG system working well?"
+You: "Precision@5 is 0.82, MRR is 0.91, faithfulness is 0.95"
+PM: "What's the target?"
+You: "0.75, 0.85, 0.90 - we're above target on all metrics"
+```
+
+**What to Measure:**
+- **Retrieval quality:** Are we finding the right chunks?
+- **Generation quality:** Are responses faithful and relevant?
+- **End-to-end quality:** Does the whole system work?
+
+**When to Measure:**
+- Development (iterative improvement)
+- Pre-production (gate for launch)
+- Production (ongoing monitoring)
+
+**SPEAKER NOTES:**
+
+"Imagine this conversation with your PM. First version: you have no data. Second version: you have objective metrics.
+
+Which version gets your RAG system into production?
+
+You can't improve what you don't measure. RAG systems need evaluation frameworks.
+
+Three dimensions: retrieval quality (finding right chunks), generation quality (faithful responses), end-to-end quality (complete system).
+
+Measure during development for iteration, pre-production for launch gates, and in production for monitoring.
+
+Let me show you the metrics..."
+
+---
+
+### SLIDE 13: RETRIEVAL METRICS
+
+**Title:** Measuring Search Quality
+
+**Content:**
+
+**Core Metrics:**
+
+| Metric | Formula | What It Measures |
+|--------|---------|------------------|
+| **Precision@k** | relevant_in_top_k / k | Noise in results |
+| **Recall@k** | relevant_in_top_k / total_relevant | Missing info |
+| **MRR** | 1 / rank_of_first_relevant | Top result quality |
+| **NDCG** | Normalized DCG | Full ranking quality |
+
+**Example:**
+```
+Query: "vacation policy"
+Top-5 results: [relevant, relevant, irrelevant, relevant, irrelevant]
+Total relevant in corpus: 8 chunks
+
+Precision@3 = 2/3 = 0.67
+Precision@5 = 3/5 = 0.60
+Recall@5 = 3/8 = 0.375
+MRR = 1/1 = 1.0 (first result was relevant)
+```
+
+**Target Benchmarks:**
+- Precision@3: >0.70
+- Precision@5: >0.60
+- MRR: >0.80
+
+**SPEAKER NOTES:**
+
+"Four key retrieval metrics:
+
+Precision@k: what percentage of top-k are relevant? Measures noise. High precision means low noise.
+
+Recall@k: what percentage of all relevant chunks are in top-k? Measures completeness. High recall means you didn't miss important information.
+
+MRR (Mean Reciprocal Rank): quality of the first relevant result. MRR of 1.0 means first result was relevant. MRR of 0.5 means first relevant was at rank 2.
+
+NDCG: normalized discounted cumulative gain. Measures full ranking quality.
+
+Example walkthrough: 5 results, 3 relevant but one is at position 3. Precision@3 is 67%. Precision@5 is 60%. MRR is 1.0 because first result was relevant.
+
+Target benchmarks for production systems: Precision@3 above 70%, Precision@5 above 60%, MRR above 80%."
+
+---
+
+### SLIDE 14: GENERATION METRICS
+
+**Title:** Measuring Answer Quality
+
+**Content:**
+
+**Three Key Metrics:**
+
+**1. Faithfulness (Groundedness)**
+- Does the response match the retrieved context?
+- Are all claims supported by sources?
+- Score: 1-5 (LLM-as-judge or human)
+
+**2. Answer Relevance**
+- Does the response actually answer the question?
+- Is it complete and on-topic?
+- Score: 1-5 (LLM-as-judge or human)
+
+**3. Citation Accuracy**
+- Are citations correct and traceable?
+- Can claims be verified in sources?
+- Score: 1-5 or % accurate
+
+**LLM-as-Judge Pattern:**
+```
+Prompt: Given this query, retrieved context, and response,
+rate the faithfulness (1-5) and explain your reasoning.
+
+Query: {query}
+Context: {retrieved_chunks}
+Response: {agent_response}
+
+Scoring:
+5 - All claims supported, no hallucinations
+4 - Minor unsupported details
+3 - Some unsupported claims
+2 - Significant hallucinations
+1 - Contradicts context
+```
+
+**Target Benchmarks:**
+- Faithfulness: >4.0
+- Relevance: >4.0
+- Citation Accuracy: >0.95
+
+**SPEAKER NOTES:**
+
+"Generation metrics measure answer quality.
+
+Faithfulness: does the response match retrieved context? All claims supported? Use LLM-as-judge or human evaluation. Score 1-5.
+
+Answer relevance: does it actually answer the question? Is it complete? Again, LLM-as-judge or human, 1-5 scale.
+
+Citation accuracy: are citations correct? Can you trace claims to sources? Critical for compliance.
+
+LLM-as-judge is powerful - use a strong model to evaluate your system's responses. Give it the query, context, and response. Ask it to score faithfulness and explain.
+
+Targets: Faithfulness above 4.0 (most claims supported), relevance above 4.0, citation accuracy above 95%.
+
+Build these into your evaluation framework."
+
+---
+
+### SLIDE 15: SEGMENT 3 SUMMARY
+
+**Title:** Evaluation Framework - Key Takeaways
+
+**Content:**
+
+**Evaluation Pyramid:**
+```
+          [End-to-End Testing]
+         /                    \
+  [Generation Metrics]  [Retrieval Metrics]
+```
+
+**Build Your Test Set:**
+1. Collect 20-50 representative queries
+2. Label expected chunks (gold standard)
+3. Define expected answer characteristics
+4. Automate evaluation where possible
+5. Sample for human evaluation
+
+**Continuous Evaluation:**
+- Development: Run on every change
+- Pre-production: Gate for launch
+- Production: Monitor with sample traffic
+
+**Tools:**
+- RAGAS framework
+- LlamaIndex evaluation
+- Custom test harness
+- Human evaluation sample
+
+**You'll Build:** Evaluation framework in capstone (Exercise 2.3)
+
+**SPEAKER NOTES:**
+
+"Evaluation has three layers: retrieval metrics (finding chunks), generation metrics (answer quality), end-to-end testing (complete system).
+
+Build a test set: 20-50 queries covering your domain. Label which chunks should be retrieved. Define expected answer characteristics. Automate what you can, sample for human review.
+
+Continuous evaluation: run tests on every change during development. Use as quality gate pre-production. Monitor in production with sample traffic.
+
+Tools available: RAGAS framework, LlamaIndex evaluation, or build custom. Always include human evaluation sampling.
+
+Your capstone includes building an evaluation framework for your knowledge-enabled agent.
+
+Final segment: production considerations..."
+
+---
+
+## SEGMENT 4: PRODUCTION CONSIDERATIONS
+### Duration: 9 minutes | Slides 16-18
+
+---
+
+### SLIDE 16: SCALING AND PERFORMANCE
+
+**Title:** From Prototype to Production
+
+**Content:**
+
+**Scaling Challenges:**
+
+| Challenge | Impact | Solutions |
+|-----------|--------|-----------|
+| **Index size** | Slow search, high cost | Sharding, tiered storage |
+| **Query latency** | Poor UX | Caching, ANN tuning |
+| **Concurrent users** | Rate limits | Connection pooling, async |
+| **Update frequency** | Stale results | Incremental indexing |
+
+**Performance Optimization:**
+```
+Latency Budget: 2000ms target
+
+Embedding: 100ms (cached)
+Vector search: 300ms (optimized ANN)
+Re-ranking: 400ms (only when needed)
+LLM generation: 1000ms (streaming)
+Network/overhead: 200ms
+
+Total: 2000ms
+```
+
+**Caching Strategy:**
+- Cache popular queries (30-day TTL)
+- Cache document embeddings (permanent)
+- Cache re-ranking results (7-day TTL)
+- Expected hit rate: 40-60%
+
+**SPEAKER NOTES:**
+
+"Production RAG faces scaling challenges.
+
+Index size: millions of chunks means slower search. Solutions: shard across multiple indices, use tiered storage for hot/cold data.
+
+Query latency: users expect fast responses. Solutions: aggressive caching, tune ANN parameters, only re-rank when needed.
+
+Concurrent users: hitting rate limits. Solutions: connection pooling, async processing, queue management.
+
+Update frequency: knowledge changes. Solutions: incremental indexing, don't rebuild everything.
+
+Performance optimization is a latency budget. Target 2 seconds total. Budget: embedding 100ms (cache it), search 300ms, re-rank 400ms (only high-stakes), LLM 1s (stream it), overhead 200ms.
+
+Caching is critical: cache popular queries, cache embeddings permanently, cache re-rank results. 40-60% hit rate is realistic."
+
+---
+
+### SLIDE 17: SECURITY AND ACCESS CONTROL
+
+**Title:** Protecting Knowledge and Privacy
+
+**Content:**
+
+**Security Layers:**
+```
+User Request
+     ↓
+[Authentication] - Who are you?
+     ↓
+[Authorization] - What can you access?
+     ↓
+[Query + User Context]
+     ↓
+[Metadata Filtering] - Document ACLs
+     ↓
+[Retrieved Chunks] - Only permitted content
+     ↓
+[Response] - + Audit log
+```
+
+**Access Control Patterns:**
+
+**1. Document-level ACLs:**
+```json
+{
+  "chunk_metadata": {
+    "access_level": "manager",
+    "department": "HR",
+    "allowed_roles": ["hr_staff", "manager", "executive"]
+  }
+}
+```
+
+**2. Query-time filtering:**
+```python
+vector_search(
+    query=query,
+    filter={
+        "access_level": {"$lte": user.access_level},
+        "department": {"$in": user.departments}
+    }
+)
+```
+
+**3. Audit logging:**
+```json
+{
+  "timestamp": "2024-01-15T10:30:00Z",
+  "user": "user@company.com",
+  "query": "executive compensation policy",
+  "chunks_retrieved": ["doc-123-chunk-5", "doc-456-chunk-12"],
+  "documents_accessed": ["exec-comp-2024.pdf"]
+}
+```
+
+**Critical Requirements:**
+- No data leakage between users/tenants
+- All access logged for compliance
+- Graceful handling of permission errors
+
+**SPEAKER NOTES:**
+
+"Security is non-negotiable for enterprise RAG.
+
+The security flow: authenticate (who are you?), authorize (what can you access?), filter retrieval by permissions, log everything.
+
+Three access control patterns:
+
+Document-level ACLs in metadata. Tag chunks with access_level, department, allowed_roles. Inherit from parent documents.
+
+Query-time filtering. When searching, filter by user's access level and departments. Vector database does this natively.
+
+Audit logging. Log every query, what was retrieved, which documents accessed. Critical for compliance and forensics.
+
+Critical requirements: zero data leakage (tenant A never sees tenant B's data), all access logged, graceful permission errors (don't reveal what they can't access).
+
+Build access control in from day one - it's hard to retrofit."
+
+---
+
+### SLIDE 18: SEGMENT 4 SUMMARY
+
+**Title:** Production RAG - Key Takeaways
+
+**Content:**
+
+**Production Checklist:**
+
+**Performance:**
+- [ ] Latency < 2s (p95)
+- [ ] Caching implemented
+- [ ] Index optimized (ANN tuned)
+- [ ] Cost per query acceptable
+
+**Security:**
+- [ ] Access control implemented
+- [ ] Audit logging in place
+- [ ] No data leakage tested
+- [ ] Permission errors graceful
+
+**Maintenance:**
+- [ ] Update procedure documented
+- [ ] Monitoring dashboards
+- [ ] Alert thresholds defined
+- [ ] Backup/recovery tested
+
+**Monitoring Metrics:**
+- Latency (p50, p95, p99)
+- Empty result rate
+- Cost per query
+- Cache hit rate
+- Error rate
+
+**SPEAKER NOTES:**
+
+"Production readiness checklist across three dimensions:
+
+Performance: latency targets, caching, index optimization, cost control.
+
+Security: access control, audit logging, data isolation, graceful errors.
+
+Maintenance: update procedures, monitoring, alerting, backup.
+
+Monitor these metrics in production: latency percentiles, empty result rate (users not finding answers), cost per query, cache effectiveness, errors.
+
+Your capstone includes production readiness assessment.
+
+Let's wrap up the module..."
+
+---
+
+## CLOSING SECTION
+### Duration: 3 minutes | Slides 19-21
+
+---
+
+### SLIDE 19: MODULE CAPSTONE
+
+**Title:** Knowledge-Enabled Agent System
+
+**Content:**
+
+**Capstone Components:**
+
+**1. Complete RAG System**
+- Architecture from Session 1 + enhancements
+- Chunking implementation
+- Advanced retrieval (hybrid + re-rank)
+
+**2. Agent Integration**
+- RAG connected to Block 3 agent
+- Proper citation format
+- Test scenarios documented
+
+**3. Evaluation Framework**
+- Retrieval metrics (Precision@k, MRR)
+- Generation metrics (faithfulness, relevance)
+- Test set with results
+
+**4. Production Readiness**
+- Performance assessment
+- Security checklist
+- Monitoring plan
+
+**5. Documentation**
+- Architecture decisions with rationale
+- Lessons learned
+- Production recommendations
+
+**Time:** 25 minutes (Exercise 2.3)
+
+**SPEAKER NOTES:**
+
+"Your capstone brings everything together: complete RAG system, agent integration, evaluation framework, production readiness, and documentation.
+
+This is a portfolio piece - a production-ready, knowledge-enabled agent system you can show clients or employers.
+
+You have 25 minutes for the capstone exercise. Use the template in your participant guide. Focus on demonstrating what you learned.
+
+The goal isn't perfection - it's showing you can design, build, evaluate, and deploy enterprise RAG systems."
+
+---
+
+### SLIDE 20: RESOURCES
+
+**Title:** Resources for Session 2 & Beyond
+
+**Content:**
+
+**Templates:**
+- Advanced retrieval configuration
+- Agent integration patterns
+- Evaluation test set
+- Production checklist
+
+**Tools & Frameworks:**
+- RAGAS (evaluation)
+- LangChain (implementation)
+- LlamaIndex (end-to-end)
+- Pinecone/Qdrant/Weaviate (vector DBs)
+
+**Further Learning:**
+- RAG research papers (latest techniques)
+- Vector database docs (optimization)
+- Evaluation frameworks (RAGAS, ARES)
+- Production case studies
+
+**Module Resources:**
+- Appendix A-C in main module doc
+- Session 1 & 2 materials
+- Support channel for questions
+
+**SPEAKER NOTES:**
+
+"Resources to support your capstone and future work: templates for all patterns covered, tools and frameworks for implementation, further learning materials for advanced topics.
+
+Module appendices have detailed templates. Session materials are your reference.
+
+Questions? Post in support channel - I monitor daily.
+
+All materials in your participant guide."
+
+---
+
+### SLIDE 21: MODULE COMPLETE
+
+**Title:** You're Now a RAG Expert
+
+**Content:**
+
+**What You've Accomplished:**
+
+**Session 1:**
+- ✓ RAG architecture patterns
+- ✓ Chunking strategies
+- ✓ Embeddings and vector storage
+- ✓ Basic retrieval pipelines
+
+**Session 2:**
+- ✓ Advanced retrieval (hybrid, re-ranking)
+- ✓ Agent integration patterns
+- ✓ Evaluation frameworks
+- ✓ Production considerations
+
+**Your New Capabilities:**
+- Design enterprise RAG systems
+- Choose appropriate components
+- Integrate with agent workflows
+- Measure and improve quality
+- Deploy to production
+
+**Next Steps:**
+1. Complete capstone (Exercise 2.3)
+2. Apply to real client engagement
+3. Share learnings with cohort
+
+**Congratulations!**
+
+**SPEAKER NOTES:**
+
+"Let's recap what you've accomplished in this module.
+
+Session 1: RAG fundamentals - architecture, chunking, embeddings, basic retrieval.
+
+Session 2: Production RAG - advanced retrieval, agent integration, evaluation, production deployment.
+
+You can now design enterprise RAG systems, choose appropriate components, integrate with agents, measure quality, and deploy to production.
+
+These are highly valuable skills. Enterprise clients need knowledge-enabled agents. You can now build them.
+
+Next steps: complete your capstone, apply this to a real engagement, share what you learned.
+
+Excellent work in this module. Now go build amazing knowledge-enabled agent systems!"
+
+---
+
+## Appendix: Presentation Guidelines
+
+### Timing Notes
+- Opening with Session 1 recap (3 min) - acknowledge homework
+- Segment 1 is tactical (hybrid, re-ranking) - keep concrete
+- Segment 2 connects to Block 3 agents - leverage existing knowledge
+- Segment 3 introduces metrics - use clear examples
+- Segment 4 covers production - emphasize checklist approach
+- Closing previews capstone - make it exciting
+
+### Backup Plans
+- If discussion runs long in Segment 1: Reference patterns, focus on hybrid search
+- If running behind: Shorten security discussion in Segment 4
+- If running ahead: Discuss real production challenges from your experience
+
+### Key Messages
+1. "Hybrid search is almost always beneficial"
+2. "RAG as Tool is the recommended integration pattern"
+3. "You can't improve what you don't measure"
+4. "Build security in from day one"
+
+---
+
+**Version History:**
+
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | 2026-01-02 | Initial presentation created | Claude |

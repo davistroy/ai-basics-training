@@ -1,0 +1,766 @@
+# **Advanced Module 6: Enterprise AI Architecture**
+# **Session 2: Production Deployment & Operations**
+
+## **45 min live + 75 min homework**
+
+-----
+
+## **Entry Criteria**
+
+- [ ] Platform comparison completed
+- [ ] Security architecture designed
+- [ ] Cost model created
+- [ ] Understanding of deployment patterns
+
+## **Exit Criteria**
+
+- [ ] Deployment strategy documented
+- [ ] Scaling patterns implemented
+- [ ] Operations runbook created
+- [ ] Module capstone delivered
+- [ ] Executive presentation ready
+
+-----
+
+## **Workshop Content (45 minutes)**
+
+**Segment 1: Scaling Patterns for AI Workloads (12 min)**
+
+- **Auto-scaling strategies:**
+
+  | Strategy | Trigger | Best For |
+  |----------|---------|----------|
+  | **Request-based** | Requests/second | Synchronous APIs |
+  | **Queue-depth** | Messages in queue | Async processing |
+  | **CPU/Memory** | Resource utilization | Container workloads |
+  | **Custom metric** | Business KPIs | Complex workflows |
+  | **Scheduled** | Time of day | Predictable patterns |
+
+- **Scaling configuration example:**
+  ```json
+  {
+    "auto_scaling": {
+      "min_instances": 2,
+      "max_instances": 50,
+      "target_cpu_utilization": 70,
+      "scale_up_threshold": {
+        "requests_per_second": 100,
+        "queue_depth": 1000
+      },
+      "scale_down_delay_seconds": 300,
+      "scale_up_cooldown_seconds": 60
+    }
+  }
+  ```
+
+- **Load balancing for AI:**
+  - Session affinity for multi-turn conversations
+  - Health checks with AI-specific probes
+  - Weighted routing for A/B testing
+  - Geographic routing for latency
+
+- **Capacity planning:**
+  - Token throughput limits
+  - Concurrent request limits
+  - Burst handling strategies
+  - Reserved capacity vs on-demand
+
+**Segment 2: Hybrid and On-Premises Architectures (12 min)**
+
+- **When to consider on-premises:**
+  - Data sovereignty requirements
+  - Air-gapped environments
+  - Ultra-low latency needs
+  - Cost optimization at extreme scale
+  - Regulatory mandates
+
+- **Hybrid architecture patterns:**
+
+  ```
+  Pattern A: Data On-Prem, AI in Cloud
+  ┌─────────────────┐     ┌─────────────────┐
+  │  On-Premises    │     │     Cloud       │
+  │  ┌───────────┐  │     │  ┌───────────┐  │
+  │  │   Data    │──┼─────┼─▶│   AI API  │  │
+  │  │  Sources  │  │     │  └───────────┘  │
+  │  └───────────┘  │     │                 │
+  │  ┌───────────┐  │     │                 │
+  │  │  Results  │◀─┼─────┼─────────────────│
+  │  │  Storage  │  │     │                 │
+  │  └───────────┘  │     │                 │
+  └─────────────────┘     └─────────────────┘
+
+  Pattern B: Edge Processing with Cloud AI
+  ┌─────────────┐   ┌─────────────┐   ┌─────────────┐
+  │   Edge      │   │   Regional  │   │   Central   │
+  │ ┌─────────┐ │   │ ┌─────────┐ │   │ ┌─────────┐ │
+  │ │ Filter  │─┼──▶│ │ Process │─┼──▶│ │Cloud AI │ │
+  │ │ & Cache │ │   │ │ & Route │ │   │ │   API   │ │
+  │ └─────────┘ │   │ └─────────┘ │   │ └─────────┘ │
+  └─────────────┘   └─────────────┘   └─────────────┘
+  ```
+
+- **On-premises AI options:**
+
+  | Option | Models | Hardware | Use Case |
+  |--------|--------|----------|----------|
+  | **Self-hosted LLM** | Llama, Mistral | GPU servers | Full control |
+  | **Private cloud** | Vendor models | Dedicated region | Compliance |
+  | **Appliance** | Pre-configured | Vendor hardware | Simplicity |
+
+- **Connectivity considerations:**
+  - VPN vs Direct Connect vs ExpressRoute
+  - Latency requirements
+  - Bandwidth for token streaming
+  - Failover strategies
+
+**Segment 3: Operations and Observability (12 min)**
+
+- **Observability stack for AI:**
+  ```
+  ┌─────────────────────────────────────────────────────────┐
+  │                   Dashboards & Alerts                    │
+  │              (Grafana, Datadog, CloudWatch)             │
+  └─────────────────────┬───────────────────────────────────┘
+                        │
+  ┌─────────────┬───────────┴───────────┬─────────────┐
+  │   Metrics   │        Logs           │   Traces    │
+  │ (Prometheus)│    (ELK, CloudWatch)  │   (Jaeger)  │
+  └─────────────┴───────────────────────┴─────────────┘
+                        │
+  ┌─────────────────────┴───────────────────────────────┐
+  │                  AI Agent System                     │
+  │  ┌──────────┐  ┌──────────┐  ┌──────────┐          │
+  │  │Orchestrator│ │  Agents  │  │  Tools   │          │
+  │  └──────────┘  └──────────┘  └──────────┘          │
+  └─────────────────────────────────────────────────────┘
+  ```
+
+- **AI-specific metrics:**
+
+  | Metric | Description | Alert Threshold |
+  |--------|-------------|-----------------|
+  | Token usage rate | Tokens/minute | >80% of limit |
+  | Response latency | P50, P95, P99 | P95 > 10s |
+  | Error rate | Failed requests % | >5% |
+  | Cost per request | $/request | >target |
+  | Quality score | Output quality | <threshold |
+
+- **Logging best practices:**
+  - Log request/response (sanitized)
+  - Include trace IDs across services
+  - Capture token counts
+  - Record model versions
+  - Track prompt templates used
+
+- **Incident response for AI systems:**
+  ```
+  1. Detect: Automated alerting on metrics
+  2. Triage: Classify as AI vs infrastructure issue
+  3. Contain: Circuit breaker, fallback, or disable
+  4. Investigate: Logs, traces, recent changes
+  5. Resolve: Fix root cause
+  6. Review: Post-incident analysis
+  ```
+
+**Segment 4: Enterprise Deployment Strategy (9 min)**
+
+- **Deployment phases:**
+
+  | Phase | Duration | Goals | Success Criteria |
+  |-------|----------|-------|------------------|
+  | **Pilot** | 4-6 weeks | Validate approach | 10 users, positive feedback |
+  | **Limited** | 8-12 weeks | Scale validation | 100 users, SLAs met |
+  | **General** | Ongoing | Full rollout | All users, optimized |
+
+- **Migration strategies:**
+  - **Big bang:** One-time cutover (high risk, fast)
+  - **Parallel run:** Both systems active (safe, expensive)
+  - **Phased:** Gradual user migration (balanced)
+  - **Feature flags:** Toggle per feature/user (flexible)
+
+- **Rollback planning:**
+  - Define rollback triggers
+  - Document rollback procedure
+  - Test rollback in staging
+  - Maintain previous version
+
+- **Change management:**
+  - Stakeholder communication plan
+  - Training program
+  - Support escalation path
+  - Feedback collection mechanism
+
+-----
+
+## **Self-Paced Exercises (75 minutes total)**
+
+**Exercise 2.1: Deployment Strategy Document (25 minutes)**
+
+*Create deployment plan for enterprise rollout*
+
+```markdown
+# Enterprise AI Deployment Strategy
+
+## Executive Summary
+[2-3 paragraphs summarizing deployment approach, timeline, and key decisions]
+
+---
+
+## Deployment Approach
+
+### Strategy Selection
+- **Chosen approach:** [Phased/Parallel/Big Bang]
+- **Rationale:** [Why this approach]
+- **Risk level:** [Low/Medium/High]
+
+### Phase Plan
+
+#### Phase 1: Pilot (Weeks 1-4)
+- **Scope:** [Specific use cases, features]
+- **Users:** [Number, criteria for selection]
+- **Success criteria:**
+  - [ ] [Criterion 1]
+  - [ ] [Criterion 2]
+  - [ ] [Criterion 3]
+- **Go/No-Go decision point:** Week 4
+
+#### Phase 2: Limited Availability (Weeks 5-12)
+- **Scope:** [Expanded use cases]
+- **Users:** [Target number, departments]
+- **Success criteria:**
+  - [ ] [Criterion 1]
+  - [ ] [Criterion 2]
+- **Go/No-Go decision point:** Week 12
+
+#### Phase 3: General Availability (Week 13+)
+- **Scope:** [Full functionality]
+- **Users:** [All target users]
+- **Ongoing metrics:** [What to track]
+
+---
+
+## Infrastructure Deployment
+
+### Environment Strategy
+| Environment | Purpose | Refresh Frequency |
+|-------------|---------|-------------------|
+| Development | Feature development | Continuous |
+| Staging | Integration testing | Weekly |
+| Pre-prod | Performance/Security | Bi-weekly |
+| Production | Live system | Controlled releases |
+
+### Deployment Pipeline
+```
+Code Commit → Build → Unit Tests → Security Scan
+     ↓
+Deploy to Staging → Integration Tests → Performance Tests
+     ↓
+Manual Approval → Deploy to Pre-prod → Validation
+     ↓
+Change Request → Deploy to Production → Smoke Tests → Monitor
+```
+
+### Rollback Procedure
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+4. [Step 4]
+
+---
+
+## Scaling Configuration
+
+### Auto-scaling Rules
+```json
+{
+  "scaling_policy": {
+    "min_replicas": X,
+    "max_replicas": X,
+    "metrics": [
+      {
+        "type": "cpu",
+        "target_utilization": X
+      },
+      {
+        "type": "custom",
+        "name": "requests_per_second",
+        "target": X
+      }
+    ]
+  }
+}
+```
+
+### Capacity Reservations
+| Time Period | Reserved Capacity | On-Demand Buffer |
+|-------------|-------------------|------------------|
+| Business hours | X units | X% |
+| Off-hours | X units | X% |
+| Peak events | X units | X% |
+
+---
+
+## Risk Mitigation
+
+| Risk | Likelihood | Impact | Mitigation |
+|------|------------|--------|------------|
+| API rate limits | Medium | High | Reserved capacity, caching |
+| Model degradation | Low | High | Quality monitoring, rollback |
+| Cost overrun | Medium | Medium | Budget alerts, usage caps |
+| Security incident | Low | Critical | Defense in depth, response plan |
+
+---
+
+## Timeline
+
+| Week | Milestone | Deliverable |
+|------|-----------|-------------|
+| 1 | Infrastructure ready | Environments provisioned |
+| 2 | Security approved | Penetration test passed |
+| 3 | Pilot users onboarded | Training complete |
+| 4 | Pilot review | Go/No-Go decision |
+| [Continue...]
+```
+
+**Deliverable:** `deployment-strategy.md`
+
+-----
+
+**Exercise 2.2: Operations Runbook (25 minutes)**
+
+*Document operational procedures*
+
+```markdown
+# AI System Operations Runbook
+
+## System Overview
+
+### Architecture Summary
+[Brief description with reference to architecture diagram]
+
+### Key Components
+| Component | Technology | Owner | Support |
+|-----------|------------|-------|---------|
+| API Gateway | [Service] | [Team] | [Contact] |
+| Orchestrator | [Service] | [Team] | [Contact] |
+| AI Backend | [Service] | [Team] | [Contact] |
+| Database | [Service] | [Team] | [Contact] |
+
+### Dependencies
+| External Service | Purpose | SLA | Fallback |
+|-----------------|---------|-----|----------|
+| [AI Provider] | Model inference | 99.9% | [Alternative] |
+| [Service 2] | [Purpose] | X% | [Alternative] |
+
+---
+
+## Monitoring
+
+### Dashboard Links
+- Production: [URL]
+- Staging: [URL]
+- Cost tracking: [URL]
+
+### Key Metrics & Thresholds
+
+| Metric | Warning | Critical | Dashboard |
+|--------|---------|----------|-----------|
+| Response latency P95 | >5s | >10s | [Link] |
+| Error rate | >2% | >5% | [Link] |
+| Token usage | >70% | >90% | [Link] |
+| Cost/hour | >$X | >$X | [Link] |
+| Queue depth | >1000 | >5000 | [Link] |
+
+### Alert Routing
+| Severity | Channel | Response Time |
+|----------|---------|---------------|
+| Critical | PagerDuty + Slack | 15 min |
+| Warning | Slack #ai-alerts | 1 hour |
+| Info | Email | Next business day |
+
+---
+
+## Common Procedures
+
+### Procedure 1: Scaling Up Manually
+**When:** Anticipated high load event
+**Steps:**
+1. [Step with command/action]
+2. [Step with command/action]
+3. [Step with command/action]
+**Verification:** [How to confirm success]
+
+### Procedure 2: Rotating API Keys
+**When:** Scheduled or after suspected compromise
+**Steps:**
+1. [Step]
+2. [Step]
+3. [Step]
+**Verification:** [How to confirm success]
+
+### Procedure 3: Updating Model Version
+**When:** New model version available
+**Steps:**
+1. [Step]
+2. [Step]
+3. [Step]
+**Verification:** [How to confirm success]
+
+### Procedure 4: Emergency Disable
+**When:** Critical incident requiring immediate shutdown
+**Steps:**
+1. [Step]
+2. [Step]
+3. [Step]
+**Verification:** [How to confirm success]
+
+---
+
+## Incident Response
+
+### Severity Levels
+| Level | Definition | Examples |
+|-------|------------|----------|
+| SEV1 | Complete outage | All requests failing |
+| SEV2 | Partial outage | >20% errors |
+| SEV3 | Degraded | High latency |
+| SEV4 | Minor | Cosmetic issues |
+
+### Incident Workflow
+```
+Detection → Acknowledge → Assess Severity
+     ↓
+Communicate → Investigate → Resolve
+     ↓
+Post-Incident Review → Document → Close
+```
+
+### Common Issues & Resolutions
+
+#### Issue: High Error Rate
+**Symptoms:** Error rate >5%, alerts firing
+**Potential Causes:**
+1. AI API issues - Check provider status page
+2. Rate limiting - Check token usage
+3. Bad deployment - Check recent changes
+
+**Resolution Steps:**
+1. [Step]
+2. [Step]
+3. [Step]
+
+#### Issue: High Latency
+**Symptoms:** P95 >10s
+**Potential Causes:**
+1. Model congestion - Check AI provider
+2. Database slow - Check query performance
+3. Network issues - Check connectivity
+
+**Resolution Steps:**
+1. [Step]
+2. [Step]
+3. [Step]
+
+#### Issue: Cost Spike
+**Symptoms:** Hourly cost >2x normal
+**Potential Causes:**
+1. Traffic spike - Check request volume
+2. Prompt bloat - Check token counts
+3. Loop detection - Check for repeated requests
+
+**Resolution Steps:**
+1. [Step]
+2. [Step]
+3. [Step]
+
+---
+
+## Maintenance Windows
+
+| Activity | Frequency | Duration | Impact |
+|----------|-----------|----------|--------|
+| Security patches | Weekly | 30 min | None (rolling) |
+| Model updates | Monthly | 1 hour | Degraded |
+| Infrastructure updates | Quarterly | 2 hours | Possible outage |
+
+---
+
+## Contacts
+
+### Escalation Path
+1. **L1:** On-call engineer - [Contact method]
+2. **L2:** Senior engineer - [Contact method]
+3. **L3:** Architecture team - [Contact method]
+4. **Management:** [Name] - [Contact method]
+
+### Vendor Support
+| Vendor | Support Portal | SLA |
+|--------|---------------|-----|
+| [AI Provider] | [URL] | [Response time] |
+| [Cloud Provider] | [URL] | [Response time] |
+```
+
+**Deliverable:** `operations-runbook.md`
+
+-----
+
+**Exercise 2.3: Module Capstone - Enterprise Architecture Proposal (25 minutes)**
+
+*Create client-ready architecture recommendation*
+
+```markdown
+# Enterprise AI Architecture Proposal
+
+## Client: [Client Name]
+## Prepared by: [Your Name]
+## Date: [Date]
+
+---
+
+## Executive Summary
+
+[3-4 paragraphs covering:]
+- Business context and AI initiative goals
+- Recommended platform and architecture
+- Key benefits and expected outcomes
+- Investment summary and timeline
+
+---
+
+## Business Requirements
+
+### Primary Use Cases
+1. **[Use Case 1]:** [Description, volume, priority]
+2. **[Use Case 2]:** [Description, volume, priority]
+3. **[Use Case 3]:** [Description, volume, priority]
+
+### Success Criteria
+| Metric | Current State | Target | Timeline |
+|--------|---------------|--------|----------|
+| [Metric 1] | | | |
+| [Metric 2] | | | |
+| [Metric 3] | | | |
+
+### Constraints
+- **Budget:** [Range]
+- **Timeline:** [Deadline]
+- **Compliance:** [Requirements]
+- **Integration:** [Existing systems]
+
+---
+
+## Platform Recommendation
+
+### Selected Platform: [Platform Name]
+
+#### Rationale
+1. [Reason 1 - tied to requirement]
+2. [Reason 2 - tied to requirement]
+3. [Reason 3 - tied to requirement]
+
+#### Comparison Summary
+| Factor | Recommended | Alternative 1 | Alternative 2 |
+|--------|-------------|---------------|---------------|
+| Model fit | [Score] | [Score] | [Score] |
+| Integration | [Score] | [Score] | [Score] |
+| Cost | [Score] | [Score] | [Score] |
+| **Overall** | **Best** | Viable | Not recommended |
+
+#### Risks and Mitigations
+| Risk | Mitigation |
+|------|------------|
+| [Risk 1] | [Mitigation] |
+| [Risk 2] | [Mitigation] |
+
+---
+
+## Reference Architecture
+
+### Architecture Diagram
+```
+[Insert detailed architecture diagram showing:]
+- User entry points
+- API Gateway / Load Balancer
+- Compute layer (serverless/containers)
+- AI services integration
+- Data stores
+- Security controls
+- Monitoring stack
+```
+
+### Component Details
+
+| Component | Service | Purpose | Sizing |
+|-----------|---------|---------|--------|
+| API Gateway | [Service] | Auth, rate limiting | [Config] |
+| Compute | [Service] | Agent orchestration | [Config] |
+| AI Backend | [Service] | Model inference | [Config] |
+| Vector DB | [Service] | RAG storage | [Config] |
+| Cache | [Service] | Response caching | [Config] |
+| Logging | [Service] | Observability | [Config] |
+
+---
+
+## Security Architecture
+
+### Security Controls Summary
+| Layer | Controls | Implementation |
+|-------|----------|----------------|
+| Network | VPC, Private endpoints | [Details] |
+| Identity | OAuth 2.0, MFA | [Details] |
+| Data | Encryption, DLP | [Details] |
+| Application | Input validation, WAF | [Details] |
+| Monitoring | SIEM, audit logs | [Details] |
+
+### Compliance Mapping
+| Requirement | Status | Evidence |
+|-------------|--------|----------|
+| [Requirement 1] | Addressed | [Control reference] |
+| [Requirement 2] | Addressed | [Control reference] |
+
+---
+
+## Cost Analysis
+
+### 12-Month Projection
+| Category | Year 1 | Notes |
+|----------|--------|-------|
+| AI API costs | $XXX,XXX | [Assumptions] |
+| Infrastructure | $XX,XXX | [Assumptions] |
+| Operations | $XX,XXX | [Assumptions] |
+| **Total** | **$XXX,XXX** | |
+
+### Cost Optimization Roadmap
+| Initiative | Savings | Timeline |
+|------------|---------|----------|
+| [Initiative 1] | $XX,XXX | Month X |
+| [Initiative 2] | $XX,XXX | Month X |
+
+### ROI Analysis
+- **Investment:** $XXX,XXX (Year 1)
+- **Expected benefits:** [Quantified benefits]
+- **Payback period:** [Months]
+
+---
+
+## Implementation Roadmap
+
+### Phase Timeline
+```
+Month 1-2: Foundation
+├── Infrastructure provisioning
+├── Security implementation
+└── Development environment ready
+
+Month 3-4: Pilot
+├── Core features deployed
+├── Pilot users onboarded
+└── Initial feedback incorporated
+
+Month 5-6: Scale
+├── Full feature deployment
+├── Broader user rollout
+└── Performance optimization
+
+Month 7+: Optimize
+├── Cost optimization
+├── Feature expansion
+└── Continuous improvement
+```
+
+### Key Milestones
+| Milestone | Target Date | Dependencies |
+|-----------|-------------|--------------|
+| Infrastructure ready | Month 1 | [Deps] |
+| Security approved | Month 2 | [Deps] |
+| Pilot launch | Month 3 | [Deps] |
+| GA launch | Month 5 | [Deps] |
+
+---
+
+## Next Steps
+
+### Immediate Actions (Next 2 Weeks)
+1. [ ] [Action 1]
+2. [ ] [Action 2]
+3. [ ] [Action 3]
+
+### Decision Points
+| Decision | Owner | Deadline |
+|----------|-------|----------|
+| Platform approval | [Role] | [Date] |
+| Budget approval | [Role] | [Date] |
+| Security sign-off | [Role] | [Date] |
+
+---
+
+## Appendices
+
+### Appendix A: Detailed Cost Model
+[Reference to cost-model.md from Session 1]
+
+### Appendix B: Security Architecture Details
+[Reference to security-architecture-design.md from Session 1]
+
+### Appendix C: Platform Comparison Details
+[Reference to platform-comparison-analysis.md from Session 1]
+```
+
+**Deliverable:** `enterprise-architecture-proposal.md` + Executive presentation
+
+**Executive Presentation Outline (10-15 slides):**
+```markdown
+# Enterprise AI Architecture - Executive Presentation
+
+## Slide Structure:
+
+### Slide 1: Title
+- Project name, client, date, presenter
+
+### Slide 2: Executive Summary
+- One-page summary: problem, solution, benefits, investment
+
+### Slide 3: Business Challenge
+- Current state pain points
+- Strategic opportunity
+
+### Slide 4: Proposed Solution
+- High-level architecture visual
+- Key platform choice
+
+### Slide 5: Why [Platform Name]
+- 3-4 key selection criteria
+- Comparison highlights
+
+### Slide 6: Reference Architecture
+- Visual diagram of components
+- Data flow overview
+
+### Slide 7: Security & Compliance
+- Key security controls
+- Compliance certifications addressed
+
+### Slide 8: Cost Overview
+- Year 1 investment summary
+- ROI projection
+
+### Slide 9: Implementation Timeline
+- Phase overview (6-12 months)
+- Key milestones
+
+### Slide 10: Risks & Mitigations
+- Top 3 risks
+- Mitigation strategies
+
+### Slide 11: Success Metrics
+- KPIs and targets
+- Measurement approach
+
+### Slide 12: Next Steps
+- Immediate actions
+- Decision points needed
+- Call to action
+```
+
+-----
