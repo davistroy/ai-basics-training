@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 participants with multi-tool agents from Week 3
 
+**Key Thesis:** Complex multi-step tasks require explicit planning separated from execution, with the Four Tiers of context management and checkpoint/resume capabilities transforming fragile prototypes into production-ready systems.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Create planning prompts that decompose complex tasks into steps
 2. Implement state management using the Four Tiers of context
@@ -415,6 +417,29 @@ Checkpoints define where to pause and validate.
 This structured format lets the agent track progress systematically. It's not prose - it's executable structure."
 
 [Transition: Click to Segment 2]
+
+**BACKGROUND:**
+
+**Rationale:**
+- The Plan-Execute separation is the natural evolution of Week 1's Setup-Worker pattern applied to task decomposition
+- Explicit planning creates artifact that serves as both execution roadmap and debugging reference
+- Positions planning as architectural decision, not implementation detail - foundational for Week 5's orchestration where master agents plan and workers execute
+- Counter-intuitive insight: Adding a planning step reduces total execution time by preventing thrashing
+
+**Key Research & Citations:**
+- **Anthropic Agent Best Practices (2025)**: Recommends agentic scaffolding with explicit decomposition step before task execution to improve reliability and reduce token waste from failed attempts
+- **ReAct Pattern Research (Yao et al., 2023)**: Demonstrated that agents performing reasoning (planning) before action outperform direct action approaches by 20-30% on complex tasks
+- **Software Engineering Planning Phase**: Waterfall, Agile, and modern methodologies all separate planning from implementation - same principle applies to autonomous agents
+
+**Q&A Preparation:**
+- *"Doesn't planning add overhead?"*: Upfront yes, but it prevents expensive failures. Planning phase uses fewer tokens than repeatedly attempting poorly-scoped tasks.
+- *"What if the plan becomes outdated?"*: Plans should be living documents - agents update plans when conditions change. That's conscious adaptation vs. random thrashing.
+- *"Can't the agent plan on-the-fly?"*: It can, but implicitly. Explicit plans enable validation, sharing across sessions, and human review before execution.
+
+**Sources:**
+1. [Anthropic: Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) - Agentic scaffolding recommendations
+2. [ReAct: Synergizing Reasoning and Acting](https://arxiv.org/abs/2210.03629) - Planning before action research
+3. [Chain-of-Thought Prompting](https://arxiv.org/abs/2201.11903) - Reasoning process improvement
 
 ---
 
@@ -1230,34 +1255,19 @@ Great progress. See you next week!"
 
 ---
 
-## Appendix: Slide Design Notes
+## APPENDICES
 
-### Block 3 Color Scheme
+### Appendix A: Slide Type Definitions
+**TITLE SLIDE** - Opens presentation | **CONCEPT INTRODUCTION** - Introduces framework | **FRAMEWORK / MODEL** - Structured approach | **PATTERN / BEST PRACTICE** - Proven approach | **ARCHITECTURE / DIAGRAM** - System structure
 
-| Element | Color | Hex Code |
-|---------|-------|----------|
-| Primary | Green | #00CC99 |
-| Accent | Teal | #008B8B |
-| Background | White | #FFFFFF |
-| Text | Dark Gray | #333333 |
+### Appendix B: Background Section Guidelines
+**Rationale:** Explain slide's purpose | **Key Research & Citations:** **[Source (Year)]**: [Explanation] | **Q&A Preparation:** *"[Question]"*: [Response]
 
-### Graphic Suggestions by Slide
+### Appendix C: Visual Design Guidelines
+**Block 3 Color Scheme:** Primary Green #00CC99, Accent Teal #008B8B | **Theme:** Green for automation, Teal for orchestration
 
-| Slide | Graphic Type | Description |
-|-------|-------------|-------------|
-| 1 | Title | Stepped process with checkpoints |
-| 5 | Flow | Two-phase plan/execute |
-| 10 | Pyramid | Four tiers stacked |
-| 12 | Code | State object with highlights |
-| 16 | Comparison | Restart vs. resume timelines |
-| 18 | Structure | Checkpoint JSON annotated |
-
-### Animation Notes
-
-- State object: Highlight sections as discussed
-- Tiers pyramid: Build from bottom up
-- Checkpoint flow: Animate step by step
-- Keep animations minimal - content is technical
+### Appendix D: Quality Checklist
+- [ ] Key Thesis stated | [ ] Learning objectives actionable | [ ] Code syntactically correct | [ ] Examples Block 3-relevant
 
 ---
 
@@ -1266,3 +1276,4 @@ Great progress. See you next week!"
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

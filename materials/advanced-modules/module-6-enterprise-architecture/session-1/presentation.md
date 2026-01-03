@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 graduates who advise clients on AI platform selection, deployment architecture, and enterprise-scale AI agent implementations.
 
+**Key Thesis:** Cloud AI platform selection requires structured evaluation across multiple weighted factors rather than seeking a universal "best" choice, because the right platform depends entirely on client context including existing infrastructure, specific model requirements, compliance needs, and operational constraints.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Evaluate and compare major cloud AI platforms (AWS Bedrock, Azure OpenAI, Google Vertex AI)
 2. Design appropriate deployment architecture patterns for different enterprise scenarios
@@ -207,13 +209,19 @@ Today we're going to build the framework you need to make this recommendation co
 **BACKGROUND:**
 
 **Rationale:**
-- Establishes the real-world consulting problem
-- Creates urgency around getting this decision right
-- Sets up the need for a structured evaluation approach
+- Establishes the real-world consulting problem that practitioners immediately face
+- Creates urgency around getting this decision right before implementation
+- Sets up the need for a structured evaluation approach rather than vendor marketing
+
+**Key Research & Citations:**
+- **AWS Bedrock (2023)**: Widest model selection including Claude, Llama, Titan families - enables multi-model strategies
+- **Azure OpenAI (2023)**: Exclusive access to OpenAI GPT-4 models in enterprise contexts with Microsoft infrastructure integration
+- **Google Vertex AI (2023)**: Gemini and PaLM models with strong GCP integration but varying regional availability
 
 **Q&A Preparation:**
-- "Can't we just use whatever we already have?": Maybe - existing infrastructure is a factor, but not the only one
-- "What about smaller providers?": We're focusing on the Big Three for enterprise scale, but principles apply to any platform
+- *"Can't we just use whatever we already have?"*: Existing infrastructure is one of six factors, weighted at typically 20%. Integration benefits are real but shouldn't override model requirements or compliance needs.
+- *"What about smaller providers like Cohere or Anthropic direct?"*: We're focusing on the Big Three for enterprise scale and feature completeness, but the weighted scoring framework applies to any platform comparison.
+- *"What if requirements change after selection?"*: Multi-cloud strategies exist but add operational complexity - better to build abstraction layers that enable platform portability if this is a concern.
 
 ---
 
@@ -1592,6 +1600,62 @@ See you next session!"
 
 ---
 
+## Appendix A: Slide Type Definitions (Condensed)
+
+**CONCEPT**: Introduces new idea or framework - focus on clarity and single concept
+**DEMO**: Live demonstration or walkthrough - have backup plan if tech fails
+**INSIGHT**: Delivers key learning or aha moment - emphasize and pause after
+**TRANSITION**: Bridges sections - keep brief, preview what's coming
+**SUMMARY**: Reinforces key points - use repetition intentionally
+
+---
+
+## Appendix B: Visual Design Guidelines
+
+**Color Palette - Advanced Green Theme:**
+- Primary: Advanced Green #00CC99
+- Secondary: Deep Blue #003D5C
+- Accent: Bright Orange #FF6B35
+- Neutral: Cool Gray #708090
+- Warning/Alert: Amber #FFA500
+
+**Typography Standards:**
+- Titles: 44pt bold
+- Subtitles: 32pt regular
+- Body text: 24pt (minimum)
+- Code blocks: 18pt monospace
+- Never go below 18pt for any text
+
+**Graphic Requirements:**
+- Every GRAPHICS block must be implemented
+- Diagrams should use consistent iconography
+- Color-code by meaning (green=good, red=bad, blue=information)
+- Include alt text descriptions for accessibility
+
+---
+
+## Appendix C: Quality Checklist
+
+**Content Quality:**
+- [ ] All learning objectives explicitly addressed in slides
+- [ ] Real-world examples included (not just theory)
+- [ ] Key messages repeated in summary slides
+- [ ] Transitions between segments are smooth
+
+**Speaker Notes Quality:**
+- [ ] Written as natural speech (not bullet points)
+- [ ] Include specific timing guidance (pauses, emphasis)
+- [ ] Anticipated questions addressed in BACKGROUND sections
+- [ ] Clear instructions for demos/activities
+
+**Technical Quality:**
+- [ ] All GRAPHICS blocks have detailed specifications
+- [ ] Code examples are tested and work
+- [ ] All links and references are valid
+- [ ] Version history is current
+
+---
+
 ## Appendix: Presentation Design Notes
 
 **Color Scheme:**
@@ -1617,3 +1681,4 @@ See you next session!"
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2026-01-02 | Initial presentation created | [Instructor] |
+| 2.0 | 2026-01-03 | Enhanced with BACKGROUND sections, Key Thesis, and expanded appendices | Claude |

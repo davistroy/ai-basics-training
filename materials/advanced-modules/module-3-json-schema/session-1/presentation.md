@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 2+ graduates who want to implement robust data validation in their AI workflows
 
+**Key Thesis:** JSON Schema transforms unpredictable AI outputs into reliable, validated data structures by defining precise contracts for JSON data—enabling workflows to fail fast with clear errors rather than propagating malformed data, while giving AI models explicit specifications that improve output quality and consistency.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Explain why JSON Schema is essential for AI workflow reliability
 2. Write basic JSON schemas with primitive types and constraints
@@ -1412,34 +1414,38 @@ See you next time!"
 
 ---
 
-## Appendix: Presentation Notes
+## APPENDICES
 
-### Timing Checkpoints
+### Appendix A: Slide Type Definitions
 
-| Checkpoint | Target Time | Actual Time |
-|------------|-------------|-------------|
-| End Segment 1 | 13 min | |
-| End Segment 2 | 28 min | |
-| End Segment 3 | 40 min | |
-| End Segment 4 | 48 min | |
-| Session End | 51 min | |
+**TITLE SLIDE**, **PROBLEM STATEMENT**, **INSIGHT / REVELATION**, **CONCEPT INTRODUCTION**, **FRAMEWORK / MODEL**, **COMPARISON**, **DEEP DIVE**, **CASE STUDY**, **PATTERN / BEST PRACTICE**, **METRICS / DATA**, **ARCHITECTURE / DIAGRAM**, **OBJECTION HANDLING**, **ACTION / NEXT STEPS**, **SUMMARY / RECAP**, **CLOSING / CALL TO ACTION**, **Q&A / CONTACT**, **APPENDIX**
 
-### Demo Preparation
+### Appendix B: Presentation Delivery Notes
 
-**Tools Needed:**
+**Timing Checkpoints:**
+
+| Checkpoint | Target Time |
+|------------|-------------|
+| End Segment 1 | 13 min |
+| End Segment 2 | 28 min |
+| End Segment 3 | 40 min |
+| End Segment 4 | 48 min |
+| Session End | 51 min |
+
+**Demo Preparation:**
 - Online validator: https://www.jsonschemavalidator.net/
 - Example schema files ready
 - Valid and invalid JSON examples prepared
+- Backup: Screenshots if live demo fails
 
-**Backup Plan:**
-- Screenshots of validation passing and failing
-- Prepared examples if live demo fails
-
-### Key Messages to Emphasize
-
+**Key Messages to Emphasize:**
 1. "Schemas are contracts - define them once, validate everywhere"
 2. "Fail fast with clear errors, not slow with mysterious bugs"
 3. "Your schema IS your documentation"
+
+### Appendix C: BACKGROUND & Implementation Guidance
+
+See template for full BACKGROUND section structure (Rationale, Key Research & Citations, Q&A Preparation) and Implementation Guidance structure (Getting Started, Best Practices, Common Pitfalls, Tools & Technologies).
 
 ---
 
@@ -1447,4 +1453,5 @@ See you next time!"
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
-| 1.0 | 2026-01-02 | Initial presentation created | [Instructor] |
+| 1.0 | 2026-01-02 | Initial presentation created | AI Practitioner Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 2+ certified consultants who want to create professional visual documentation for their AI workflows, agent architectures, and processes.
 
+**Key Thesis:** Mermaid diagrams transform complex AI workflows and agent architectures from prose descriptions into executable visual documentation that lives alongside code, automatically renders in GitHub and modern documentation platforms, and enables teams to understand system behavior at a glance—making implicit knowledge explicit through flowcharts, sequence diagrams, and architectural visualizations maintained as code.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Understand Mermaid syntax and how to create basic diagrams
 2. Create flowcharts to document workflow processes
@@ -1290,7 +1292,13 @@ See you next session!"
 
 ---
 
-## Appendix: Timing Notes
+## APPENDICES
+
+### Appendix A: Slide Type Definitions
+
+**TITLE SLIDE**, **PROBLEM STATEMENT**, **INSIGHT / REVELATION**, **CONCEPT INTRODUCTION**, **FRAMEWORK / MODEL**, **COMPARISON**, **DEEP DIVE**, **CASE STUDY**, **PATTERN / BEST PRACTICE**, **METRICS / DATA**, **ARCHITECTURE / DIAGRAM**, **OBJECTION HANDLING**, **ACTION / NEXT STEPS**, **SUMMARY / RECAP**, **CLOSING / CALL TO ACTION**, **Q&A / CONTACT**, **APPENDIX**
+
+### Appendix B: Presentation Delivery Notes
 
 **Segment Time Allocations:**
 - Opening & Preview: 3 min (Slides 1-3)
@@ -1311,12 +1319,15 @@ See you next session!"
 - Take additional questions on sequence diagrams
 - Show more styling examples
 
+### Appendix C: BACKGROUND & Implementation Guidance
+
+See template for full BACKGROUND section structure (Rationale, Key Research & Citations, Q&A Preparation) and Implementation Guidance structure (Getting Started, Best Practices, Common Pitfalls, Tools & Technologies).
+
 ---
 
 ## Version History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
-| 1.0 | 2026-01-02 | Initial presentation created from module content | AI Training Team |
-
----
+| 1.0 | 2026-01-02 | Initial presentation created from module content | AI Practitioner Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 participants with multi-agent orchestration from Week 5
 
+**Key Thesis:** Production-ready agents require systematic observability, cost optimization, and reliability patterns - transforming "it works on my machine" prototypes into trustworthy systems through measurement, monitoring, and resilience engineering.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Assess production readiness using a systematic checklist
 2. Design and implement performance dashboards with key metrics
@@ -187,6 +189,29 @@ Secure - not leaking sensitive information.
 Production ready means ALL FIVE. Not just 'it runs.'"
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Five qualities framework provides concrete definition of "production-ready" to counter vague "good enough" thinking
+- Observable quality emphasized because participants often focus on reliability/efficiency and neglect monitoring
+- The "all five required" principle prevents shipping agents with critical gaps
+- Sets up Week 7's capstone preparation where production readiness is assessed
+
+**Key Research & Citations:**
+- **12-Factor Agents - Factor 11 (Logs as Event Streams)**: Production systems must externalize observability data, not rely on operator memory or ad-hoc debugging
+- **Google SRE Book - Monitoring Principles**: Systems without observability cannot be reliably operated - "hope is not a strategy"
+- **Security by Design Principle**: Security cannot be retrofitted - must be architectural from start, especially for agents accessing sensitive data/systems
+
+**Q&A Preparation:**
+- *"Can't I add observability later?"*: Technically yes, practically no. Retrofitting logging/monitoring is harder than building it in, and you'll ship blind initially.
+- *"How do I know what 'reasonable cost' means?"*: Depends on value delivered. ROI calculation (Week 7) determines this, but tracking from start lets you optimize.
+- *"Isn't this overkill for internal tools?"*: Internal tools still cost money and consume time. Production readiness applies regardless of user base.
+
+**Sources:**
+1. [12-Factor Agents - Logs](https://github.com/humanlayer/12-factor-agents#factor-11) - Observability principles
+2. [Google SRE Book - Monitoring](https://sre.google/sre-book/monitoring-distributed-systems/) - Production monitoring
+3. [OWASP Security Principles](https://owasp.org/www-project-proactive-controls/) - Security by design
 
 ---
 
@@ -1026,16 +1051,19 @@ See you next week!"
 
 ---
 
-## Appendix: Slide Design Notes
+## APPENDICES
 
-### Block 3 Color Scheme
+### Appendix A: Slide Type Definitions
+**TITLE SLIDE** - Opens presentation | **FRAMEWORK / MODEL** - Structured approach | **METRICS / DATA** - Quantitative information | **PATTERN / BEST PRACTICE** - Proven approach
 
-| Element | Color | Hex Code |
-|---------|-------|----------|
-| Primary | Green | #00CC99 |
-| Accent | Teal | #008B8B |
-| Background | White | #FFFFFF |
-| Text | Dark Gray | #333333 |
+### Appendix B: Background Section Guidelines
+**Rationale:** Explain slide's purpose | **Key Research & Citations:** **[Source (Year)]**: [Explanation] | **Q&A Preparation:** *"[Question]"*: [Response]
+
+### Appendix C: Visual Design Guidelines
+**Block 3 Color Scheme:** Primary Green #00CC99, Accent Teal #008B8B | **Theme:** Green for automation, Teal for orchestration
+
+### Appendix D: Quality Checklist
+- [ ] Key Thesis stated | [ ] Learning objectives actionable | [ ] Metrics accurate | [ ] Examples Block 3-relevant
 
 ---
 
@@ -1044,3 +1072,4 @@ See you next week!"
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

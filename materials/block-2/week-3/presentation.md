@@ -8,6 +8,8 @@
 
 **Target Audience:** Consultants with working workflows from Week 2
 
+**Key Thesis:** Quality systems are operating procedures for AI - automating evaluation through LLM-as-judge patterns and structured JSON data transforms ad-hoc review into systematic, scalable quality control.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Understand quality systems as operating procedures for AI
 2. Implement the LLM-as-judge pattern for automated quality evaluation
@@ -1125,11 +1127,24 @@ Build those quality checks, create your second workflow, and see you next week!"
 
 ---
 
+## Appendices
+
+**Slide Type Definitions:** TITLE SLIDE | PROBLEM STATEMENT | INSIGHT / REVELATION | CONCEPT INTRODUCTION | FRAMEWORK / MODEL | COMPARISON | DEEP DIVE | CASE STUDY | PATTERN / BEST PRACTICE | METRICS / DATA | ARCHITECTURE / DIAGRAM | OBJECTION HANDLING | ACTION / NEXT STEPS | SUMMARY / RECAP | SECTION DIVIDER | CLOSING / CALL TO ACTION | Q&A / CONTACT
+
+**Content Guidelines:** Use parallel structure in bullets | Clear tables with headers | Bad/Good example contrasts | Key principle callouts | Stage directions in speaker notes `[Pause]` `[Point to X]` `[Emphasize]`
+
+**Block 2 Orange Theme:** Primary Orange (#FF6B35) for branding | Accent blues/grays | Orange highlights for emphasis | Consistent color across all Block 2 presentations
+
+**Quality Checklist:** Learning objectives align | Key Thesis clear | Complete speaker notes | Technical accuracy | Relevant examples | Research citations specific | Q&A addresses objections | Orange theme consistent | Progressive building | Realistic timing
+
+---
+
 ## Version History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |
 
 ---
 

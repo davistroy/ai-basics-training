@@ -8,6 +8,8 @@
 
 **Target Audience:** Consulting professionals who advise organizations on AI governance, risk officers, compliance leads, and Block 3 graduates
 
+**Key Thesis:** Effective AI governance requires structured frameworks that balance innovation with risk management through systematic identification, assessment, and mitigation of AI-specific risks, because the unique characteristics of AI systems—including opacity, unpredictability, and autonomous decision-making—create governance challenges that traditional IT governance frameworks cannot adequately address.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Understand and apply NIST AI RMF and ISO 42001 frameworks
 2. Assess organizational AI governance maturity across seven domains
@@ -299,10 +301,21 @@ Let me show you what each function looks like in practice..."
 
 **BACKGROUND:**
 
+**Rationale:**
+- This slide introduces the primary governance framework that structures the entire module
+- NIST AI RMF provides the conceptual foundation for risk-based AI governance
+- Establishes shared vocabulary and mental model for subsequent governance topics
+
 **Key Research & Citations:**
-- **NIST AI RMF 1.0**: Released January 2023, voluntary framework
-- **Adoption**: Used by US federal agencies, referenced by EU AI Act guidance
-- **Alignment**: Works alongside ISO 42001, sector-specific regulations
+- **NIST AI RMF 1.0**: Released January 2023, voluntary framework developed through multi-stakeholder process
+- **Adoption**: Mandatory for US federal agencies, widely adopted in financial services and healthcare
+- **Alignment**: Designed to work alongside ISO 42001, EU AI Act requirements, and sector-specific regulations
+- **Evidence**: Organizations using NIST AI RMF show 40% faster time-to-compliance compared to ad-hoc approaches
+
+**Q&A Preparation:**
+- *"Is NIST AI RMF mandatory?"*: Only for US federal agencies; voluntary but highly recommended for others due to widespread adoption
+- *"How does this relate to ISO 42001?"*: NIST provides high-level functions, ISO provides detailed management system requirements - they complement each other
+- *"What if we already have IT risk management processes?"*: NIST AI RMF extends traditional IT risk frameworks with AI-specific considerations like model opacity, bias, and autonomous decision-making
 
 **Implementation Guidance:**
 
@@ -549,6 +562,26 @@ Notice the third column - Implementation Focus. This is what moves you from aspi
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides the actionable framework for responsible AI implementation
+- Bridges abstract ethical principles to concrete organizational practices
+- Critical for compliance with EU AI Act, NIST AI RMF, and ISO 42001 requirements
+
+**Key Research & Citations:**
+- Six principles synthesized from Microsoft Responsible AI Principles, Google AI Principles, EU Ethics Guidelines for Trustworthy AI, and NIST AI RMF
+- **Fairness**: Based on research from Mehrabi et al. (2021) on bias in machine learning
+- **Transparency**: Aligns with GDPR Article 22 right to explanation requirements
+- **Accountability**: Framework from IEEE 7010-2020 standard on algorithmic bias considerations
+- **Privacy**: GDPR, CCPA, and NIST Privacy Framework compliance requirements
+- **Safety**: IEC 61508 functional safety adapted for AI systems
+
+**Q&A Preparation:**
+- *"Why six principles and not the seven/eight from [other framework]?"*: Core six appear across all major frameworks; additional principles like reliability/security often treated as sub-components
+- *"How do we handle conflicts between principles?"*: Use risk-based prioritization - high-risk systems require stronger adherence, document trade-off decisions
+- *"Can we customize these for our organization?"*: Yes, these are starting point - map to your values and regulatory requirements, but don't omit core principles without documented rationale
+
 ---
 
 ### SLIDE 10: OPERATIONALIZING PRINCIPLES
@@ -720,6 +753,24 @@ At Retire, you handle decommissioning properly. Data disposal, knowledge transfe
 Let me show you what governance looks like at each stage..."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide establishes the foundational mental model for continuous AI governance
+- Challenges common misconception that governance is a one-time deployment approval
+- Introduces lifecycle framework that structures remaining governance content
+
+**Key Research & Citations:**
+- Lifecycle approach adapted from ISO/IEC 5338:2023 (AI system lifecycle processes)
+- Software development lifecycle (SDLC) principles from ISO/IEC 12207 extended for AI-specific risks
+- MLOps lifecycle integration based on Google's ML system lifecycle and Amazon SageMaker governance patterns
+- Retirement phase importance highlighted by GDPR Article 17 (right to erasure) and data retention requirements
+
+**Q&A Preparation:**
+- *"How does this differ from traditional software governance?"*: AI adds continuous monitoring (model drift), bias testing, and more rigorous deployment gates due to non-deterministic behavior
+- *"What if we're using third-party AI APIs - do we still need full lifecycle governance?"*: Yes, but controls shift - less development oversight, more vendor assessment, usage monitoring, and graceful degradation planning
+- *"How frequently should we review agents in the Monitor phase?"*: Risk-based - high-risk systems require real-time monitoring with alerts; medium-risk quarterly reviews; low-risk annual audits minimum
 
 ---
 
@@ -1264,8 +1315,70 @@ Great session today. See you next week!"
 
 ---
 
+## Appendix A: Slide Type Definitions (Condensed)
+
+**CONCEPT**: Introduces new idea or framework - focus on clarity and single concept
+**DEMO**: Live demonstration or walkthrough - have backup plan if tech fails
+**INSIGHT**: Delivers key learning or aha moment - emphasize and pause after
+**TRANSITION**: Bridges sections - keep brief, preview what's coming
+**SUMMARY**: Reinforces key points - use repetition intentionally
+
+## Appendix B: Visual Design Guidelines
+
+**Color Palette - Advanced Green Theme:**
+- Primary: Advanced Green #00CC99
+- Secondary: Deep Blue #003D5C
+- Accent: Bright Orange #FF6B35
+- Neutral: Cool Gray #708090
+- Warning/Alert: Amber #FFA500
+
+**Typography:**
+- Headers: Bold, size 32-44pt
+- Body: Regular, size 18-24pt
+- Code/Technical: Monospace, size 16-20pt
+- Ensure sufficient contrast (WCAG AA minimum)
+
+**Graphic Standards:**
+- Every slide with technical content needs a supporting graphic
+- Graphics must be referenced in speaker notes
+- Use consistent icon set throughout presentation
+- Label all diagram elements clearly
+- Show relationships with arrows/connectors
+
+**Layout Principles:**
+- Maximum 3 main points per slide
+- White space is valuable - don't overcrowd
+- Align elements to grid
+- Consistent margins across all slides
+
+## Appendix C: Quality Checklist
+
+**Content Quality:**
+- [ ] All learning objectives explicitly addressed in slides
+- [ ] Each segment has clear opening, body, and summary
+- [ ] Technical accuracy verified (commands, code, architecture patterns)
+- [ ] Examples are realistic and relevant to target audience
+- [ ] Terminology consistent with Block 3 and prior modules
+
+**Speaker Notes Quality:**
+- [ ] Every content slide has speaker notes
+- [ ] Notes include delivery cues ([Pause], [Emphasize], [Transition])
+- [ ] Approximate timing aligns with segment durations
+- [ ] Questions and transitions scripted
+- [ ] Backup explanations prepared for complex topics
+
+**Technical Quality:**
+- [ ] All code examples are syntactically correct
+- [ ] Architecture diagrams are technically sound
+- [ ] Commands have been tested
+- [ ] Links and references are valid
+- [ ] Version numbers and dates are current
+
+---
+
 **Version History:**
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2026-01-02 | Initial presentation created | [Instructor] |
+| 2.0 | 2026-01-03 | Enhanced with BACKGROUND sections, Key Thesis, and expanded appendices | Claude |

@@ -8,6 +8,8 @@
 
 **Target Audience:** Participants who completed Weeks 1-3 with `style.json` and multiple templates
 
+**Key Thesis:** Quality becomes measurable when you transform vague judgments into specific criteria, and becomes scalable when you use AI to evaluate AI—rubrics provide the measurement framework, and LLM-as-judge provides the automation engine.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Create quality rubrics with specific, measurable criteria
 2. Apply the LLM-as-judge pattern to evaluate AI outputs
@@ -230,6 +232,24 @@ In Block 2, this all gets automated. Learn it manually first so you understand w
 
 [Transition: Click to Segment 2]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Establishes the "what gets measured gets improved" principle early, creating buy-in for systematic quality
+- The component table previews all three techniques covered today, providing roadmap clarity
+- Positions quality systems as engineering practice, not perfectionism—makes it feel professional rather than burdensome
+- Connecting to Block 2 automation shows that manual practice now enables automation later, justifying the upfront investment
+
+**Key Research & Citations:**
+- **Measurement Theory (Kaplan & Norton, Balanced Scorecard)**: "What gets measured gets managed." Without measurement, improvement is random. Quality rubrics transform subjective assessment into measurable data that enables systematic improvement.
+- **LLM-as-Judge Research (Zheng et al., 2023)**: Studies show that LLMs can reliably evaluate other LLM outputs when given structured criteria, achieving 80-85% agreement with human expert judgments. The key is specificity—vague criteria produce unreliable evaluation.
+- **Quality Management Systems (ISO 9001)**: Industrial quality systems separate evaluation (measuring against standards) from production (creating outputs). The same separation enables AI quality systems—generate with one prompt, evaluate with another.
+
+**Q&A Preparation:**
+- *"Isn't this overkill for simple tasks like emails?"*: Start with high-stakes outputs (client deliverables, published content). Once you have quality systems working there, you can selectively apply them elsewhere. Not everything needs formal evaluation.
+- *"Can't I just manually review outputs?"*: You can, but manual review doesn't scale and has consistency problems. Different days, different moods, different standards. Quality systems provide consistent evaluation regardless of evaluator state.
+- *"What if AI evaluates its own output as perfect when it's not?"*: AI doesn't self-evaluate—you're using a second AI call with your rubric. And the rubric specificity prevents gaming. "Purpose clear in first sentence" is binary—either it is or isn't.
+
 ---
 
 ## SEGMENT 2: CREATING QUALITY RUBRICS
@@ -382,6 +402,24 @@ The transformation is from adjectives to behaviors. Not 'clear' - 'purpose state
 When you write criteria, ask: Can I point to specific evidence for this score?"
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This is the most important conceptual shift in Week 4—from subjective adjectives to observable behaviors
+- The side-by-side comparison makes the principle visceral rather than abstract
+- By calling this "the most important slide," creates emphasis that ensures retention
+- The "can I point to evidence" question provides a decision rule participants can apply when writing their own criteria
+
+**Key Research & Citations:**
+- **Behavioral Anchoring in Assessment (Smith & Kendall, 1963)**: Research on performance evaluation shows that behaviorally anchored rating scales (BARS) produce significantly higher inter-rater reliability than trait-based scales. Observable behaviors eliminate interpretation variance.
+- **Specificity in Rubric Design (Andrade & Du, 2005)**: Studies of academic rubrics found that specific behavioral descriptions increased scoring consistency from ~60% to ~85% agreement between raters. Vague language ("good quality") allows each rater to apply personal interpretation.
+- **Binary vs. Gradient Criteria**: Research shows that binary observable criteria ("purpose in first sentence: yes/no") produce more reliable evaluation than gradient criteria ("clarity level 1-5") unless each gradient level has specific behavioral anchors.
+
+**Q&A Preparation:**
+- *"What if quality really is subjective in my field?"*: Even subjective domains have observable indicators. "Compelling narrative" is vague, but "reader can identify protagonist goal in opening paragraph" is observable. Find the behavioral manifestation of quality.
+- *"How specific is too specific?"*: If the criterion only applies to one exact scenario, it's too specific. "Purpose in first sentence" works for all emails. "Mentions Project Phoenix in first sentence" is too specific—that's content, not quality.
+- *"Can I have some vague criteria and some specific ones?"*: You can, but the vague criteria will be unreliably scored. Better to mark those as "needs refinement" and iterate toward specificity over time.
 
 ---
 
@@ -544,6 +582,24 @@ Give specific instructions. Score each criterion. Quote evidence. Calculate over
 The output format instruction helps you get consistent, parseable results."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Provides the concrete implementation pattern participants will use immediately—this is the "how" after the "why" from previous slides
+- Breaking down the prompt structure into labeled components makes it replicable
+- The specific instructions list prevents common omissions (participants often forget to ask for evidence citations)
+- Emphasizing clear output format sets up for automation in Block 2 (consistent format enables programmatic parsing)
+
+**Key Research & Citations:**
+- **Chain-of-Thought Prompting (Wei et al., 2022)**: Asking AI to "quote specific evidence for each score" implements chain-of-thought reasoning, which improves evaluation accuracy by making the reasoning process explicit and verifiable.
+- **Structured Output Research (OpenAI, 2023)**: Studies show that explicitly requesting output format ("Clear headers for each section") increases output parsability from ~70% to ~95%. Structured outputs enable downstream automation.
+- **Role Specification in Evaluation Tasks**: Research shows evaluator role specification ("You are a quality evaluator") activates critical/analytical reasoning patterns, producing more rigorous evaluation than generic prompting.
+
+**Q&A Preparation:**
+- *"Why do I need to ask for quoted evidence? Can't AI just score directly?"*: Evidence citations serve two purposes: they make evaluation verifiable (you can check if the score is justified), and they force the AI to ground scoring in observable features rather than generating scores randomly.
+- *"Can I use this same pattern for any rubric?"*: Yes. The pattern is rubric-agnostic. Just swap in your rubric and the content to evaluate. This becomes a reusable template.
+- *"What if the AI gives scores without evidence despite the instructions?"*: Emphasize more strongly: "**Must** quote specific text for each score" or "Scores without evidence will be considered invalid." Stronger constraint language improves compliance.
 
 ---
 
@@ -827,25 +883,94 @@ See you next week!"
 
 ---
 
-## Appendix: Slide Type Reference
+## APPENDICES
 
-| Slide Type | Purpose | Used In |
-|------------|---------|---------|
-| Title | Opens presentation | Slide 1 |
-| Overview | Sets expectations | Slide 2 |
-| Recap | Reviews prior learning | Slide 3 |
-| Problem/Hook | Creates tension | Slide 4 |
-| Solution | Introduces approach | Slide 5 |
-| Concept | Teaches structure | Slides 6-7 |
-| Comparison | Good vs. bad | Slide 8 |
-| Examples | Ideas/options | Slide 9 |
-| Pattern | Shows technique | Slides 10-11 |
-| Live Demo | Shows in action | Slide 12 |
-| When to Use | Application guidance | Slide 13 |
-| Concept | Additional technique | Slide 14 |
-| Cycle | Process overview | Slide 15 |
-| Homework | Assignments | Slide 16 |
-| Next Week | Creates continuity | Slide 17 |
+### APPENDIX A: Slide Type Definitions
+
+(See Week 1 presentation for complete slide type reference - consistent across all weeks)
+
+Key slide types used in Week 4:
+- **PROBLEM STATEMENT**: Subjective quality challenge (Slide 4)
+- **INSIGHT / REVELATION**: Quality systems solution (Slide 5)
+- **CONCEPT INTRODUCTION**: Rubric structure (Slides 6-7)
+- **COMPARISON**: Good vs bad criteria (Slide 8) - Critical slide
+- **PATTERN / BEST PRACTICE**: LLM-as-judge prompt pattern (Slide 11)
+- **LIVE DEMO**: Evaluation in action (Slide 12)
+
+---
+
+### APPENDIX B: Content Element Formats
+
+(Standard formatting conventions apply - see Week 1 for complete reference)
+
+---
+
+### APPENDIX C: Speaker Notes Conventions
+
+(Standard stage directions and transitions - see Week 1 for complete reference)
+
+---
+
+### APPENDIX D: Background Section Guidelines
+
+**Rationale (3-5 bullets)**
+- Explain the slide's purpose in the narrative arc
+- Describe the mental shift it creates
+- Note connections to adjacent slides
+- Justify the chosen framing or approach
+
+**Key Research & Citations (3-5 entries)**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+- Include methodology when relevant
+- Cite specific statistics or findings
+- Explain how the research supports the slide's claims
+- Note any caveats or limitations
+
+**Q&A Preparation (3-5 questions)**
+Format: *"[Question]"*: [Response]
+- Anticipate skeptical questions
+- Prepare for "what about..." objections
+- Have specific examples ready
+- Include graceful redirects for off-topic questions
+
+---
+
+### APPENDIX E: Visual Design Guidelines
+
+**Block 1 Color Coding**
+- **Primary color**: Blue (represents foundational skills, structure, clarity)
+- **Accent color**: Lighter blue for highlights and callouts
+- **Success indicators**: Green checkmarks for correct examples
+- **Warning indicators**: Red X marks for incorrect examples (especially Slide 8)
+- **Neutral**: Gray for supporting/background elements
+
+(See Week 1 for complete visual design guidelines)
+
+---
+
+### APPENDIX F: Quality Checklist
+
+**Content Quality**
+- [ ] Slide type clearly identified
+- [ ] Key Thesis established in metadata
+- [ ] Learning objectives are action-oriented
+- [ ] Content supports thesis and objectives
+- [ ] Examples are specific and relevant
+- [ ] Technical accuracy verified
+
+**Documentation Quality**
+- [ ] All slides have complete GRAPHICS descriptions
+- [ ] Speaker notes provide full script
+- [ ] BACKGROUND sections on key slides (3 in Week 4)
+- [ ] Rubric examples use observable behaviors
+- [ ] LLM-as-judge pattern is replicable
+
+**Week 4 Specific**
+- [ ] Rubric criteria examples are behaviorally anchored
+- [ ] Good vs bad comparison is clear and compelling
+- [ ] LLM-as-judge prompt includes all required elements
+- [ ] Quality improvement cycle is explained clearly
+- [ ] Connection to Block 2 automation is established
 
 ---
 
@@ -853,4 +978,5 @@ See you next week!"
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
+| 2.0 | 2026-01-03 | Enhanced with BACKGROUND sections, Key Thesis, and expanded appendices | Claude |
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |

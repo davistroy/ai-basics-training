@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 graduates who have completed Session 1 with basic RAG system designed and tested
 
+**Key Thesis:** Production RAG systems require systematic quality evaluation, hybrid retrieval strategies, and thoughtful agent integration patterns because basic vector similarity search alone produces inconsistent results, and naive RAG-agent integration creates brittle systems where retrieval failures cascade into hallucinations that undermine agent reliability.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Implement advanced retrieval patterns including hybrid search and re-ranking
 2. Integrate RAG systems with agent workflows using appropriate patterns
@@ -1177,8 +1179,70 @@ Excellent work in this module. Now go build amazing knowledge-enabled agent syst
 
 ---
 
+## Appendix A: Slide Type Definitions (Condensed)
+
+**CONCEPT**: Introduces new idea or framework - focus on clarity and single concept
+**DEMO**: Live demonstration or walkthrough - have backup plan if tech fails
+**INSIGHT**: Delivers key learning or aha moment - emphasize and pause after
+**TRANSITION**: Bridges sections - keep brief, preview what's coming
+**SUMMARY**: Reinforces key points - use repetition intentionally
+
+## Appendix B: Visual Design Guidelines
+
+**Color Palette - Advanced Green Theme:**
+- Primary: Advanced Green #00CC99
+- Secondary: Deep Blue #003D5C
+- Accent: Bright Orange #FF6B35
+- Neutral: Cool Gray #708090
+- Warning/Alert: Amber #FFA500
+
+**Typography:**
+- Headers: Bold, size 32-44pt
+- Body: Regular, size 18-24pt
+- Code/Technical: Monospace, size 16-20pt
+- Ensure sufficient contrast (WCAG AA minimum)
+
+**Graphic Standards:**
+- Every slide with technical content needs a supporting graphic
+- Graphics must be referenced in speaker notes
+- Use consistent icon set throughout presentation
+- Label all diagram elements clearly
+- Show relationships with arrows/connectors
+
+**Layout Principles:**
+- Maximum 3 main points per slide
+- White space is valuable - don't overcrowd
+- Align elements to grid
+- Consistent margins across all slides
+
+## Appendix C: Quality Checklist
+
+**Content Quality:**
+- [ ] All learning objectives explicitly addressed in slides
+- [ ] Each segment has clear opening, body, and summary
+- [ ] Technical accuracy verified (commands, code, architecture patterns)
+- [ ] Examples are realistic and relevant to target audience
+- [ ] Terminology consistent with Block 3 and prior modules
+
+**Speaker Notes Quality:**
+- [ ] Every content slide has speaker notes
+- [ ] Notes include delivery cues ([Pause], [Emphasize], [Transition])
+- [ ] Approximate timing aligns with segment durations
+- [ ] Questions and transitions scripted
+- [ ] Backup explanations prepared for complex topics
+
+**Technical Quality:**
+- [ ] All code examples are syntactically correct
+- [ ] Architecture diagrams are technically sound
+- [ ] Commands have been tested
+- [ ] Links and references are valid
+- [ ] Version numbers and dates are current
+
+---
+
 **Version History:**
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2026-01-02 | Initial presentation created | Claude |
+| 2.0 | 2026-01-03 | Enhanced with Key Thesis and expanded appendices | Claude |

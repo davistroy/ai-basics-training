@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 participants with functional agents from Week 2
 
+**Key Thesis:** MCP transforms agents from text processors into world-interactive systems by providing standardized tool access, with multi-server configurations and tool chaining creating emergent capabilities greater than individual tools.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Configure multiple MCP servers for expanded agent capabilities
 2. Understand server types and selection strategies
@@ -269,6 +271,30 @@ When choosing servers, ask these three questions: What does my agent need to rea
 Answer those, and you know which servers you need."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide establishes MCP as the enabling infrastructure that transforms theoretical agents into practical automation systems
+- The server categorization (Data/Action/Integration) provides decision framework for Week 3 exercises
+- Positions MCP not as "just another tool" but as architectural capability expansion - the difference between agents that think and agents that act
+- Foundation for Week 5's multi-agent orchestration which requires standardized tool interfaces
+
+**Key Research & Citations:**
+- **Model Context Protocol Specification (Anthropic, 2024)**: MCP standardizes how AI systems access external tools, eliminating custom integration code and enabling composable agent capabilities
+- **12-Factor Agents - Factor 10 (Prefer Official Client Libraries)**: Using standard protocols like MCP over custom tool wrappers reduces maintenance burden and improves reliability
+- **Microservices Tool Pattern**: The hub-and-spoke architecture (one agent, many services) mirrors successful microservices patterns where services remain independent but interoperable
+
+**Q&A Preparation:**
+- *"Why not just hardcode tool calls?"*: Hardcoding creates brittle dependencies and limits reusability. MCP servers can be shared across agents, updated independently, and agents dynamically discover available tools.
+- *"What if I need a tool that doesn't have an MCP server?"*: You can create custom MCP servers - the spec is open. Or use existing servers as bridges. MCP is extensible, not restrictive.
+- *"How does this differ from API calls?"*: MCP adds standardization, discovery, and permission management. APIs are the backend; MCP is the protocol layer that makes them agent-accessible.
+
+**Sources:**
+1. [Model Context Protocol Documentation](https://modelcontextprotocol.io/) - Official MCP specification
+2. [MCP Server Registry](https://github.com/modelcontextprotocol/servers) - Available servers
+3. [Anthropic MCP Announcement](https://www.anthropic.com/news/model-context-protocol) - Context and rationale
+4. [12-Factor Agents - Client Libraries](https://github.com/humanlayer/12-factor-agents#factor-10) - Tool integration best practices
 
 ---
 
@@ -1441,34 +1467,25 @@ Good work. See you next week!"
 
 ---
 
-## Appendix: Slide Design Notes
+## APPENDICES
 
-### Block 3 Color Scheme
+### Appendix A: Slide Type Definitions
+**TITLE SLIDE** - Opens presentation | **PROBLEM STATEMENT** - Establishes challenge | **CONCEPT INTRODUCTION** - Introduces new term/framework | **FRAMEWORK / MODEL** - Presents structured approach | **COMPARISON** - Contrasts approaches | **DEEP DIVE** - Detailed exploration | **PATTERN / BEST PRACTICE** - Describes proven approach | **ARCHITECTURE / DIAGRAM** - Shows system structure
 
-| Element | Color | Hex Code |
-|---------|-------|----------|
-| Primary | Green | #00CC99 |
-| Accent | Teal | #008B8B |
-| Background | White | #FFFFFF |
-| Text | Dark Gray | #333333 |
+### Appendix B: Content Element Formats
+**Bullet Points:** Use parallel structure | **Tables:** For comparative data | **Code Blocks:** Syntactically correct with comments
 
-### Graphic Suggestions by Slide
+### Appendix C: Speaker Notes Conventions
+**Stage Directions:** `[Pause]`, `[Point to X]`, `[Emphasize this]` | **Transition Markers:** `[Transition]`, `[OPENING]`, `[Hook]`
 
-| Slide | Graphic Type | Description |
-|-------|-------------|-------------|
-| 1 | Title | Connected servers visual |
-| 4 | Architecture | Hub-and-spoke diagram |
-| 5 | Categories | Three-column server types |
-| 9 | Code | Annotated config file |
-| 15-17 | Flow | Chain pattern diagrams |
-| 21 | Security | Shield with principles |
+### Appendix D: Background Section Guidelines
+**Rationale:** Explain slide's purpose | **Key Research & Citations:** **[Source (Year)]**: [Explanation] | **Q&A Preparation:** *"[Question]"*: [Response]
 
-### Animation Notes
+### Appendix E: Visual Design Guidelines
+**Block 3 Color Scheme:** Primary Green #00CC99, Accent Teal #008B8B | **Theme:** Green for automation/agents, Teal for orchestration
 
-- Code blocks: Highlight key sections
-- Flow diagrams: Animate step by step
-- Checklists: Reveal item by item
-- Keep animations subtle - content is technical
+### Appendix F: Quality Checklist
+- [ ] Key Thesis stated | [ ] Learning objectives actionable | [ ] Examples Block 3-relevant | [ ] Code syntactically correct | [ ] Links work
 
 ---
 
@@ -1477,3 +1494,4 @@ Good work. See you next week!"
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

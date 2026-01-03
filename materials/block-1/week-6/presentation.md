@@ -8,6 +8,8 @@
 
 **Target Audience:** Participants who completed Weeks 1-5 with documented templates
 
+**Key Thesis:** Findability determines usability—a perfectly crafted template that takes 5 minutes to locate is less valuable than a good template found in 30 seconds, making taxonomy, naming, and indexing the difference between personal collection and professional library.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Design a taxonomy that matches their mental model
 2. Apply consistent naming conventions
@@ -232,6 +234,24 @@ Index - one document listing everything.
 Let's start with taxonomy."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Sets measurable goal (30 seconds) that participants can verify—transforms vague "organize better" into concrete success metric
+- The four-component solution provides clear roadmap for the entire session
+- "Find anything in 30 seconds" is ambitious but achievable, creating motivation without being overwhelming
+- Positions organization as enabler for others, not just personal convenience
+
+**Key Research & Citations:**
+- **Information Architecture Research (Rosenfeld & Morville)**: Studies show that findability directly correlates with usability. If users can't find a resource within 60 seconds, they often recreate it rather than continue searching. The 30-second target ensures actual usage.
+- **Cognitive Load Theory**: Each additional step in finding information adds cognitive burden. Reducing search from 5 minutes to 30 seconds eliminates decision fatigue and context-switching costs that compound across daily usage.
+- **Library Science Principles**: Professional libraries use four-layer findability: classification (taxonomy), cataloging (naming), metadata (tags/attributes), and finding aids (index). All four are necessary for complete discoverability.
+
+**Q&A Preparation:**
+- *"30 seconds seems impossibly fast. Is that realistic?"*: With good organization, yes. Think about finding a file on your computer—when folders and names are clear, it's 10-15 seconds. Same principle. The 30-second target forces organization quality high enough to be truly useful.
+- *"What if I have hundreds of templates eventually?"*: That's exactly why you need all four components. Taxonomy breaks hundreds into manageable categories. Naming lets you scan categories quickly. Metadata enables search. Index provides overview.
+- *"Can I skip some components if my library is small?"*: Start with all four—they're habits that become harder to retrofit later. Even with 5 templates, good naming and indexing take 10 minutes but save hours when you scale to 50.
 
 ---
 
@@ -496,6 +516,24 @@ Type is the deliverable kind. Specificity is context. Variant is style or versio
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Provides concrete, replicable pattern that eliminates naming decision fatigue
+- The type-specificity-variant structure maps to natural categorization (what-who-how)
+- Multiple examples show pattern application across contexts, making it generalizable
+- Pattern enables alphabetical sorting to become logical grouping—leverages existing OS capabilities
+
+**Key Research & Citations:**
+- **Naming Convention Research (Software Engineering)**: Studies show consistent naming reduces cognitive load by 40-60% compared to ad-hoc naming. Pattern-based naming eliminates the "what should I call this?" decision paralysis.
+- **Scannable Text Principles (Nielsen Norman Group)**: Front-loading important information (type first) enables 3-5x faster scanning. Users can identify relevance from first 2-3 characters without reading full filename.
+- **Hierarchical File Organization**: The type-specificity-variant pattern mirrors folder hierarchy (templates/email/client/formal.md) but encoded in filename. This enables both folder-based and flat-file organization to work equally well.
+
+**Q&A Preparation:**
+- *"What if my deliverable doesn't fit this pattern?"*: Adapt the pattern, don't abandon it. The principle is general-to-specific with hyphens. For your domain, type might be methodology, specificity might be industry, variant might be complexity. Keep the structure, adjust the semantics.
+- *"Can I use underscores instead of hyphens?"*: You can, but hyphens are web-safe and more universally compatible. Some systems treat underscores differently than hyphens. Consistency matters more than the specific separator, but hyphens are safer default.
+- *"What if I want to include dates in filenames?"*: Add version dates as fourth component: `email-client-formal-2024-01.md`. Or use version numbers: `email-client-formal-v3.md`. Append, don't insert—keeps type-specificity-variant pattern intact for scanning.
+
 ---
 
 ### SLIDE 11: NAMING RULES
@@ -726,8 +764,73 @@ See you next week!"
 
 ---
 
+## APPENDICES
+
+### APPENDIX A: Slide Type Definitions
+
+(See Week 1 presentation for complete slide type reference - consistent across all weeks)
+
+Key slide types used in Week 6:
+- **PROBLEM STATEMENT**: The scale problem (Slide 4)
+- **INSIGHT / REVELATION**: Organization goals (Slide 5)
+- **FRAMEWORK / MODEL**: Taxonomy approaches (Slides 6-7)
+- **PATTERN / BEST PRACTICE**: Naming conventions (Slide 10)
+- **APPLICATION**: Metadata and indexing (Slides 12-13)
+
+---
+
+### APPENDIX B: Content Element Formats
+
+(Standard formatting conventions apply - see Week 1 for complete reference)
+
+---
+
+### APPENDIX C: Speaker Notes Conventions
+
+(Standard stage directions and transitions - see Week 1 for complete reference)
+
+---
+
+### APPENDIX D: Background Section Guidelines
+
+**Rationale (3-5 bullets)**
+- Explain the slide's purpose in the narrative arc
+- Describe the mental shift it creates
+
+**Key Research & Citations (3-5 entries)**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+
+**Q&A Preparation (3-5 questions)**
+Format: *"[Question]"*: [Response]
+
+---
+
+### APPENDIX E: Visual Design Guidelines
+
+**Block 1 Color Coding**
+- **Primary color**: Blue (organization and findability theme)
+- See Week 1 for complete visual design guidelines
+
+---
+
+### APPENDIX F: Quality Checklist
+
+**Content Quality**
+- [ ] Slide type clearly identified
+- [ ] Key Thesis established in metadata
+- [ ] Taxonomy examples are clear
+
+**Week 6 Specific**
+- [ ] Taxonomy approaches explained with examples
+- [ ] Naming pattern is consistent and logical
+- [ ] Metadata headers template provided
+- [ ] Template index structure demonstrated
+
+---
+
 ## Version History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
+| 2.0 | 2026-01-03 | Enhanced with Key Thesis and expanded appendices | Claude |
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |

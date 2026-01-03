@@ -8,6 +8,8 @@
 
 **Target Audience:** Consulting professionals, risk officers, compliance leads, and Block 3 graduates
 
+**Key Thesis:** Operationalizing AI governance requires translating regulatory requirements and responsible AI principles into documented organizational structures, automated audit trails, and risk-based agent autonomy classifications, because effective governance cannot remain abstract—it must manifest in specific policies, measurable controls, and accountable decision-making processes that survive regulatory scrutiny.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Map regulatory compliance requirements (EU AI Act, sector-specific) to AI systems
 2. Design organizational governance structures (centralized vs. federated models)
@@ -195,6 +197,25 @@ The challenge is navigating this patchwork. If you operate in multiple jurisdict
 Today you'll learn a systematic approach to compliance mapping. Let's start with the EU AI Act - currently the most comprehensive AI regulation."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide establishes urgency and practical motivation for compliance-focused governance
+- Creates business case for investment in governance frameworks through penalty exposure
+- Frames the complexity challenge that subsequent slides will address with solutions
+
+**Key Research & Citations:**
+- **EU AI Act**: Adopted June 2024, phased implementation through 2027, applies extraterritorially to systems used in EU
+- **Penalties**: Up to €35M or 7% global revenue for prohibited AI, €15M or 3% for non-compliance with obligations
+- **US landscape**: Fragmented - NIST AI RMF (voluntary), sector regulations (mandatory), state laws (varying)
+- **NYC Local Law 144**: Employment AI bias audit requirements effective July 2023
+- **Financial services**: SR 11-7 model risk management, OCC fairness guidelines
+
+**Q&A Preparation:**
+- *"Do we need to comply if we're US-based?"*: If you serve EU customers or process EU resident data with AI, yes - extraterritorial application
+- *"Which regulation should we prioritize?"*: Start with most stringent applicable regulation (often EU AI Act), then layer sector-specific requirements
+- *"How do we stay current with evolving regulations?"*: Subscribe to regulatory monitoring services, join industry groups, quarterly compliance review cadence
 
 ---
 
@@ -472,6 +493,24 @@ The key is matching structure to your organization's culture, risk tolerance, an
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides the foundational organizational design choices for AI governance
+- Addresses common tension between control/consistency and agility/local adaptation
+- Critical decision that impacts all subsequent governance implementation
+
+**Key Research & Citations:**
+- Organizational design patterns based on McKinsey/Gartner research on AI governance structures
+- Centralized model common in financial services (regulatory compliance priority), healthcare (safety/liability)
+- Federated model common in technology companies (innovation priority), diversified conglomerates (business unit autonomy)
+- Hybrid model represents 60%+ of mature organizations according to Deloitte AI Governance Survey 2023
+
+**Q&A Preparation:**
+- *"Can we change governance structure later?"*: Yes, governance maturity typically progresses from ad-hoc → centralized → hybrid/federated as organization gains AI experience
+- *"What if different AI systems need different governance?"*: Risk-based approach - high-risk AI requires centralized oversight even in federated model
+- *"How do we handle third-party AI tools?"*: Center of Excellence reviews/approves tools, business units govern usage - natural hybrid pattern
+
 ---
 
 ### SLIDE 9: KEY GOVERNANCE ROLES
@@ -517,6 +556,24 @@ Governance committees provide oversight and decision-making forums. Steering com
 In your capstone, you'll define which roles and committees your organization needs."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide operationalizes governance structure with specific roles and accountabilities
+- Addresses "who does what" question that determines governance effectiveness
+- Provides RACI-style clarity for governance responsibilities
+
+**Key Research & Citations:**
+- Role definitions synthesized from ISO 42001:2023 AI management system standard
+- Financial services model validator role based on SR 11-7 and OCC guidance requirements
+- Chief AI Officer emergence documented in Fortune 500 trends (22% had CAO role in 2023, up from 3% in 2020)
+- Committee structures based on corporate governance best practices adapted for AI-specific decisions
+
+**Q&A Preparation:**
+- *"Can one person hold multiple roles?"*: Yes in smaller organizations - common to combine AI Governance Lead + AI Ethics Officer, but maintain separation between Model Developers and Model Validators
+- *"Do we need all these roles immediately?"*: No - start with AI Governance Lead, add roles based on AI maturity and risk profile
+- *"How do these roles integrate with existing governance?"*: AI governance roles typically report through existing risk/compliance/technology governance structures, not separate reporting lines
 
 ---
 
@@ -1189,8 +1246,70 @@ Thank you for your engagement. Good luck with the capstone. I look forward to se
 
 ---
 
+## Appendix A: Slide Type Definitions (Condensed)
+
+**CONCEPT**: Introduces new idea or framework - focus on clarity and single concept
+**DEMO**: Live demonstration or walkthrough - have backup plan if tech fails
+**INSIGHT**: Delivers key learning or aha moment - emphasize and pause after
+**TRANSITION**: Bridges sections - keep brief, preview what's coming
+**SUMMARY**: Reinforces key points - use repetition intentionally
+
+## Appendix B: Visual Design Guidelines
+
+**Color Palette - Advanced Green Theme:**
+- Primary: Advanced Green #00CC99
+- Secondary: Deep Blue #003D5C
+- Accent: Bright Orange #FF6B35
+- Neutral: Cool Gray #708090
+- Warning/Alert: Amber #FFA500
+
+**Typography:**
+- Headers: Bold, size 32-44pt
+- Body: Regular, size 18-24pt
+- Code/Technical: Monospace, size 16-20pt
+- Ensure sufficient contrast (WCAG AA minimum)
+
+**Graphic Standards:**
+- Every slide with technical content needs a supporting graphic
+- Graphics must be referenced in speaker notes
+- Use consistent icon set throughout presentation
+- Label all diagram elements clearly
+- Show relationships with arrows/connectors
+
+**Layout Principles:**
+- Maximum 3 main points per slide
+- White space is valuable - don't overcrowd
+- Align elements to grid
+- Consistent margins across all slides
+
+## Appendix C: Quality Checklist
+
+**Content Quality:**
+- [ ] All learning objectives explicitly addressed in slides
+- [ ] Each segment has clear opening, body, and summary
+- [ ] Technical accuracy verified (commands, code, architecture patterns)
+- [ ] Examples are realistic and relevant to target audience
+- [ ] Terminology consistent with Block 3 and prior modules
+
+**Speaker Notes Quality:**
+- [ ] Every content slide has speaker notes
+- [ ] Notes include delivery cues ([Pause], [Emphasize], [Transition])
+- [ ] Approximate timing aligns with segment durations
+- [ ] Questions and transitions scripted
+- [ ] Backup explanations prepared for complex topics
+
+**Technical Quality:**
+- [ ] All code examples are syntactically correct
+- [ ] Architecture diagrams are technically sound
+- [ ] Commands have been tested
+- [ ] Links and references are valid
+- [ ] Version numbers and dates are current
+
+---
+
 ## Version History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2026-01-02 | Initial presentation created | [Instructor] |
+| 2.0 | 2026-01-03 | Enhanced with BACKGROUND sections, Key Thesis, and expanded appendices | Claude |

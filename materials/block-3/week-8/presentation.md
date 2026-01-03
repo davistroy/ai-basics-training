@@ -4,6 +4,17 @@
 **Block:** 3: AI Automation Architecture
 **Week:** 8 of 8
 **Format:** Self-paced (no live presentation)
+**Delivery Format:** Reference materials for self-guided capstone submission
+
+**Target Audience:** Block 3 participants completing capstone evaluation
+
+**Key Thesis:** The AI Automation Architect certification validates not just technical agent-building skills, but the complete professional capability to design, implement, monitor, and deploy autonomous systems that deliver measurable business value.
+
+**Week Learning Objectives:** By the end of this week, participants will:
+1. Complete all required capstone deliverables
+2. Conduct honest self-evaluation against rubric criteria
+3. Submit comprehensive capstone package for evaluation
+4. Understand certification criteria and next steps
 
 ---
 
@@ -70,6 +81,39 @@ Self-paced evaluation and submission week
 | 4 | Monitoring & Observability | 8 | Team Deployment Potential |
 
 **Certification:** 34+ points (85%) = AI Automation Architect
+
+**SPEAKER NOTES:**
+
+[Note: No live session - these notes are for reference if instructor offers office hours]
+
+"Eight evaluation criteria, five points each.
+
+The 85% threshold (34 points) is intentionally high. This certification means production-ready work, not just functional prototypes.
+
+Each criterion has clear rubric definitions - 5 is excellent, 3 is adequate, 1 is missing. You know exactly what's expected."
+
+**BACKGROUND:**
+
+**Rationale:**
+- The eight criteria comprehensively assess Block 3 learning: technical (1-4), professional (5-6), business (7-8)
+- 85% certification threshold reflects Block 3's advanced nature - agent systems are complex, certification should reflect mastery
+- Equal weighting (5 pts each) prevents participants from ignoring "soft" deliverables like documentation
+- Self-evaluation option encourages honest assessment and metacognition
+
+**Key Research & Citations:**
+- **Bloom's Taxonomy - Evaluation Level**: Capstone assessment requires synthesis and evaluation - highest cognitive levels demonstrating mastery
+- **Certification Standards (CompTIA, AWS)**: Industry certifications typically require 70-80% passing scores; 85% signals advanced proficiency
+- **Rubric-Based Assessment Research**: Clear rubrics with performance levels improve learning outcomes and reduce subjective grading variance
+
+**Q&A Preparation:**
+- *"Why 85% when Blocks 1-2 were 55%?"*: Blocks 1-2 are foundational; Block 3 is advanced. Agents are production systems - higher bar is appropriate.
+- *"What if I'm close but not 34 points?"*: You'll receive detailed feedback. Many participants iterate and resubmit after addressing gaps.
+- *"Is self-evaluation used for grading?"*: Recommended but not graded. Helps you calibrate expectations and identify areas needing work before submission.
+
+**Sources:**
+1. [Bloom's Taxonomy](https://cft.vanderbilt.edu/guides-sub-pages/blooms-taxonomy/) - Cognitive assessment levels
+2. [Rubric Design Best Practices](https://teaching.cornell.edu/resource/designing-rubrics) - Assessment rubric creation
+3. [Certification Standards](https://www.comptia.org/testing/testing-policies-procedures/exam-scoring) - Industry certification benchmarks
 
 **GRAPHICS:**
 
@@ -374,6 +418,22 @@ Submit your capstone and earn your certification.
 
 ---
 
+## APPENDICES
+
+### Appendix A: Slide Type Definitions
+**TITLE SLIDE** - Opens presentation | **ACTION / NEXT STEPS** - Concrete actions | **SUMMARY / RECAP** - Consolidates key points | **CLOSING / CALL TO ACTION** - Final messaging
+
+### Appendix B: Background Section Guidelines
+**Rationale:** Explain slide's purpose | **Key Research & Citations:** **[Source (Year)]**: [Explanation] | **Q&A Preparation:** *"[Question]"*: [Response]
+
+### Appendix C: Visual Design Guidelines
+**Block 3 Color Scheme:** Primary Green #00CC99, Accent Teal #008B8B | **Theme:** Green for automation, Teal for orchestration
+
+### Appendix D: Quality Checklist
+- [ ] Key Thesis stated | [ ] Learning objectives actionable | [ ] All rubric criteria clear | [ ] Examples Block 3-relevant
+
+---
+
 ## Appendix A: Submission Checklist (Detailed)
 
 ### Technical Completeness
@@ -516,9 +576,10 @@ A: You'll receive feedback on improvement areas. Discuss options with your instr
 
 ## Version History
 
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0 | 2025-01-01 | Initial reference materials created |
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | 2025-01-01 | Initial reference materials created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |
 
 ---
 

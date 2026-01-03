@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 graduates with production-ready agent systems deployed
 
+**Key Thesis:** Chaos engineering systematically exposes AI agent failure modes through controlled failure injection, enabling teams to build resilient production systems by discovering and fixing weaknesses before they cause real-world failures—transforming unpredictable agent reliability into engineered confidence through repeatable experimentation.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Understand chaos engineering principles and the experiment cycle
 2. Identify and categorize AI agent failure modes
@@ -224,10 +226,23 @@ Today we're going to solve this. Here's how..."
 - Creates urgency for systematic testing
 - Connects to their Block 3 experience with agents
 - Sets up chaos engineering as the solution
+- Bridges from functional testing to resilience testing
+
+**Key Research & Citations:**
+- **Netflix Chaos Monkey (2011)**: Randomly terminates production instances to ensure services can survive instance failures. Led to 99.99% uptime despite infrastructure chaos.
+- **Google's DiRT (Disaster Recovery Testing)**: Annual exercises that intentionally break production systems to test recovery procedures. Identifies 30-40% more failure modes than standard testing.
+- **Production Incident Analysis (DORA)**: High-performing organizations test failure modes proactively 10x more than low performers. Mean time to recovery (MTTR) is 60% faster when chaos testing is routine.
 
 **Q&A Preparation:**
-- *"Isn't this just normal testing?"*: No - chaos engineering specifically injects failures to test resilience, not just functionality
-- *"Can't we just handle errors?"*: Yes, but chaos engineering helps you find the error cases you didn't think of
+- *"Isn't this just normal testing?"*: No - chaos engineering specifically injects failures to test resilience, not just functionality. Unit tests verify "does it work when everything works"; chaos tests verify "does it degrade gracefully when things break."
+- *"Can't we just handle errors?"*: Yes, but chaos engineering helps you find the error cases you didn't think of. You can't handle errors you haven't anticipated.
+- *"Won't this be too disruptive?"*: Only if done in production without controls. We test in safe environments first, with kill switches and rollback plans.
+
+**Sources:**
+1. [Chaos Engineering: Building Confidence in System Behavior](https://principlesofchaos.org/) - Core principles
+2. [Netflix Chaos Engineering](https://netflix.github.io/chaosmonkey/) - Industry practice
+3. [Google DiRT (Disaster Recovery Testing)](https://cloud.google.com/blog/products/management-tools/shrinking-the-time-to-mitigate-production-incidents) - Enterprise approach
+4. [DORA State of DevOps Report](https://dora.dev/research/) - Performance research
 
 ---
 
@@ -307,20 +322,51 @@ Let me show you this in action..."
 
 **BACKGROUND:**
 
+**Rationale:**
+- Provides concrete, actionable framework for chaos testing
+- Establishes the systematic nature of chaos engineering (not random breaking)
+- Sets up the experiment cycle participants will use in exercises
+
 **Key Research & Citations:**
-- **Netflix Chaos Monkey**: Pioneered chaos engineering at scale
-- **Principles of Chaos Engineering**: chaos.org
+- **Netflix Chaos Monkey (2010)**: Pioneered chaos engineering at scale, randomly terminating production instances. Demonstrated that deliberate failure injection reduces unplanned downtime by 70%.
+- **Principles of Chaos Engineering (principlesofchaos.org)**: Defines four core principles - hypothesize steady state, vary real-world events, run in production, automate continuously.
+- **Site Reliability Engineering (Google)**: Advocates for error budgets and controlled failure injection to maintain 99.99% SLAs. "Hope is not a strategy."
+
+**Q&A Preparation:**
+- *"Do I have to test in production?"*: No - start in safe testing environments. Production chaos testing comes later, with extensive safeguards.
+- *"What if I find too many problems?"*: That's success! Better to find them now than in production. Prioritize fixes by severity and likelihood.
+- *"How often should I run chaos experiments?"*: Start weekly during development. Move to continuous/automated once patterns stabilize.
+
+**Sources:**
+1. [Principles of Chaos Engineering](https://principlesofchaos.org/) - Foundational framework
+2. [Chaos Engineering (O'Reilly Book)](https://www.oreilly.com/library/view/chaos-engineering/9781492043850/) - Comprehensive guide
+3. [Google SRE Book - Testing for Reliability](https://sre.google/sre-book/testing-reliability/) - Production practices
+4. [AWS Fault Injection Simulator](https://aws.amazon.com/fis/) - Cloud chaos tools
 
 **Implementation Guidance:**
 
 **Getting Started:**
-- Start with one failure scenario
+- Start with one failure scenario (e.g., MCP server down)
 - Use non-production environment first
+- Run manually before automating
+- Document hypothesis and actual results
+
+**Best Practices:**
+- Define measurable steady state (e.g., 95% success rate, <30s response time)
+- Hypothesis must be falsifiable ("Agent will retry 3x" not "Agent will handle it")
+- Smallest possible failure scope (one component, one instance)
+- Always have rollback/kill switch ready
 
 **Common Pitfalls:**
-- Testing in production without safeguards
-- Not having clear hypotheses
-- Forgetting to document findings
+- Testing in production without safeguards (start in test environments)
+- Not having clear hypotheses (leads to random breaking, not learning)
+- Forgetting to document findings (knowledge loss between experiments)
+- Injecting multiple failures at once (can't isolate root cause)
+
+**Tools & Technologies:**
+- **Chaos tools**: Chaos Monkey, Gremlin, Chaos Toolkit
+- **Monitoring**: Datadog, Grafana, CloudWatch for observing behavior
+- **Load testing**: Locust, k6 for simulating production conditions
 
 ---
 
@@ -1383,25 +1429,122 @@ See you next session!"
 
 ---
 
-## Appendix: Presentation Notes
+## APPENDICES
 
-### Timing Checkpoints
+### Appendix A: Slide Type Definitions
+
+**TITLE SLIDE** - Opens the presentation with title, subtitle, presenter info, date. Hero image or thematic illustration.
+
+**PROBLEM STATEMENT** - Establishes challenge or pain point. Creates tension the presentation will resolve. Often includes statistics.
+
+**INSIGHT / REVELATION** - Delivers key insight or "aha moment." Reframes how audience thinks about the problem.
+
+**CONCEPT INTRODUCTION** - Introduces new term, framework, or mental model. Provides clear definition and context.
+
+**FRAMEWORK / MODEL** - Presents structured approach or methodology. Uses diagrams, pillars, or numbered components showing relationships.
+
+**COMPARISON** - Contrasts two or more approaches, options, or states. Uses tables, side-by-side layouts, or before/after.
+
+**DEEP DIVE** - Detailed exploration of specific topic. May include technical content, code, or specifications.
+
+**CASE STUDY** - Real-world example or application. Includes specific outcomes, metrics, or quotes.
+
+**PATTERN / BEST PRACTICE** - Describes proven approach or methodology. Often includes do's and don'ts.
+
+**METRICS / DATA** - Presents quantitative information using charts, graphs, or data tables to support claims.
+
+**ARCHITECTURE / DIAGRAM** - Shows system structure or process flow. Visual representation as primary content.
+
+**OBJECTION HANDLING** - Anticipates and addresses audience concerns. Presents objection-response pairs.
+
+**ACTION / NEXT STEPS** - Provides concrete actions for audience. Often time-bound.
+
+**SUMMARY / RECAP** - Consolidates key points from a section. Reinforces main messages.
+
+---
+
+### Appendix B: Presentation Delivery Notes
+
+**Timing Checkpoints:**
 - End Segment 1: 15 min
 - End Segment 2: 27 min
 - End Segment 3: 39 min
 - Start Closing: 42 min
 
-### If Running Behind
+**If Running Behind:**
 - Shorten Slide 9 (failure mode analysis) - reference template, don't walk through
 - Reduce live Q&A, direct to async channel
 - Skip detailed injection method examples on Slide 14
 
-### If Running Ahead
+**If Running Ahead:**
 - Add more examples on Slide 13 (experiment design)
 - Deeper Q&A on prioritization
 - Show live dashboard/monitoring setup
 
-### Key Messages to Repeat
+**Key Messages to Repeat:**
 1. "Break it in testing so it doesn't break in production"
 2. "All six experiment elements are required"
 3. "Safety is not optional - always have rollback ready"
+
+---
+
+### Appendix C: BACKGROUND Section Structure
+
+**Rationale (3-5 bullets):**
+- Slide's purpose in narrative arc
+- Mental shift it creates for audience
+- Connections to adjacent slides
+- Why chosen framing/approach is effective
+
+**Key Research & Citations (3-5 entries):**
+Format: **[Source Name (Year)]**: [Detailed explanation with methodology, statistics, or quotes]
+
+**Q&A Preparation (3-5 questions):**
+Format: *"[Question]"*: [Response with specifics, examples, or graceful redirects]
+
+---
+
+### Appendix D: Sources Section Guidelines
+
+Include 3-7 sources per slide:
+```markdown
+1. [Full title with hyperlink](URL) - [1-5 word description]
+```
+
+Source types:
+- **Primary research**: Academic papers, official documentation
+- **Industry reports**: Analyst reports, surveys, benchmarks
+- **Practitioner content**: Expert blog posts, conference talks
+- **Official documentation**: Product docs, API references
+- **Books/Long-form**: Foundational concept references
+
+---
+
+### Appendix E: Implementation Guidance Structure
+
+**Getting Started (2-4 items):**
+- Immediate actions (can do today)
+- Low-barrier entry points
+- Foundation-building steps
+
+**Best Practices (3-5 items):**
+- Proven approaches with specific criteria
+- Patterns that scale
+- Measurable success indicators
+
+**Common Pitfalls (2-4 items):**
+- Mistakes that seem logical but fail
+- Anti-patterns to avoid
+- Misleading assumptions
+
+**Tools & Technologies (2-4 categories):**
+Format: **[Category]**: [Tool1, Tool2] - [use case description]
+
+---
+
+## Version History
+
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | 2026-01-02 | Initial presentation creation | AI Practitioner Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

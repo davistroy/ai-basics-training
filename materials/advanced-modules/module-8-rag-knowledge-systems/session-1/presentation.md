@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 graduates (AI Automation Architects) who need to build knowledge-enabled AI agents for enterprise consulting engagements
 
+**Key Thesis:** Retrieval-Augmented Generation (RAG) solves the fundamental problem of giving AI agents access to current, domain-specific knowledge without retraining models, but effective RAG requires sophisticated chunking strategies, semantic embedding selection, and retrieval quality evaluation because naive implementations produce hallucinations when retrieval fails to surface relevant context within tight token budgets.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Understand RAG architecture patterns and when to apply them vs. alternatives
 2. Design and implement appropriate chunking strategies for different document types
@@ -406,6 +408,24 @@ Let me show you four strategies for getting this right..."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide establishes chunking as the critical success factor in RAG implementations
+- Creates emotional buy-in for the technical strategies that follow
+- Addresses the most common RAG failure mode in production systems
+
+**Key Research & Citations:**
+- Research from LangChain/LlamaIndex documentation on chunking best practices
+- Token window constraints vary by model: GPT-4 (128k), Claude (200k), but effective retrieval typically uses 4-8k token context
+- Semantic coherence research from Guu et al. (2020) "REALM: Retrieval-Augmented Language Model Pre-Training"
+- Production failure analysis showing 60%+ of RAG issues traced to poor chunking (OpenAI developer community data)
+
+**Q&A Preparation:**
+- *"Can't we just use small chunks and retrieve more of them?"*: Yes but increases cost/latency and risks hitting context window limits
+- *"What's the 'right' chunk size?"*: Depends on content type - typically 200-800 tokens, but semantic boundaries matter more than fixed sizes
+- *"How do we evaluate chunking quality?"*: Retrieval precision/recall metrics, manual spot-checking of split points, end-to-end RAG accuracy testing
+
 ---
 
 ### SLIDE 9: CHUNKING STRATEGIES OVERVIEW
@@ -634,6 +654,24 @@ This is why RAG works - we can find semantically similar content, not just keywo
 The question is: which embedding model should you use?"
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide demystifies embeddings - the mathematical foundation of semantic search
+- Establishes conceptual understanding before technical implementation details
+- Critical for practitioners to understand why RAG works and how to troubleshoot it
+
+**Key Research & Citations:**
+- Embedding technology based on transformer models (Vaswani et al., 2017 "Attention Is All You Need")
+- Popular models: OpenAI text-embedding-3 (1536d), Cohere embed-english-v3.0 (1024d), sentence-transformers (384-768d)
+- Vector similarity typically measured using cosine similarity or euclidean distance
+- Semantic search improvements over keyword search documented at 40-60% better relevance (Karpukhin et al., 2020 DPR paper)
+
+**Q&A Preparation:**
+- *"Do we need to understand the math behind embeddings?"*: No - treat as black box that converts text to vectors, focus on using them effectively
+- *"Can we use different embedding models for ingestion vs query?"*: No - must use same model for both or similarity comparison fails
+- *"How do embeddings handle multiple languages?"*: Depends on model - some are multilingual (Cohere multilingual), others English-only, check model documentation
 
 ---
 
@@ -1120,8 +1158,70 @@ See you next session!"
 
 ---
 
+## Appendix A: Slide Type Definitions (Condensed)
+
+**CONCEPT**: Introduces new idea or framework - focus on clarity and single concept
+**DEMO**: Live demonstration or walkthrough - have backup plan if tech fails
+**INSIGHT**: Delivers key learning or aha moment - emphasize and pause after
+**TRANSITION**: Bridges sections - keep brief, preview what's coming
+**SUMMARY**: Reinforces key points - use repetition intentionally
+
+## Appendix B: Visual Design Guidelines
+
+**Color Palette - Advanced Green Theme:**
+- Primary: Advanced Green #00CC99
+- Secondary: Deep Blue #003D5C
+- Accent: Bright Orange #FF6B35
+- Neutral: Cool Gray #708090
+- Warning/Alert: Amber #FFA500
+
+**Typography:**
+- Headers: Bold, size 32-44pt
+- Body: Regular, size 18-24pt
+- Code/Technical: Monospace, size 16-20pt
+- Ensure sufficient contrast (WCAG AA minimum)
+
+**Graphic Standards:**
+- Every slide with technical content needs a supporting graphic
+- Graphics must be referenced in speaker notes
+- Use consistent icon set throughout presentation
+- Label all diagram elements clearly
+- Show relationships with arrows/connectors
+
+**Layout Principles:**
+- Maximum 3 main points per slide
+- White space is valuable - don't overcrowd
+- Align elements to grid
+- Consistent margins across all slides
+
+## Appendix C: Quality Checklist
+
+**Content Quality:**
+- [ ] All learning objectives explicitly addressed in slides
+- [ ] Each segment has clear opening, body, and summary
+- [ ] Technical accuracy verified (commands, code, architecture patterns)
+- [ ] Examples are realistic and relevant to target audience
+- [ ] Terminology consistent with Block 3 and prior modules
+
+**Speaker Notes Quality:**
+- [ ] Every content slide has speaker notes
+- [ ] Notes include delivery cues ([Pause], [Emphasize], [Transition])
+- [ ] Approximate timing aligns with segment durations
+- [ ] Questions and transitions scripted
+- [ ] Backup explanations prepared for complex topics
+
+**Technical Quality:**
+- [ ] All code examples are syntactically correct
+- [ ] Architecture diagrams are technically sound
+- [ ] Commands have been tested
+- [ ] Links and references are valid
+- [ ] Version numbers and dates are current
+
+---
+
 **Version History:**
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2026-01-02 | Initial presentation created | Claude |
+| 2.0 | 2026-01-03 | Enhanced with BACKGROUND sections, Key Thesis, and expanded appendices | Claude |

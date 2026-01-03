@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 graduates who advise clients on deploying and operating enterprise-scale AI systems in production.
 
+**Key Thesis:** Production AI systems require scaling architectures fundamentally different from traditional applications because they must manage token-based constraints, variable latency, and real-world action consequences that amplify through agent autonomy, making multi-layer defense-in-depth essential for reliability at scale.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Configure auto-scaling strategies for AI workloads based on different triggers
 2. Design hybrid and on-premises architectures for regulated environments
@@ -214,6 +216,23 @@ I've seen production systems fail because scaling was configured for CPU, not to
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide establishes why AI scaling is fundamentally different from traditional application scaling
+- Creates urgency and practical motivation for the specific strategies that follow
+- Addresses common misconception that traditional auto-scaling approaches work for AI workloads
+
+**Key Research & Citations:**
+- Based on production experience with AWS Bedrock and Azure OpenAI rate limits
+- Token-per-minute (TPM) limits vary by model tier and often become the constraining factor before CPU/memory
+- Research from cloud provider documentation on AI-specific scaling patterns
+
+**Q&A Preparation:**
+- *"Can't we just over-provision to avoid scaling issues?"*: Yes but cost becomes prohibitive - AI API costs scale linearly unlike traditional compute economies of scale
+- *"What about caching to reduce scaling needs?"*: Excellent strategy covered in hybrid patterns, but doesn't eliminate need for proper scaling design
+- *"How do we know token limits in advance?"*: Provider documentation and monitoring - track actual usage against documented limits
+
 ---
 
 ### SLIDE 5: AUTO-SCALING STRATEGIES
@@ -257,6 +276,24 @@ Scheduled scaling: Pre-scale for known patterns. Great for 'every Monday at 9 AM
 Best practice: combine multiple triggers. Scale on requests AND token usage AND queue depth. Cover all bases."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides the practical toolkit for implementing AI-specific scaling strategies
+- Directly addresses the challenge established in SLIDE 4 with actionable solutions
+- Each strategy has clear trade-offs that help practitioners choose appropriate approach
+
+**Key Research & Citations:**
+- Request-based and CPU/memory scaling are standard cloud patterns (AWS Auto Scaling, Azure VMSS)
+- Custom metric scaling based on token usage requires CloudWatch custom metrics (AWS) or Azure Monitor custom metrics
+- Queue-depth scaling pattern from AWS SQS-based scaling and Azure Queue Storage triggers
+- Token rate limiting behavior documented in OpenAI, Anthropic, and cloud provider API documentation
+
+**Q&A Preparation:**
+- *"Which single trigger should we use if we can only choose one?"*: Custom metric based on token usage rate - it's closest to the actual constraint
+- *"How do we track token usage in real-time?"*: Application instrumentation sending metrics to CloudWatch/Azure Monitor, covered in observability segment
+- *"What if scheduled scaling conflicts with metric-based scaling?"*: Triggers combine (take maximum), but generally avoid mixing scheduled with reactive for same service
 
 ---
 
@@ -503,6 +540,23 @@ The break-even varies, but rough estimate: < 1M requests/day → cloud. > 10M re
 We'll explore the architecture patterns."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide challenges the cloud-first assumption and establishes when alternatives are necessary
+- Addresses enterprise realities of compliance, sovereignty, and cost at scale
+- Critical for consultants advising regulated industries and government clients
+
+**Key Research & Citations:**
+- Data sovereignty requirements based on GDPR (EU), PIPL (China), and sector-specific regulations
+- Cost break-even analysis from AWS Bedrock/Azure OpenAI pricing compared to self-hosted model costs
+- Air-gapped environment requirements from DoD, financial services, and healthcare compliance frameworks
+
+**Q&A Preparation:**
+- *"Can't we use cloud with data residency guarantees?"*: Yes for some regulations, but air-gapped environments categorically prohibit cloud connectivity
+- *"What about using smaller models on-premises?"*: Good strategy - trade model capability for control, covered in hybrid patterns
+- *"How do we assess cost break-even for our specific case?"*: Exercise 2.1 includes cost modeling framework comparing cloud API costs vs self-hosting total cost of ownership
 
 ---
 
@@ -813,8 +867,68 @@ Excellent work. Good luck with your capstones!"
 
 ---
 
+## Appendix A: Slide Type Definitions (Condensed)
+
+**CONCEPT**: Introduces new idea or framework - focus on clarity and single concept
+**DEMO**: Live demonstration or walkthrough - have backup plan if tech fails
+**INSIGHT**: Delivers key learning or aha moment - emphasize and pause after
+**TRANSITION**: Bridges sections - keep brief, preview what's coming
+**SUMMARY**: Reinforces key points - use repetition intentionally
+
+## Appendix B: Visual Design Guidelines
+
+**Color Palette - Advanced Green Theme:**
+- Primary: Advanced Green #00CC99
+- Secondary: Deep Blue #003D5C
+- Accent: Bright Orange #FF6B35
+- Neutral: Cool Gray #708090
+- Warning/Alert: Amber #FFA500
+
+**Typography:**
+- Headers: Bold, size 32-44pt
+- Body: Regular, size 18-24pt
+- Code/Technical: Monospace, size 16-20pt
+- Ensure sufficient contrast (WCAG AA minimum)
+
+**Graphic Standards:**
+- Every slide with technical content needs a supporting graphic
+- Graphics must be referenced in speaker notes
+- Use consistent icon set throughout presentation
+- Label all diagram elements clearly
+- Show relationships with arrows/connectors
+
+**Layout Principles:**
+- Maximum 3 main points per slide
+- White space is valuable - don't overcrowd
+- Align elements to grid
+- Consistent margins across all slides
+
+## Appendix C: Quality Checklist
+
+**Content Quality:**
+- [ ] All learning objectives explicitly addressed in slides
+- [ ] Each segment has clear opening, body, and summary
+- [ ] Technical accuracy verified (commands, code, architecture patterns)
+- [ ] Examples are realistic and relevant to target audience
+- [ ] Terminology consistent with Block 3 and prior modules
+
+**Speaker Notes Quality:**
+- [ ] Every content slide has speaker notes
+- [ ] Notes include delivery cues ([Pause], [Emphasize], [Transition])
+- [ ] Approximate timing aligns with segment durations
+- [ ] Questions and transitions scripted
+- [ ] Backup explanations prepared for complex topics
+
+**Technical Quality:**
+- [ ] All code examples are syntactically correct
+- [ ] Architecture diagrams are technically sound
+- [ ] Commands have been tested
+- [ ] Links and references are valid
+- [ ] Version numbers and dates are current
+
 **Version History:**
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2026-01-02 | Initial presentation created | [Instructor] |
+| 2.0 | 2026-01-03 | Enhanced with BACKGROUND sections, Key Thesis, and expanded appendices | Claude |

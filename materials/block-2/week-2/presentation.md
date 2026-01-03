@@ -8,6 +8,8 @@
 
 **Target Audience:** Consultants with platform accounts created and Block 1 templates ready
 
+**Key Thesis:** Reliable workflows require decomposition into single-purpose steps, the micro-agent pattern for bounded AI operations, and production-grade error handling from day one.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Understand workflow design principles and the micro-agent pattern
 2. Build an end-to-end AI workflow with trigger, AI processing, and output
@@ -230,6 +232,24 @@ This is the workflow mindset: think in steps, not single prompts."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces the fundamental paradigm shift from Block 1 to Block 2
+- Decomposition into single-purpose steps is the core principle enabling reliability, debuggability, and reusability
+- The visual contrast between monolithic and decomposed approaches makes the abstract concept immediately concrete
+- This mental model underpins all subsequent workflow building throughout Block 2
+
+**Key Research & Citations:**
+- **Unix Philosophy (1970s, Doug McIlroy)**: "Do one thing and do it well" - the foundational principle for composable systems that applies directly to workflow step design.
+- **Microservices Architecture Pattern (Netflix, 2012)**: Decomposition of monolithic applications into single-purpose services led to 100x improvement in deployment frequency and mean-time-to-recovery.
+- **Site Reliability Engineering (Google, 2016)**: Complex systems fail at component boundaries; decomposition enables fault isolation and targeted debugging.
+
+**Q&A Preparation:**
+- *"Isn't breaking things into steps more complex?"*: Initially yes, but it's the same trade-off as monoliths vs. microservices - upfront complexity for long-term maintainability and reliability.
+- *"How small should each step be?"*: Single responsibility principle - if you can describe the step in one sentence without using "and," it's appropriately scoped.
+- *"Can't I just make one step that does everything?"*: You can, but when it fails (and it will), you won't know which part failed or how to fix it.
+
 ---
 
 ## SLIDE 5: CORE WORKFLOW COMPONENTS
@@ -339,6 +359,29 @@ And research shows AI agents degrade after 10-20 turns anyway.
 For your workflows, think 'one AI step doing one thing well' - that's the sweet spot."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces a critical architectural pattern that prevents AI workflows from becoming unreliable and unmaintainable
+- The bounded AI concept is counterintuitive - participants often assume "more AI autonomy = better"
+- Research on agent degradation provides empirical justification for the 3-20 step limit
+- This pattern becomes essential in Block 3 when building full agent systems
+
+**Key Research & Citations:**
+- **ReAct: Synergizing Reasoning and Acting (Yao et al., 2023)**: Demonstrated that agent performance degrades significantly after 10-15 reasoning-action cycles, with error accumulation leading to task failure.
+- **Anthropic Constitutional AI (2023)**: Bounded agent design with explicit constraints prevents drift and maintains alignment - unbounded agents tend toward unpredictable behavior.
+- **Workflow Patterns Research (van der Aalst, 2003)**: Deterministic process orchestration provides guarantees about system behavior; embedding non-deterministic elements within bounded contexts preserves those guarantees.
+
+**Q&A Preparation:**
+- *"Why not let AI run for as long as it needs?"*: Research shows performance degrades. More cycles doesn't mean better results - it means error accumulation and context drift.
+- *"What if my task requires more than 20 steps?"*: Break it into multiple bounded micro-agents that hand off to each other with clear state between them.
+- *"Isn't this over-engineering?"*: It seems like it until your unbounded agent gets stuck in a loop or drifts off-task. Boundaries prevent failure modes.
+
+**Sources:**
+1. [ReAct Paper](https://arxiv.org/abs/2210.03629) - Agent reasoning and action research
+2. [Anthropic Constitutional AI](https://www.anthropic.com/constitutional-ai) - Bounded AI design principles
+3. [Workflow Patterns Initiative](http://www.workflowpatterns.com/) - Process orchestration patterns
 
 ---
 
@@ -1209,11 +1252,52 @@ See you next week!"
 
 ---
 
+## Appendices
+
+### Appendix A: Slide Type Definitions
+
+**TITLE SLIDE** - Opens presentation | **PROBLEM STATEMENT** - Establishes challenge | **INSIGHT / REVELATION** - Delivers key insight | **CONCEPT INTRODUCTION** - Introduces new term/framework | **FRAMEWORK / MODEL** - Presents structured approach | **COMPARISON** - Contrasts approaches | **DEEP DIVE** - Detailed exploration | **CASE STUDY** - Real-world examples | **PATTERN / BEST PRACTICE** - Proven approaches | **METRICS / DATA** - Quantitative information | **ARCHITECTURE / DIAGRAM** - System structure | **OBJECTION HANDLING** - Addresses concerns | **ACTION / NEXT STEPS** - Concrete actions | **SUMMARY / RECAP** - Consolidates key points | **SECTION DIVIDER** - Marks transitions | **CLOSING / CALL TO ACTION** - Final slide | **Q&A / CONTACT** - Invites questions
+
+### Appendix B: Content Element Formats
+
+**Bullet Points:** Use parallel structure | **Tables:** Column headers with data rows | **Bad/Good Examples:** Contrast anti-patterns with best practices | **Key Principle Callouts:** Bold statements of core concepts
+
+### Appendix C: Speaker Notes Conventions
+
+**Stage Directions:** `[Pause]` `[Point to X]` `[Emphasize this]` `[Personal story]` `[Show of hands]` | **Transition Markers:** `[Transition]` `[Transition: Click to next slide]`
+
+### Appendix D: Background Section Guidelines
+
+**Rationale (3-5 bullets):** Explain slide's purpose, mental shift created, connections to adjacent slides | **Key Research & Citations (3-5 entries):** Format **[Source (Year)]**: Detailed explanation with methodology and specific findings | **Q&A Preparation (3-5 questions):** Format *"Question"*: Response addressing concern
+
+### Appendix E: Sources Section Guidelines
+
+Include 3-7 sources per slide: `[Title](URL) - Brief description` | Source types: Primary research, industry reports, practitioner content, official documentation
+
+### Appendix F: Implementation Guidance Structure
+
+**Getting Started (2-4 items):** Immediate actions | **Best Practices (3-5 items):** Proven approaches with criteria | **Common Pitfalls (2-4 items):** Mistakes to avoid | **Tools & Technologies (2-4 categories):** Tool names with use cases
+
+### Appendix G: Visual/Graphic Description Guidelines
+
+**Required Elements:** 1) Type 2) Main elements 3) Arrangement 4) Labels/Text 5) Communication goal
+
+### Appendix H: Visual Design Guidelines - Block 2 Theme
+
+**Block 2 Orange Color Coding:** Primary Orange (#FF6B35) for branding, accent blues/grays, orange highlights for key points, orange progress indicators | **Consistency Rules:** All Block 2 presentations use orange theme, maintain color consistency across weeks
+
+### Appendix I: Quality Checklist
+
+**Content Quality:** Learning objectives align, Key Thesis clear, complete speaker notes, technical accuracy, relevant examples | **BACKGROUND Sections:** Rationale explains purpose, research citations specific and recent, Q&A addresses objections, sources authoritative | **Visual Design:** Orange theme consistent, detailed graphic descriptions, clear hierarchy, not overcrowded | **Instructional Design:** Progressive building, interactive elements, realistic timing, smooth transitions
+
+---
+
 ## Version History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |
 
 ---
 

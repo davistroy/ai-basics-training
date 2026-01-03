@@ -4,6 +4,17 @@
 **Block:** 3: AI Automation Architecture
 **Week:** 7 of 8
 **Duration:** 45 minutes
+**Delivery Format:** Live MS Teams workshop
+
+**Target Audience:** Block 3 participants preparing final capstone submission
+
+**Key Thesis:** Successful agent deployment requires three dimensions beyond technical implementation: comprehensive documentation enabling independent operation, phased rollout plans that manage adoption risk, and ROI analysis with actual data demonstrating measurable business value.
+
+**Week Learning Objectives:** By the end of this session, participants will:
+1. Complete production documentation suite for their agent system
+2. Design phased team rollout plan with clear success criteria
+3. Calculate ROI using actual execution data and project team-scale value
+4. Prepare all components for Week 8 capstone evaluation
 
 ---
 
@@ -57,6 +68,43 @@ Your final preparation before evaluation
 | 5 | **ROI Measurement** | Business value |
 
 All five must work together to tell a complete story.
+
+**SPEAKER NOTES:**
+
+"Five required capstone components.
+
+[Walk through table]
+
+Technical implementation is component one - your multi-agent system. But it's only 20% of the deliverable.
+
+Documentation proves you can transfer knowledge. Monitoring proves you can operate it. Rollout plan proves you can deploy it. ROI proves it's worth deploying.
+
+All five together tell the complete story: I built something real, production-ready, and valuable."
+
+[Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Establishes capstone as professional engineering deliverable, not just technical demo
+- Five components map to real-world deployment requirements consultants encounter
+- Positions Week 7 as integration week where all Block 3 learning converges
+- The "complete story" framing helps participants understand why documentation/ROI matter as much as code
+
+**Key Research & Citations:**
+- **Technology Adoption Lifecycle (Moore, 1991)**: Crossing the chasm from early adopters to mainstream requires complete solution (product + documentation + support + proven value)
+- **Production Readiness Review (Google SRE)**: Production launches require architecture docs, monitoring, runbooks, and capacity planning - same principle for agent deployment
+- **Business Case Framework**: Technology investments require documented ROI, risk assessment, and deployment plan for stakeholder approval
+
+**Q&A Preparation:**
+- *"Why so much non-technical work?"*: Because agents don't create value sitting on your machine. Deployment, adoption, and sustained use create value - these components enable that.
+- *"Can I skip the rollout plan if I won't actually deploy?"*: You're demonstrating deployment thinking - essential skill for AI Automation Architect. Plan as if you will deploy.
+- *"What if my ROI is negative?"*: Document it honestly. Valuable learning. Negative ROI now doesn't mean forever - maybe wrong task or needs iteration.
+
+**Sources:**
+1. [Crossing the Chasm](https://en.wikipedia.org/wiki/Crossing_the_Chasm) - Technology adoption lifecycle
+2. [Google SRE - Production Readiness Reviews](https://sre.google/workbook/production-readiness/) - Launch criteria
+3. [Business Case Development](https://www.pmi.org/learning/library/business-case-development-project-success-7821) - ROI and value documentation
 
 **GRAPHICS:**
 
@@ -460,6 +508,22 @@ Example:
 
 ---
 
+## APPENDICES
+
+### Appendix A: Slide Type Definitions
+**TITLE SLIDE** - Opens presentation | **FRAMEWORK / MODEL** - Structured approach | **ACTION / NEXT STEPS** - Concrete actions | **METRICS / DATA** - Quantitative information
+
+### Appendix B: Background Section Guidelines
+**Rationale:** Explain slide's purpose | **Key Research & Citations:** **[Source (Year)]**: [Explanation] | **Q&A Preparation:** *"[Question]"*: [Response]
+
+### Appendix C: Visual Design Guidelines
+**Block 3 Color Scheme:** Primary Green #00CC99, Accent Teal #008B8B | **Theme:** Green for automation, Teal for orchestration
+
+### Appendix D: Quality Checklist
+- [ ] Key Thesis stated | [ ] Learning objectives actionable | [ ] ROI calculations accurate | [ ] Examples Block 3-relevant
+
+---
+
 ## Appendix A: Documentation Checklist
 
 ### Complete List for Exercise 7.1
@@ -601,9 +665,10 @@ Example:
 
 ## Version History
 
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0 | 2025-01-01 | Initial presentation created |
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |
 
 ---
 
