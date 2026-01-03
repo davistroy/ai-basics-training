@@ -101,8 +101,60 @@
 
 ---
 
+## Appendix D: Security Assessment Templates
+
+*See Session 1 Appendix D for Threat Analysis Template and MCP Server Security Review Template*
+
+---
+
+## Appendix E: Threat Modeling Framework
+
+*See Session 1 Appendix E for AI-Specific Threat Model (STRIDE-AI) and Threat Modeling Process*
+
+---
+
+## Appendix F: Defense-in-Depth Configuration
+
+*See Session 1 Appendix F for complete defense layer configurations*
+
+---
+
+## Appendix G: MCP Security Hardening Guide
+
+*See Session 1 Appendix G for complete MCP hardening guidelines*
+
+---
+
+## Appendix H: Incident Response Playbook
+
+*See Session 1 Appendix H for complete incident response procedures*
+
+---
+
+## Appendix I: Quality Checklist
+
+**Presentation Quality Checklist:**
+- [ ] All learning objectives explicitly addressed in slides
+- [ ] Each segment has clear opening, body, and summary
+- [ ] Technical accuracy verified (commands, code, architecture patterns)
+- [ ] Examples are realistic and relevant to target audience
+- [ ] Terminology consistent with Block 3 and prior modules
+- [ ] Every content slide has speaker notes
+- [ ] Notes include delivery cues ([Pause], [Emphasize], [Transition])
+- [ ] Approximate timing aligns with segment durations
+- [ ] Questions and transitions scripted
+- [ ] Backup explanations prepared for complex topics
+- [ ] All code examples are syntactically correct
+- [ ] Architecture diagrams are technically sound
+- [ ] Commands have been tested
+- [ ] Links and references are valid
+- [ ] Version numbers and dates are current
+
+---
+
 ## Version History
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2026-01-02 | Initial presentation created | Training Team |
 | 2.0 | 2026-01-03 | Enhanced with Key Thesis and expanded appendices | Claude |
+| 3.0 | 2026-01-03 | Added Appendices D-I with references to Session 1 | Claude |

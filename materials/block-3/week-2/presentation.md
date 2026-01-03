@@ -1420,22 +1420,60 @@ Include 3-7 sources formatted as:
 - Teal for orchestration/coordination
 - Clean, production engineering aesthetic
 
-### Appendix H: Quality Checklist
+### Appendix H: Visual Design Guidelines
+
+**Block 3 Color Scheme:**
+| Element | Color | Hex Code |
+|---------|-------|----------|
+| Primary | Green | #00CC99 |
+| Accent | Teal | #008B8B |
+| Background | White | #FFFFFF |
+| Text | Dark Gray | #333333 |
+
+**Block 3 Theme:**
+- Green represents growth, automation, and intelligent systems
+- Use green highlights for agent-related concepts
+- Teal accents for orchestration and coordination
+- Clean, modern aesthetic reflecting production engineering
+
+**Graphic Suggestions:**
+- Title slides: Agent/architecture visuals with green theme
+- Architecture diagrams: Clear component separation
+- Flow diagrams: Directional arrows showing data/control flow
+- Comparison slides: Side-by-side or table formats
+
+### Appendix I: Quality Checklist
 
 **Content Quality:**
 - [ ] Key Thesis clearly stated
 - [ ] Learning objectives actionable
-- [ ] Examples Block 3-relevant
+- [ ] Each slide has clear purpose in narrative
+- [ ] Transitions connect ideas smoothly
+- [ ] Examples are Block 3-relevant (automation architecture)
 
 **Background Sections:**
-- [ ] Rationale explains slide role
-- [ ] Research citations with specifics
-- [ ] Q&A addresses objections
+- [ ] Rationale explains slide's role in presentation
+- [ ] Research citations support claims with specifics
+- [ ] Q&A preparation addresses likely objections
+- [ ] Sources are credible and linked
+
+**Implementation Guidance:**
+- [ ] Getting Started provides immediate actions
+- [ ] Best Practices are specific and proven
+- [ ] Common Pitfalls warn against real mistakes
+- [ ] Tools recommended are current and relevant
 
 **Technical Accuracy:**
-- [ ] Code syntactically correct
-- [ ] Patterns follow standards
-- [ ] Links work
+- [ ] Code examples are syntactically correct
+- [ ] Architectural patterns follow industry standards
+- [ ] Metrics and calculations are accurate
+- [ ] Links to external resources work
+
+**Audience Engagement:**
+- [ ] Speaker notes include engagement cues
+- [ ] Questions prompt reflection
+- [ ] Examples relate to consulting work
+- [ ] Exercises connect to real capstone needs
 
 ---
 

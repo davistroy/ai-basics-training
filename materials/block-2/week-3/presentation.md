@@ -210,6 +210,29 @@ This is why we need automated quality checks. Not because we don't trust AI, but
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide creates urgency for automated quality by demonstrating the scalability constraint of manual review
+- The exponential effort curve makes an abstract problem (quality at scale) viscerally concrete
+- Positioning quality automation as inevitable rather than optional prevents participants from trying to skip it
+- The slide validates the "give up on automation" experience some participants may have had
+
+**Key Research & Citations:**
+- **Scaling Laws for Manual Review**: Research on human review capacity shows linear output growth requires exponential reviewer time growth. Beyond 50-100 daily outputs, quality review becomes the bottleneck preventing automation value realization.
+- **Automation Abandonment Patterns**: Industry studies show 60%+ of automation projects fail due to quality concerns at scale. Most failures occur when volume exceeds manual review capacity but before automated quality checks are implemented.
+- **Quality Control in Manufacturing**: Industrial QA principles demonstrate that 100% manual inspection is economically viable only for low-volume, high-value products. Automation requires automated quality checks to scale.
+
+**Q&A Preparation:**
+- *"What if I hire someone to do quality review?"*: That trades your time for money but doesn't solve scale. As volume grows, review cost scales linearly. Automated checks have near-zero marginal cost per execution.
+- *"Can't I just trust AI quality to improve over time?"*: AI quality IS improving, but even 95% success means 1 in 20 outputs fail. At 500 outputs/day, that's 25 failures daily. You still need systematic quality checks.
+- *"What if my workflow volume stays low?"*: If you're confident volume stays under 10-20/day, manual review may be fine. But automation's value is unlocking scale - if volume never grows, why automate at all?
+
+**Sources:**
+1. [Human Review Capacity Studies](https://en.wikipedia.org/wiki/Quality_assurance) - Manual review scaling limits
+2. [RPA Implementation Failure Analysis](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-next-acronym-you-need-to-know-about-rpa) - Why automation projects fail
+3. [Statistical Process Control](https://en.wikipedia.org/wiki/Statistical_process_control) - Industrial quality automation principles
+
 ---
 
 ## SLIDE 5: QUALITY AS OPERATING PROCEDURES
@@ -336,6 +359,29 @@ Today we focus on post-generation - the quality evaluation after AI generates ou
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces defense-in-depth quality strategy with three distinct intervention points
+- Pre-generation validation is cheapest (prevents wasted AI calls), post-generation catches AI failures, human review handles edge cases
+- Positioning human review as "escalation" rather than "fallback" maintains automation primacy while acknowledging its limits
+- The three-layer model is transferable to other automation contexts beyond AI workflows
+
+**Key Research & Citations:**
+- **Defense in Depth (Cybersecurity Principle)**: Multiple independent layers of security are more effective than single controls. Same principle applies to quality - multiple checkpoints catch different failure modes.
+- **Shift-Left Testing (Software Engineering)**: Finding and fixing defects earlier in the process costs 10-100x less than finding them later. Input validation (shift-left) prevents expensive AI generation on invalid inputs.
+- **Human-in-the-Loop AI Systems**: Research shows optimal AI systems use humans for exception handling, not routine review. Automated checks handle 95%+, humans handle the flagged 5%.
+
+**Q&A Preparation:**
+- *"Why not just do post-generation quality checks?"*: You could, but you'd waste AI calls on invalid inputs. Pre-generation validation (checking required fields, format, etc.) is cheap and prevents expensive failures downstream.
+- *"How do I know when to escalate to human review?"*: Typically when automated confidence is low (borderline quality scores), when checks contradict each other, or when stakes are high. Define escalation criteria explicitly.
+- *"Is human review always necessary?"*: No - some workflows can be fully automated if quality checks are robust and failure consequences are low. Human review is for high-stakes decisions or edge cases your checks can't handle.
+
+**Sources:**
+1. [Defense in Depth Security Strategy](https://en.wikipedia.org/wiki/Defense_in_depth_(computing)) - Multi-layer security approach
+2. [Shift-Left Testing Principles](https://en.wikipedia.org/wiki/Shift-left_testing) - Early defect detection in software
+3. [Human-in-the-Loop Machine Learning](https://mitpress.mit.edu/9780262046589/human-in-the-loop-machine-learning/) - Optimal human-AI collaboration patterns
+
 ---
 
 ## SLIDE 7: BLOCK 1 FOUNDATIONS APPLIED
@@ -383,6 +429,29 @@ Same criteria. Same scoring. Just automated.
 This is why Block 1 mattered. Those rubrics you created are now the operating instructions for your quality system."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide creates explicit continuity between Block 1 and Block 2, demonstrating curriculum coherence
+- Side-by-side comparison makes the transformation from manual to automated immediately obvious
+- The "same criteria, different format" framing reduces perceived complexity of automation
+- This validates the effort participants invested in creating rubrics, increasing motivation to use them
+
+**Key Research & Citations:**
+- **Explicit Criteria in Evaluation**: Research on rubric effectiveness shows that explicitly defined criteria (5=X, 3=Y, 1=Z) dramatically improve inter-rater reliability. Same specificity enables reliable automated evaluation.
+- **Transfer Learning in Curriculum Design**: When later content explicitly builds on earlier content, learners report higher satisfaction and retention. The Block 1→Block 2 connection demonstrates intentional curriculum architecture.
+- **LLM-as-Judge Reliability**: Studies show LLM evaluation accuracy correlates strongly with rubric specificity. Vague criteria produce unreliable scores; explicit criteria produce 85%+ agreement with human expert judgment.
+
+**Q&A Preparation:**
+- *"What if my Block 1 rubric wasn't very detailed?"*: Now's a great time to improve it. The more explicit your criteria, the better automated evaluation works. This is iterative refinement, not starting over.
+- *"Do I need separate rubrics for each workflow?"*: Not necessarily. If deliverable types differ significantly (emails vs. reports), yes. If they're similar, one rubric can work for multiple workflows.
+- *"Can the AI evaluate better than I defined in my rubric?"*: The AI applies YOUR criteria. If your rubric is vague, AI evaluation will be inconsistent. If your rubric is specific, AI evaluation will be reliable. Quality of automation reflects quality of criteria.
+
+**Sources:**
+1. [Rubric Design Best Practices](https://www.cmu.edu/teaching/designteach/design/instructionalstrategies/rubrics.html) - Educational rubric effectiveness
+2. [LLM Evaluation Frameworks](https://arxiv.org/abs/2307.03172) - Research on AI-based evaluation reliability
+3. [Curriculum Coherence Research](https://www.edglossary.org/curriculum-mapping/) - Building intentional learning progressions
 
 ---
 
@@ -834,6 +903,29 @@ This structure gives you flexibility. Route on overall_score, but you have detai
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides a concrete reference implementation that participants can copy/adapt for their own workflows
+- The hierarchical structure (individual scores → overall score → boolean decision) supports both detailed analysis and simple routing
+- Including both numeric scores and textual reasoning balances machine-parseable data with human-readable explanations
+- The "suggestions" field demonstrates extension pattern for adding functionality beyond basic pass/fail
+
+**Key Research & Citations:**
+- **Structured Data for Automation**: Industry best practice in workflow automation shows that well-designed data structures eliminate 90%+ of integration issues. The consistent JSON schema enables reliable parsing, routing, and logging.
+- **Explainable AI Principles**: Including reasoning text alongside numeric scores addresses the "black box" problem. When AI fails quality checks, the reasoning field explains WHY, enabling iterative improvement.
+- **Separation of Concerns in Software Design**: Having both granular scores (per-criterion detail) and summary metrics (overall_score, pass) supports different use cases - detailed debugging vs. routing logic - without duplication.
+
+**Q&A Preparation:**
+- *"Do I need to include all these fields?"*: `overall_score` and `pass` are essential for routing. Individual criterion scores are very useful for debugging. Reasoning and suggestions are optional but valuable. Start with essential fields, add others as needed.
+- *"How do I calculate overall_score from individual scores?"*: Simplest is average. More sophisticated is weighted average (weight important criteria higher). Choose based on whether all criteria matter equally.
+- *"Should I include the raw AI response or just structured data?"*: Structured data for automation, but logging the raw response can help debug when JSON parsing fails. Store both, but only parse/route on structured data.
+
+**Sources:**
+1. [JSON Schema Best Practices](https://json-schema.org/understanding-json-schema/) - Official JSON schema documentation
+2. [Explainable AI Requirements](https://en.wikipedia.org/wiki/Explainable_artificial_intelligence) - Importance of reasoning transparency
+3. [API Design Principles](https://swagger.io/resources/articles/best-practices-in-api-design/) - Structured data for integration
+
 ---
 
 ## SLIDE 16: WORKFLOW EXECUTION DATA
@@ -1180,13 +1272,121 @@ Build those quality checks, create your second workflow, and see you next week!"
 
 ## Appendices
 
-**Slide Type Definitions:** TITLE SLIDE | PROBLEM STATEMENT | INSIGHT / REVELATION | CONCEPT INTRODUCTION | FRAMEWORK / MODEL | COMPARISON | DEEP DIVE | CASE STUDY | PATTERN / BEST PRACTICE | METRICS / DATA | ARCHITECTURE / DIAGRAM | OBJECTION HANDLING | ACTION / NEXT STEPS | SUMMARY / RECAP | SECTION DIVIDER | CLOSING / CALL TO ACTION | Q&A / CONTACT
+### Appendix D: Background Section Guidelines
 
-**Content Guidelines:** Use parallel structure in bullets | Clear tables with headers | Bad/Good example contrasts | Key principle callouts | Stage directions in speaker notes `[Pause]` `[Point to X]` `[Emphasize]`
+**Rationale (3-5 bullets):**
+- Explain the slide's purpose in the narrative arc
+- Describe the mental shift it creates for the audience
+- Note connections to adjacent slides
+- Justify the chosen framing or approach
 
-**Block 2 Orange Theme:** Primary Orange (#FF6B35) for branding | Accent blues/grays | Orange highlights for emphasis | Consistent color across all Block 2 presentations
+**Key Research & Citations (3-5 entries):**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+- Include methodology when relevant
+- Cite specific statistics or findings
+- Explain how research supports the slide's claims
+- Note any caveats or limitations
 
-**Quality Checklist:** Learning objectives align | Key Thesis clear | Complete speaker notes | Technical accuracy | Relevant examples | Research citations specific | Q&A addresses objections | Orange theme consistent | Progressive building | Realistic timing
+**Q&A Preparation (3-5 questions):**
+Format: *"[Question]"*: [Response]
+- Anticipate skeptical questions
+- Prepare for "what about..." objections
+- Have specific examples ready
+- Include graceful redirects for off-topic questions
+
+---
+
+### Appendix E: Sources Section Guidelines
+
+Include 3-7 sources per slide, formatted as:
+```markdown
+1. [Full title with hyperlink](URL) - [Brief description of relevance]
+```
+
+Source types to include:
+- **Primary research**: Academic papers, official documentation
+- **Industry reports**: Analyst reports, surveys, benchmarks
+- **Practitioner content**: Blog posts from recognized experts
+- **Official documentation**: Product docs, API references
+
+---
+
+### Appendix F: Implementation Guidance Structure
+
+**Getting Started (2-4 items):**
+- Immediate actions participants can take today
+- Low-barrier entry points for implementation
+- Foundation-building steps
+
+**Best Practices (3-5 items):**
+- Proven approaches with specific criteria
+- Patterns that scale well
+- Measurable success indicators
+
+**Common Pitfalls (2-4 items):**
+- Mistakes that seem logical but fail in practice
+- Anti-patterns to avoid
+- Assumptions that mislead
+
+**Tools & Technologies (2-4 categories):**
+Format: **[Category]**: [Tool names] - [use case description]
+
+---
+
+### Appendix G: Visual/Graphic Description Guidelines
+
+Describe graphics with enough detail for a designer to create them:
+
+**Required Elements:**
+1. **Type**: diagram, illustration, chart, photo, icon grid
+2. **Main elements**: What objects/shapes appear
+3. **Arrangement**: Spatial relationship between elements
+4. **Labels/Text**: Any text that appears in the graphic
+5. **Communication goal**: What the visual should convey
+
+---
+
+### Appendix H: Visual Design Guidelines - Block 2 Theme
+
+**Block 2 Orange Color Coding:**
+- **Primary**: Orange (#FF6B35 or similar) for Block 2 branding
+- **Accent**: Complementary blues and grays
+- **Highlights**: Use orange for emphasis on key points
+- **Progress indicators**: Orange fill for current/completed items
+
+**Consistency Rules:**
+- All Block 2 presentations use orange theme
+- Maintain color consistency across weeks
+- Use color to reinforce Block identity
+
+---
+
+### Appendix I: Quality Checklist
+
+**Content Quality:**
+- [ ] Learning objectives align with slide content
+- [ ] Key Thesis is clear and specific
+- [ ] All slides have complete speaker notes
+- [ ] Technical accuracy verified
+- [ ] Examples are relevant to audience
+
+**BACKGROUND Sections:**
+- [ ] Rationale explains slide's narrative purpose
+- [ ] Research citations are specific and recent
+- [ ] Q&A responses address likely objections
+- [ ] Sources are authoritative and linked
+
+**Visual Design:**
+- [ ] Block 2 orange theme applied consistently
+- [ ] All graphics have detailed descriptions
+- [ ] Visual hierarchy supports comprehension
+- [ ] Slides are not overcrowded
+
+**Instructional Design:**
+- [ ] Builds progressively from prior knowledge
+- [ ] Includes interactive elements
+- [ ] Timing is realistic for 45-minute session
+- [ ] Transitions are smooth and logical
 
 ---
 

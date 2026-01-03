@@ -549,14 +549,16 @@ We'll explore the architecture patterns."
 - Critical for consultants advising regulated industries and government clients
 
 **Key Research & Citations:**
-- Data sovereignty requirements based on GDPR (EU), PIPL (China), and sector-specific regulations
-- Cost break-even analysis from AWS Bedrock/Azure OpenAI pricing compared to self-hosted model costs
-- Air-gapped environment requirements from DoD, financial services, and healthcare compliance frameworks
+- **Data sovereignty**: GDPR (EU), PIPL (China), LGPD (Brazil) mandate data processing within national borders for certain data types
+- **Cost break-even**: Self-hosted models break even vs. cloud APIs at approximately 8-12M API calls/month depending on model size
+- **Air-gapped requirements**: DoD IL4+ classification, financial market data centers, healthcare patient safety systems
+- **Open-source model viability**: Llama 2/3, Mistral, Falcon models approaching proprietary quality for many use cases
 
 **Q&A Preparation:**
-- *"Can't we use cloud with data residency guarantees?"*: Yes for some regulations, but air-gapped environments categorically prohibit cloud connectivity
-- *"What about using smaller models on-premises?"*: Good strategy - trade model capability for control, covered in hybrid patterns
-- *"How do we assess cost break-even for our specific case?"*: Exercise 2.1 includes cost modeling framework comparing cloud API costs vs self-hosting total cost of ownership
+- *"Can't we use cloud with data residency guarantees?"*: Yes for some regulations (GDPR Article 46), but air-gapped environments categorically prohibit cloud connectivity
+- *"What about using smaller models on-premises?"*: Good strategy - trade model capability for control, covered in hybrid patterns. 7B parameter models can run on single GPU.
+- *"How do we assess cost break-even for our specific case?"*: Exercise 2.1 includes cost modeling framework comparing cloud API costs vs self-hosting total cost of ownership (hardware, operations, inference costs)
+- *"What about model updates and security patches for self-hosted?"*: Valid concern - requires internal ML ops capability or managed on-premises solutions (Azure Stack, AWS Outposts with AI services)
 
 ---
 
@@ -925,6 +927,462 @@ Excellent work. Good luck with your capstones!"
 - [ ] Commands have been tested
 - [ ] Links and references are valid
 - [ ] Version numbers and dates are current
+
+---
+
+## Appendix D: Auto-Scaling Configuration Templates
+
+**Purpose:** Reference configurations for different scaling patterns
+
+**Configuration 1: Token-Aware Scaling (Recommended for AI Workloads)**
+
+```yaml
+auto_scaling_config:
+  scaling_policy:
+    name: "ai-agent-token-aware-scaling"
+    metric_type: "custom"
+    target_metrics:
+      - metric: "tokens_per_minute_utilization"
+        target_value: 75
+        weight: 40
+      - metric: "request_queue_depth"
+        target_value: 100
+        weight: 30
+      - metric: "cpu_utilization"
+        target_value: 70
+        weight: 30
+
+    scale_up:
+      threshold_breach_duration: 60  # seconds
+      cooldown_period: 60
+      step_adjustments:
+        - threshold: 80
+          scaling_adjustment: 2  # add 2 instances
+        - threshold: 90
+          scaling_adjustment: 4  # add 4 instances
+
+    scale_down:
+      threshold_breach_duration: 300  # 5 minutes
+      cooldown_period: 300
+      step_adjustments:
+        - threshold: 50
+          scaling_adjustment: -1  # remove 1 instance
+
+    capacity:
+      min_instances: 2
+      max_instances: 50
+      desired_initial: 3
+```
+
+**Configuration 2: Queue-Based Scaling**
+
+```yaml
+auto_scaling_config:
+  scaling_policy:
+    name: "ai-agent-queue-based"
+    metric_type: "queue_depth"
+    target_value: 1000  # messages per instance
+
+    scale_up:
+      threshold: 1500
+      cooldown: 30
+      adjustment: 3
+
+    scale_down:
+      threshold: 500
+      cooldown: 600
+      adjustment: -1
+
+    capacity:
+      min_instances: 1
+      max_instances: 100
+```
+
+---
+
+## Appendix E: Hybrid Architecture Patterns Catalog
+
+**Purpose:** Detailed hybrid deployment patterns for different scenarios
+
+**Pattern 1: Cloud AI with On-Premises Data**
+
+**When to Use:**
+- Data cannot leave premises due to regulations
+- AI processing not subject to same restrictions
+- Want to leverage cloud AI capabilities
+
+**Architecture:**
+```
+┌─────────────────────────────────┐
+│      On-Premises Data Center   │
+│  ┌──────────────────────────┐  │
+│  │  Data Sources (DBs, APIs) │  │
+│  └────────────┬─────────────┘  │
+│               │                 │
+│  ┌────────────▼─────────────┐  │
+│  │  Data Preprocessing      │  │
+│  │  (Anonymization, PII)    │  │
+│  └────────────┬─────────────┘  │
+└───────────────┼─────────────────┘
+                │
+        ┌───────▼───────┐
+        │   Encrypted   │
+        │    Tunnel     │
+        │  (VPN/Direct  │
+        │   Connect)    │
+        └───────┬───────┘
+                │
+┌───────────────▼─────────────────┐
+│          Cloud Environment      │
+│  ┌──────────────────────────┐  │
+│  │  AI Processing           │  │
+│  │  (Bedrock/OpenAI/Vertex) │  │
+│  └────────────┬─────────────┘  │
+│               │                 │
+│  ┌────────────▼─────────────┐  │
+│  │  Results Storage         │  │
+│  └──────────────────────────┘  │
+└─────────────────────────────────┘
+```
+
+**Implementation Checklist:**
+- [ ] Secure VPN or Direct Connect established
+- [ ] Data preprocessing pipeline removes all PII
+- [ ] Encryption in transit (TLS 1.3+)
+- [ ] Results retention policy documented
+- [ ] Compliance sign-off obtained
+
+---
+
+**Pattern 2: Edge Processing with Cloud Escalation**
+
+**When to Use:**
+- Low latency requirements for most requests
+- Occasional complex queries need powerful cloud models
+- Bandwidth/cost optimization needed
+
+**Architecture:**
+```
+┌─────────────┐
+│    Edge     │
+│  Device/    │
+│  Gateway    │
+└──────┬──────┘
+       │
+   ┌───▼────┐
+   │ Local  │ ───Simple Query──> Process Locally (Fast)
+   │  AI    │
+   │ (Small │
+   │ Model) │
+   └───┬────┘
+       │
+   Complex/
+  Uncertain
+   Query?
+       │
+   ┌───▼────────┐
+   │   Cloud    │
+   │  AI API    │
+   │ (Large     │
+   │  Model)    │
+   └────────────┘
+```
+
+**Implementation Details:**
+- **Local Model:** 7B parameter model (Llama, Mistral) on GPU
+- **Routing Logic:** Confidence threshold <0.7 → escalate to cloud
+- **Fallback:** If cloud unavailable, local model processes with warning
+- **Cost Savings:** 80-90% of queries handled locally
+
+---
+
+## Appendix F: Observability Stack Components
+
+**Purpose:** Detailed component specifications for AI system monitoring
+
+**Component 1: Metrics Collection**
+
+**Required Metrics:**
+- Request rate (requests/second)
+- Token usage (input tokens, output tokens, total)
+- Latency (P50, P95, P99)
+- Error rate (by error type)
+- Cost per request
+- Model confidence scores
+- Queue depth (if using queue pattern)
+
+**Tools:**
+- **Prometheus** for metrics collection and storage
+- **Grafana** for visualization
+- **CloudWatch/Azure Monitor/Cloud Monitoring** for cloud-native option
+
+**Configuration Example (Prometheus):**
+```yaml
+scrape_configs:
+  - job_name: 'ai-agent-metrics'
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['agent-service:9090']
+    metric_relabel_configs:
+      - source_labels: [__name__]
+        regex: 'ai_.*'
+        action: keep
+```
+
+---
+
+**Component 2: Distributed Tracing**
+
+**Why It Matters:**
+AI agents often involve multiple service calls:
+1. API Gateway
+2. Agent orchestration service
+3. AI API (Bedrock/OpenAI/Vertex)
+4. Database for context
+5. Response formatting
+
+Tracing connects these into single request view.
+
+**Tools:**
+- **Jaeger** (open-source)
+- **AWS X-Ray**
+- **Azure Application Insights**
+- **Google Cloud Trace**
+
+**Trace Attributes to Capture:**
+- `trace_id`: Unique identifier for request
+- `span_id`: Unique identifier for service call
+- `agent_id`: Which agent handled this
+- `model_name`: Which AI model used
+- `prompt_tokens`: Input size
+- `completion_tokens`: Output size
+- `total_latency_ms`: End-to-end time
+- `ai_api_latency_ms`: Time in AI API call
+
+---
+
+**Component 3: Log Aggregation**
+
+**Log Structure (JSON format):**
+```json
+{
+  "timestamp": "2026-01-03T10:15:30.123Z",
+  "level": "INFO",
+  "service": "ai-agent",
+  "trace_id": "abc123",
+  "agent_id": "customer-service-bot",
+  "event": "ai_request_completed",
+  "details": {
+    "user_id": "user_789",
+    "prompt_summary": "Request for account balance",
+    "response_summary": "Provided balance information",
+    "tokens_used": 150,
+    "latency_ms": 1200,
+    "model": "gpt-4"
+  }
+}
+```
+
+**Tools:**
+- **ELK Stack** (Elasticsearch, Logstash, Kibana)
+- **Splunk**
+- **CloudWatch Logs / Azure Monitor Logs**
+- **Datadog**
+
+---
+
+## Appendix G: Phased Deployment Playbook
+
+**Purpose:** Step-by-step guide for rolling out AI agents safely
+
+**Phase 1: Pilot (Weeks 1-6)**
+
+**Goal:** Validate approach with minimal risk
+
+**Participant Criteria:**
+- 10-20 early adopter users
+- Internal or friendly external users
+- Willing to provide detailed feedback
+- Understand this is pilot (expect issues)
+
+**Success Criteria:**
+- [ ] 80%+ user satisfaction score
+- [ ] <5% error rate
+- [ ] Latency within SLA (<2s P95)
+- [ ] No critical incidents
+- [ ] Feedback captured and analyzed
+
+**Go/No-Go Decision:**
+- **GO:** All success criteria met, no blocking issues
+- **NO-GO:** Any critical incident, >20% user dissatisfaction, >10% error rate
+- **Action if NO-GO:** Analyze root causes, fix, extend pilot
+
+---
+
+**Phase 2: Limited Availability (Weeks 7-18)**
+
+**Goal:** Scale validation with broader but controlled user base
+
+**Participant Criteria:**
+- 100-500 users
+- Mix of user types/personas
+- Geographic distribution if relevant
+- Can include external customers (with clear "beta" labeling)
+
+**Scaling Checkpoints:**
+- Week 7: 100 users
+- Week 10: 250 users (if no issues)
+- Week 14: 500 users (if performance stable)
+
+**Success Criteria:**
+- [ ] SLAs maintained at scale
+- [ ] Cost per transaction within budget
+- [ ] <3% error rate
+- [ ] 75%+ user satisfaction
+- [ ] Zero security incidents
+- [ ] Support team can handle volume
+
+**Go/No-Go Decision:**
+- **GO:** All criteria met, infrastructure scales smoothly
+- **NO-GO:** Performance degradation, cost overruns, satisfaction drops
+- **Action if NO-GO:** Optimize, add capacity, improve UX before expanding
+
+---
+
+**Phase 3: General Availability (Week 19+)**
+
+**Goal:** Full production rollout
+
+**Rollout Strategy:**
+- Week 19: 10% of total user base
+- Week 20: 25%
+- Week 21: 50%
+- Week 22: 75%
+- Week 23: 100%
+
+**Monitor Closely:**
+- Cost trajectory (daily budget alerts)
+- Error rate trends
+- User satisfaction (NPS or CSAT)
+- Support ticket volume
+- Infrastructure utilization
+
+**Rollback Trigger:**
+Any of:
+- Error rate >5% for 1 hour
+- Cost exceeds budget by >50%
+- Critical security incident
+- User satisfaction drops >20% from baseline
+- Executive directive
+
+**Rollback Procedure:**
+1. Reduce traffic percentage to last stable level
+2. Communicate to stakeholders
+3. Analyze incident
+4. Fix root cause
+5. Resume rollout when stable
+
+---
+
+## Appendix H: Operations Runbook Template
+
+**Purpose:** Standardized incident response procedures
+
+**Incident Classification:**
+
+| Severity | Definition | Response Time | Example |
+|----------|------------|---------------|---------|
+| **P0 - Critical** | Complete outage, data loss, security breach | <15 min | AI agent down, PII leaked |
+| **P1 - High** | Major functionality impaired, workarounds exist | <1 hour | Error rate >20%, latency >10s |
+| **P2 - Medium** | Degraded performance, limited user impact | <4 hours | Error rate 10-20%, slow responses |
+| **P3 - Low** | Minor issues, minimal impact | <24 hours | UI bug, minor UX issue |
+
+---
+
+**Runbook: AI Agent High Error Rate**
+
+**Symptoms:**
+- Error rate >10% over 15-minute window
+- Alert triggered from monitoring system
+
+**Investigation Steps:**
+1. **Check AI API status**
+   ```bash
+   curl -H "Authorization: Bearer $API_KEY" https://api.openai.com/v1/models
+   ```
+   If 200 OK → AI API is healthy, problem is local
+   If 5xx → AI API degradation, external issue
+
+2. **Check recent deployments**
+   ```bash
+   kubectl rollout history deployment/ai-agent
+   ```
+   If deployment within last 2 hours → suspect new version
+
+3. **Check error logs**
+   ```bash
+   kubectl logs -l app=ai-agent --tail=100 | grep ERROR
+   ```
+   Look for patterns (specific error type, specific users, timeframe)
+
+4. **Check metrics dashboard**
+   - Grafana: AI Agent Error Rate panel
+   - Look for: Which error types? Which endpoints?
+
+**Resolution Paths:**
+
+**If AI API degraded:**
+- Action: Enable graceful degradation mode
+- Command: `kubectl set env deployment/ai-agent FALLBACK_MODE=true`
+- Notify users of degraded service
+- Monitor for AI API recovery
+
+**If new deployment caused it:**
+- Action: Rollback immediately
+- Command: `kubectl rollout undo deployment/ai-agent`
+- Verify error rate returns to normal
+- Analyze failed deployment before retry
+
+**If infrastructure issue:**
+- Action: Scale up capacity
+- Command: `kubectl scale deployment/ai-agent --replicas=10`
+- Monitor if error rate improves
+- Identify root cause (traffic spike, resource exhaustion)
+
+---
+
+## Appendix I: Exercise Solutions and Grading Rubrics
+
+**Exercise 2.1: Deployment Strategy**
+
+**Expected Deliverable:** Complete deployment strategy document including scaling configuration
+
+**Grading Rubric (10 points total):**
+- **Architecture Pattern Selection (3 points):** Appropriate pattern chosen with justification referencing requirements
+- **Scaling Configuration (3 points):** Multi-trigger auto-scaling configured with specific thresholds
+- **Phased Rollout Plan (2 points):** Three phases defined with success criteria and go/no-go gates
+- **Cost Projection (2 points):** Realistic cost estimates for each phase
+
+**Sample High-Quality Answer:**
+- Pattern: Serverless for variable customer service workload
+- Scaling: Triggers on requests/sec (>100), queue depth (>1000), token usage (>80%)
+- Phases: Pilot (10 users, 2 weeks) → Limited (100 users, 6 weeks) → GA (rollout over 4 weeks)
+- Cost: $500/month pilot, $5K/month limited, $30K/month at full scale
+
+---
+
+**Exercise 2.2: Operations Runbook**
+
+**Expected Deliverable:** Operations runbook with at least 3 incident scenarios
+
+**Grading Rubric (10 points total):**
+- **Incident Coverage (3 points):** At least 3 realistic scenarios (high error rate, latency spike, cost overrun)
+- **Investigation Steps (3 points):** Clear, actionable investigation procedures with commands
+- **Resolution Paths (2 points):** Multiple resolution options depending on root cause
+- **Escalation Criteria (2 points):** Clear criteria for escalating vs. resolving
+
+---
 
 **Version History:**
 

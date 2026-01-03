@@ -205,6 +205,29 @@ Each level builds on the previous. Everything you learned still applies. But now
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Establishes Block 3 context by anchoring it within the complete learning progression
+- Creates motivation through achievement recognition (checkmarks on completed blocks)
+- Positions agents as natural evolution, not disconnected new topic
+- The "YOU ARE HERE" marker creates present-moment engagement and readiness
+
+**Key Research & Citations:**
+- **Bloom's Taxonomy Progression**: Learning objectives should scaffold from knowledge (Block 1) through application (Block 2) to synthesis and creation (Block 3) - this slide visually demonstrates that progression
+- **AI Maturity Models**: Industry frameworks (Gartner, McKinsey) show organizations progress from ad-hoc AI use through systematized workflows to autonomous operations - mirrors individual skill development
+- **Adult Learning Theory (Knowles)**: Adults learn best when they understand the context and can see how new learning builds on existing knowledge
+
+**Q&A Preparation:**
+- *"Can I skip ahead if I already know some of this?"*: Each block builds essential foundations - Block 3 assumes you've internalized Block 2 patterns like MCP and quality gates. Skipping creates gaps that show up in agent reliability.
+- *"How is Level 3 different from just making my workflows more complex?"*: Workflows execute predetermined logic you design. Agents make dynamic decisions - fundamentally different capability requiring different architecture patterns.
+- *"What comes after Level 3?"*: Advanced modules cover specialized topics (RAG, fine-tuning, domain-specific agents), but Level 3 gives you the architecture foundation to explore any direction.
+
+**Sources:**
+- [Bloom's Taxonomy](https://cft.vanderbilt.edu/guides-sub-pages/blooms-taxonomy/) - Cognitive skill progression
+- [Gartner AI Maturity Model](https://www.gartner.com/en/newsroom/press-releases/2021-11-22-gartner-identifies-four-key-factors-to-successfully-adopt-ai) - Organizational AI evolution
+- [Adult Learning Theory](https://educationaltechnology.net/knowles-theory-of-andragogy/) - Context-based learning principles
+
 ---
 
 ## SLIDE 5: THE KEY SHIFT

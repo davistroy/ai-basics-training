@@ -434,7 +434,7 @@ Submit your capstone and earn your certification.
 
 ---
 
-## Appendix A: Submission Checklist (Detailed)
+## Appendix E: Submission Checklist (Detailed)
 
 ### Technical Completeness
 - [ ] All agents functional and tested
@@ -468,7 +468,7 @@ Submit your capstone and earn your certification.
 
 ---
 
-## Appendix B: Self-Evaluation Template
+## Appendix F: Self-Evaluation Template
 
 ### Scoring Summary
 
@@ -486,7 +486,7 @@ Submit your capstone and earn your certification.
 
 ---
 
-## Appendix C: Capstone Summary Template
+## Appendix G: Capstone Summary Template
 
 ```markdown
 # Block 3 Capstone Summary
@@ -555,7 +555,7 @@ Submit your capstone and earn your certification.
 
 ---
 
-## Appendix D: Common Questions
+## Appendix H: Common Questions
 
 **Q: What if I haven't completed all requirements?**
 A: Submit what you have. Partial submission is better than none.
@@ -571,6 +571,41 @@ A: Typically within one week of deadline.
 
 **Q: What if I don't score 34+?**
 A: You'll receive feedback on improvement areas. Discuss options with your instructor.
+
+---
+
+## Appendix I: Quality Checklist
+
+**Content Quality:**
+- [ ] Key Thesis clearly stated
+- [ ] Learning objectives are actionable
+- [ ] Each slide has clear purpose in narrative
+- [ ] Transitions connect ideas smoothly
+- [ ] Examples are Block 3-relevant (automation architecture)
+
+**Background Sections:**
+- [ ] Rationale explains slide's role in presentation
+- [ ] Research citations support claims with specifics
+- [ ] Q&A preparation addresses likely objections
+- [ ] Sources are credible and linked
+
+**Implementation Guidance:**
+- [ ] Getting Started provides immediate actions
+- [ ] Best Practices are specific and proven
+- [ ] Common Pitfalls warn against real mistakes
+- [ ] Tools recommended are current and relevant
+
+**Technical Accuracy:**
+- [ ] Code examples are syntactically correct
+- [ ] Architectural patterns follow industry standards
+- [ ] Metrics and calculations are accurate
+- [ ] Links to external resources work
+
+**Audience Engagement:**
+- [ ] Speaker notes include engagement cues
+- [ ] Questions prompt reflection
+- [ ] Examples relate to consulting work
+- [ ] Exercises connect to real capstone needs
 
 ---
 

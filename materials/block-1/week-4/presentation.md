@@ -935,7 +935,56 @@ Format: *"[Question]"*: [Response]
 
 ---
 
-### APPENDIX E: Visual Design Guidelines
+### APPENDIX E: Sources Section Guidelines
+
+**Purpose:**
+Provide consistent structure for citing research, studies, and best practices in BACKGROUND sections.
+
+**Format:**
+```markdown
+**Key Research & Citations (3-5 entries)**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+```
+
+**Guidelines:**
+- Use recognizable authorities (research institutions, major studies, established frameworks)
+- Include years for temporal context
+- Explain how research supports pedagogical claims, don't just cite
+- Include methodology when relevant for credibility
+
+---
+
+### APPENDIX F: Implementation Guidance Structure
+
+**Purpose:**
+Ensure every technique slide includes actionable guidance participants can apply immediately.
+
+**Required Components:**
+1. Pattern/Template with clear placeholders
+2. Example Application showing pattern in use
+3. Why It Works (mechanism explanation)
+4. When to Use / When Not to Use (application guidance)
+
+---
+
+### APPENDIX G: Visual/Graphic Description Guidelines
+
+**Purpose:**
+Ensure GRAPHICS sections provide sufficient detail for designers to create effective visuals without seeing examples.
+
+**Required Elements:**
+1. Purpose: What pedagogical function this graphic serves
+2. Type: Diagram/Chart/Comparison/Flow with specific style notes
+3. Elements: Detailed list of visual components, layout, visual hierarchy
+4. Labels: All text that appears in graphic with placement notes
+5. Relationships: How elements connect, flow direction, visual emphasis
+
+**Quality Test:**
+Could a designer who has never seen this presentation create an effective visual from this description alone?
+
+---
+
+### APPENDIX H: Visual Design Guidelines
 
 **Block 1 Color Coding**
 - **Primary color**: Blue (represents foundational skills, structure, clarity)
@@ -948,7 +997,7 @@ Format: *"[Question]"*: [Response]
 
 ---
 
-### APPENDIX F: Quality Checklist
+### APPENDIX I: Quality Checklist
 
 **Content Quality**
 - [ ] Slide type clearly identified

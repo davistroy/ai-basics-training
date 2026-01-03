@@ -76,6 +76,24 @@ By the end of today, you'll understand how to store your preferences in a file a
 
 [Transition: Click to next slide]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Positions Week 3 as infrastructure layer supporting Weeks 1-2 techniques, preventing perception of topic shift
+- "Technical but foundational" framing manages apprehension about JSON/GitHub for non-technical participants
+- Midpoint position (Week 3 of 8 content weeks) provides natural pause to add systematic infrastructure
+- The outcome statement (store preferences, reference everywhere) connects technical concepts to practical benefit
+
+**Key Research & Citations:**
+- **Infrastructure Before Scale (Software Engineering Principles)**: Building infrastructure after techniques (not before) follows proven learning progression—participants understand WHY configuration matters because they've experienced the consistency problem firsthand in Weeks 1-2.
+- **Technical Skill Acquisition Research**: Introducing technical concepts (JSON, Git) after establishing domain proficiency (prompting) reduces cognitive load. Participants have context for applying new tools rather than learning abstractions.
+- **Configuration as Code Movement**: DevOps research shows 60-70% reduction in inconsistency when preferences are stored as code (style.json) vs. described in documentation. Same principle applies to prompt libraries.
+
+**Q&A Preparation:**
+- *"I'm not technical—will I understand JSON and Git?"*: Yes. We're teaching only the essential subset needed for prompt libraries, not full software development. JSON is simpler than it looks (key-value pairs), and Git basics require just 4-5 commands.
+- *"Can I skip this week and come back to it later?"*: You could, but infrastructure becomes harder to retrofit. Adding style.json now (5 templates) is easier than retrofitting later (50 templates). Better to build good habits early.
+- *"What if my organization doesn't allow GitHub?"*: GitHub is our example platform, but principles apply to any version control system (GitLab, Bitbucket) or even local Git. JSON configuration works everywhere.
+
 ---
 
 ### SLIDE 2: WEEK OVERVIEW
@@ -1114,7 +1132,56 @@ Format: *"[Question]"*: [Response]
 
 ---
 
-### APPENDIX E: Visual Design Guidelines
+### APPENDIX E: Sources Section Guidelines
+
+**Purpose:**
+Provide consistent structure for citing research, studies, and best practices in BACKGROUND sections.
+
+**Format:**
+```markdown
+**Key Research & Citations (3-5 entries)**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+```
+
+**Guidelines:**
+- Use recognizable authorities (research institutions, major studies, established frameworks)
+- Include years for temporal context
+- Explain how research supports pedagogical claims, don't just cite
+- Include methodology when relevant for credibility
+
+---
+
+### APPENDIX F: Implementation Guidance Structure
+
+**Purpose:**
+Ensure every technique slide includes actionable guidance participants can apply immediately.
+
+**Required Components:**
+1. Pattern/Template with clear placeholders
+2. Example Application showing pattern in use
+3. Why It Works (mechanism explanation)
+4. When to Use / When Not to Use (application guidance)
+
+---
+
+### APPENDIX G: Visual/Graphic Description Guidelines
+
+**Purpose:**
+Ensure GRAPHICS sections provide sufficient detail for designers to create effective visuals without seeing examples.
+
+**Required Elements:**
+1. Purpose: What pedagogical function this graphic serves
+2. Type: Diagram/Chart/Comparison/Flow with specific style notes
+3. Elements: Detailed list of visual components, layout, visual hierarchy
+4. Labels: All text that appears in graphic with placement notes
+5. Relationships: How elements connect, flow direction, visual emphasis
+
+**Quality Test:**
+Could a designer who has never seen this presentation create an effective visual from this description alone?
+
+---
+
+### APPENDIX H: Visual Design Guidelines
 
 **Block 1 Color Coding**
 - **Primary color**: Blue (represents foundational skills, structure, clarity)
@@ -1127,7 +1194,7 @@ Format: *"[Question]"*: [Response]
 
 ---
 
-### APPENDIX F: Quality Checklist
+### APPENDIX I: Quality Checklist
 
 **Content Quality**
 - [ ] Slide type clearly identified

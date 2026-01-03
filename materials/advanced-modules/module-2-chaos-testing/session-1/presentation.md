@@ -435,6 +435,31 @@ This is why chaos engineering is essential for production AI agents."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Establishes AI agents as fundamentally different from traditional systems
+- Justifies chaos engineering specifically for AI use cases
+- Prepares participants for unique testing challenges
+- Connects complexity to their Block 3 multi-agent experience
+
+**Key Research & Citations:**
+- **Non-Determinism in LLMs (OpenAI, 2023)**: Same prompt with temperature > 0 produces different outputs. Traditional regression testing assumes deterministic behavior; AI agents require statistical testing approaches.
+- **AI System Dependencies (Stanford HAI, 2024)**: Production AI systems average 7-12 external dependencies vs 3-4 for traditional microservices. Each dependency multiplies failure surface area exponentially.
+- **Context Window Limitations**: Claude, GPT-4, and other LLMs have hard token limits. Unlike traditional systems with predictable memory usage, AI agents can unexpectedly hit context limits mid-execution based on input complexity.
+- **Multi-Agent Coordination Failures (Google DeepMind, 2023)**: Research on cooperative AI shows handoff failures, state corruption, and deadlocks occur 3-5x more frequently in multi-agent vs single-agent systems.
+
+**Q&A Preparation:**
+- *"Can't we just test AI agents like traditional software?"*: Partially, but non-determinism breaks traditional test assertions. You need statistical validation ("succeeds 95% of time") not boolean validation ("always succeeds").
+- *"How do I test something non-deterministic?"*: Run tests multiple times, measure success rates, define acceptable ranges. Chaos testing becomes even more valuable because you can't rely on deterministic regression tests.
+- *"Which dependencies should I test first?"*: Start with critical path dependencies (MCP servers for core functionality, primary AI API). Use your Block 3 architecture to identify single points of failure.
+
+**Sources:**
+1. [OpenAI Temperature Parameter](https://platform.openai.com/docs/guides/text-generation) - Non-determinism documentation
+2. [Stanford HAI AI Index Report 2024](https://aiindex.stanford.edu/) - AI system complexity trends
+3. [Anthropic Context Window Management](https://docs.anthropic.com/claude/docs/models-overview) - Token limit documentation
+4. [Multi-Agent Systems Coordination Challenges](https://arxiv.org/abs/2308.08155) - DeepMind research
+
 ---
 
 ### SLIDE 7: SEGMENT 1 - KEY TAKEAWAY
@@ -836,6 +861,31 @@ All six elements are required. Missing any one, and your experiment isn't rigoro
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Provides structure preventing ad-hoc "just break things" approach
+- Ensures reproducibility and scientific rigor
+- Establishes safety as non-negotiable (rollback plan required)
+- Bridges from chaos concept to practical execution
+
+**Key Research & Citations:**
+- **Scientific Method in Systems Testing**: Chaos engineering applies scientific method - hypothesis, experiment, observation, conclusion. Netflix's Principles of Chaos Engineering codifies this approach.
+- **Hypothesis-Driven Testing (Google SRE)**: Systems without clear hypotheses learn nothing from failures. "We broke it" vs "We hypothesized X would happen, Y actually happened, now we know Z."
+- **Rollback Plans (Incident Management)**: Studies show 80% of production incidents are extended by inability to quickly rollback. Having rollback ready before injection is crucial.
+- **Reproducibility in Engineering**: Experiments without documented procedures can't be reproduced, validated, or automated. Six-element structure ensures any engineer can reproduce results.
+
+**Q&A Preparation:**
+- *"Do I really need all six elements every time?"*: For formal experiments, yes. For quick exploratory tests, you can be less rigorous, but always have rollback ready.
+- *"What if I don't know what hypothesis to make?"*: Start with "System will crash/hang/error" as baseline hypothesis. Refine as you learn system behavior.
+- *"How detailed should rollback plans be?"*: Detailed enough that someone else could execute it without your help. Step-by-step with specific commands/actions.
+
+**Sources:**
+1. [Principles of Chaos Engineering](https://principlesofchaos.org/) - Hypothesis-driven framework
+2. [Google SRE Book - Testing for Reliability](https://sre.google/sre-book/testing-reliability/) - Structured testing
+3. [Incident Management Best Practices (PagerDuty)](https://www.pagerduty.com/resources/learn/incident-management/) - Rollback importance
+4. [Scientific Method in Software Engineering](https://dl.acm.org/doi/10.1145/3377811.3380369) - Research validation
+
 ---
 
 ### SLIDE 13: SEGMENT 3 - EXAMPLE EXPERIMENT
@@ -1158,6 +1208,31 @@ Before your first experiment, complete this checklist. Clone your production set
 Never chaos test in production without extensive safeguards. Start in test environments first."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Prevents "testing in production" disasters
+- Establishes safety culture before experimentation
+- Connects to professional engineering standards
+- Provides practical checklist participants can use immediately
+
+**Key Research & Citations:**
+- **Test Environment Isolation**: Industry data shows 65% of "chaos testing gone wrong" incidents stem from insufficient isolation. Facebook's 2021 BGP outage exemplifies production testing risks.
+- **Test Data Privacy (GDPR)**: Using production data with PII in testing violates GDPR, CCPA, and other privacy regulations. $50M+ fines have been issued for test data breaches.
+- **Observability First (Honeycomb, 2023)**: Teams that implement full observability before chaos testing find 40% more issues and resolve them 3x faster than teams testing without proper monitoring.
+- **Kill Switch Pattern**: Circuit breaker research shows automatic shutdown mechanisms reduce blast radius of chaos experiments by 90% when experiments go wrong.
+
+**Q&A Preparation:**
+- *"Can we test in production if we're careful?"*: Yes, but only after extensive testing in safe environments, with mature monitoring, kill switches, and limited blast radius (e.g., 1% of traffic). Start safe first.
+- *"What if test environment doesn't match production?"*: Identify critical differences and account for them. But 80% of failures occur in both environments - test the common failure modes first.
+- *"How do I know if my test data is realistic enough?"*: Use production data patterns/distributions with synthetic values. Preserve structure, remove PII/sensitive info.
+
+**Sources:**
+1. [Facebook BGP Outage Postmortem](https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/) - Production testing risks
+2. [GDPR Test Data Guidelines](https://gdpr-info.eu/) - Privacy in testing
+3. [Honeycomb Observability Maturity Model](https://www.honeycomb.io/blog/observability-maturity-model) - Monitoring best practices
+4. [Circuit Breaker Pattern (Fowler)](https://martinfowler.com/bliki/CircuitBreaker.html) - Kill switch implementation
 
 ---
 
@@ -1539,6 +1614,207 @@ Source types:
 
 **Tools & Technologies (2-4 categories):**
 Format: **[Category]**: [Tool1, Tool2] - [use case description]
+
+---
+
+### Appendix F: Failure Mode Catalog Template
+
+Complete template for documenting each failure mode:
+
+```markdown
+## Failure Mode: [Descriptive Name]
+
+**Category:** [Tool/AI/Orchestration/Resource/External]
+
+**What Fails:** [Precise description of failure]
+
+**Likelihood:** [Common/Occasional/Rare]
+- Common: Weekly or more
+- Occasional: Monthly
+- Rare: Quarterly or less
+
+**Impact:** [Critical/High/Medium/Low]
+- Critical: System completely down
+- High: Major functionality lost
+- Medium: Degraded performance
+- Low: Minor inconvenience
+
+**Detection Method:** [How to identify this failure]
+- Error messages
+- Timeout indicators
+- Metric thresholds
+- Log patterns
+
+**Current Handling:** [Honest assessment of current behavior]
+
+**Desired Handling:** [Target behavior after hardening]
+
+**Test Plan:** [How to reproduce this failure in chaos experiment]
+
+**Priority Score:** [Likelihood × Impact = Score]
+```
+
+**Usage:**
+- Create one entry per distinct failure mode
+- Prioritize by score (highest first)
+- Update as you discover new failure modes
+- Reference in chaos experiment designs
+
+---
+
+### Appendix G: Chaos Experiment Template
+
+Complete template for documenting each experiment:
+
+```markdown
+## Experiment: [Descriptive Name]
+
+### Hypothesis
+When [failure condition], the system will:
+- [Expected behavior 1]
+- [Expected behavior 2]
+- [Expected behavior 3]
+
+### Steady State Definition
+**Metrics:**
+- Success rate: [X%]
+- Response time: [Y seconds]
+- Error rate: [Z%]
+
+**Baseline Measurement:**
+[Actual measured values from normal operation]
+
+### Failure Injection Method
+**What:** [Specific failure to inject]
+**How:** [Exact steps to cause failure]
+**Duration:** [How long failure lasts]
+**Scope:** [What components affected]
+
+### Observation Plan
+**Monitor:**
+- [ ] Real-time logs
+- [ ] Metrics dashboard
+- [ ] Error messages
+- [ ] Agent behavior
+- [ ] Resource usage
+
+**Record:**
+- Screenshots at: [Time intervals]
+- Log snapshots: [Locations]
+- Metric values: [Specific metrics]
+
+### Rollback Plan
+**Stop Procedure:**
+1. [Step to stop injection]
+2. [Step to restore normal]
+3. [Step to verify recovery]
+
+**Estimated Rollback Time:** [X seconds]
+
+**Emergency Contact:** [If rollback fails]
+
+### Success Criteria
+- [ ] Criterion 1: [Specific expected outcome]
+- [ ] Criterion 2: [Specific expected outcome]
+- [ ] Criterion 3: [Specific expected outcome]
+- [ ] Criterion 4: [Specific expected outcome]
+
+### Results
+**Expected:** [What you hypothesized]
+**Actual:** [What really happened]
+**Analysis:** [Why any differences occurred]
+**Action Items:** [What to fix/improve]
+```
+
+---
+
+### Appendix H: Test Results Documentation Template
+
+```markdown
+## Chaos Test Results Summary
+
+**Test Date:** [YYYY-MM-DD]
+**Tester:** [Name]
+**System Version:** [Version/commit]
+
+### Experiments Conducted
+
+| ID | Experiment Name | Hypothesis Match? | Issues Found | Severity |
+|----|-----------------|-------------------|--------------|----------|
+| 1  | [Name]          | Yes/No            | [Count]      | [H/M/L]  |
+| 2  | [Name]          | Yes/No            | [Count]      | [H/M/L]  |
+
+### Key Findings
+
+**High Severity Issues:**
+1. [Issue description] - [Experiment that found it]
+2. [Issue description] - [Experiment that found it]
+
+**Medium Severity Issues:**
+1. [Issue description] - [Experiment that found it]
+
+**Positive Discoveries:**
+1. [What worked better than expected]
+
+### Metrics Comparison
+
+| Metric | Steady State | During Failure | Recovery Time |
+|--------|--------------|----------------|---------------|
+| Success Rate | [X%] | [Y%] | [Z seconds] |
+| Response Time | [A ms] | [B ms] | [C seconds] |
+
+### Recommended Actions
+
+**Immediate (This Week):**
+1. [Action item with assigned owner]
+2. [Action item with assigned owner]
+
+**Short-term (This Month):**
+1. [Action item]
+2. [Action item]
+
+**Long-term (This Quarter):**
+1. [Action item]
+```
+
+---
+
+### Appendix I: Module Progression and Next Steps
+
+**Module 2 Session 1 → Session 2:**
+- Session 1: Identify weaknesses through chaos testing
+- Session 2: Fix weaknesses with reliability patterns
+
+**Prerequisites for Session 2:**
+- Complete failure mode catalog (Exercise 1.1)
+- Design 5+ chaos experiments (Exercise 1.2)
+- Execute 3+ tests with documented results (Exercise 1.3)
+- Identified at least 3 critical issues to address
+
+**Module 2 Capstone Preview:**
+Your Reliability Engineering Report will synthesize:
+- All chaos testing findings (Session 1)
+- All reliability patterns implemented (Session 2)
+- Before/after metrics comparison
+- Production readiness assessment
+
+**Integration with Other Modules:**
+- **Module 1**: Apply chaos testing to parallel/team-based orchestration patterns
+- **Module 3+**: Use chaos testing methodology for any new advanced pattern
+
+**Production Deployment Path:**
+1. Complete chaos testing (Module 2 Session 1)
+2. Implement reliability patterns (Module 2 Session 2)
+3. Re-run chaos tests to verify improvements
+4. Document in Reliability Report
+5. Deploy with confidence
+
+**Skills Certification:**
+Completing Module 2 demonstrates:
+- Systematic failure analysis capability
+- Production engineering mindset
+- Reliability pattern implementation
+- Professional chaos engineering practice
 
 ---
 

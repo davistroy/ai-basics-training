@@ -1111,6 +1111,104 @@ See you next week!"
 ### Appendix D: Quality Checklist
 - [ ] Key Thesis stated | [ ] Learning objectives actionable | [ ] Examples Block 3-relevant | [ ] Patterns follow standards
 
+### Appendix E: Sources Section Guidelines
+
+Include 3-7 sources per slide, formatted as:
+```markdown
+1. [Full title with hyperlink](URL) - [Brief description]
+```
+
+Source types:
+- **Primary research**: Academic papers, official documentation
+- **Industry reports**: Analyst reports, surveys, benchmarks
+- **Practitioner content**: Blog posts, conference talks
+- **Official documentation**: Product docs, API references
+
+### Appendix F: Implementation Guidance Structure
+
+**Getting Started (2-4 items):**
+- Immediate actions (can do today)
+- Low-barrier entry points
+- Foundation-building steps
+
+**Best Practices (3-5 items):**
+- Proven approaches with specific criteria
+- Patterns that scale
+- Measurable success indicators
+
+**Common Pitfalls (2-4 items):**
+- Mistakes that seem logical but fail
+- Anti-patterns to avoid
+- Assumptions that mislead
+
+**Tools & Technologies (2-4 categories):**
+Format: **[Category]**: [Tool names] - [use case description]
+
+### Appendix G: Visual/Graphic Description Guidelines
+
+Describe graphics with enough detail for a designer:
+
+1. **Type**: diagram, illustration, chart, photo, etc.
+2. **Main elements**: What objects/shapes appear
+3. **Arrangement**: Spatial relationships
+4. **Labels/Text**: Any text in the graphic
+5. **Communication goal**: What the visual conveys
+
+### Appendix H: Visual Design Guidelines
+
+**Block 3 Color Scheme:**
+| Element | Color | Hex Code |
+|---------|-------|----------|
+| Primary | Green | #00CC99 |
+| Accent | Teal | #008B8B |
+| Background | White | #FFFFFF |
+| Text | Dark Gray | #333333 |
+
+**Block 3 Theme:**
+- Green represents growth, automation, and intelligent systems
+- Use green highlights for agent-related concepts
+- Teal accents for orchestration and coordination
+- Clean, modern aesthetic reflecting production engineering
+
+**Graphic Suggestions:**
+- Title slides: Agent/architecture visuals with green theme
+- Architecture diagrams: Clear component separation
+- Flow diagrams: Directional arrows showing data/control flow
+- Comparison slides: Side-by-side or table formats
+
+### Appendix I: Quality Checklist
+
+**Content Quality:**
+- [ ] Key Thesis clearly stated
+- [ ] Learning objectives are actionable
+- [ ] Each slide has clear purpose in narrative
+- [ ] Transitions connect ideas smoothly
+- [ ] Examples are Block 3-relevant (automation architecture)
+
+**Background Sections:**
+- [ ] Rationale explains slide's role in presentation
+- [ ] Research citations support claims with specifics
+- [ ] Q&A preparation addresses likely objections
+- [ ] Sources are credible and linked
+
+**Implementation Guidance:**
+- [ ] Getting Started provides immediate actions
+- [ ] Best Practices are specific and proven
+- [ ] Common Pitfalls warn against real mistakes
+- [ ] Tools recommended are current and relevant
+
+**Technical Accuracy:**
+- [ ] Code examples are syntactically correct
+- [ ] Architectural patterns follow industry standards
+- [ ] Metrics and calculations are accurate
+- [ ] Links to external resources work
+
+**Audience Engagement:**
+- [ ] Speaker notes include engagement cues
+- [ ] Questions prompt reflection
+- [ ] Examples relate to consulting work
+- [ ] Exercises connect to real capstone needs
+
 ---
 
 ## Version History

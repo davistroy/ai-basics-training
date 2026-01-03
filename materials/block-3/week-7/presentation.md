@@ -524,7 +524,7 @@ Example:
 
 ---
 
-## Appendix A: Documentation Checklist
+## Appendix E: Documentation Checklist
 
 ### Complete List for Exercise 7.1
 
@@ -551,7 +551,7 @@ Example:
 
 ---
 
-## Appendix B: Rollout Plan Structure
+## Appendix F: Rollout Plan Structure
 
 ### Complete Template for Exercise 7.2
 
@@ -589,7 +589,7 @@ Example:
 
 ---
 
-## Appendix C: ROI Analysis Structure
+## Appendix G: ROI Analysis Structure
 
 ### Complete Template for Exercise 7.3
 
@@ -626,7 +626,7 @@ Example:
 
 ---
 
-## Appendix D: Capstone Summary Template
+## Appendix H: Capstone Summary Template
 
 ### For Week 8 Submission
 
@@ -660,6 +660,41 @@ Example:
 ### Lessons Learned
 ### Repository Link
 ```
+
+---
+
+## Appendix I: Quality Checklist
+
+**Content Quality:**
+- [ ] Key Thesis clearly stated
+- [ ] Learning objectives are actionable
+- [ ] Each slide has clear purpose in narrative
+- [ ] Transitions connect ideas smoothly
+- [ ] Examples are Block 3-relevant (automation architecture)
+
+**Background Sections:**
+- [ ] Rationale explains slide's role in presentation
+- [ ] Research citations support claims with specifics
+- [ ] Q&A preparation addresses likely objections
+- [ ] Sources are credible and linked
+
+**Implementation Guidance:**
+- [ ] Getting Started provides immediate actions
+- [ ] Best Practices are specific and proven
+- [ ] Common Pitfalls warn against real mistakes
+- [ ] Tools recommended are current and relevant
+
+**Technical Accuracy:**
+- [ ] Code examples are syntactically correct
+- [ ] Architectural patterns follow industry standards
+- [ ] Metrics and calculations are accurate
+- [ ] Links to external resources work
+
+**Audience Engagement:**
+- [ ] Speaker notes include engagement cues
+- [ ] Questions prompt reflection
+- [ ] Examples relate to consulting work
+- [ ] Exercises connect to real capstone needs
 
 ---
 

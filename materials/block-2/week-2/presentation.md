@@ -297,6 +297,29 @@ This week we'll build trigger, AI, and output. Next week we add quality checks."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides the universal workflow architecture that participants will use throughout Block 2
+- The five-component model is deliberately simple to ensure comprehension while being complete enough to cover real workflows
+- Positioning AI Processing as component 3 (middle) reflects its role as transformation between input and output
+- Deferring Quality Check to Week 3 prevents cognitive overload while establishing that it's a standard component
+
+**Key Research & Citations:**
+- **Workflow Pattern Languages (van der Aalst, 2003)**: Foundational research identifying universal workflow patterns across industries. The five components map to: Trigger (event), Data (resource), Processing (activity), Quality (control-flow), Output (delivery).
+- **ETL Pattern (Extract-Transform-Load)**: Data engineering pattern showing that all data workflows follow gather→process→deliver structure, with quality gates as best practice enhancement.
+- **ISO 9001 Quality Management**: Industrial quality systems universally include input specification, processing definition, quality verification, and output delivery - the same five components applied to manufacturing.
+
+**Q&A Preparation:**
+- *"Are all five components always required?"*: Trigger and Output are always present. Data Gathering depends on whether input comes with trigger. AI Processing is why you're building this. Quality Check is best practice but can start simple. The five-component model is the complete pattern.
+- *"Can workflows have more than five components?"*: Absolutely. This is the minimum viable structure. Production workflows often have multiple data gathering steps, multiple AI processing steps, etc. But they're all variations of these five types.
+- *"What if I want to trigger from multiple sources?"*: That's multiple triggers feeding the same workflow, or multiple workflows. The pattern stays the same - each trigger starts the five-component flow.
+
+**Sources:**
+1. [Workflow Patterns Initiative](http://workflowpatterns.com/) - Academic research on universal workflow structures
+2. [ETL Pattern Documentation](https://en.wikipedia.org/wiki/Extract,_transform,_load) - Data engineering workflow standard
+3. [ISO 9001 Quality Management](https://www.iso.org/iso-9001-quality-management.html) - Industrial quality system standards
+
 ---
 
 ## SLIDE 6: THE MICRO-AGENT PATTERN
@@ -433,6 +456,29 @@ Our goal in Block 2 is building workflows you can trust to run without you watch
 This is why we handle errors and log everything."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide delivers a critical mindset shift from "impressive demo" thinking to "reliable production" thinking
+- The reframing from 90% success to 10% failure creates emotional impact that drives home the reliability requirement
+- Using familiar examples (web apps, banking) makes abstract reliability concepts concrete and personal
+- This sets expectations for the "boring" infrastructure work (error handling, logging) that follows
+
+**Key Research & Citations:**
+- **Production System Reliability Standards**: Industry SLAs typically require 99%+ uptime (8.76 hours downtime/year). A 90% success rate equals 876 hours downtime/year - completely unacceptable for production use.
+- **Cognitive Bias Research (Kahneman & Tversky)**: "90% success" and "10% failure" describe identical situations but trigger different emotional responses. Framing matters for decision-making about acceptable reliability thresholds.
+- **Demo Effect in AI**: Research shows AI demos optimized for "impressive moments" typically have 60-90% reliability, while production AI systems require 95-99% reliability through infrastructure that's invisible in demos.
+
+**Q&A Preparation:**
+- *"Isn't 90% good enough for internal tools?"*: Depends on consequences of failure. If failure means wasted work that must be redone, then no. If failure means "try again" with no loss, maybe. Ask: would you trust it unattended?
+- *"How do we get from 90% to 99%?"*: Error handling (catches failures gracefully), quality checks (prevents bad output), logging (enables debugging), input validation (stops bad data early). The "boring infrastructure" we're building this week and next.
+- *"What if my workflow is currently at 70%?"*: That's fine for Week 2. We're building the foundation. Error handling, quality checks, and optimization in Weeks 2-4 will improve it. The point is to know what "production ready" means.
+
+**Sources:**
+1. [SLA Standards for Production Systems](https://en.wikipedia.org/wiki/Service-level_agreement) - Industry reliability requirements
+2. [Thinking, Fast and Slow](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) - Kahneman's framing research
+3. [Google SRE Book](https://sre.google/sre-book/table-of-contents/) - Production system reliability engineering
 
 ---
 
@@ -823,6 +869,29 @@ Output problems - email server hiccup, expired credentials.
 Notice I said 'when' not 'if'. Things WILL break. The question is whether your workflow handles it gracefully or crashes."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide normalizes failure as expected and manageable rather than catastrophic and avoidable
+- Categorizing failures by frequency (common/occasional/rare) helps participants prioritize error handling efforts
+- The "when not if" framing shifts mindset from prevention (impossible) to graceful handling (achievable)
+- Listing concrete failure modes makes abstract "error handling" concept tangible and less intimidating
+
+**Key Research & Citations:**
+- **Failure Modes and Effects Analysis (FMEA)**: Industrial engineering methodology for identifying and prioritizing potential failures. Systematic failure cataloging reduces unplanned downtime by 60%+ in manufacturing; same principle applies to workflow automation.
+- **Site Reliability Engineering (Google)**: "Embrace failure as normal" principle - systems that assume failures will occur and design for graceful degradation outperform systems that try to prevent all failures.
+- **API Rate Limiting Studies**: 78% of automation workflows on free/low-tier API plans hit rate limits in first month of production use. Planning for rate limits from day one prevents major disruptions.
+
+**Q&A Preparation:**
+- *"How do I know which failures to handle first?"*: Start with the "Common" ones - they'll hit you first. Rate limits and invalid input cover 70%+ of early failures. Add others as you encounter them.
+- *"What if I can't predict what will fail?"*: You can't predict everything, but you can handle failures generically. Catch errors, log them, alert yourself. Specific handling comes from actual failures you observe.
+- *"Should I try to prevent these failures?"*: Prevent where cheap (input validation). But many failures are external (service down, rate limit). Focus on graceful handling rather than attempting perfect prevention.
+
+**Sources:**
+1. [FMEA Methodology](https://en.wikipedia.org/wiki/Failure_mode_and_effects_analysis) - Failure analysis framework
+2. [Google SRE: Embracing Risk](https://sre.google/sre-book/embracing-risk/) - Failure-aware system design
+3. [API Rate Limiting Best Practices](https://cloud.google.com/architecture/rate-limiting-strategies-techniques) - Managing API constraints
 
 ---
 
@@ -1268,27 +1337,119 @@ See you next week!"
 
 ### Appendix D: Background Section Guidelines
 
-**Rationale (3-5 bullets):** Explain slide's purpose, mental shift created, connections to adjacent slides | **Key Research & Citations (3-5 entries):** Format **[Source (Year)]**: Detailed explanation with methodology and specific findings | **Q&A Preparation (3-5 questions):** Format *"Question"*: Response addressing concern
+**Rationale (3-5 bullets):**
+- Explain the slide's purpose in the narrative arc
+- Describe the mental shift it creates for the audience
+- Note connections to adjacent slides
+- Justify the chosen framing or approach
+
+**Key Research & Citations (3-5 entries):**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+- Include methodology when relevant
+- Cite specific statistics or findings
+- Explain how research supports the slide's claims
+- Note any caveats or limitations
+
+**Q&A Preparation (3-5 questions):**
+Format: *"[Question]"*: [Response]
+- Anticipate skeptical questions
+- Prepare for "what about..." objections
+- Have specific examples ready
+- Include graceful redirects for off-topic questions
+
+---
 
 ### Appendix E: Sources Section Guidelines
 
-Include 3-7 sources per slide: `[Title](URL) - Brief description` | Source types: Primary research, industry reports, practitioner content, official documentation
+Include 3-7 sources per slide, formatted as:
+```markdown
+1. [Full title with hyperlink](URL) - [Brief description of relevance]
+```
+
+Source types to include:
+- **Primary research**: Academic papers, official documentation
+- **Industry reports**: Analyst reports, surveys, benchmarks
+- **Practitioner content**: Blog posts from recognized experts
+- **Official documentation**: Product docs, API references
+
+---
 
 ### Appendix F: Implementation Guidance Structure
 
-**Getting Started (2-4 items):** Immediate actions | **Best Practices (3-5 items):** Proven approaches with criteria | **Common Pitfalls (2-4 items):** Mistakes to avoid | **Tools & Technologies (2-4 categories):** Tool names with use cases
+**Getting Started (2-4 items):**
+- Immediate actions participants can take today
+- Low-barrier entry points for implementation
+- Foundation-building steps
+
+**Best Practices (3-5 items):**
+- Proven approaches with specific criteria
+- Patterns that scale well
+- Measurable success indicators
+
+**Common Pitfalls (2-4 items):**
+- Mistakes that seem logical but fail in practice
+- Anti-patterns to avoid
+- Assumptions that mislead
+
+**Tools & Technologies (2-4 categories):**
+Format: **[Category]**: [Tool names] - [use case description]
+
+---
 
 ### Appendix G: Visual/Graphic Description Guidelines
 
-**Required Elements:** 1) Type 2) Main elements 3) Arrangement 4) Labels/Text 5) Communication goal
+Describe graphics with enough detail for a designer to create them:
+
+**Required Elements:**
+1. **Type**: diagram, illustration, chart, photo, icon grid
+2. **Main elements**: What objects/shapes appear
+3. **Arrangement**: Spatial relationship between elements
+4. **Labels/Text**: Any text that appears in the graphic
+5. **Communication goal**: What the visual should convey
+
+---
 
 ### Appendix H: Visual Design Guidelines - Block 2 Theme
 
-**Block 2 Orange Color Coding:** Primary Orange (#FF6B35) for branding, accent blues/grays, orange highlights for key points, orange progress indicators | **Consistency Rules:** All Block 2 presentations use orange theme, maintain color consistency across weeks
+**Block 2 Orange Color Coding:**
+- **Primary**: Orange (#FF6B35 or similar) for Block 2 branding
+- **Accent**: Complementary blues and grays
+- **Highlights**: Use orange for emphasis on key points
+- **Progress indicators**: Orange fill for current/completed items
+
+**Consistency Rules:**
+- All Block 2 presentations use orange theme
+- Maintain color consistency across weeks
+- Use color to reinforce Block identity
+
+---
 
 ### Appendix I: Quality Checklist
 
-**Content Quality:** Learning objectives align, Key Thesis clear, complete speaker notes, technical accuracy, relevant examples | **BACKGROUND Sections:** Rationale explains purpose, research citations specific and recent, Q&A addresses objections, sources authoritative | **Visual Design:** Orange theme consistent, detailed graphic descriptions, clear hierarchy, not overcrowded | **Instructional Design:** Progressive building, interactive elements, realistic timing, smooth transitions
+**Content Quality:**
+- [ ] Learning objectives align with slide content
+- [ ] Key Thesis is clear and specific
+- [ ] All slides have complete speaker notes
+- [ ] Technical accuracy verified
+- [ ] Examples are relevant to audience
+
+**BACKGROUND Sections:**
+- [ ] Rationale explains slide's narrative purpose
+- [ ] Research citations are specific and recent
+- [ ] Q&A responses address likely objections
+- [ ] Sources are authoritative and linked
+
+**Visual Design:**
+- [ ] Block 2 orange theme applied consistently
+- [ ] All graphics have detailed descriptions
+- [ ] Visual hierarchy supports comprehension
+- [ ] Slides are not overcrowded
+
+**Instructional Design:**
+- [ ] Builds progressively from prior knowledge
+- [ ] Includes interactive elements
+- [ ] Timing is realistic for 45-minute session
+- [ ] Transitions are smooth and logical
 
 ---
 

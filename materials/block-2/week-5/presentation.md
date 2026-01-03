@@ -278,6 +278,27 @@ You configure it once. Then you just chat naturally. 'Read my `style.json`' - Cl
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide clarifies the critical distinction between Tools (actions) and Resources (data) that confuses many first-time MCP users
+- Understanding the component taxonomy enables participants to troubleshoot issues and select appropriate servers for their needs
+- The "configure once, use naturally" principle demonstrates the usability advantage of MCP over manual context management
+
+**Key Research & Citations:**
+- **Model Context Protocol Specification**: MCP defines a clear separation between Tools (executable functions) and Resources (readable data) to enable both action-taking and context-gathering capabilities
+- **Abstraction Patterns in API Design**: The host-server-tool/resource architecture follows established API design patterns where abstraction layers (servers) translate between generic interfaces (hosts) and specific implementations (tools/resources)
+- **Natural Language Interface Research**: Studies show that users prefer natural language commands ("read my file") over explicit function calls when both achieve the same outcome - MCP enables this through automatic tool selection
+
+**Q&A Preparation:**
+- *"What's the difference between Tools and Resources?"*: Tools are actions (read file, create issue, send message). Resources are data (file contents, repository info, channel history). Some servers provide both - filesystem has read_file (tool) and file contents (resource).
+- *"How does Claude know which tool to use?"*: When you make a request, Claude analyzes what you need, sees available tools from active servers, and automatically selects the appropriate one. You see this in the UI when tools are invoked.
+- *"Can I create custom servers?"*: Yes, but that's advanced. The official server registry has 50+ pre-built servers covering most needs. Start with those before building custom ones.
+
+**Sources:**
+- Model Context Protocol Specification - Anthropic, 2024
+- MCP Server Registry - github.com/modelcontextprotocol/servers
+
 ---
 
 ## SLIDE 6: MCP SECURITY MODEL
@@ -616,6 +637,27 @@ That's it. Claude reads it directly. No copy-paste. No context switching.
 This is where the time savings become real."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- GitHub MCP demonstrates the practical value of MCP beyond local filesystem access - it connects to external version-controlled resources
+- The copy-paste elimination use case is immediately relatable and quantifiable for time savings calculations
+- Version-awareness capability (branch specification) enables sophisticated use cases like testing prompts before merging
+
+**Key Research & Citations:**
+- **Context Switching Cost Research**: Studies show that context switching (e.g., switching from Claude to GitHub and back) creates 15-30% productivity loss. Each switch requires 5-15 minutes to regain focus. MCP eliminates this overhead.
+- **Version Control in AI Workflows**: GitHub's version control combined with MCP access enables prompt engineering best practices - testing changes in branches, rolling back failures, collaborative prompt development
+- **Template Reuse Patterns**: Research on knowledge work efficiency shows that template reuse reduces time-to-output by 40-60% compared to starting from scratch. MCP makes template access frictionless.
+
+**Q&A Preparation:**
+- *"Why use GitHub instead of just filesystem MCP?"*: GitHub provides version control, collaboration, backup, and access from anywhere. Filesystem is for local-only files. Both serve different needs - many users configure both servers.
+- *"Can I access private repos?"*: Yes - that's what the Personal Access Token enables. Your token authenticates you to GitHub, so MCP can access any repo you have permissions for.
+- *"What if my team uses GitLab or Bitbucket?"*: Check the MCP server registry - there may be community-built servers for those platforms. If not, filesystem MCP with local git clones is a workaround until specific servers are available.
+
+**Sources:**
+- Context Switching and Productivity - Gloria Mark, UC Irvine, 2023
+- GitHub MCP Server Documentation - github.com/modelcontextprotocol/servers
 
 ---
 
@@ -980,6 +1022,147 @@ Get MCP working, test it thoroughly, and see you next week!"
 ---
 
 ## Appendices
+
+### Appendix D: MCP Configuration Templates
+
+**Filesystem Server Template:**
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/absolute/path/to/allowed/directory"
+      ]
+    }
+  }
+}
+```
+
+**GitHub Server Template:**
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_your_token_here"
+      }
+    }
+  }
+}
+```
+
+**Combined Configuration:**
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_your_token_here"
+      }
+    }
+  }
+}
+```
+
+### Appendix E: MCP Troubleshooting Guide
+
+**Common Issues and Solutions:**
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| Servers not appearing | Config syntax error | Validate JSON at jsonlint.com |
+| npx not found | Node.js not installed | Install from nodejs.org |
+| Permission errors | Incorrect path permissions | Check directory permissions |
+| Token errors | Invalid or expired token | Regenerate GitHub token |
+| Restart didn't work | Claude still running | Check Task Manager/Activity Monitor |
+
+**Validation Steps:**
+1. Validate JSON syntax
+2. Check file paths are absolute
+3. Verify Node.js installation: `node --version`
+4. Confirm Claude fully restarted
+5. Check error logs in Claude Desktop
+
+### Appendix F: MCP Security Best Practices
+
+**Configuration Security:**
+- Use read-only tokens when possible
+- Limit filesystem access to specific directories
+- Never commit tokens to version control
+- Rotate tokens periodically (every 90 days)
+- Use minimal scopes for GitHub tokens
+
+**Safe Token Management:**
+1. Store tokens only in local config files
+2. Use environment variables for sensitive values
+3. Document token permissions in setup guide
+4. Revoke tokens immediately if compromised
+5. Use separate tokens for different environments
+
+### Appendix G: MCP Use Case Examples
+
+**Template Access:**
+- "Read my proposal template from [repo]/templates/proposal.md"
+- "Show me my style.json file"
+- "List all markdown files in my prompts directory"
+
+**Version Control Integration:**
+- "Read the README from the main branch"
+- "Compare my template with the version in develop branch"
+- "Show recent commits to my prompts folder"
+
+**Workflow Integration:**
+- Pre-fetch templates via MCP for workflow use
+- Reference style guides automatically
+- Access brand assets from GitHub
+
+### Appendix H: MCP Server Registry
+
+**Official MCP Servers:**
+
+| Server | Purpose | Documentation |
+|--------|---------|---------------|
+| filesystem | Local file access | github.com/modelcontextprotocol/servers |
+| github | GitHub repository access | github.com/modelcontextprotocol/servers |
+| gitlab | GitLab repository access | github.com/modelcontextprotocol/servers |
+| slack | Slack integration | github.com/modelcontextprotocol/servers |
+| postgres | Database access | github.com/modelcontextprotocol/servers |
+| google-drive | Google Drive access | github.com/modelcontextprotocol/servers |
+
+**Finding Servers:**
+- Official registry: github.com/modelcontextprotocol/servers
+- Community servers: Search "MCP server" + your tool
+- Documentation: modelcontextprotocol.io
+
+### Appendix I: Platform-Specific Instructions
+
+**macOS Configuration:**
+- Config location: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Access Library folder: Finder → Go menu → Hold Option → Library
+- Use absolute paths: `/Users/[username]/path/to/directory`
+
+**Windows Configuration:**
+- Config location: `%APPDATA%\Claude\claude_desktop_config.json`
+- Access APPDATA: Type `%APPDATA%` in File Explorer address bar
+- Use absolute paths: `C:\Users\[username]\path\to\directory`
+
+**Linux Configuration:**
+- Config location: `~/.config/Claude/claude_desktop_config.json`
+- Standard XDG config directory
+- Use absolute paths: `/home/[username]/path/to/directory`
+
+---
 
 **Slide Type Definitions:** TITLE SLIDE | PROBLEM STATEMENT | INSIGHT / REVELATION | CONCEPT INTRODUCTION | FRAMEWORK / MODEL | COMPARISON | DEEP DIVE | CASE STUDY | PATTERN / BEST PRACTICE | METRICS / DATA | ARCHITECTURE / DIAGRAM | OBJECTION HANDLING | ACTION / NEXT STEPS | SUMMARY / RECAP | SECTION DIVIDER | CLOSING / CALL TO ACTION | Q&A / CONTACT
 

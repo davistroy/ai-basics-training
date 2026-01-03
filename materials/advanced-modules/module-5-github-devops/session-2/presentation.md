@@ -286,6 +286,30 @@ This is perfect when you need fast rollback capability. The tradeoff is you need
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Blue-Green deployment eliminates deployment downtime through environment switching
+- Two-environment pattern provides instant rollback capability (just switch back)
+- Smoke tests in inactive slot catch issues before user impact
+- Proven pattern used by major platforms (AWS, Azure, Heroku)
+
+**Key Research & Citations:**
+- Martin Fowler's BlueGreenDeployment pattern (2010) established industry standard
+- Netflix uses Blue-Green for zero-downtime deployments at massive scale
+- AWS Elastic Beanstalk and Azure App Service provide native Blue-Green support
+- Cloud-native architecture patterns emphasize immutable deployments
+
+**Q&A Preparation:**
+- *"How much does running two environments cost?"*: Only during deployment window. Most cloud providers charge per-minute. Cost is minimal compared to downtime risk.
+- *"Can we do this without cloud infrastructure?"*: Yes - use deployment slots on single server, or containerized environments (Docker). Pattern applies regardless of infrastructure.
+- *"What if smoke tests pass but production traffic reveals issues?"*: That's why we combine Blue-Green with monitoring. Detect issues quickly and switch back. Consider adding Canary pattern for gradual validation.
+
+**Sources:**
+- Martin Fowler - BlueGreenDeployment: https://martinfowler.com/bliki/BlueGreenDeployment.html
+- AWS Blue/Green Deployments: https://docs.aws.amazon.com/whitepapers/latest/blue-green-deployments/
+- Continuous Delivery (Humble & Farley): Chapter 10 on deployment strategies
+
 -----
 
 ### SLIDE 6: CANARY DEPLOYMENT PATTERN
@@ -345,6 +369,30 @@ The name comes from 'canary in a coal mine' - the canary detects danger before e
 This is perfect when you want gradual validation with real production traffic. The tradeoff is complexity - you need metric tracking and automated rollback logic."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Canary deployment reduces risk by limiting initial exposure to new version
+- Real production traffic provides validation that staging environments can't simulate
+- Progressive rollout (10% → 25% → 50% → 100%) catches issues with minimal user impact
+- Automated metric-based rollback prevents human delay in incident response
+
+**Key Research & Citations:**
+- "Canary in a coal mine" metaphor - small percentage detects danger before widespread impact
+- Facebook's "dark launches" use Canary pattern for feature rollouts
+- Google's "1% experiments" validate changes with real user data before full rollout
+- SRE principles emphasize gradual rollout with automated monitoring
+
+**Q&A Preparation:**
+- *"How do you decide the rollout percentages?"*: Start small (5-10%), increase gradually. Adjust based on risk tolerance and user base size. High-risk changes stay at each percentage longer.
+- *"What metrics determine rollback?"*: Error rate, latency (P95/P99), success rate, user complaints. Define thresholds before deployment - not during incident.
+- *"Can we do Canary without sophisticated infrastructure?"*: Yes - use feature flags to control which users see new version. Simple percentage-based routing works without complex load balancers.
+
+**Sources:**
+- Site Reliability Engineering (Google): https://sre.google/sre-book/release-engineering/
+- Canary Deployments at Scale (Facebook Engineering): https://engineering.fb.com/
+- Progressive Delivery patterns: https://launchdarkly.com/blog/what-is-progressive-delivery/
 
 -----
 
@@ -498,6 +546,30 @@ Hard-coding keys means you can't rotate them without changing code. And you defi
 The solution is GitHub Secrets - encrypted secrets that workflows can access but humans can't easily view."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Secrets in code are immediately compromised when pushed to GitHub (public or private)
+- GitHub's secret scanning detects and alerts on exposed credentials but prevention is better
+- Encrypted secrets storage separates configuration (versioned) from credentials (secured)
+- Environment-scoped secrets prevent production credentials from being used in development
+
+**Key Research & Citations:**
+- GitHub Secret Scanning has detected over 1 million exposed credentials since 2018
+- 2021 security study: 6% of GitHub commits contained at least one exposed secret
+- OWASP Top 10 includes "Sensitive Data Exposure" as critical security risk
+- Zero-trust security model requires secrets rotation - hard-coded secrets prevent this
+
+**Q&A Preparation:**
+- *"What if someone with repo access views the secret in GitHub UI?"*: GitHub Secrets are write-only by default. You can add but not retrieve. Some cloud providers offer additional secret management (AWS Secrets Manager, Azure Key Vault).
+- *"Can workflows accidentally log secrets?"*: GitHub automatically masks secret values in logs. But still practice never echo/print secrets.
+- *"How often should we rotate secrets?"*: Depends on risk. Production API keys: quarterly minimum. After personnel changes: immediately. Use secret expiration where possible.
+
+**Sources:**
+- GitHub Secret Scanning: https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning
+- OWASP Sensitive Data Exposure: https://owasp.org/www-project-top-ten/
+- Secrets Management Best Practices: https://www.hashicorp.com/resources/what-is-secrets-management
 
 -----
 
@@ -766,6 +838,30 @@ You need monitoring: automated health checks that run continuously and alert you
 Today we'll build health check workflows that run every 15 minutes, track key metrics, and alert via Slack/Discord/email when problems arise."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- AI systems fail silently more often than traditional software (timeout, empty response, degraded quality)
+- User-reported issues mean customers experienced problems before you knew
+- Proactive monitoring shifts from reactive firefighting to preventive maintenance
+- Automated health checks provide 24/7 coverage without human monitoring cost
+
+**Key Research & Citations:**
+- Google's "Four Golden Signals" of monitoring: Latency, Traffic, Errors, Saturation
+- Observability vs Monitoring: Observability reveals "unknown unknowns" through instrumentation
+- Mean Time To Detect (MTTD) critical for incident response - automated monitoring reduces MTTD from hours to minutes
+- GitHub Actions scheduled workflows provide free monitoring infrastructure (no additional service needed)
+
+**Q&A Preparation:**
+- *"Why not use external monitoring service like Datadog or New Relic?"*: Those are excellent for production systems. GitHub Actions provides free tier for basic health checks. Use both - external for comprehensive monitoring, GitHub Actions for lightweight checks.
+- *"What if health check itself fails due to network issue?"*: Implement retry logic and alert only on sustained failures. Single failure might be transient network issue.
+- *"How do we avoid alert fatigue?"*: Tune alert thresholds carefully. Critical alerts should require action. Use warning vs critical severity levels. Provide actionable context in alerts.
+
+**Sources:**
+- Google SRE - The Four Golden Signals: https://sre.google/sre-book/monitoring-distributed-systems/
+- Observability Engineering (O'Reilly): https://www.oreilly.com/library/view/observability-engineering/9781492076438/
+- GitHub Actions Scheduled Events: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
 
 -----
 
@@ -1102,6 +1198,30 @@ This entire pipeline is automated. Humans only intervene for production approval
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Complete CI/CD pipeline automates everything except human judgment for production deployment
+- Each stage adds a protection layer: validation catches syntax, tests catch logic, staging catches integration issues
+- Manual approval for production preserves human oversight while automating mechanics
+- Pipeline provides audit trail of what was deployed, when, by whom, and what checks passed
+
+**Key Research & Citations:**
+- DevOps Research & Assessment (DORA): Elite performers deploy on-demand with lead times < 1 hour
+- Continuous Delivery book (Humble & Farley): Deployment pipeline is the manifestation of your process for getting software from version control to users
+- Google's "Release Engineering" emphasizes automation with human checkpoints for critical decisions
+- GitHub's State of the Octoverse: Organizations using CI/CD have 2x faster incident resolution
+
+**Q&A Preparation:**
+- *"Should production deployment always require manual approval?"*: For most organizations, yes. Very mature teams with comprehensive monitoring might auto-deploy to production using Canary with automated rollback. Start with manual approval, earn full automation.
+- *"What if we need emergency hotfix and approver is unavailable?"*: Configure multiple approved reviewers. For true emergencies, repository admins can override (but it's logged and should be reviewed).
+- *"How do we handle database migrations in pipeline?"*: Run migrations as separate stage before deployment. Use backward-compatible migrations. Consider blue-green for databases or separate migration pipeline.
+
+**Sources:**
+- DORA State of DevOps Reports: https://dora.dev/research/
+- Continuous Delivery (Jez Humble): https://continuousdelivery.com/
+- GitHub State of the Octoverse: https://octoverse.github.com/
+
 -----
 
 ### SLIDE 20: ENVIRONMENT PROTECTION RULES
@@ -1428,6 +1548,1093 @@ Final questions? ... Excellent work everyone. You've leveled up your AI DevOps c
 ### Appendix B: BACKGROUND & Implementation Guidance
 
 See template for full BACKGROUND section structure (Rationale, Key Research & Citations, Q&A Preparation) and Implementation Guidance structure (Getting Started, Best Practices, Common Pitfalls, Tools & Technologies).
+
+### Appendix C: Deployment Strategy Implementation Guide
+
+**Blue-Green Deployment Implementation:**
+
+**Directory Structure:**
+```
+.github/workflows/
+├── deploy-blue-green.yml
+└── switch-traffic.yml
+
+scripts/
+├── deploy-to-slot.sh
+├── smoke-test.sh
+└── switch-traffic.sh
+
+deployments/
+├── blue/
+│   ├── prompts/
+│   └── configs/
+└── green/
+    ├── prompts/
+    └── configs/
+```
+
+**Complete Blue-Green Workflow:**
+```yaml
+name: Blue-Green Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_slot:
+        description: 'Target deployment slot (blue or green)'
+        required: true
+        type: choice
+        options:
+          - blue
+          - green
+
+jobs:
+  deploy-to-inactive-slot:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Determine inactive slot
+        id: slot
+        run: |
+          # Get currently active slot
+          ACTIVE_SLOT=$(curl -s ${{ secrets.PROD_ENDPOINT }}/active-slot)
+          if [ "$ACTIVE_SLOT" = "blue" ]; then
+            echo "inactive=green" >> $GITHUB_OUTPUT
+            echo "active=blue" >> $GITHUB_OUTPUT
+          else
+            echo "inactive=blue" >> $GITHUB_OUTPUT
+            echo "active=green" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy to inactive slot
+        run: |
+          ./scripts/deploy-to-slot.sh \
+            --slot ${{ steps.slot.outputs.inactive }} \
+            --version ${{ github.sha }}
+        env:
+          API_KEY: ${{ secrets.AI_API_KEY }}
+
+      - name: Wait for deployment
+        run: sleep 30
+
+      - name: Smoke test inactive slot
+        run: |
+          ./scripts/smoke-test.sh \
+            --slot ${{ steps.slot.outputs.inactive }} \
+            --endpoint ${{ secrets.PROD_ENDPOINT }}
+
+      - name: Health check inactive slot
+        run: |
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
+            ${{ secrets.PROD_ENDPOINT }}/${{ steps.slot.outputs.inactive }}/health)
+          if [ "$RESPONSE" != "200" ]; then
+            echo "Health check failed: $RESPONSE"
+            exit 1
+          fi
+
+  switch-traffic:
+    needs: deploy-to-inactive-slot
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Switch traffic to new slot
+        run: |
+          ./scripts/switch-traffic.sh \
+            --from ${{ needs.deploy-to-inactive-slot.steps.slot.outputs.active }} \
+            --to ${{ needs.deploy-to-inactive-slot.steps.slot.outputs.inactive }}
+
+      - name: Monitor for 5 minutes
+        run: |
+          for i in {1..5}; do
+            echo "Monitoring minute $i/5..."
+            ERROR_RATE=$(curl -s ${{ secrets.PROD_ENDPOINT }}/metrics/error-rate)
+            if (( $(echo "$ERROR_RATE > 0.05" | bc -l) )); then
+              echo "Error rate elevated: $ERROR_RATE"
+              echo "Initiating rollback..."
+              ./scripts/switch-traffic.sh \
+                --from ${{ needs.deploy-to-inactive-slot.steps.slot.outputs.inactive }} \
+                --to ${{ needs.deploy-to-inactive-slot.steps.slot.outputs.active }}
+              exit 1
+            fi
+            sleep 60
+          done
+
+      - name: Deployment success notification
+        if: success()
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "text": "✅ Blue-Green deployment successful",
+              "blocks": [{
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*Deployment Complete*\nSlot: ${{ needs.deploy-to-inactive-slot.steps.slot.outputs.inactive }}\nVersion: ${{ github.sha }}"
+                }
+              }]
+            }'
+```
+
+**Canary Deployment Implementation:**
+
+**Progressive Rollout Workflow:**
+```yaml
+name: Canary Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to deploy'
+        required: true
+        type: string
+
+jobs:
+  deploy-canary-10:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to 10% canary
+        run: |
+          ./scripts/deploy-canary.sh \
+            --version ${{ inputs.version }} \
+            --percentage 10
+
+      - name: Monitor metrics for 10 minutes
+        id: monitor_10
+        run: |
+          ./scripts/monitor-metrics.sh \
+            --duration 600 \
+            --error-threshold 0.05 \
+            --latency-threshold 2000
+
+  deploy-canary-25:
+    needs: deploy-canary-10
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Increase to 25%
+        run: |
+          ./scripts/deploy-canary.sh \
+            --version ${{ inputs.version }} \
+            --percentage 25
+
+      - name: Monitor metrics for 10 minutes
+        run: |
+          ./scripts/monitor-metrics.sh \
+            --duration 600 \
+            --error-threshold 0.05 \
+            --latency-threshold 2000
+
+  deploy-canary-50:
+    needs: deploy-canary-25
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Increase to 50%
+        run: |
+          ./scripts/deploy-canary.sh \
+            --version ${{ inputs.version }} \
+            --percentage 50
+
+      - name: Monitor metrics for 15 minutes
+        run: |
+          ./scripts/monitor-metrics.sh \
+            --duration 900 \
+            --error-threshold 0.05 \
+            --latency-threshold 2000
+
+  deploy-canary-100:
+    needs: deploy-canary-50
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Complete rollout to 100%
+        run: |
+          ./scripts/deploy-canary.sh \
+            --version ${{ inputs.version }} \
+            --percentage 100
+
+      - name: Final monitoring
+        run: |
+          ./scripts/monitor-metrics.sh \
+            --duration 900 \
+            --error-threshold 0.05 \
+            --latency-threshold 2000
+
+      - name: Deployment complete notification
+        if: success()
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "text": "🎉 Canary deployment complete: ${{ inputs.version }} at 100%"
+            }'
+
+  rollback:
+    if: failure()
+    needs: [deploy-canary-10, deploy-canary-25, deploy-canary-50, deploy-canary-100]
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Automatic rollback
+        run: |
+          ./scripts/rollback-canary.sh \
+            --to-previous-version
+
+      - name: Rollback notification
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "text": "⚠️ Canary deployment rolled back due to metric degradation"
+            }'
+```
+
+**Monitoring Script (monitor-metrics.sh):**
+```bash
+#!/bin/bash
+
+DURATION=${1:-600}  # Default 10 minutes
+ERROR_THRESHOLD=${2:-0.05}  # Default 5%
+LATENCY_THRESHOLD=${3:-2000}  # Default 2000ms
+
+START_TIME=$(date +%s)
+END_TIME=$((START_TIME + DURATION))
+
+while [ $(date +%s) -lt $END_TIME ]; do
+  # Fetch metrics
+  ERROR_RATE=$(curl -s "$METRICS_ENDPOINT/error-rate")
+  LATENCY_P95=$(curl -s "$METRICS_ENDPOINT/latency-p95")
+  SUCCESS_RATE=$(curl -s "$METRICS_ENDPOINT/success-rate")
+
+  echo "$(date): Error Rate: $ERROR_RATE, Latency P95: $LATENCY_P95ms, Success: $SUCCESS_RATE%"
+
+  # Check thresholds
+  if (( $(echo "$ERROR_RATE > $ERROR_THRESHOLD" | bc -l) )); then
+    echo "❌ Error rate exceeded threshold: $ERROR_RATE > $ERROR_THRESHOLD"
+    exit 1
+  fi
+
+  if (( $(echo "$LATENCY_P95 > $LATENCY_THRESHOLD" | bc -l) )); then
+    echo "❌ Latency exceeded threshold: $LATENCY_P95ms > $LATENCY_THRESHOLD ms"
+    exit 1
+  fi
+
+  if (( $(echo "$SUCCESS_RATE < 0.95" | bc -l) )); then
+    echo "❌ Success rate below threshold: $SUCCESS_RATE < 95%"
+    exit 1
+  fi
+
+  sleep 30  # Check every 30 seconds
+done
+
+echo "✅ Metrics healthy for $DURATION seconds"
+exit 0
+```
+
+### Appendix D: Secrets Management Configuration Guide
+
+**GitHub Secrets Setup (via UI):**
+
+1. **Repository Secrets:**
+   - Navigate to: Repository → Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - Add:
+     - `SLACK_WEBHOOK` - Slack webhook URL for notifications
+     - `MONITORING_ENDPOINT` - Monitoring service endpoint
+
+2. **Environment Secrets:**
+   - Navigate to: Repository → Settings → Environments
+   - Create "staging" environment:
+     - Add secret: `AI_API_KEY` (staging API key)
+     - Add secret: `DEPLOYMENT_TOKEN` (staging deployment token)
+   - Create "production" environment:
+     - Add secret: `AI_API_KEY` (production API key)
+     - Add secret: `DEPLOYMENT_TOKEN` (production deployment token)
+     - Configure protection rules:
+       - ✅ Required reviewers: Add team members
+       - ✅ Wait timer: 5 minutes (optional)
+       - ✅ Deployment branches: Only `main`
+
+**Using Secrets in Workflows:**
+```yaml
+jobs:
+  deploy-staging:
+    environment: staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to staging
+        env:
+          API_KEY: ${{ secrets.AI_API_KEY }}  # Uses staging key
+        run: ./deploy.sh
+
+  deploy-production:
+    environment: production  # Requires approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to production
+        env:
+          API_KEY: ${{ secrets.AI_API_KEY }}  # Uses production key
+        run: ./deploy.sh
+```
+
+**Secret Rotation Procedure:**
+
+1. **Generate New Secret:**
+   ```bash
+   # Example: Generate new API key from provider
+   NEW_API_KEY=$(openai api keys create --name "prod-key-2026-01")
+   ```
+
+2. **Update GitHub Secret:**
+   - Repository Settings → Secrets → Edit `AI_API_KEY`
+   - Paste new value
+   - Save
+
+3. **Test Deployment:**
+   - Run deployment to staging first
+   - Verify new key works
+   - Deploy to production
+
+4. **Revoke Old Secret:**
+   - Delete old API key from provider
+   - Document rotation in audit log
+
+**Secrets Security Checklist:**
+- [ ] All secrets stored in GitHub Secrets (never in code)
+- [ ] Production secrets use environment scope
+- [ ] Secret names are descriptive (not generic like `KEY1`)
+- [ ] Secrets are never logged or echoed
+- [ ] Rotation schedule documented
+- [ ] Access to secrets repository settings limited to admins
+- [ ] Secret scanning enabled on repository
+
+### Appendix E: Configuration Management Patterns
+
+**Environment Configuration Structure:**
+
+```yaml
+# configs/base.yml - Shared configuration
+ai:
+  provider: openai
+  temperature: 0.7
+  max_tokens: 2000
+
+rate_limits:
+  burst_size: 10
+
+monitoring:
+  health_check_interval: 900  # 15 minutes
+
+# configs/staging.yml - Staging overrides
+ai:
+  model: gpt-4o-mini  # Cheaper model for staging
+  api_key: ${AI_API_KEY}  # From GitHub Secrets
+
+deployment:
+  endpoint: https://staging.example.com
+
+rate_limits:
+  requests_per_minute: 50
+
+# configs/production.yml - Production overrides
+ai:
+  model: gpt-4
+  api_key: ${AI_API_KEY}  # From GitHub Secrets
+
+deployment:
+  endpoint: https://api.example.com
+
+rate_limits:
+  requests_per_minute: 100
+
+monitoring:
+  error_threshold: 0.02  # 2% in production
+```
+
+**Configuration Loading Script:**
+```javascript
+// scripts/load-config.js
+const fs = require('fs');
+const yaml = require('js-yaml');
+const deepmerge = require('deepmerge');
+
+function loadConfig(environment) {
+  // Load base config
+  const baseConfig = yaml.load(
+    fs.readFileSync('configs/base.yml', 'utf8')
+  );
+
+  // Load environment-specific config
+  const envConfig = yaml.load(
+    fs.readFileSync(`configs/${environment}.yml`, 'utf8')
+  );
+
+  // Merge configs (env overrides base)
+  const merged = deepmerge(baseConfig, envConfig);
+
+  // Substitute environment variables
+  return substituteEnvVars(merged);
+}
+
+function substituteEnvVars(config) {
+  const configString = JSON.stringify(config);
+  const substituted = configString.replace(
+    /\$\{([^}]+)\}/g,
+    (match, envVar) => process.env[envVar] || match
+  );
+  return JSON.parse(substituted);
+}
+
+// Usage
+const environment = process.env.ENVIRONMENT || 'development';
+const config = loadConfig(environment);
+console.log(JSON.stringify(config, null, 2));
+```
+
+**Workflow Integration:**
+```yaml
+jobs:
+  deploy:
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Load configuration
+        env:
+          ENVIRONMENT: production
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        run: |
+          node scripts/load-config.js > runtime-config.json
+
+      - name: Deploy with config
+        run: |
+          ./deploy.sh --config runtime-config.json
+```
+
+### Appendix F: Monitoring & Alerting Configuration
+
+**Health Check Endpoints (Express.js example):**
+
+```javascript
+// server.js - Health check endpoints
+const express = require('express');
+const app = express();
+
+// Basic health check
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK' });
+});
+
+// Detailed health check
+app.get('/health/detailed', async (req, res) => {
+  const health = {
+    status: 'OK',
+    timestamp: new Date().toISOString(),
+    checks: {
+      ai_api: await checkAIAPI(),
+      database: await checkDatabase(),
+      memory: checkMemory(),
+      disk: checkDisk()
+    }
+  };
+
+  const allHealthy = Object.values(health.checks)
+    .every(check => check.status === 'OK');
+
+  res.status(allHealthy ? 200 : 503).json(health);
+});
+
+// Metrics endpoint
+app.get('/metrics', (req, res) => {
+  const metrics = {
+    error_rate: calculateErrorRate(),
+    latency_p50: calculateLatencyPercentile(50),
+    latency_p95: calculateLatencyPercentile(95),
+    latency_p99: calculateLatencyPercentile(99),
+    success_rate: calculateSuccessRate(),
+    token_usage: getTokenUsage(),
+    request_count: getRequestCount()
+  };
+
+  res.json(metrics);
+});
+
+async function checkAIAPI() {
+  try {
+    // Make test API call
+    const response = await fetch(process.env.AI_ENDPOINT + '/health');
+    return {
+      status: response.ok ? 'OK' : 'DEGRADED',
+      latency: response.headers.get('x-response-time')
+    };
+  } catch (error) {
+    return { status: 'DOWN', error: error.message };
+  }
+}
+```
+
+**Comprehensive Monitoring Workflow:**
+
+```yaml
+name: Production Monitoring
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # Every 15 minutes
+  workflow_dispatch:
+
+jobs:
+  health-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check production health
+        id: health
+        run: |
+          RESPONSE=$(curl -s -w "\n%{http_code}" ${{ secrets.PROD_ENDPOINT }}/health/detailed)
+          STATUS_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | head -n-1)
+
+          echo "status_code=$STATUS_CODE" >> $GITHUB_OUTPUT
+          echo "response=$BODY" >> $GITHUB_OUTPUT
+
+          if [ "$STATUS_CODE" != "200" ]; then
+            echo "Health check failed: $STATUS_CODE"
+            echo "$BODY"
+            exit 1
+          fi
+
+      - name: Alert on health check failure
+        if: failure()
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "text": "🚨 Production Health Check FAILED",
+              "blocks": [{
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*Health Check Failed*\nStatus: ${{ steps.health.outputs.status_code }}\nEndpoint: ${{ secrets.PROD_ENDPOINT }}\n\nResponse:\n```${{ steps.health.outputs.response }}```"
+                }
+              }, {
+                "type": "actions",
+                "elements": [{
+                  "type": "button",
+                  "text": {"type": "plain_text", "text": "View Logs"},
+                  "url": "${{ secrets.LOGS_URL }}"
+                }]
+              }]
+            }'
+
+  metrics-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch and check metrics
+        run: |
+          METRICS=$(curl -s ${{ secrets.PROD_ENDPOINT }}/metrics)
+
+          ERROR_RATE=$(echo "$METRICS" | jq -r '.error_rate')
+          LATENCY_P95=$(echo "$METRICS" | jq -r '.latency_p95')
+          SUCCESS_RATE=$(echo "$METRICS" | jq -r '.success_rate')
+
+          echo "Error Rate: $ERROR_RATE"
+          echo "Latency P95: $LATENCY_P95ms"
+          echo "Success Rate: $SUCCESS_RATE"
+
+          # Check thresholds
+          ALERT=""
+          if (( $(echo "$ERROR_RATE > 0.05" | bc -l) )); then
+            ALERT="⚠️ Error rate elevated: $ERROR_RATE (threshold: 5%)\n"
+          fi
+
+          if (( $(echo "$LATENCY_P95 > 2000" | bc -l) )); then
+            ALERT="${ALERT}⚠️ Latency high: ${LATENCY_P95}ms (threshold: 2000ms)\n"
+          fi
+
+          if (( $(echo "$SUCCESS_RATE < 0.95" | bc -l) )); then
+            ALERT="${ALERT}⚠️ Success rate low: ${SUCCESS_RATE} (threshold: 95%)\n"
+          fi
+
+          if [ -n "$ALERT" ]; then
+            echo "Metrics degraded:"
+            echo -e "$ALERT"
+
+            curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+              -H 'Content-Type: application/json' \
+              -d "{\"text\": \"⚠️ Metrics Alert\n$ALERT\"}"
+          fi
+
+  token-usage-tracking:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check token usage
+        run: |
+          METRICS=$(curl -s ${{ secrets.PROD_ENDPOINT }}/metrics)
+          TOKEN_USAGE=$(echo "$METRICS" | jq -r '.token_usage.percentage')
+
+          echo "Token Usage: $TOKEN_USAGE%"
+
+          if (( $(echo "$TOKEN_USAGE > 90" | bc -l) )); then
+            curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+              -H 'Content-Type: application/json' \
+              -d "{
+                \"text\": \"⚠️ Token usage at ${TOKEN_USAGE}% - approaching limit\"
+              }"
+          fi
+```
+
+**Slack Alert Templates:**
+
+```json
+{
+  "text": "Alert Summary",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "🚨 Production Alert"
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Type:*\nHealth Check Failure"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Severity:*\nCritical"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Environment:*\nProduction"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Time:*\n2026-01-03 10:30 UTC"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Details:*\nHealth check endpoint returned 503. AI API check failed with timeout."
+      }
+    },
+    {
+      "type": "actions",
+      "elements": [
+        {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "View Logs"
+          },
+          "url": "https://logs.example.com",
+          "style": "danger"
+        },
+        {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "Runbook"
+          },
+          "url": "https://wiki.example.com/runbooks/health-check-failure"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Appendix G: Complete CI/CD Pipeline Template
+
+**Multi-Stage Pipeline Workflow:**
+
+```yaml
+name: Complete CI/CD Pipeline
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Stage 1: Validation
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate prompts
+        run: npm run validate:prompts
+
+      - name: Security scan
+        run: npm audit --audit-level=moderate
+
+  # Stage 2: Testing
+  unit-tests:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-coverage
+          path: coverage/
+
+  integration-tests:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run integration tests
+        run: npm run test:integration
+
+  # Stage 3: Quality Gate
+  quality-gate:
+    needs: [unit-tests, integration-tests]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: unit-coverage
+          path: coverage/
+
+      - name: Check coverage threshold
+        run: |
+          COVERAGE=$(cat coverage/coverage-summary.json | jq '.total.lines.pct')
+          if (( $(echo "$COVERAGE < 80" | bc -l) )); then
+            echo "Coverage $COVERAGE% below 80% threshold"
+            exit 1
+          fi
+          echo "Coverage: $COVERAGE% ✅"
+
+  # Stage 4: Deploy to Staging
+  deploy-staging:
+    needs: quality-gate
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to staging
+        env:
+          API_KEY: ${{ secrets.AI_API_KEY }}
+          ENVIRONMENT: staging
+        run: ./scripts/deploy.sh
+
+      - name: Staging smoke tests
+        run: ./scripts/smoke-test.sh --endpoint ${{ secrets.STAGING_ENDPOINT }}
+
+  # Stage 5: Deploy to Production (manual approval)
+  deploy-production:
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production  # Requires manual approval
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Blue-Green deployment
+        env:
+          API_KEY: ${{ secrets.AI_API_KEY }}
+          ENVIRONMENT: production
+        run: ./scripts/deploy-blue-green.sh
+
+      - name: Production smoke tests
+        run: ./scripts/smoke-test.sh --endpoint ${{ secrets.PROD_ENDPOINT }}
+
+      - name: Monitor for 10 minutes
+        run: ./scripts/monitor-metrics.sh --duration 600
+
+      - name: Deployment success notification
+        if: success()
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+            -d '{"text":"✅ Production deployment successful: ${{ github.sha }}"}'
+
+      - name: Deployment failure notification
+        if: failure()
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+            -d '{"text":"❌ Production deployment failed: ${{ github.sha }}"}'
+```
+
+### Appendix H: Incident Response Runbook
+
+**Health Check Failure Response:**
+
+**1. Triage (0-5 minutes)**
+- [ ] Acknowledge alert
+- [ ] Check incident channel for similar reports
+- [ ] Verify issue with manual health check: `curl https://api.example.com/health/detailed`
+- [ ] Determine severity: Critical (all users affected) vs Warning (degraded)
+
+**2. Investigation (5-15 minutes)**
+- [ ] Check recent deployments: Any changes in last 2 hours?
+- [ ] Review application logs: `https://logs.example.com`
+- [ ] Check AI provider status: OpenAI, Anthropic status pages
+- [ ] Monitor metrics: Error rate, latency, success rate
+- [ ] Check dependencies: Database, cache, external APIs
+
+**3. Mitigation (15-30 minutes)**
+
+**If recent deployment:**
+```bash
+# Option 1: Blue-Green rollback (instant)
+./scripts/switch-traffic.sh --to blue
+
+# Option 2: Rollback via GitHub
+gh workflow run deploy-production.yml -f action=rollback -f version=<previous-sha>
+```
+
+**If external dependency:**
+- Enable fallback mode if available
+- Implement rate limiting to protect system
+- Communicate outage to users
+
+**If unknown cause:**
+- Restart affected services
+- Scale up resources if capacity issue
+- Enable debug logging for investigation
+
+**4. Communication**
+- [ ] Update status page
+- [ ] Post in incident channel
+- [ ] Notify stakeholders if SLA breach
+- [ ] Create incident ticket
+
+**5. Recovery Verification (30-45 minutes)**
+- [ ] Health checks passing
+- [ ] Metrics returned to normal
+- [ ] Sample user requests succeeding
+- [ ] No error spike in logs
+
+**6. Post-Incident (24 hours)**
+- [ ] Write postmortem
+- [ ] Identify root cause
+- [ ] Document action items
+- [ ] Update runbook based on learnings
+
+**Rollback Procedures:**
+
+**Blue-Green Rollback:**
+```bash
+# scripts/rollback-blue-green.sh
+#!/bin/bash
+
+CURRENT_SLOT=$(curl -s https://api.example.com/active-slot)
+if [ "$CURRENT_SLOT" = "blue" ]; then
+  TARGET_SLOT="green"
+else
+  TARGET_SLOT="blue"
+fi
+
+echo "Rolling back from $CURRENT_SLOT to $TARGET_SLOT..."
+
+./scripts/switch-traffic.sh --from $CURRENT_SLOT --to $TARGET_SLOT
+
+echo "Verifying rollback..."
+sleep 10
+
+HEALTH=$(curl -s -o /dev/null -w "%{http_code}" https://api.example.com/health)
+if [ "$HEALTH" = "200" ]; then
+  echo "✅ Rollback successful"
+
+  # Notify team
+  curl -X POST $SLACK_WEBHOOK \
+    -d '{"text":"✅ Rollback completed successfully to '$TARGET_SLOT'"}'
+else
+  echo "❌ Rollback failed - health check returned $HEALTH"
+  exit 1
+fi
+```
+
+**Canary Rollback:**
+```bash
+# scripts/rollback-canary.sh
+#!/bin/bash
+
+echo "Rolling back canary deployment..."
+
+# Set traffic to 100% previous version
+./scripts/deploy-canary.sh --version previous --percentage 100
+
+# Verify
+sleep 10
+
+ERROR_RATE=$(curl -s https://api.example.com/metrics | jq -r '.error_rate')
+if (( $(echo "$ERROR_RATE < 0.05" | bc -l) )); then
+  echo "✅ Canary rollback successful"
+else
+  echo "⚠️ Error rate still elevated: $ERROR_RATE"
+fi
+```
+
+### Appendix I: Performance Benchmarks & SLOs
+
+**Service Level Objectives (SLOs):**
+
+**Availability SLO: 99.9% ("three nines")**
+- Allows: 43.2 minutes downtime per month
+- Measurement: Health check endpoint availability
+- Target: No single incident > 30 minutes
+
+**Latency SLO: P95 < 2000ms**
+- 95% of requests complete in < 2 seconds
+- Measurement: Response time from request to completion
+- Target: Sustained, not just burst performance
+
+**Error Rate SLO: < 1%**
+- Less than 1% of requests return errors
+- Measurement: HTTP 5xx responses / total requests
+- Excludes: Client errors (4xx), rate limiting
+
+**Success Rate SLO: > 99%**
+- More than 99% of AI workflows complete successfully
+- Measurement: Successful completions / total workflows
+- Target: Across all prompt types
+
+**SLO Tracking Dashboard:**
+
+```javascript
+// scripts/calculate-slo.js
+const axios = require('axios');
+
+async function calculateSLOs(startDate, endDate) {
+  const metrics = await fetchMetrics(startDate, endDate);
+
+  // Availability SLO
+  const totalMinutes = (endDate - startDate) / 60000;
+  const downtimeMinutes = metrics.downtime_events.reduce(
+    (sum, event) => sum + event.duration_minutes,
+    0
+  );
+  const availabilityPct = ((totalMinutes - downtimeMinutes) / totalMinutes) * 100;
+
+  // Latency SLO
+  const latencyP95 = calculatePercentile(metrics.latencies, 95);
+
+  // Error Rate SLO
+  const errorRate = (metrics.error_count / metrics.total_requests) * 100;
+
+  // Success Rate SLO
+  const successRate = (metrics.successful_workflows / metrics.total_workflows) * 100;
+
+  return {
+    availability: {
+      value: availabilityPct,
+      target: 99.9,
+      status: availabilityPct >= 99.9 ? 'PASS' : 'FAIL',
+      downtime_minutes: downtimeMinutes,
+      budget_remaining: (totalMinutes * 0.001) - downtimeMinutes
+    },
+    latency: {
+      value: latencyP95,
+      target: 2000,
+      status: latencyP95 <= 2000 ? 'PASS' : 'FAIL'
+    },
+    error_rate: {
+      value: errorRate,
+      target: 1.0,
+      status: errorRate <= 1.0 ? 'PASS' : 'FAIL'
+    },
+    success_rate: {
+      value: successRate,
+      target: 99.0,
+      status: successRate >= 99.0 ? 'PASS' : 'FAIL'
+    }
+  };
+}
+```
+
+**Error Budget Policy:**
+
+```markdown
+# Error Budget Policy
+
+## Monthly Error Budget: 43.2 minutes (99.9% SLO)
+
+### Budget Consumption Rules:
+- Critical incidents: Consume actual downtime
+- Degraded performance (P95 > 2s for 15+ min): Count as 50% downtime
+- Planned maintenance: Does NOT consume budget
+
+### Budget Status Actions:
+
+**100-75% Budget Remaining (Green):**
+- Normal deployment cadence (daily if needed)
+- Standard change review process
+- Experimentation permitted
+
+**75-25% Budget Remaining (Yellow):**
+- Reduce deployment frequency (2-3x per week)
+- Enhanced change review required
+- Focus on reliability improvements
+- Pause non-critical features
+
+**< 25% Budget Remaining (Red):**
+- Deployment freeze except critical fixes
+- All changes require VP approval
+- Dedicate sprint to reliability work
+- Postmortem all recent incidents
+
+**Budget Exhausted:**
+- Complete deployment freeze
+- Emergency reliability sprint
+- Executive review of all processes
+- May impact team performance reviews
+```
+
+**Performance Optimization Targets:**
+
+| Metric | Current | Target | Stretch |
+|--------|---------|--------|---------|
+| Health Check Response | 150ms | < 100ms | < 50ms |
+| Prompt Validation | 500ms | < 200ms | < 100ms |
+| Deployment Time | 8 min | < 5 min | < 3 min |
+| Test Suite Runtime | 4 min | < 3 min | < 2 min |
+| CI/CD Pipeline Total | 12 min | < 8 min | < 5 min |
 
 ---
 

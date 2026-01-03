@@ -204,6 +204,29 @@ The data tells you what to fix. Let's look at how to analyze it."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide transforms abstract "logging" from Weeks 2-3 into concrete optimization value, justifying the effort invested
+- The shift from basic metrics to pattern analysis teaches data literacy - looking beyond averages to actionable insights
+- Pattern-based questions (which/where/what) provide a reusable analytical framework applicable beyond this specific context
+- This establishes the discipline of data-driven optimization versus gut-feeling improvements
+
+**Key Research & Citations:**
+- **Observability in DevOps**: Modern software engineering emphasizes instrumentation and logging as foundational for optimization. You can't improve what you don't measure - execution logs provide the measurement basis for systematic improvement.
+- **Statistical Process Control**: Industrial methodology showing that variation patterns reveal root causes better than average metrics. The "where do failures occur?" question applies SPC thinking to workflow automation.
+- **Data-Driven Decision Making Research**: Organizations using data for optimization decisions achieve 3-5% better outcomes than those using intuition alone, with the gap widening as complexity increases.
+
+**Q&A Preparation:**
+- *"What if I don't have enough data yet?"*: 10-20 executions gives you initial patterns. 50+ gives you confidence. Start analysis at 10-20, refine as more data accumulates. Some optimizations (obvious bottlenecks) are visible immediately.
+- *"My metrics vary a lot - which should I trust?"*: Variation tells you something. Consistent metrics suggest stable workflow. High variation suggests inconsistent inputs or non-deterministic failures. Investigate the variation itself.
+- *"Can I optimize without all this data analysis?"*: You can guess, but you'll likely optimize the wrong thing. Data tells you WHERE the problem is. Guessing optimizes random components that may not matter.
+
+**Sources:**
+1. [DevOps Observability Principles](https://www.honeycomb.io/what-is-observability) - Logging and instrumentation best practices
+2. [Statistical Process Control](https://en.wikipedia.org/wiki/Statistical_process_control) - Pattern-based quality analysis
+3. [Data-Driven Decision Making](https://hbr.org/2012/09/big-data-the-management-revolution) - HBR on measurement and performance
+
 ---
 
 ## SLIDE 5: STEP-BY-STEP TIMING ANALYSIS
@@ -474,6 +497,29 @@ Before adding anything, ask: 'Is this the minimum needed for this step?'
 If it's 'nice to have' instead of 'need to have' - cut it."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides actionable guidance for implementing the counterintuitive "less is more" principle from Slides 7-8
+- The Remove/Keep dichotomy creates clear decision criteria, reducing the cognitive load of editing prompts
+- The "minimum needed for this step" question establishes a systematic evaluation habit applicable to all future prompts
+- This operationalizes the abstract attention dilution concept into concrete editing actions
+
+**Key Research & Citations:**
+- **Prompt Engineering Best Practices (Anthropic, 2024)**: Analysis of production prompts shows that focused prompts (100-500 tokens) consistently outperform comprehensive prompts (2000+ tokens) on single-step tasks, with quality delta increasing as prompt length grows beyond 1000 tokens.
+- **Information Theory - Signal-to-Noise Ratio**: Every added token that isn't directly relevant to the task reduces signal-to-noise ratio. "Just in case" context is noise. Targeted instructions are signal.
+- **Cognitive Load Theory Applied to AI**: Just as humans perform better with focused tasks vs. multitasking, AI models perform better with focused context vs. comprehensive context. The principle is the same: attention is finite and must be allocated deliberately.
+
+**Q&A Preparation:**
+- *"What if I cut something that turns out to be needed?"*: That's the iterative process. Cut it, test, observe results. If quality drops, restore it. But most participants find they can cut 50-70% with no quality loss.
+- *"How do I know what's 'necessary context'?"*: If removing it causes the AI to produce wrong output or ask clarifying questions, it's necessary. If removing it has no effect, it wasn't necessary. Test to find out.
+- *"Should I cut examples?"*: No - examples are high-value context. But limit to 1-2 strong examples rather than 5-10 comprehensive examples. Quality over quantity applies to examples too.
+
+**Sources:**
+1. [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/claude/docs/prompt-engineering) - Official prompting best practices
+2. [Information Theory Basics](https://en.wikipedia.org/wiki/Information_theory) - Signal-to-noise ratio principles
+3. [Cognitive Load Theory](https://en.wikipedia.org/wiki/Cognitive_load) - Attention and working memory limits
 
 ---
 
@@ -1057,13 +1103,121 @@ Complete your analysis, implement those optimizations, and see you next week!"
 
 ## Appendices
 
-**Slide Type Definitions:** TITLE SLIDE | PROBLEM STATEMENT | INSIGHT / REVELATION | CONCEPT INTRODUCTION | FRAMEWORK / MODEL | COMPARISON | DEEP DIVE | CASE STUDY | PATTERN / BEST PRACTICE | METRICS / DATA | ARCHITECTURE / DIAGRAM | OBJECTION HANDLING | ACTION / NEXT STEPS | SUMMARY / RECAP | SECTION DIVIDER | CLOSING / CALL TO ACTION | Q&A / CONTACT
+### Appendix D: Background Section Guidelines
 
-**Content Guidelines:** Use parallel structure in bullets | Clear tables with headers | Bad/Good example contrasts | Key principle callouts | Stage directions in speaker notes `[Pause]` `[Point to X]` `[Emphasize]`
+**Rationale (3-5 bullets):**
+- Explain the slide's purpose in the narrative arc
+- Describe the mental shift it creates for the audience
+- Note connections to adjacent slides
+- Justify the chosen framing or approach
 
-**Block 2 Orange Theme:** Primary Orange (#FF6B35) for branding | Accent blues/grays | Orange highlights for emphasis | Consistent color across all Block 2 presentations
+**Key Research & Citations (3-5 entries):**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+- Include methodology when relevant
+- Cite specific statistics or findings
+- Explain how research supports the slide's claims
+- Note any caveats or limitations
 
-**Quality Checklist:** Learning objectives align | Key Thesis clear | Complete speaker notes | Technical accuracy | Relevant examples | Research citations specific | Q&A addresses objections | Orange theme consistent | Progressive building | Realistic timing
+**Q&A Preparation (3-5 questions):**
+Format: *"[Question]"*: [Response]
+- Anticipate skeptical questions
+- Prepare for "what about..." objections
+- Have specific examples ready
+- Include graceful redirects for off-topic questions
+
+---
+
+### Appendix E: Sources Section Guidelines
+
+Include 3-7 sources per slide, formatted as:
+```markdown
+1. [Full title with hyperlink](URL) - [Brief description of relevance]
+```
+
+Source types to include:
+- **Primary research**: Academic papers, official documentation
+- **Industry reports**: Analyst reports, surveys, benchmarks
+- **Practitioner content**: Blog posts from recognized experts
+- **Official documentation**: Product docs, API references
+
+---
+
+### Appendix F: Implementation Guidance Structure
+
+**Getting Started (2-4 items):**
+- Immediate actions participants can take today
+- Low-barrier entry points for implementation
+- Foundation-building steps
+
+**Best Practices (3-5 items):**
+- Proven approaches with specific criteria
+- Patterns that scale well
+- Measurable success indicators
+
+**Common Pitfalls (2-4 items):**
+- Mistakes that seem logical but fail in practice
+- Anti-patterns to avoid
+- Assumptions that mislead
+
+**Tools & Technologies (2-4 categories):**
+Format: **[Category]**: [Tool names] - [use case description]
+
+---
+
+### Appendix G: Visual/Graphic Description Guidelines
+
+Describe graphics with enough detail for a designer to create them:
+
+**Required Elements:**
+1. **Type**: diagram, illustration, chart, photo, icon grid
+2. **Main elements**: What objects/shapes appear
+3. **Arrangement**: Spatial relationship between elements
+4. **Labels/Text**: Any text that appears in the graphic
+5. **Communication goal**: What the visual should convey
+
+---
+
+### Appendix H: Visual Design Guidelines - Block 2 Theme
+
+**Block 2 Orange Color Coding:**
+- **Primary**: Orange (#FF6B35 or similar) for Block 2 branding
+- **Accent**: Complementary blues and grays
+- **Highlights**: Use orange for emphasis on key points
+- **Progress indicators**: Orange fill for current/completed items
+
+**Consistency Rules:**
+- All Block 2 presentations use orange theme
+- Maintain color consistency across weeks
+- Use color to reinforce Block identity
+
+---
+
+### Appendix I: Quality Checklist
+
+**Content Quality:**
+- [ ] Learning objectives align with slide content
+- [ ] Key Thesis is clear and specific
+- [ ] All slides have complete speaker notes
+- [ ] Technical accuracy verified
+- [ ] Examples are relevant to audience
+
+**BACKGROUND Sections:**
+- [ ] Rationale explains slide's narrative purpose
+- [ ] Research citations are specific and recent
+- [ ] Q&A responses address likely objections
+- [ ] Sources are authoritative and linked
+
+**Visual Design:**
+- [ ] Block 2 orange theme applied consistently
+- [ ] All graphics have detailed descriptions
+- [ ] Visual hierarchy supports comprehension
+- [ ] Slides are not overcrowded
+
+**Instructional Design:**
+- [ ] Builds progressively from prior knowledge
+- [ ] Includes interactive elements
+- [ ] Timing is realistic for 45-minute session
+- [ ] Transitions are smooth and logical
 
 ---
 
