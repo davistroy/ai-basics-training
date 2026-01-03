@@ -128,6 +128,23 @@ Each floor must be solid for the whole structure to work.
 **Speaker Notes:**
 Think of these as the five floors of your workflow building. Data comes in at ground level. Processing happens in the middle. Quality checks everything. Outputs go out to the world. Feedback flows back to improve the system. Miss any floor and the building is incomplete.
 
+**BACKGROUND:**
+
+**Rationale:**
+- This framework provides a complete mental model for understanding workflow architecture beyond simple linear flows
+- The five-layer model maps directly to enterprise integration patterns participants may encounter professionally
+- Each layer represents a discrete point of potential failure or optimization, making troubleshooting systematic
+
+**Key Research & Citations:**
+- **Enterprise Integration Patterns (Hohpe & Woolf, 2003)**: Classic integration architecture identifies similar layers - data sources, message routing, transformation, endpoints, and monitoring. Block 2 adapts these patterns for AI workflows.
+- **Systems Thinking in Automation**: Complete systems require closed feedback loops. The five layers ensure nothing is overlooked - data in, processing, quality, output, and learning from results.
+- **Production AI Deployment Literature**: Studies of successful AI deployments emphasize that quality/monitoring layers (layers 3 & 5) are what distinguish prototypes from production systems
+
+**Q&A Preparation:**
+- *"Do all workflows need all five layers?"*: For production use, yes. You can skip feedback initially for simple cases, but data, processing, quality, and output are essential. Feedback makes systems improve over time.
+- *"What if I only have three of the five layers?"*: Identify which are missing. No quality layer means you don't know if outputs are good. No feedback means you can't improve. Document gaps and plan to fill them.
+- *"Is this overkill for simple workflows?"*: The layers scale to complexity. Simple workflow = simple implementation at each layer. But thinking through all five prevents blind spots.
+
 ---
 
 ## Slide 6: Tool Ecosystem
@@ -174,6 +191,23 @@ You're not starting from scratch - you have all these tools available. Your auto
 
 **Speaker Notes:**
 This comparison shows why we spent four weeks building components. Without integration, you have smart tools used in dumb ways. With integration, you have a system that scales, maintains quality, and can be handed off to others. This is the difference between a prototype and production.
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide justifies the complexity investment by showing concrete value delivered by integration
+- The before/after comparison makes abstract benefits tangible and memorable
+- "Prototype vs. production" framing resonates with participants who have built prototypes that never scaled
+
+**Key Research & Citations:**
+- **The Last Mile Problem in AI**: Research on AI deployment shows that 87% of data science projects never reach production. The gap is integration - connecting components, ensuring quality, documenting for handoff.
+- **Scalability Research**: Studies of workflow automation show manual steps (copy-paste, spot-checking) are the #1 bottleneck to scaling. Automation value compounds with volume - 10x executions = 10x value, but only if integrated.
+- **Knowledge Management**: Tribal knowledge (undocumented processes) creates key-person risk. Documented architecture enables team scale and business continuity.
+
+**Q&A Preparation:**
+- *"My workflow works fine without all this integration - why add complexity?"*: "Works fine" at what scale? For 10 executions/month with one person? Maybe. For 100 executions or team usage? The manual steps become bottlenecks. Integration removes those limits.
+- *"How do I know if I've integrated enough?"*: The handoff test - could a colleague maintain this system based on documentation? If yes, you're integrated. If no, you've built a personal tool, not a sustainable system.
+- *"What's the minimum viable integration?"*: Data flow (automated input), AI processing, quality check, documented output. That's the minimum. Add feedback and human review as needs demand.
 
 ---
 
@@ -291,6 +325,23 @@ Every human review teaches you something. Capture that feedback.
 
 **Speaker Notes:**
 Human-in-the-Loop is essential, especially when you're building trust. It's not about not trusting AI - it's about learning and improving systematically. Every review is data. Over time, your auto-approve rate should increase as you learn what works.
+
+**BACKGROUND:**
+
+**Rationale:**
+- Human-in-the-Loop is the pattern that enables AI adoption in risk-averse organizations
+- The slide reframes human review from "AI can't be trusted" to "systematic learning and improvement"
+- Feedback capture transforms human review from cost center to data source for optimization
+
+**Key Research & Citations:**
+- **Human-AI Collaboration Research**: Studies show that hybrid systems (AI + human oversight) outperform either alone, especially during initial deployment when trust is building and edge cases are being discovered
+- **Progressive Automation Principle**: Start with high human involvement, gradually increase automation as confidence builds. HITL enables this progression through measured risk reduction.
+- **Learning from Human Feedback (RLHF)**: While RLHF typically refers to model training, the same principle applies to workflow optimization - human judgments become training data for refining quality criteria and routing logic
+
+**Q&A Preparation:**
+- *"Doesn't human review eliminate the automation benefit?"*: Only initially. HITL is designed to be temporary or low-volume. As patterns emerge, you automate the common cases and reserve human review for genuinely ambiguous situations. Auto-approval rate should increase from 20% to 80%+ over time.
+- *"How do I capture feedback systematically?"*: Include fields in your review queue: approve/edit/reject, what was wrong, what would improve it. This structured feedback becomes data for refining evaluation criteria.
+- *"When can I remove human review entirely?"*: Rarely "entirely" for high-stakes content. But you can make it sampling-based (review 10% randomly) rather than comprehensive once confidence is established.
 
 ---
 

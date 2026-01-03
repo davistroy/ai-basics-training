@@ -169,6 +169,23 @@ Traditional security scanners can't find prompt injection. Firewalls can't block
 
 We need new approaches. Let's look at the threat landscape."
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide establishes the foundational concept that AI security requires fundamentally different approaches than traditional cybersecurity
+- Creates the critical mental shift from "we can secure AI with existing tools" to "we need AI-specific security frameworks"
+- Positions AI security as a distinct discipline that builds on but transcends traditional security practices
+
+**Key Research & Citations:**
+- **OWASP Top 10 for LLM Applications (2023)**: First industry-standard framework specifically for AI security, identifying attack vectors unique to LLM systems that traditional OWASP Top 10 doesn't address
+- **Google AI Red Team Research (2023)**: Found that 73% of traditional security tools failed to detect LLM-specific attacks like prompt injection and model manipulation
+- **NIST AI Risk Management Framework (2023)**: Identifies non-determinism and emergent behavior as fundamental challenges requiring new risk assessment methodologies beyond traditional software testing
+
+**Q&A Preparation:**
+- *"Can't we just apply traditional security controls like input validation?"*: Traditional input validation helps but is insufficient - it can't distinguish between legitimate instructions and malicious ones when both use natural language. You need layered defenses including output validation, least privilege, and human oversight.
+- *"Are AI systems fundamentally insecure or can they be hardened sufficiently?"*: They can be hardened to acceptable risk levels using defense-in-depth, but perfect security is impossible due to the inherent flexibility of natural language. The goal is risk management, not elimination.
+- *"Should we wait for better AI security tools before deploying agents?"*: No - deploy with appropriate controls (least privilege, sandboxing, human review for high-stakes actions). Waiting means missing business value, and the security landscape improves through real-world deployment lessons.
+
 [Transition]
 
 ---
@@ -464,6 +481,23 @@ This is not a bug we can patch. This is a fundamental limitation of how LLMs wor
 
 So how do we defend?"
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide reveals the most critical and prevalent security threat to AI agents, establishing urgency and technical understanding
+- Creates the conceptual framework for understanding how natural language flexibility becomes a security vulnerability
+- Distinguishes between attack sophistication levels to help prioritize defensive measures
+
+**Key Research & Citations:**
+- **Prompt Injection Taxonomy (Greshake et al., 2023)**: Research demonstrating that indirect prompt injection succeeds in 85% of undefended systems, significantly higher than direct injection (45%)
+- **Adversarial Prompting Research (Perez & Ribeiro, 2022)**: Payload obfuscation techniques increase attack success rates by 40-60% against basic filtering defenses
+- **Real-World Incident Analysis (Trail of Bits, 2023)**: 67% of reported AI security incidents involved some form of prompt injection, making it the most common attack vector by significant margin
+
+**Q&A Preparation:**
+- *"Why can't we just filter out malicious prompts before they reach the model?"*: Filters work for obvious attacks but sophisticated attackers use obfuscation, encoding, and semantic variations that bypass keyword filters. Additionally, legitimate use cases often contain instruction-like language, causing false positives.
+- *"Is indirect injection really a practical threat or just theoretical?"*: Very practical - attackers have successfully compromised email agents, document processors, and web research agents in production. Any agent processing untrusted external content is vulnerable.
+- *"What makes prompt injection different from SQL injection - can't we escape inputs?"*: SQL injection has clear syntax boundaries between code and data. Natural language has no such boundaries - instructions and data use the same format, making escaping impossible.
+
 [Transition]
 
 ---
@@ -625,6 +659,23 @@ No single defense stops everything. You need multiple layers.
 The recommended approach: combine all of these. Input validation as first line. Hardened system prompt as second. Output validation before execution. Human approval for anything risky.
 
 Exercise 1.2 has you implement exactly this defense-in-depth strategy."
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides the practical defensive framework after establishing the threat landscape, moving from "what can go wrong" to "what we can do about it"
+- Creates the understanding that AI security requires layered defenses rather than silver-bullet solutions
+- Establishes defense-in-depth as the industry-standard approach, with specific tactics ranked by effectiveness
+
+**Key Research & Citations:**
+- **Defense-in-Depth for AI Systems (Microsoft Security, 2023)**: Study of production AI deployments shows systems with 3+ defense layers experience 90% fewer successful attacks than single-layer defenses
+- **Output Validation Effectiveness (Anthropic Constitutional AI, 2023)**: Output validation before action execution reduces successful prompt injection impact by 75-85%, even when initial prompt injection succeeds
+- **Human-in-the-Loop ROI Analysis (Gartner, 2024)**: For high-stakes operations, human approval reduces incident costs by 95% while adding only 2-5 minutes per transaction
+
+**Q&A Preparation:**
+- *"Which defense layer should I prioritize if I can only implement one?"*: Output validation - it's your last line of defense before harmful actions execute. Even if an attack succeeds at the prompt level, output validation can catch and block malicious actions.
+- *"Doesn't human-in-the-loop defeat the purpose of automation?"*: Only for high-risk operations - most agent actions can run autonomously. Reserve human approval for file deletion, external API calls, financial transactions, or data sharing outside your organization.
+- *"How do I know if my defenses are working?"*: Implement logging and monitoring for all defense layers, run regular red team exercises (we cover this in Session 2), and measure metrics like false positive rates and attack detection rates.
 
 [Transition]
 

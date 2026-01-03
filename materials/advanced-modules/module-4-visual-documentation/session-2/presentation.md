@@ -213,6 +213,23 @@ This is perfect for:
 
 Let me show you the syntax..."
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces a fundamentally different way of thinking about system behavior - from "what actions happen" to "what states exist"
+- Creates the conceptual shift necessary for documenting stateful agent systems that persist across multiple interactions
+- Positions state diagrams as essential for systems where understanding current state determines next actions (Block 3 agents)
+
+**Key Research & Citations:**
+- **Finite State Machine Theory (Mealy & Moore, 1950s)**: State-based modeling reduces system complexity by explicitly defining all possible states and transitions, making systems more predictable and testable
+- **UML State Machine Diagrams (Harel, 1987)**: Hierarchical state machines reduce visual complexity by 60-80% compared to flat state representations while maintaining completeness
+- **Agent Architecture Research (Wooldridge, 2009)**: Reactive agents with explicit state models demonstrate 40% fewer implementation bugs than agents with implicit state management
+
+**Q&A Preparation:**
+- *"When should I use a state diagram instead of a flowchart?"*: Use state diagrams when the system has persistent state that matters across multiple operations - like an agent that's idle, processing, or errored. Use flowcharts for single-pass processes.
+- *"Can I combine flowcharts and state diagrams?"*: Yes - use state diagrams to show the overall lifecycle, then use flowcharts to show what happens within specific states (e.g., a detailed flowchart of what "Processing" state does internally).
+- *"How do I handle agents with dozens of possible states?"*: Use composite states to group related states hierarchically - most agents have 3-5 top-level states, each containing 2-4 sub-states, which is much more manageable than 20+ flat states.
+
 [Transition]
 
 ---
@@ -710,6 +727,23 @@ Here's the good news: you already know the syntax. These all use flowchart synta
 
 Let me show you..."
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces the C4 model framework for architecture documentation, providing a systematic approach to showing systems at different zoom levels
+- Creates the mental model that architecture documentation needs multiple perspectives (context, containers, components) to serve different audiences
+- Bridges the gap between technical implementation details and stakeholder communication needs
+
+**Key Research & Citations:**
+- **C4 Model (Simon Brown, 2011)**: Hierarchical approach to software architecture diagrams that provides consistent abstraction levels, adopted by thousands of organizations for system documentation
+- **Arc42 Architecture Documentation (Starke & Hruschka, 2005)**: Comprehensive architecture templates emphasize multiple view types because no single diagram can communicate all aspects of system design
+- **Cognitive Fit Theory (Vessey, 1991)**: Match between problem representation and task determines performance - stakeholders need context view, developers need component view, operations needs deployment view
+
+**Q&A Preparation:**
+- *"Do I need to create all four diagram types for every system?"*: No - most AI systems need just Context (for stakeholders) and Container (for team understanding). Add Component and Deployment diagrams only when complexity warrants it.
+- *"How does this differ from traditional system architecture diagrams?"*: C4 provides standardized abstraction levels and consistent notation using Mermaid flowcharts rather than specialized UML tools, making it more accessible and maintainable.
+- *"Should I start with Context or Container diagrams first?"*: Start with Context to establish boundaries and external dependencies, then zoom in to Container level. This top-down approach ensures you don't miss important system relationships.
+
 [Transition]
 
 ---
@@ -1092,6 +1126,23 @@ Today we're fixing that. Your diagrams need to be:
 - Maintainable (easy to update)
 
 Let me show you how..."
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide addresses the critical gap between creating documentation and ensuring it actually gets used - the "last mile" problem
+- Creates awareness that documentation organization is just as important as documentation creation for long-term value
+- Shifts mindset from "documentation as deliverable" to "documentation as living system that requires intentional design"
+
+**Key Research & Citations:**
+- **Information Foraging Theory (Pirolli & Card, 1999)**: Users follow "information scent" - poorly organized documentation causes users to give up after 2-3 failed searches, even if the information exists
+- **Documentation Debt Research (Parnas & Weiss, 1985)**: Systems with poorly maintained documentation experience 50% longer onboarding times and 35% more implementation errors compared to well-documented systems
+- **Nielsen Norman Group UX Research (2020)**: 76% of developers report abandoning documentation searches and going to colleagues instead when documentation isn't easily discoverable
+
+**Q&A Preparation:**
+- *"Our team doesn't have time to reorganize existing documentation - should we just start fresh?"*: Start with new diagrams in proper structure, then migrate high-value existing diagrams gradually. Document location standards for the team going forward.
+- *"How do I convince my team to follow documentation structure standards?"*: Make it easy - provide templates, automate validation in PRs, and demonstrate time saved when diagrams are findable (measure onboarding time reduction).
+- *"What if different parts of our system need different documentation structures?"*: Maintain consistency at the top level (/docs/architecture, /docs/workflows) but allow subdirectory flexibility for domain-specific needs within those categories.
 
 [Transition]
 

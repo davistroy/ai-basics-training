@@ -218,6 +218,23 @@ You configure which servers are active. Claude Desktop handles the communication
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide establishes the foundational mental model for understanding MCP as a three-layer architecture
+- It addresses the "how does this actually work" question that blocks adoption for technical audiences
+- The layered diagram makes an abstract protocol concrete and understandable
+
+**Key Research & Citations:**
+- **Model Context Protocol Specification (Anthropic, 2024)**: Open protocol enabling AI applications to connect with external data sources and tools through a standardized interface, designed for security and extensibility
+- **Client-Server Architecture Patterns**: MCP follows established architectural patterns (host-bridge-resource) familiar from web services, making it conceptually accessible to anyone with API experience
+- **Tool Use in LLMs Research**: Studies show that LLMs with structured tool access significantly outperform context-only approaches for tasks requiring external data or actions
+
+**Q&A Preparation:**
+- *"Is this an Anthropic-only technology?"*: No. MCP is an open protocol. While Anthropic developed it, any AI application can implement it. Think of it like HTTP - one company created it, but it's now a universal standard.
+- *"Do I need to be a programmer to use MCP?"*: No programming required for standard servers (filesystem, GitHub, etc.). You edit a JSON config file. Custom servers require coding, but that's optional and advanced.
+- *"What's the difference between MCP and API calls in my workflow?"*: MCP is for Claude accessing tools/data. Workflow APIs orchestrate AI calls. They work together: MCP gives Claude context, your workflow controls when/how AI runs.
+
 ---
 
 ## SLIDE 5: KEY MCP CONCEPTS
@@ -314,6 +331,23 @@ Scoped access: the filesystem server can only access the directory you specify. 
 Bottom line: your files, your machine, your control. MCP doesn't phone home."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Security concerns are the #1 barrier to MCP adoption in enterprise contexts - this slide must directly address them
+- The local execution model is MCP's key security differentiator but counterintuitive to cloud-first thinking
+- Explicit permission and scoped access align with enterprise security principles (least privilege, defense in depth)
+
+**Key Research & Citations:**
+- **Local-First Software Principles**: The "local execution" model follows local-first architecture patterns where data remains on user devices, reducing attack surface and privacy risks
+- **Zero Trust Security**: MCP's explicit configuration and permission prompts align with zero trust principles - nothing is trusted by default, everything must be explicitly authorized
+- **Enterprise AI Security Research**: Studies of AI deployment blockers show that data exfiltration concerns are the top barrier. MCP's architecture directly addresses this concern.
+
+**Q&A Preparation:**
+- *"What if a malicious MCP server steals my data?"*: You control which servers are configured. Use only official servers from the MCP registry or vetted sources. Think of it like browser extensions - use reputable ones, avoid random unknowns.
+- *"Can Claude send my files to Anthropic?"*: Only the conversation content (what you type and Claude's responses) go to Anthropic's API. MCP server data stays local unless explicitly configured otherwise. Filesystem server reads files locally, includes relevant portions in prompts.
+- *"What about GitHub tokens in the config?"*: Tokens are stored locally in your config file. Use read-only tokens with minimal scopes. You can revoke and regenerate tokens anytime. Consider them like API keys - protect them, but they're revocable if compromised.
 
 ---
 
@@ -767,6 +801,23 @@ This is the integration pattern we'll build in Week 6.
 Today: get MCP working. Next week: integrate it into workflows."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide bridges Week 5 (MCP setup) to Week 6 (integration patterns) by previewing the connection
+- It resolves the "what's the point of MCP" question by showing concrete workflow integration
+- The preview builds anticipation for Week 6 and motivates completion of Week 5 exercises
+
+**Key Research & Citations:**
+- **Separation of Concerns Principle**: Software architecture best practice - MCP handles context/tools, workflow platforms handle orchestration. Clear boundaries prevent confusion and enable modular design.
+- **Orchestration vs. Execution Pattern**: Workflow platforms orchestrate (when to run, what data to pass), MCP executes (what tools AI can access). This mirrors microservices architecture patterns.
+- **Integration Architecture Literature**: Successful AI systems combine context providers (like MCP), processing engines (like Claude API), and orchestrators (like Make/n8n). Each layer serves a distinct purpose.
+
+**Q&A Preparation:**
+- *"Can I replace my workflow platform with MCP?"*: No - they serve different functions. MCP gives Claude access to data/tools. Workflow platforms orchestrate multi-step processes, route based on conditions, connect to output destinations. You need both.
+- *"Which approach should I use for my use case?"*: If context is stable (templates, style guides), pre-fetch via MCP and pass to API is simplest. If context varies by execution, Claude Desktop + MCP to gather context on-demand works better. Hybrid is common - some via MCP, some via workflow.
+- *"Does this mean I need Claude Desktop running for workflows?"*: Depends on approach. If you pre-fetch templates via MCP once and store them, no. If workflows call Claude Desktop directly, yes. Most production workflows use Claude API with pre-fetched or workflow-provided context.
 
 ---
 

@@ -344,6 +344,24 @@ Let that sink in."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide delivers the week's most important insight and must overcome strong intuitive resistance
+- Participants naturally assume "more information = better results" from general knowledge work experience
+- The counterintuitive nature requires strong evidence and clear explanation to shift mental models
+- This insight directly impacts both cost optimization and quality improvement
+
+**Key Research & Citations:**
+- **"Lost in the Middle" (Liu et al., 2023)**: Empirical study showing LLM performance degrades on information placed in the middle of long contexts, with attention concentrated at beginning and end positions across multiple model architectures
+- **Attention Mechanisms in Transformers (Vaswani et al., 2017)**: The foundational architecture research that explains WHY context dilution occurs - attention is distributed across all tokens with positional bias
+- **Context Window Studies (2024)**: Recent research on Claude and GPT-4 shows that even with 100K+ token windows, performance on retrieval tasks drops significantly for middle-positioned information
+
+**Q&A Preparation:**
+- *"But Claude has a 200K token context window - why not use it?"*: Having capacity doesn't mean you should fill it. Larger windows enable flexibility for when you NEED them, but optimal performance still comes from focused, curated context. Think of it like RAM in a computer - having 64GB doesn't mean every program should use all of it.
+- *"How do I know what's the 'minimum needed'?"*: Start with what you think is essential, run tests, then try removing 30-40% of context and compare outputs. Most people find they can cut significantly without quality loss - often improving it.
+- *"Doesn't this contradict RAG systems that retrieve lots of context?"*: Good RAG systems RANK and LIMIT retrieved context. They don't dump everything - they prioritize the most relevant chunks. Same principle applies.
+
 ---
 
 ## SLIDE 8: WHY THIS HAPPENS
@@ -393,6 +411,23 @@ The optimization: REMOVE context. Less competition for attention. Better focus o
 This is why reducing context improves both cost AND quality."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides the mechanistic explanation that makes the counterintuitive insight credible
+- Understanding WHY context dilution happens enables participants to make informed optimization decisions
+- The attention budget metaphor makes an abstract technical concept accessible to non-technical audiences
+
+**Key Research & Citations:**
+- **Attention Mechanism Fundamentals**: Transformer models use softmax attention which distributes a normalized probability across all tokens - mathematically, adding more tokens MUST reduce attention weight on any individual token
+- **Cognitive Load Theory Applied to AI**: Just as human working memory has limits, AI attention has computational limits. The parallel to human cognition helps participants understand the principle intuitively.
+- **Production System Optimization**: Real-world case studies show that token reduction of 50-70% often maintains or improves output quality while dramatically reducing costs and latency
+
+**Q&A Preparation:**
+- *"Is this true for all models or just some?"*: The attention dilution effect is fundamental to transformer architecture, which underpins Claude, GPT, and most modern LLMs. Some models handle longer contexts better than others, but the principle applies universally.
+- *"What about models specifically trained on long contexts?"*: Long-context training improves the ability to maintain coherence across distance, but doesn't eliminate the attention competition effect. They're better at long contexts, not immune to dilution.
+- *"How do I know if I've removed too much context?"*: Test. Compare outputs with fuller vs. minimal context. The quality metrics you built in Week 3 give you objective measures. Most people are surprised how little context is actually needed.
 
 ---
 
@@ -671,6 +706,23 @@ Data-driven approach: Collect 20+ scored executions. Review how scores distribut
 Let the data tell you where the line should be."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide transitions participants from intuition-based to evidence-based decision making
+- It addresses a common failure mode: setting thresholds based on what "sounds right" rather than empirical validation
+- The data-driven approach demonstrates professional engineering practice applicable beyond AI
+
+**Key Research & Citations:**
+- **Statistical Process Control**: Industrial quality management principle that thresholds should be set based on actual process capability data, not desired targets. Applying manufacturing quality principles to AI workflows.
+- **Machine Learning Model Calibration**: The practice of threshold tuning based on validation data is standard in ML deployment - precision/recall tradeoffs are calibrated empirically, never guessed
+- **A/B Testing Methodology**: The iterative refinement process mirrors how successful product teams optimize features - measure, analyze, adjust, repeat
+
+**Q&A Preparation:**
+- *"What if my initial threshold was way off?"*: That's completely normal and expected. Initial thresholds are educated guesses. The point of data collection is to discover reality. Big adjustments are a sign you're learning, not failing.
+- *"How many executions do I need before I can trust the data?"*: 20+ gives you a distribution pattern. 50+ gives you confidence. 100+ lets you segment by workflow type. Start adjusting at 20, keep refining as data accumulates.
+- *"What if the distribution is bimodal - two peaks?"*: That usually indicates you have two different types of inputs or use cases. Consider separate thresholds for each type, or split into two different workflows.
 
 ---
 

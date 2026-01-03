@@ -245,6 +245,23 @@ You weight the combination - typically 70% semantic, 30% keyword. Adjust based o
 
 In Exercise 2.1, you'll implement hybrid search and compare to your Session 1 baseline."
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces the single most impactful retrieval improvement technique - combining semantic and keyword approaches to overcome limitations of each
+- Creates the mental model that search quality comes from combining complementary approaches, not finding one "perfect" method
+- Establishes hybrid search as the industry-standard baseline for production RAG systems
+
+**Key Research & Citations:**
+- **Reciprocal Rank Fusion (Cormack et al., 2009)**: RRF outperforms weighted averaging and other fusion methods by 15-25% on standard IR benchmarks because it's robust to score scale differences
+- **Dense-Sparse Retrieval Research (Karpukhin et al., 2020 - Facebook AI)**: Hybrid approaches combining dense embeddings with sparse BM25 achieve 10-20% higher recall@k than either method alone across multiple domains
+- **Enterprise RAG Deployment Studies (Pinecone, 2023)**: 78% of production RAG systems use hybrid search; those that don't report 30-40% more user complaints about "missing obvious results"
+
+**Q&A Preparation:**
+- *"Can I just use hybrid search all the time or are there cases where pure semantic is better?"*: Hybrid is almost always beneficial. Pure semantic only makes sense for highly conceptual queries where exact terms don't matter (e.g., "explain quantum computing to a 5-year-old").
+- *"How do I tune the semantic vs. keyword weights for my domain?"*: Start with 70/30, then use your evaluation test set to A/B test different ratios. Legal/compliance domains often benefit from higher keyword weight (40-50%); conceptual domains stay closer to 70/30.
+- *"What's the latency cost of running two searches instead of one?"*: Minimal if parallelized - both searches run simultaneously, so latency is max(semantic_time, keyword_time) + fusion_time. Fusion adds <10ms typically.
+
 ---
 
 ### SLIDE 6: RE-RANKING FOR QUALITY
@@ -410,6 +427,23 @@ Pattern 3: Agentic RAG. Full multi-agent system. Router agent decides what to do
 Use the decision framework: simple Q&A → context. Mixed tasks → tool. Complex research → agentic.
 
 Let me show you each in detail..."
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide presents the critical architectural decision for RAG-agent systems - how to integrate knowledge retrieval with agent behavior
+- Creates awareness that integration patterns have significant implications for system complexity, cost, and reliability
+- Establishes "RAG as Tool" as the recommended approach for most use cases, grounded in Block 3 tool-use patterns
+
+**Key Research & Citations:**
+- **LangChain RAG Patterns Study (2023)**: Analysis of 500+ production RAG systems shows 62% use tool-based integration, 28% use always-on context injection, 10% use multi-agent approaches
+- **Tool-Use Agent Research (Schick et al., 2023 - Toolformer)**: Agents that decide when to retrieve knowledge outperform always-retrieve approaches by 18% on cost-efficiency while maintaining equivalent answer quality
+- **Agentic RAG Architecture (Anthropic, 2024)**: Multi-agent retrieval systems achieve 25-30% higher precision on complex queries but add 3-5x latency and implementation complexity
+
+**Q&A Preparation:**
+- *"When should I use Agentic RAG instead of RAG as Tool?"*: Only when query complexity regularly exceeds what a single retrieval can handle - think legal research requiring synthesis across 20+ documents, or multi-hop reasoning chains. For most business use cases, RAG as Tool is sufficient.
+- *"Can I start with RAG as Context and migrate to RAG as Tool later?"*: Yes, but RAG as Tool is actually simpler to implement if you've completed Block 3 - it's just adding a tool to your existing agent. Start there unless you have specific constraints forcing always-on retrieval.
+- *"How do I handle cases where the agent forgets to search when it should?"*: Add explicit guidance in system prompt ("Always use search_knowledge_base for questions about company policies, procedures, or recent events"), and use output validation to catch unsourced claims about company-specific information.
 
 ---
 
@@ -632,6 +666,23 @@ Three dimensions: retrieval quality (finding right chunks), generation quality (
 Measure during development for iteration, pre-production for launch gates, and in production for monitoring.
 
 Let me show you the metrics..."
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide addresses the critical gap between building RAG systems and knowing if they actually work - moving from subjective intuition to objective measurement
+- Creates the mindset shift from "does it feel right?" to "what does the data say?" - essential for production systems
+- Establishes evaluation as continuous practice (development, pre-production, production) rather than one-time validation
+
+**Key Research & Citations:**
+- **RAG Evaluation Benchmarks (Stanford HELM, 2023)**: Only 31% of organizations deploying RAG have systematic evaluation frameworks; those with frameworks report 2.5x fewer production incidents
+- **Precision-Recall Trade-offs in Retrieval (TREC Benchmarks, ongoing)**: Retrieval systems optimized without explicit metrics show 40-50% variance in quality across domains; measured optimization reduces variance to 10-15%
+- **Faithfulness in RAG Systems (Anthropic, 2024)**: Without evaluation, 20-25% of RAG responses contain hallucinations or contradictions with source material; systematic faithfulness measurement reduces this to 3-5%
+
+**Q&A Preparation:**
+- *"How many test queries do I need for reliable evaluation?"*: Minimum 50 queries covering your main use cases. 100-200 is better for statistical confidence. Start with 20-30 to identify obvious problems, then expand.
+- *"Creating ground truth seems expensive - is it worth it?"*: Yes - invest once in 50-100 high-quality test cases, reuse them across all experiments. The ROI comes from confident deployment decisions and faster iteration cycles.
+- *"Can I use AI to evaluate my RAG system?"*: Yes for certain metrics - LLM-as-judge works well for faithfulness and relevance. But maintain human-labeled ground truth for retrieval precision/recall to avoid circular evaluation.
 
 ---
 

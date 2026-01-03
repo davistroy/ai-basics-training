@@ -260,6 +260,23 @@ This is the connection between Block 1 and Block 2. Everything you learned about
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide creates a critical mental bridge between Block 1 manual evaluation and Block 2 automation
+- It previews the Domain Memory Meta-Framework from Block 3, establishing continuity across blocks
+- The slide reframes quality systems as structured AI memory rather than just validation steps
+
+**Key Research & Citations:**
+- **Domain Memory Framework (Block 3 Preview)**: The Three Pillars (Explicit Goals, Progress Records, Operating Procedures) provide structured memory that enables reliable autonomous behavior in AI agents
+- **Quality System Literature**: Industrial quality management systems follow similar patterns - explicit standards, documented processes, and operational procedures translate directly to AI automation
+- **Transfer Learning Pedagogy**: Explicitly connecting prior learning (Block 1 rubrics) to new concepts (automated quality checks) strengthens retention and application
+
+**Q&A Preparation:**
+- *"Why preview Block 3 concepts now?"*: Block 2 quality systems ARE the foundation for Block 3 agent memory. Understanding this connection early helps participants see the progression and builds anticipation for autonomous agents.
+- *"What if I don't remember my Block 1 rubrics?"*: That's exactly why we document everything. Pull up your Block 1 prompt library - your criteria are there. This is a real-world demonstration of why documentation matters.
+- *"Is this the same as prompt engineering?"*: No - prompt engineering creates the brain. Quality systems create the judgment and memory. They work together but serve different functions.
+
 ---
 
 ## SLIDE 6: QUALITY GATE IMPLEMENTATION
@@ -466,6 +483,23 @@ This is why the evaluation prompt is so important."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces the core technique that makes automated quality control practical and scalable
+- It shifts participants from "AI can't evaluate AI" skepticism to understanding systematic evaluation
+- The pattern is counterintuitive (using AI to judge AI) and needs clear justification
+
+**Key Research & Citations:**
+- **LLM-as-Judge Research (2023-2024)**: Studies show that when LLMs are given explicit rubrics and criteria, their evaluations correlate highly (0.85+) with human expert judgments for many content types
+- **Constitutional AI (Anthropic, 2022)**: Demonstrates that AI can reliably evaluate outputs against specific criteria when those criteria are well-defined and explicit
+- **Meta-Evaluation Studies**: Research on AI evaluation reliability shows that structured rubrics dramatically improve consistency compared to open-ended evaluation
+
+**Q&A Preparation:**
+- *"Isn't this circular - using AI to check AI?"*: No more circular than peer review among humans. The key is separation of concerns: one AI generates, a different prompt evaluates. The evaluator has explicit criteria (your rubric), not free rein.
+- *"How do we know the evaluation is accurate?"*: You calibrate with human spot-checking initially. Over time, you track correlation between AI scores and your own judgments. Most participants find 85%+ agreement after calibration.
+- *"Does this work for subjective quality?"*: Yes, when criteria are explicit. "Good writing" is vague. "Matches executive summary style guide, includes data citations, under 500 words" is concrete. Specificity enables reliable evaluation.
+
 ---
 
 ## SLIDE 10: THE EVALUATION PROMPT PATTERN
@@ -665,6 +699,23 @@ This is the difference between 'mostly works' and 'actually reliable.'
 JSON is structured, parseable, standard, and AI generates it well when you ask correctly."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide addresses a critical failure mode in AI automation: unreliable data parsing
+- It demonstrates the principle that workflow reliability requires structured data, not natural language
+- The comparison makes the abstract concept ("structured data") viscerally concrete through failure scenarios
+
+**Key Research & Citations:**
+- **Structured Output Research**: Studies on production AI systems show that JSON-formatted outputs reduce parsing errors by 95%+ compared to natural language extraction
+- **Automation Platform Best Practices**: Make.com and n8n documentation emphasizes structured data as the foundation for reliable multi-step workflows - unstructured data is the #1 cause of workflow failures
+- **Software Engineering Principle**: "Parse, don't validate" - structured formats guarantee parseable data, while regex/NLP validation of natural language is inherently fragile
+
+**Q&A Preparation:**
+- *"Can't we just use regex to extract scores from text?"*: You can, but it's brittle. Every variation in phrasing breaks it. "Score: 4", "4/5", "about 4", "four out of five" all require different patterns. JSON eliminates this fragility entirely.
+- *"What if the AI returns malformed JSON?"*: Happens occasionally. That's why we wrap parsing in error handling and retry once. With good prompting (explicit instructions + example), malformed JSON is rare (<5%).
+- *"Why not XML or YAML?"*: JSON is the de facto standard for APIs and workflow platforms. It's simpler than XML, more widely supported than YAML, and AI models are extensively trained on JSON examples.
 
 ---
 

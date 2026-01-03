@@ -162,6 +162,23 @@ Learning to evaluate your own work honestly makes you better.
 **Speaker Notes:**
 Self-evaluation accuracy matters more than high scores. Inflated scores without evidence are obvious. Honest assessment with evidence of growth is valued.
 
+**BACKGROUND:**
+
+**Rationale:**
+- Self-evaluation is a critical professional skill that many participants have never practiced formally
+- The slide establishes that honest self-assessment demonstrates maturity, not weakness
+- Providing clear Do/Don't guidance removes ambiguity and anxiety about the evaluation process
+
+**Key Research & Citations:**
+- **Metacognitive Research**: Studies show that accurate self-assessment correlates with professional growth. Individuals who can honestly evaluate their work improve faster than those who inflate or deflate their abilities.
+- **Growth Mindset Literature (Dweck)**: Honest acknowledgment of gaps is essential for improvement. Fixed mindset sees gaps as failures; growth mindset sees them as learning opportunities.
+- **Professional Development Best Practices**: High-performing organizations emphasize self-assessment accuracy over score maximization in evaluation processes. Calibration (honest self-view) predicts future performance.
+
+**Q&A Preparation:**
+- *"What if I think I deserve a 5 but can't prove it?"*: Then it's probably a 4. The evidence requirement isn't arbitrary - it's what makes self-evaluation credible. If you can't show why it's excellent, reassess.
+- *"Should I be harsh on myself to look modest?"*: No - be accurate. False modesty is as problematic as false confidence. If you met requirements well, give yourself a 4. If you exceeded them, give yourself a 5. Evidence supports both.
+- *"What if I disagree with the rubric criteria?"*: Note your disagreement in reflection, but score against the stated criteria. Professional growth includes working within given frameworks, even when you'd design them differently.
+
 ---
 
 ## Slide 7: What You've Achieved
@@ -185,6 +202,23 @@ Self-evaluation accuracy matters more than high scores. Inflated scores without 
 
 **Speaker Notes:**
 This is a significant achievement. Participants have moved from manual AI use to systematic automation. Their toolkit will continue generating value.
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides closure and recognition for substantial learning journey participants have completed
+- It reframes accomplishments from discrete tasks to integrated capabilities - showing the bigger picture
+- The transformation framing (Block 1 → Block 2) emphasizes skill progression and growth
+
+**Key Research & Citations:**
+- **Learning Journey Research**: Explicit recognition of progress strengthens intrinsic motivation and increases likelihood of continued learning. Celebrating milestones matters for sustained engagement.
+- **Capability Building Literature**: Moving from tool use (Block 1) to system design (Block 2) represents a significant cognitive leap. This progression mirrors professional development from practitioner to architect.
+- **Value Creation Measurement**: The toolkit participants built has real economic value - documented time savings, quality improvements, and automation capabilities that continue generating returns
+
+**Q&A Preparation:**
+- *"I didn't complete everything - should I still feel accomplished?"*: Progress is accomplishment. If you built even one working workflow with quality checks, that's substantial learning. Block 2 can always be revisited to complete remaining components.
+- *"How do I know if I'm ready for Block 3?"*: Review prerequisites honestly. If you have working workflows, understand quality systems, and can configure MCP, you're ready. Block 3 builds on this foundation - you don't need perfection, just competency.
+- *"What if I want to improve my Block 2 work before Block 3?"*: That's fine - Block 2 skills continue developing. But don't let perfectionism delay progression. Good enough to proceed is often better than perfect but delayed.
 
 ---
 
