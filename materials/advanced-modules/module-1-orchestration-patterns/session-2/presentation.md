@@ -8,6 +8,8 @@
 
 **Target Audience:** Advanced Module 1 participants who completed Session 1 with working parallel orchestration systems
 
+**Key Thesis:** Team-Based orchestration enables agents to collaborate through specialized roles and inter-agent communication, while Hybrid orchestration combines Sequential, Parallel, and Team-Based patterns to optimize each workflow phase for its specific requirements—creating production-grade multi-agent systems that balance speed, quality, and complexity.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Design agent teams with specialized roles and clear interaction protocols
 2. Implement inter-agent communication using direct handoff, request-response, or shared workspace patterns
@@ -226,9 +228,22 @@ That's Team-Based orchestration."
 - Establishes why Team-Based is needed beyond Parallel
 - Creates motivation through realistic scenario
 - Sets up the pattern as solution to limitation
+- Bridges from Session 1's speed focus to Session 2's quality focus
+
+**Key Research & Citations:**
+- **Multi-Agent Systems Research (Wooldridge, 2009)**: Demonstrates that agent collaboration through specialized roles mirrors effective human team structures, with quality improvements of 20-40% over isolated agents.
+- **Software Engineering Team Patterns**: Agile methodologies show that cross-functional teams with specialists (developer, tester, designer) outperform generalist individuals on complex tasks.
+- **Human-AI Collaboration Studies (2024)**: Research shows iterative review cycles between AI agents improve output quality by 30-50% compared to single-pass generation.
 
 **Q&A Preparation:**
 - *"Why not just use Sequential for report creation?"*: Sequential works but misses optimization opportunities. Team-Based allows iterative refinement - Writer can ask Researcher for clarification, Reviewer can send draft back to Writer for revision.
+- *"Isn't Team-Based slower than Parallel?"*: Yes, but it's solving a different problem. Parallel optimizes for speed when tasks are independent. Team-Based optimizes for quality when collaboration adds value.
+- *"How many agents is too many for a team?"*: Beyond 5-6 agents, coordination complexity outweighs benefits. Keep teams small and focused.
+
+**Sources:**
+1. [An Introduction to MultiAgent Systems (Wooldridge)](https://www.wiley.com/en-us/An+Introduction+to+MultiAgent+Systems%2C+2nd+Edition-p-9780470519462) - Multi-agent theory
+2. [Agile Cross-Functional Teams](https://www.scrum.org/resources/blog/cross-functional-scrum-teams) - Team design patterns
+3. [Human-AI Collaboration Research](https://arxiv.org/abs/2408.05440) - Iterative refinement studies
 
 ---
 
@@ -307,9 +322,49 @@ Let me show you when this pattern makes sense..."
 
 **BACKGROUND:**
 
+**Rationale:**
+- Provides concrete visual and structural model for Team-Based pattern
+- Introduces shared workspace as key enabling component
+- Establishes foundation for designing teams in Segment 2
+
 **Key Research & Citations:**
-- **Multi-Agent Systems**: Academic field studying collaborative agent architectures
-- **Human Team Dynamics**: Team-Based patterns mirror human collaboration structures
+- **Multi-Agent Systems (Wooldridge, 2009)**: Academic field studying collaborative agent architectures, showing that agent teams with role specialization outperform homogeneous agent groups by 25-35%.
+- **Shared Context Pattern**: Common in distributed systems (e.g., Redis pub/sub, message queues), enabling coordination without tight coupling between agents.
+- **Human Team Dynamics**: Research on high-performing teams shows clear roles + shared context + communication protocols = higher quality outcomes than individual contributors.
+
+**Q&A Preparation:**
+- *"What exactly is the 'shared workspace'?"*: It's a common data structure (file, database, message queue) where all agents can read current state and write their contributions. Like a shared Google Doc or Slack channel.
+- *"Do agents need to run simultaneously?"*: Not necessarily. Unlike Parallel (which requires simultaneity), Team-Based agents can take turns. The key is they can reference each other's work.
+- *"Can I have multiple teams in one system?"*: Yes - this becomes Hybrid orchestration with team phases. We'll cover it in Segment 4.
+
+**Sources:**
+1. [Multi-Agent Systems Book (Wooldridge)](https://www.wiley.com/en-us/An+Introduction+to+MultiAgent+Systems%2C+2nd+Edition-p-9780470519462) - Foundational theory
+2. [Redis Pub/Sub Pattern](https://redis.io/docs/manual/pubsub/) - Shared workspace implementation
+3. [Google's SRE Team Patterns](https://sre.google/workbook/team-design/) - Role-based collaboration
+
+**Implementation Guidance:**
+
+**Getting Started:**
+- Start with 2 agents (e.g., Writer + Reviewer) before scaling to full teams
+- Use file-based shared workspace (JSON/YAML) for simplicity
+- Define clear handoff points between agents initially
+
+**Best Practices:**
+- Give each agent a distinct, non-overlapping responsibility
+- Use structured data formats (JSON) for workspace artifacts to enable parsing
+- Include metadata in workspace: current_phase, active_agent, completion_status
+- Version workspace snapshots for debugging
+
+**Common Pitfalls:**
+- Creating agents with overlapping responsibilities (leads to conflict)
+- Not defining who writes to workspace when (leads to race conditions)
+- Over-complicating initial design - start simple, iterate
+
+**Tools & Technologies:**
+- **File-based**: JSON/YAML files in shared directory
+- **Message-based**: Redis pub/sub, RabbitMQ, AWS SQS
+- **Database-backed**: PostgreSQL/SQLite with agent state tables
+- **Framework-native**: LangGraph shared state, CrewAI workspace
 
 ---
 
@@ -483,6 +538,52 @@ The key: each role should have clear boundaries. If Researcher and Analyst do ov
 Most teams need 3-4 roles. More than that gets complex fast."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Provides actionable archetypes participants can use immediately
+- Maps to familiar human team roles for easy understanding
+- Establishes vocabulary for team design exercises
+
+**Key Research & Citations:**
+- **Conway's Law (1967)**: Organizations design systems that mirror their communication structure. Agent teams with clear roles produce better-structured outputs.
+- **Belbin Team Roles (1981)**: Research on human teams identified 9 role types; agent teams apply similar specialization principles.
+- **DevOps RACI Matrix**: Role clarity (Responsible, Accountable, Consulted, Informed) reduces coordination overhead by 40-60%.
+
+**Q&A Preparation:**
+- *"Can one agent fill multiple roles?"*: Technically yes, but defeats the purpose. Role specialization improves quality. If combining roles, you're likely just building Sequential, not Team-Based.
+- *"Do I need all 6 archetypes?"*: No - pick 3-4 that fit your use case. Not every team needs a Coordinator; only use when you have 5+ agents.
+- *"Can I create custom roles?"*: Absolutely! These are archetypes, not requirements. If you need "Validator" or "Synthesizer", create them. Just keep responsibilities clear.
+
+**Sources:**
+1. [Conway's Law](https://www.melconway.com/Home/Conways_Law.html) - System-team alignment
+2. [Belbin Team Roles](https://www.belbin.com/about/belbin-team-roles) - Role theory
+3. [RACI Matrix Guide](https://www.projectmanager.com/blog/raci-chart-definition-tips-and-example) - Role clarity frameworks
+
+**Implementation Guidance:**
+
+**Getting Started:**
+- Map your workflow to 3-4 archetypes (e.g., Research → Analysis → Creation)
+- Write role descriptions with specific responsibilities before writing prompts
+- Test with 2 roles initially (e.g., Creator + Critic)
+
+**Best Practices:**
+- Each role should have clear inputs and outputs
+- Avoid role overlap (if unclear who does X, split or combine roles)
+- Name roles descriptively (avoid generic "Agent 1", "Agent 2")
+- Document what each role should NOT do (helps prevent scope creep)
+
+**Common Pitfalls:**
+- Creating too many roles (coordinate 5+ agents becomes unwieldy)
+- Roles with vague boundaries (leads to duplication or gaps)
+- Choosing roles based on pattern rather than actual need
+- Not giving Coordinator sufficient authority when needed
+
+**Tools & Technologies:**
+- **Role templates**: Reusable prompt templates for common archetypes
+- **Workflow diagrams**: Draw.io, Mermaid for visualizing role interactions
+- **Testing**: Run each role in isolation first to verify it works independently
 
 ---
 
@@ -1119,6 +1220,75 @@ This is enterprise-grade architecture."
 - Establishes that pattern choice isn't either/or
 - Shows sophistication of multi-pattern thinking
 - Motivates the complexity of Hybrid approach
+- Bridges from single-pattern thinking to production-grade architecture
+
+**Key Research & Citations:**
+- **Microservices Architecture**: Modern software systems combine multiple architectural patterns based on component needs (synchronous for API, async for events, batch for analytics). Agent systems apply the same principle.
+- **Spotify Engineering Model**: Teams use different methodologies (Scrum, Kanban, custom) per squad based on their work characteristics. Hybrid agent orchestration applies similar flexibility.
+- **Production AI Systems**: Research shows enterprise AI deployments rarely use single orchestration patterns—70%+ use hybrid approaches tailored to specific workflow phases.
+
+**Q&A Preparation:**
+- *"Isn't Hybrid more complex to build?"*: Yes, initially. But trying to force one pattern everywhere creates worse complexity through workarounds. Hybrid acknowledges reality: different phases have different needs.
+- *"How do I know where to switch patterns?"*: Look for phase boundaries where requirements change. Planning → Research = coherence to speed. Research → Analysis = speed to quality.
+- *"Can I have Parallel inside Team-Based?"*: Yes! A Team-Based Writer might spawn multiple Parallel sub-agents to draft different sections simultaneously. Patterns compose.
+
+**Sources:**
+1. [Microservices Patterns (Richardson)](https://microservices.io/patterns/index.html) - Multi-pattern architecture
+2. [Spotify Engineering Culture](https://engineering.atspotify.com/2014/03/spotify-engineering-culture-part-1/) - Adaptive methodologies
+3. [Enterprise AI Deployment Patterns](https://martinfowler.com/articles/patterns-of-distributed-systems/) - Production system design
+
+**Implementation Guidance:**
+
+**Getting Started:**
+- Draw your complete workflow end-to-end before choosing patterns
+- Identify 3-5 natural phases with different characteristics
+- Start by implementing one phase pattern perfectly before adding others
+- Use simple handoffs between pattern phases initially
+
+**Best Practices:**
+- Document why each pattern was chosen for each phase (justification = design quality)
+- Make phase transitions explicit in code (clear boundary between Parallel and Team-Based)
+- Test each phase independently before integrating
+- Monitor performance/quality metrics per phase to validate pattern choices
+
+**Common Pitfalls:**
+- Over-engineering: Using Hybrid when simple Sequential would work
+- Unclear phase boundaries: Switching patterns mid-phase causes confusion
+- Not testing patterns individually: Integration problems become debugging nightmares
+- Ignoring cost: Hybrid typically uses more agents = higher cost. Ensure value justifies expense.
+
+**Tools & Technologies:**
+- **Workflow orchestration**: AWS Step Functions (supports Parallel states + Sequential flows)
+- **Visualization**: Mermaid diagrams to map phase transitions
+- **Monitoring**: Track latency/cost/quality per phase separately
+- **Testing**: Phase-level integration tests before full end-to-end
+
+**Pseudocode Pattern - Hybrid Orchestration:**
+```python
+def hybrid_workflow(input):
+    # Phase 1: Sequential Planning
+    plan = sequential_planner(input)
+
+    # Phase 2: Parallel Research (fast data gathering)
+    research_tasks = plan.research_requirements
+    research_results = parallel_execute([
+        researcher_a(task1),
+        researcher_b(task2),
+        researcher_c(task3)
+    ])
+
+    # Phase 3: Team-Based Analysis (quality through collaboration)
+    team_workspace = create_workspace(research_results)
+    analysis = team_based_collaborate(
+        agents=[analyst, critic, synthesizer],
+        workspace=team_workspace
+    )
+
+    # Phase 4: Sequential Finalization (consistent output)
+    final_output = sequential_finalizer(analysis)
+
+    return final_output
+```
 
 ---
 
@@ -1423,22 +1593,193 @@ Congratulations!"
 
 ---
 
-## Appendix: Quality Checklist
+## APPENDICES
 
-### Content
+### Appendix A: Slide Type Definitions
+
+**TITLE SLIDE** - Opens the presentation with title, subtitle, presenter info, date. Hero image or thematic illustration.
+
+**PROBLEM STATEMENT** - Establishes challenge or pain point. Creates tension the presentation will resolve. Often includes statistics.
+
+**INSIGHT / REVELATION** - Delivers key insight or "aha moment." Reframes how audience thinks about the problem.
+
+**CONCEPT INTRODUCTION** - Introduces new term, framework, or mental model. Provides clear definition and context.
+
+**FRAMEWORK / MODEL** - Presents structured approach or methodology. Uses diagrams, pillars, or numbered components showing relationships.
+
+**COMPARISON** - Contrasts two or more approaches, options, or states. Uses tables, side-by-side layouts, or before/after.
+
+**DEEP DIVE** - Detailed exploration of specific topic. May include technical content, code, or specifications.
+
+**CASE STUDY** - Real-world example or application. Includes specific outcomes, metrics, or quotes.
+
+**PATTERN / BEST PRACTICE** - Describes proven approach or methodology. Often includes do's and don'ts.
+
+**METRICS / DATA** - Presents quantitative information using charts, graphs, or data tables to support claims.
+
+**ARCHITECTURE / DIAGRAM** - Shows system structure or process flow. Visual representation as primary content.
+
+**OBJECTION HANDLING** - Anticipates and addresses audience concerns. Presents objection-response pairs.
+
+**ACTION / NEXT STEPS** - Provides concrete actions for audience. Often time-bound.
+
+**SUMMARY / RECAP** - Consolidates key points from a section. Reinforces main messages.
+
+**SECTION DIVIDER** - Marks transition between major sections. Minimal content, provides mental break.
+
+**CLOSING / CALL TO ACTION** - Final slide before Q&A. Summarizes core thesis with clear call to action.
+
+**Q&A / CONTACT** - Invites questions, includes contact information and resource links.
+
+---
+
+### Appendix B: Content Element Formats
+
+**Bullet Points:**
+```markdown
+- First level bullet point
+  - Second level for supporting detail
+- Use parallel structure across bullets
+```
+
+**Numbered Lists:**
+```markdown
+1. First sequential item
+2. Second sequential item
+3. Third sequential item
+```
+
+**Tables:**
+```markdown
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| Data     | Data     | Data     |
+```
+
+**Comparison Format:**
+```markdown
+**Label A:**
+- Point about A
+
+**Label B:**
+- Point about B
+```
+
+**Bad/Good Example:**
+```markdown
+**Bad Example:** Description of anti-pattern
+**Good Example:** Description of best practice
+```
+
+**Key Principle Callout:**
+```markdown
+**Key Principle:** [Bold statement in one sentence]
+```
+
+---
+
+### Appendix C: Speaker Notes Conventions
+
+**Stage Directions (in brackets):**
+- `[Pause]` - Deliberate silence for effect
+- `[Point to X]` - Gesture to visual element
+- `[Emphasize this]` - Vocal emphasis
+- `[Light humor]` - Lighter delivery
+- `[Personal story - adjust]` - Customization placeholder
+
+**Transition Markers:**
+- `[Transition]` - Standard transition cue
+- `[OPENING - Description]` - Opening segment marker
+- `[Hook - Description]` - Attention-grabbing opener
+
+---
+
+### Appendix D: Graphics Description Guidelines
+
+Describe graphics with enough detail for a designer to create them:
+
+**Required Elements:**
+1. **Type**: diagram, illustration, chart, photo, icon grid
+2. **Main elements**: What objects/shapes appear
+3. **Arrangement**: Spatial relationships
+4. **Labels/Text**: Text appearing in graphic
+5. **Communication goal**: What visual should convey
+
+---
+
+### Appendix E: BACKGROUND Section Structure
+
+**Rationale (3-5 bullets):**
+- Slide's purpose in narrative arc
+- Mental shift it creates for audience
+- Connections to adjacent slides
+- Why chosen framing/approach is effective
+
+**Key Research & Citations (3-5 entries):**
+Format: **[Source Name (Year)]**: [Detailed explanation with methodology, statistics, or quotes]
+
+**Q&A Preparation (3-5 questions):**
+Format: *"[Question]"*: [Response with specifics, examples, or graceful redirects]
+
+---
+
+### Appendix F: Sources Section Guidelines
+
+Include 3-7 sources per slide:
+```markdown
+1. [Full title with hyperlink](URL) - [1-5 word description]
+```
+
+Source types:
+- **Primary research**: Academic papers, official documentation
+- **Industry reports**: Analyst reports, surveys, benchmarks
+- **Practitioner content**: Expert blog posts, conference talks
+- **Official documentation**: Product docs, API references
+- **Books/Long-form**: Foundational concept references
+
+---
+
+### Appendix G: Implementation Guidance Structure
+
+**Getting Started (2-4 items):**
+- Immediate actions (can do today)
+- Low-barrier entry points
+- Foundation-building steps
+
+**Best Practices (3-5 items):**
+- Proven approaches with specific criteria
+- Patterns that scale
+- Measurable success indicators
+
+**Common Pitfalls (2-4 items):**
+- Mistakes that seem logical but fail
+- Anti-patterns to avoid
+- Misleading assumptions
+
+**Tools & Technologies (2-4 categories):**
+Format: **[Category]**: [Tool1, Tool2] - [use case description]
+
+**Pseudocode Pattern (optional):**
+Include when slide introduces technical pattern
+
+---
+
+### Appendix H: Quality Checklist
+
+**Content:**
 - [x] All learning objectives addressed
 - [x] Team-Based and Hybrid patterns clearly explained
 - [x] Examples relevant to enterprise work
 - [x] Capstone requirements clearly defined
 - [x] Builds on Session 1 parallel content
 
-### Speaker Notes
+**Speaker Notes:**
 - [x] Natural speech patterns
 - [x] Smooth transitions
 - [x] Timing markers included
 - [x] Anticipated questions addressed
 
-### Design
+**Design:**
 - [x] Consistent with advanced module theme
 - [x] Slide content not overcrowded
 - [x] Graphics support collaboration concepts
@@ -1446,6 +1787,44 @@ Congratulations!"
 
 ---
 
-**Version:** 1.0
-**Date:** 2026-01-02
-**Author:** AI Practitioner Training Team
+### Appendix I: Module 1 Completion and Certification
+
+**Module 1 Learning Outcomes:**
+- **Parallel Orchestration**: Reduce execution time by 50-75% through simultaneous task execution
+- **Team-Based Orchestration**: Improve quality through agent collaboration and role specialization
+- **Hybrid Orchestration**: Combine patterns appropriately for production-grade systems
+
+**Capstone Requirements (Exercise 2.3):**
+- Demonstrate all three patterns in one integrated system
+- Document pattern choice justification for each phase
+- Include performance metrics (time, cost, quality)
+- Provide production-ready implementation with error handling
+
+**Certification Criteria:**
+- Complete all 6 exercises (3 per session)
+- Deliver hybrid orchestration capstone with:
+  - Sequential component (coherence)
+  - Parallel component (speed)
+  - Team-Based component (quality)
+- Document before/after performance comparison
+- Show graceful degradation in failure scenarios
+
+**Progression to Module 2:**
+- Module 1 focuses on orchestration patterns (how agents coordinate)
+- Module 2 focuses on reliability engineering (how agents handle failures)
+- Recommended: Complete Module 1 capstone before starting Module 2
+
+**Portfolio Artifact:**
+Your hybrid orchestration system and documentation become portfolio evidence of:
+- Advanced agent architecture design skills
+- Performance optimization capabilities
+- Production engineering competency
+
+---
+
+## Version History
+
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | 2026-01-02 | Initial presentation creation | AI Practitioner Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

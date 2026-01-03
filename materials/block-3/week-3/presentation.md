@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 participants with functional agents from Week 2
 
+**Key Thesis:** MCP transforms agents from text processors into world-interactive systems by providing standardized tool access, with multi-server configurations and tool chaining creating emergent capabilities greater than individual tools.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Configure multiple MCP servers for expanded agent capabilities
 2. Understand server types and selection strategies
@@ -269,6 +271,30 @@ When choosing servers, ask these three questions: What does my agent need to rea
 Answer those, and you know which servers you need."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide establishes MCP as the enabling infrastructure that transforms theoretical agents into practical automation systems
+- The server categorization (Data/Action/Integration) provides decision framework for Week 3 exercises
+- Positions MCP not as "just another tool" but as architectural capability expansion - the difference between agents that think and agents that act
+- Foundation for Week 5's multi-agent orchestration which requires standardized tool interfaces
+
+**Key Research & Citations:**
+- **Model Context Protocol Specification (Anthropic, 2024)**: MCP standardizes how AI systems access external tools, eliminating custom integration code and enabling composable agent capabilities
+- **12-Factor Agents - Factor 10 (Prefer Official Client Libraries)**: Using standard protocols like MCP over custom tool wrappers reduces maintenance burden and improves reliability
+- **Microservices Tool Pattern**: The hub-and-spoke architecture (one agent, many services) mirrors successful microservices patterns where services remain independent but interoperable
+
+**Q&A Preparation:**
+- *"Why not just hardcode tool calls?"*: Hardcoding creates brittle dependencies and limits reusability. MCP servers can be shared across agents, updated independently, and agents dynamically discover available tools.
+- *"What if I need a tool that doesn't have an MCP server?"*: You can create custom MCP servers - the spec is open. Or use existing servers as bridges. MCP is extensible, not restrictive.
+- *"How does this differ from API calls?"*: MCP adds standardization, discovery, and permission management. APIs are the backend; MCP is the protocol layer that makes them agent-accessible.
+
+**Sources:**
+1. [Model Context Protocol Documentation](https://modelcontextprotocol.io/) - Official MCP specification
+2. [MCP Server Registry](https://github.com/modelcontextprotocol/servers) - Available servers
+3. [Anthropic MCP Announcement](https://www.anthropic.com/news/model-context-protocol) - Context and rationale
+4. [12-Factor Agents - Client Libraries](https://github.com/humanlayer/12-factor-agents#factor-10) - Tool integration best practices
 
 ---
 
@@ -1441,10 +1467,56 @@ Good work. See you next week!"
 
 ---
 
-## Appendix: Slide Design Notes
+## APPENDICES
 
-### Block 3 Color Scheme
+### Appendix A: Slide Type Definitions
+**TITLE SLIDE** - Opens presentation | **PROBLEM STATEMENT** - Establishes challenge | **CONCEPT INTRODUCTION** - Introduces new term/framework | **FRAMEWORK / MODEL** - Presents structured approach | **COMPARISON** - Contrasts approaches | **DEEP DIVE** - Detailed exploration | **PATTERN / BEST PRACTICE** - Describes proven approach | **ARCHITECTURE / DIAGRAM** - Shows system structure
 
+### Appendix B: Content Element Formats
+**Bullet Points:** Use parallel structure | **Tables:** For comparative data | **Code Blocks:** Syntactically correct with comments
+
+### Appendix C: Speaker Notes Conventions
+**Stage Directions:** `[Pause]`, `[Point to X]`, `[Emphasize this]` | **Transition Markers:** `[Transition]`, `[OPENING]`, `[Hook]`
+
+### Appendix D: Background Section Guidelines
+**Rationale:** Explain slide's purpose | **Key Research & Citations:** **[Source (Year)]**: [Explanation] | **Q&A Preparation:** *"[Question]"*: [Response]
+
+### Appendix E: Visual Design Guidelines
+**Block 3 Color Scheme:** Primary Green #00CC99, Accent Teal #008B8B | **Theme:** Green for automation/agents, Teal for orchestration
+
+### Appendix F: Implementation Guidance Structure
+
+**Getting Started (2-4 items):**
+- Immediate actions (can do today)
+- Low-barrier entry points
+- Foundation-building steps
+
+**Best Practices (3-5 items):**
+- Proven approaches with specific criteria
+- Patterns that scale
+- Measurable success indicators
+
+**Common Pitfalls (2-4 items):**
+- Mistakes that seem logical but fail
+- Anti-patterns to avoid
+- Assumptions that mislead
+
+**Tools & Technologies (2-4 categories):**
+Format: **[Category]**: [Tool names] - [use case description]
+
+### Appendix G: Visual/Graphic Description Guidelines
+
+Describe graphics with enough detail for a designer:
+
+1. **Type**: diagram, illustration, chart, photo, etc.
+2. **Main elements**: What objects/shapes appear
+3. **Arrangement**: Spatial relationships
+4. **Labels/Text**: Any text in the graphic
+5. **Communication goal**: What the visual conveys
+
+### Appendix H: Visual Design Guidelines
+
+**Block 3 Color Scheme:**
 | Element | Color | Hex Code |
 |---------|-------|----------|
 | Primary | Green | #00CC99 |
@@ -1452,23 +1524,50 @@ Good work. See you next week!"
 | Background | White | #FFFFFF |
 | Text | Dark Gray | #333333 |
 
-### Graphic Suggestions by Slide
+**Block 3 Theme:**
+- Green represents growth, automation, and intelligent systems
+- Use green highlights for agent-related concepts
+- Teal accents for orchestration and coordination
+- Clean, modern aesthetic reflecting production engineering
 
-| Slide | Graphic Type | Description |
-|-------|-------------|-------------|
-| 1 | Title | Connected servers visual |
-| 4 | Architecture | Hub-and-spoke diagram |
-| 5 | Categories | Three-column server types |
-| 9 | Code | Annotated config file |
-| 15-17 | Flow | Chain pattern diagrams |
-| 21 | Security | Shield with principles |
+**Graphic Suggestions:**
+- Title slides: Agent/architecture visuals with green theme
+- Architecture diagrams: Clear component separation
+- Flow diagrams: Directional arrows showing data/control flow
+- Comparison slides: Side-by-side or table formats
 
-### Animation Notes
+### Appendix I: Quality Checklist
 
-- Code blocks: Highlight key sections
-- Flow diagrams: Animate step by step
-- Checklists: Reveal item by item
-- Keep animations subtle - content is technical
+**Content Quality:**
+- [ ] Key Thesis clearly stated
+- [ ] Learning objectives are actionable
+- [ ] Each slide has clear purpose in narrative
+- [ ] Transitions connect ideas smoothly
+- [ ] Examples are Block 3-relevant (automation architecture)
+
+**Background Sections:**
+- [ ] Rationale explains slide's role in presentation
+- [ ] Research citations support claims with specifics
+- [ ] Q&A preparation addresses likely objections
+- [ ] Sources are credible and linked
+
+**Implementation Guidance:**
+- [ ] Getting Started provides immediate actions
+- [ ] Best Practices are specific and proven
+- [ ] Common Pitfalls warn against real mistakes
+- [ ] Tools recommended are current and relevant
+
+**Technical Accuracy:**
+- [ ] Code examples are syntactically correct
+- [ ] Architectural patterns follow industry standards
+- [ ] Metrics and calculations are accurate
+- [ ] Links to external resources work
+
+**Audience Engagement:**
+- [ ] Speaker notes include engagement cues
+- [ ] Questions prompt reflection
+- [ ] Examples relate to consulting work
+- [ ] Exercises connect to real capstone needs
 
 ---
 
@@ -1477,3 +1576,4 @@ Good work. See you next week!"
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

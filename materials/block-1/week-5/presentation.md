@@ -8,6 +8,8 @@
 
 **Target Audience:** Participants who completed Weeks 1-4 with quality rubrics and templates
 
+**Key Thesis:** Templates without documentation are secrets; pull requests enable safe collaboration; and AI accelerates documentation creation—together they transform personal work into team assets that multiply value across an organization.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Create and merge pull requests for safe collaboration
 2. Use AI to generate comprehensive documentation
@@ -220,6 +222,24 @@ Now let's learn the workflow for collaborating safely."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Converts abstract "you should document" advice into concrete ROI analysis
+- The before/after table makes consequences tangible and relatable
+- "Gift to future you" framing creates personal motivation beyond organizational benefits
+- Positions documentation as time investment, not time cost—critical mental shift for adoption
+
+**Key Research & Citations:**
+- **Documentation ROI Studies (Software Engineering Institute)**: Research shows every hour spent on documentation saves 3-5 hours in future explanation, troubleshooting, and rework. ROI multiplies in team settings where one documentation hour benefits multiple team members.
+- **Knowledge Management Research (Nonaka & Takeuchi)**: Tacit knowledge (in your head) is fragile and non-scalable. Explicit knowledge (documented) is durable and multiplicative. Documentation converts tacit expertise to explicit organizational assets.
+- **Technical Debt Studies**: Undocumented systems accumulate "knowledge debt"—the cost compounds over time as original creators forget details, team members change, and context is lost.
+
+**Q&A Preparation:**
+- *"How do I find time to document when I'm already overwhelmed?"*: Start with one template per week as you actually use it. The 10-minute documentation investment prevents 30+ minutes of future explanation. It's a net time savings.
+- *"Won't documentation get out of date quickly?"*: With version control (Week 3), documentation evolves with templates. Update both simultaneously in the same commit. The alternative—undocumented changes—creates even more confusion.
+- *"What if others don't read the documentation anyway?"*: Point them to it once. If documentation answers their question, they'll read it next time. Consistency trains people to check docs first.
+
 ---
 
 ## SEGMENT 2: PULL REQUEST WORKFLOW
@@ -262,6 +282,24 @@ Think of it like sending a draft for approval. The editor reviews, suggests chan
 PRs make collaboration safe. Changes don't affect main until reviewed. Discussion happens right on the change. History is preserved. And if something's wrong, it can be rejected or revised before any damage is done."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Introduces PRs with familiar analogy (draft for approval) that maps to existing mental models
+- Emphasizes safety aspect—addresses participant concern about "breaking" things through collaboration
+- Positions PRs as discussion mechanism, not just approval checkpoint
+- The "why it matters" list preemptively addresses "why not just commit directly" question
+
+**Key Research & Citations:**
+- **Code Review Research (Microsoft, Google)**: Studies show peer review catches 60-90% of defects before they reach production. Same principle applies to prompts—review catches template errors, unclear documentation, and missing edge cases before templates are used.
+- **Asynchronous Collaboration Patterns**: Pull requests enable asynchronous collaboration—reviewers work when convenient, discussions are archived, and decisions are documented. Contrast with synchronous collaboration (meetings) that requires real-time coordination.
+- **Git Workflow Best Practices**: Industry standard git-flow and GitHub flow models emphasize feature branches plus pull requests as core pattern. Learning this for prompt libraries teaches transferable collaboration skills.
+
+**Q&A Preparation:**
+- *"Isn't this overkill for a personal prompt library?"*: Start simple—PRs add minimal overhead but establish good habits. When your library grows or you add collaborators, the workflow is already in place. It's easier to start with good practices than retrofit them later.
+- *"What if I'm the only reviewer?"*: Self-review still provides value—reviewing your own PR forces you to look at changes with fresh eyes, catch mistakes, and write clear change descriptions for future reference.
+- *"Can I just commit directly for small changes?"*: You can, but PRs provide change history and description even for small updates. The 30-second overhead of creating a PR pays off when you need to understand "why did I change this?" six months later.
 
 ---
 
@@ -777,8 +815,128 @@ See you next week!"
 
 ---
 
+## APPENDICES
+
+### APPENDIX A: Slide Type Definitions
+
+(See Week 1 presentation for complete slide type reference - consistent across all weeks)
+
+Key slide types used in Week 5:
+- **PROBLEM STATEMENT**: Individual vs shareable work (Slide 4)
+- **INSIGHT / REVELATION**: Documentation benefits (Slide 5)
+- **CONCEPT INTRODUCTION**: Pull requests (Slide 6)
+- **LIVE DEMO**: PR workflow (Slide 8)
+- **APPLICATION**: Template documentation structure (Slide 13)
+
+---
+
+### APPENDIX B: Content Element Formats
+
+(Standard formatting conventions apply - see Week 1 for complete reference)
+
+---
+
+### APPENDIX C: Speaker Notes Conventions
+
+(Standard stage directions and transitions - see Week 1 for complete reference)
+
+---
+
+### APPENDIX D: Background Section Guidelines
+
+**Rationale (3-5 bullets)**
+- Explain the slide's purpose in the narrative arc
+- Describe the mental shift it creates
+- Note connections to adjacent slides
+- Justify the chosen framing or approach
+
+**Key Research & Citations (3-5 entries)**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+
+**Q&A Preparation (3-5 questions)**
+Format: *"[Question]"*: [Response]
+
+---
+
+### APPENDIX E: Sources Section Guidelines
+
+**Purpose:**
+Provide consistent structure for citing research, studies, and best practices in BACKGROUND sections.
+
+**Format:**
+```markdown
+**Key Research & Citations (3-5 entries)**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+```
+
+**Guidelines:**
+- Use recognizable authorities (research institutions, major studies, established frameworks)
+- Include years for temporal context
+- Explain how research supports pedagogical claims, don't just cite
+- Include methodology when relevant for credibility
+
+---
+
+### APPENDIX F: Implementation Guidance Structure
+
+**Purpose:**
+Ensure every technique slide includes actionable guidance participants can apply immediately.
+
+**Required Components:**
+1. Pattern/Template with clear placeholders
+2. Example Application showing pattern in use
+3. Why It Works (mechanism explanation)
+4. When to Use / When Not to Use (application guidance)
+
+---
+
+### APPENDIX G: Visual/Graphic Description Guidelines
+
+**Purpose:**
+Ensure GRAPHICS sections provide sufficient detail for designers to create effective visuals without seeing examples.
+
+**Required Elements:**
+1. Purpose: What pedagogical function this graphic serves
+2. Type: Diagram/Chart/Comparison/Flow with specific style notes
+3. Elements: Detailed list of visual components, layout, visual hierarchy
+4. Labels: All text that appears in graphic with placement notes
+5. Relationships: How elements connect, flow direction, visual emphasis
+
+**Quality Test:**
+Could a designer who has never seen this presentation create an effective visual from this description alone?
+
+---
+
+### APPENDIX H: Visual Design Guidelines
+
+**Block 1 Color Coding**
+- **Primary color**: Blue (collaboration and sharing theme)
+- See Week 1 for complete visual design guidelines
+
+---
+
+### APPENDIX I: Quality Checklist
+
+**Content Quality**
+- [ ] Slide type clearly identified
+- [ ] Key Thesis established in metadata
+- [ ] Learning objectives are action-oriented
+
+**Documentation Quality**
+- [ ] Speaker notes provide full script
+- [ ] PR workflow steps are clear
+- [ ] AI documentation prompts are reusable
+
+**Week 5 Specific**
+- [ ] PR workflow demonstrated clearly
+- [ ] Documentation templates provided
+- [ ] Repository structure best practices explained
+
+---
+
 ## Version History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
+| 2.0 | 2026-01-03 | Enhanced with Key Thesis and expanded appendices | Claude |
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |

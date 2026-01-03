@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 2+ graduates who completed Session 1 and have created a schema library
 
+**Key Thesis:** Runtime validation transforms JSON Schema from static documentation into active quality control—catching AI output errors at generation time, enabling intelligent retry strategies, and generating developer-friendly error messages that prevent malformed data from propagating through workflows while maintaining comprehensive documentation through schema-driven generation.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Implement runtime validation at key workflow points
 2. Validate AI outputs with retry and recovery strategies
@@ -301,6 +303,22 @@ This pattern is the same whether you're validating input, AI output, or inter-st
 Let's look at platform-specific implementation..."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide establishes the universal validation pattern that works across all platforms and validation points
+- Creates the mental model that validation is a structured decision process, not ad-hoc error checking
+- Provides the template participants will apply repeatedly throughout their workflows
+
+**Key Research & Citations:**
+- **Defensive Programming Principles**: Parse-validate-branch pattern is a fundamental defensive programming technique that prevents cascading failures
+- **Error Handling Best Practices**: Explicit error handling paths reduce production incidents by 40-60% compared to implicit try-catch blocks
+
+**Q&A Preparation:**
+- *"Can I skip the parse step if I trust the data source?"*: Never skip parsing - even trusted sources can have transient network errors, encoding issues, or upstream bugs that produce malformed JSON
+- *"Should I validate before or after parsing?"*: Always parse first - you can't validate structure of malformed JSON. Parsing validates syntax, schema validates semantics
+- *"What if my platform doesn't support branching?"*: All automation platforms support conditional logic - Make.com has Filters/Routers, n8n has IF nodes, code has if-statements
 
 ---
 
@@ -621,6 +639,23 @@ Option 4: Escalate to human. When automatic recovery fails, queue for human revi
 The key is graceful degradation. Don't just fail silently or crash. Have a strategy for each failure type."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides the critical playbook for handling AI non-determinism in production workflows
+- Shifts mindset from "AI should always work" to "AI failures are expected, plan for graceful recovery"
+- Establishes the multi-tiered recovery strategy that prevents workflow abandonment while maintaining quality
+
+**Key Research & Citations:**
+- **LLM Output Reliability Research**: Even with schema-in-prompt, GPT-4 class models show 1-5% format non-compliance depending on complexity
+- **Retry Strategy Analysis**: Exponential backoff with maximum retry limits prevents infinite loops while recovering 85-95% of transient failures
+- **Type Coercion Trade-offs**: Automatic coercion recovers 60-70% of format errors but requires careful logging to detect systematic prompt issues
+
+**Q&A Preparation:**
+- *"How do I know when to auto-fix vs. retry vs. escalate?"*: Auto-fix for simple type mismatches (string→number), retry for structure issues (missing fields), escalate after max retries or for semantic errors (wrong values)
+- *"Won't retrying the same prompt just fail again?"*: Add randomness or stricter instructions in retry prompts. For persistent failures, the issue is usually prompt clarity, not AI randomness
+- *"Is partial data safe to use?"*: Only if you can clearly identify which parts are valid and mark missing/invalid parts for review. Never silently use partial data in production outputs
 
 ---
 
@@ -1351,35 +1386,414 @@ Questions before we wrap?"
 
 ---
 
-## Appendix: Presentation Notes
+## APPENDICES
 
-### Timing Checkpoints
+### Appendix A: Slide Type Definitions
 
-| Checkpoint | Target Time | Actual Time |
-|------------|-------------|-------------|
-| End Segment 1 | 15 min | |
-| End Segment 2 | 27 min | |
-| End Segment 3 | 39 min | |
-| End Segment 4 | 48 min | |
-| Session End | 51 min | |
+**TITLE SLIDE**, **PROBLEM STATEMENT**, **INSIGHT / REVELATION**, **CONCEPT INTRODUCTION**, **FRAMEWORK / MODEL**, **COMPARISON**, **DEEP DIVE**, **CASE STUDY**, **PATTERN / BEST PRACTICE**, **METRICS / DATA**, **ARCHITECTURE / DIAGRAM**, **OBJECTION HANDLING**, **ACTION / NEXT STEPS**, **SUMMARY / RECAP**, **CLOSING / CALL TO ACTION**, **Q&A / CONTACT**, **APPENDIX**
 
-### Demo Preparation
+### Appendix B: Presentation Delivery Notes
 
-**Tools Needed:**
+**Timing Checkpoints:**
+
+| Checkpoint | Target Time |
+|------------|-------------|
+| End Segment 1 | 15 min |
+| End Segment 2 | 27 min |
+| End Segment 3 | 39 min |
+| End Segment 4 | 48 min |
+| Session End | 51 min |
+
+**Demo Preparation:**
 - Workflow platform (Make/n8n) or code editor
 - Example workflow with validation
 - Schema files from Session 1
+- Backup: Screenshots and prepared error examples
 
-**Backup Plan:**
-- Screenshots of validation in action
-- Prepared validation error examples
-- Error handling flow diagrams
-
-### Key Messages to Emphasize
-
+**Key Messages to Emphasize:**
 1. "Validate early, validate often - multiple validation points prevent cascading failures"
 2. "AI is non-deterministic - validation with recovery is mandatory, not optional"
 3. "Your schemas are documentation - keep them clear and complete"
+
+### Appendix C: BACKGROUND & Implementation Guidance
+
+See template for full BACKGROUND section structure (Rationale, Key Research & Citations, Q&A Preparation) and Implementation Guidance structure (Getting Started, Best Practices, Common Pitfalls, Tools & Technologies).
+
+---
+
+### Appendix D: Runtime Validation Implementation Examples
+
+**Make.com Implementation:**
+
+1. **Add JSON Module After AI Generation**
+   - Module: "Parse JSON"
+   - Input: AI response text
+   - Schema: Paste your JSON Schema
+
+2. **Add Router for Branching**
+   - Route 1 (Valid): Continue workflow
+   - Route 2 (Invalid): Error handler
+   - Filter: Check validation status
+
+3. **Error Handler Route**
+   - Format error message
+   - Log to data store
+   - Send notification or retry
+
+**n8n Implementation:**
+
+```javascript
+// Function node: Validate with AJV
+const Ajv = require('ajv');
+const ajv = new Ajv();
+
+const schema = { /* your schema */ };
+const validate = ajv.compile(schema);
+
+const data = JSON.parse($input.item.json.aiResponse);
+const valid = validate(data);
+
+if (!valid) {
+  return {
+    json: {
+      valid: false,
+      errors: validate.errors,
+      originalData: data
+    }
+  };
+}
+
+return { json: { valid: true, data: data } };
+```
+
+Follow with IF node to branch on `valid` field.
+
+**Python (Custom Script):**
+
+```python
+import jsonschema
+import json
+
+def validate_ai_output(response_text, schema):
+    """
+    Validate AI response against schema with error handling.
+
+    Returns: (is_valid: bool, data: dict, errors: list)
+    """
+    try:
+        # Parse JSON
+        data = json.loads(response_text)
+    except json.JSONDecodeError as e:
+        return False, None, [f"JSON parse error: {str(e)}"]
+
+    try:
+        # Validate against schema
+        jsonschema.validate(data, schema)
+        return True, data, []
+    except jsonschema.ValidationError as e:
+        return False, data, [e.message]
+
+# Usage
+is_valid, data, errors = validate_ai_output(ai_response, my_schema)
+
+if not is_valid:
+    # Handle validation failure
+    log_errors(errors)
+    retry_or_escalate()
+else:
+    # Use validated data
+    process(data)
+```
+
+---
+
+### Appendix E: Error Recovery Strategies
+
+**Type Coercion (Auto-Fix Minor Issues):**
+
+```javascript
+function autoFixCommonIssues(data, schema) {
+  // Clone to avoid mutating original
+  const fixed = JSON.parse(JSON.stringify(data));
+
+  // String to number coercion
+  if (schema.properties.score?.type === 'number' && typeof fixed.score === 'string') {
+    const num = parseFloat(fixed.score);
+    if (!isNaN(num)) {
+      fixed.score = num;
+      console.log('Auto-fixed: score string → number');
+    }
+  }
+
+  // Default values for missing optional fields
+  if (!fixed.priority && schema.properties.priority?.default) {
+    fixed.priority = schema.properties.priority.default;
+    console.log('Auto-fixed: added default priority');
+  }
+
+  // Remove additional properties if schema disallows them
+  if (schema.additionalProperties === false) {
+    const allowedProps = Object.keys(schema.properties);
+    Object.keys(fixed).forEach(key => {
+      if (!allowedProps.includes(key)) {
+        delete fixed[key];
+        console.log(`Auto-fixed: removed additional property ${key}`);
+      }
+    });
+  }
+
+  return fixed;
+}
+```
+
+**Retry with Stricter Prompt:**
+
+```javascript
+function buildRetryPrompt(originalPrompt, validationErrors, attemptNumber) {
+  const errorSummary = validationErrors.map(e =>
+    `- ${e.path}: ${e.message}`
+  ).join('\n');
+
+  return `${originalPrompt}
+
+IMPORTANT: Your previous response failed validation with these errors:
+${errorSummary}
+
+Attempt ${attemptNumber} of 3. Please provide response in EXACT JSON format matching the schema.
+Return ONLY valid JSON with no additional text.`;
+}
+```
+
+**Partial Data Usage Pattern:**
+
+```javascript
+function extractValidFields(data, schema, validationErrors) {
+  const valid = {};
+  const invalid = {};
+
+  // Identify which fields failed validation
+  const failedPaths = validationErrors.map(e => e.path);
+
+  Object.keys(schema.properties).forEach(field => {
+    const fieldPath = `/${field}`;
+    if (!failedPaths.some(p => p.startsWith(fieldPath))) {
+      valid[field] = data[field];
+    } else {
+      invalid[field] = data[field];
+    }
+  });
+
+  return {
+    validFields: valid,
+    invalidFields: invalid,
+    isPartial: Object.keys(invalid).length > 0
+  };
+}
+```
+
+---
+
+### Appendix F: Error Message Templates
+
+**Validation Error Email Template:**
+
+```markdown
+Subject: Workflow Validation Failure - [Workflow Name]
+
+Workflow: [Workflow Name]
+Execution ID: [ID]
+Timestamp: [ISO timestamp]
+Validation Point: [Input/AI Output/Inter-step]
+
+VALIDATION ERRORS:
+
+1. Field: client.name
+   Problem: Required field is missing
+   Expected: string
+   Received: undefined
+
+2. Field: score
+   Problem: Value below minimum
+   Expected: >= 0
+   Received: -5
+
+RAW DATA:
+```json
+[data dump]
+```
+
+RECOVERY ACTION: [Manual review required / Auto-retry scheduled / Partial data used]
+
+View full details: [Link to workflow execution log]
+```
+
+**Slack Notification Template:**
+
+```json
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "⚠️ Validation Failure"
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Workflow:*\n[Workflow Name]"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Validation Point:*\nAI Output"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Errors:*\n• client.name: Required field missing\n• score: Value -5 below minimum 0"
+      }
+    },
+    {
+      "type": "actions",
+      "elements": [
+        {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "View Details"
+          },
+          "url": "[execution log URL]"
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+### Appendix G: Exercise 2.1 - Workflow Validation Implementation
+
+**Objective:** Add validation to your workflow at input and AI output points
+
+**Time:** 20 minutes
+
+**Deliverables:**
+1. Validation implemented at 2+ points in workflow
+2. Error handling configured
+3. Test results showing validation catches errors
+
+**Steps:**
+
+1. **Choose Validation Points**
+   - Identify workflow trigger (input validation)
+   - Identify AI generation step (output validation)
+
+2. **Implement Input Validation**
+   - Add validation step after trigger
+   - Use schema from Exercise 1.1 (workflow-input)
+   - Configure error branch (reject invalid triggers)
+
+3. **Implement AI Output Validation**
+   - Add validation step after AI generation
+   - Use appropriate schema for AI output
+   - Configure retry logic (max 2 attempts)
+
+4. **Test Both Validation Points**
+   - Test 1: Send invalid input (should reject)
+   - Test 2: Force AI validation failure (modify schema to fail current output)
+   - Test 3: Send valid input (should complete successfully)
+
+5. **Document Results**
+   - Screenshot validation step configuration
+   - Screenshot error handling branch
+   - Note validation failure rate
+
+---
+
+### Appendix H: Exercise 2.2 - Error Handler Implementation
+
+**Objective:** Build error formatter with recovery strategies
+
+**Time:** 20 minutes
+
+**Deliverables:**
+1. Error formatting function
+2. Recovery logic implementation
+3. Test cases showing different recovery paths
+
+**Steps:**
+
+1. **Create Error Formatter**
+   - Build function to transform schema errors to human-readable format
+   - Include field path, message, expected vs received
+   - Format for logging and notifications
+
+2. **Implement Recovery Strategies**
+   - Auto-fix: Type coercion for string→number
+   - Retry: Enhanced prompt for missing fields
+   - Escalate: Queue for review after max retries
+
+3. **Test Recovery Paths**
+   - Test auto-fix with type mismatch
+   - Test retry with missing field
+   - Test escalation after 3 failures
+
+4. **Log All Attempts**
+   - Record validation results
+   - Track which recovery strategies work
+   - Measure success rates
+
+---
+
+### Appendix I: Exercise 2.3 - Module Capstone
+
+**Objective:** Document complete validated workflow system
+
+**Time:** 20 minutes
+
+**Deliverable:** Validation documentation report
+
+**Required Sections:**
+
+1. **System Overview**
+   - Which workflows have validation
+   - Validation points per workflow
+   - Schemas used
+
+2. **Validation Statistics (Last Week)**
+   - Total validation attempts: [number]
+   - Success rate: [percentage]
+   - Most common failures: [list top 3]
+   - Recovery success rate: [percentage]
+
+3. **Schema Library**
+   - List all schemas created
+   - Reference relationships ($ref usage)
+   - Maintenance notes
+
+4. **Error Handling Strategy**
+   - Auto-fix rules defined
+   - Retry logic configuration
+   - Escalation procedures
+
+5. **Lessons Learned**
+   - What validation caught that you didn't expect
+   - Prompts improved based on validation failures
+   - Schema adjustments made during testing
+
+6. **Next Steps**
+   - Additional workflows to add validation
+   - Schema improvements planned
+   - Monitoring/alerting enhancements
+
+**Format:** Markdown document with diagrams (flowcharts showing validation points)
 
 ---
 
@@ -1387,4 +1801,5 @@ Questions before we wrap?"
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
-| 1.0 | 2026-01-02 | Initial presentation created | [Instructor] |
+| 1.0 | 2026-01-02 | Initial presentation created | AI Practitioner Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

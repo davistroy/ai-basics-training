@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 graduates implementing professional DevOps practices for AI systems
 
+**Key Thesis:** GitHub Actions transforms AI system development from manual testing to automated validation pipelines—enabling version-controlled prompts, automated quality gates, and continuous integration workflows that catch errors before deployment, while treating prompts and AI configurations as code artifacts requiring the same rigorous version control and testing as traditional software.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Design and implement GitHub Actions workflows for AI system validation
 2. Apply version control strategies for prompts and AI configurations
@@ -501,6 +503,30 @@ We need a versioning strategy designed for AI artifacts."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Git manages code changes but lacks semantic versioning for AI artifacts
+- Prompts are content, not code - they need human-readable version identifiers
+- Multiple simultaneous versions in production require clear version tracking
+- Rollback decisions need quick version identification without parsing git history
+
+**Key Research & Citations:**
+- Semantic Versioning 2.0.0 specification provides industry-standard MAJOR.MINOR.PATCH format
+- GitHub's version management best practices emphasize human-readable version identifiers
+- MLOps versioning patterns adapted from software versioning but tailored for model/prompt artifacts
+- Version manifests pattern borrowed from package management (npm, Maven)
+
+**Q&A Preparation:**
+- *"Why not just use git tags?"*: Git tags work for releases but don't provide directory-based organization or manifest tracking. You can combine both approaches.
+- *"Isn't this overkill for small projects?"*: Even small AI projects benefit from clear version tracking when you need to rollback or compare performance across versions.
+- *"What about model versioning?"*: Same principles apply - semantic versioning works for models, prompts, configurations, and any AI artifact.
+
+**Sources:**
+- Semantic Versioning Specification: https://semver.org/
+- GitHub Versioning Best Practices: https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases
+- MLOps Version Control Patterns: https://ml-ops.org/content/model-management
+
 -----
 
 ### SLIDE 10: SEGMENT 2 - SEMANTIC VERSIONING FOR PROMPTS
@@ -568,6 +594,30 @@ The VERSION_MANIFEST.json tracks which versions are current, deprecated, or supp
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Directory-based versioning provides physical separation preventing accidental overwrites
+- Semantic versioning communicates impact of changes without reading code
+- MAJOR.MINOR.PATCH convention is universally understood by technical teams
+- Version manifests enable automated deployment validation and coordination
+
+**Key Research & Citations:**
+- Semantic Versioning (SemVer) created by Tom Preston-Werner, GitHub co-founder
+- Widely adopted across software ecosystems (npm, Python packages, Docker images)
+- AI/ML community adapted SemVer for model versioning (MLflow, Weights & Biases)
+- Directory-per-version pattern enables zero-downtime blue-green deployments
+
+**Q&A Preparation:**
+- *"When exactly should I increment MAJOR vs MINOR?"*: MAJOR when prompt structure changes break existing integrations. MINOR when you add capabilities but maintain compatibility. PATCH for bug fixes.
+- *"Do I need to keep all old versions?"*: Keep supported versions. Archive deprecated versions if needed for auditing but remove from active deployment.
+- *"How does this work with git branches?"*: Version directories live on all branches. Branch strategy determines which versions are promoted to production.
+
+**Sources:**
+- Semantic Versioning 2.0.0: https://semver.org/
+- MLflow Model Versioning: https://mlflow.org/docs/latest/model-registry.html
+- Blue-Green Deployment Patterns: https://martinfowler.com/bliki/BlueGreenDeployment.html
+
 -----
 
 ### SLIDE 11: SEGMENT 2 - VERSION MANIFEST PATTERN
@@ -631,6 +681,30 @@ These are the versions you're actively supporting. They might both be in product
 This manifest becomes part of your automated validation. When someone tries to deploy a deprecated version, the pipeline catches it."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Single source of truth prevents version confusion across team members
+- Automated validation uses manifest to block deprecated version deployments
+- Deployment coordination requires knowing which versions are production-ready
+- Manifest provides audit trail of version lifecycle (when versions were deprecated)
+
+**Key Research & Citations:**
+- Package management manifests (package.json, requirements.txt) provide proven pattern
+- Infrastructure as Code principles: version state should be declarative and version-controlled
+- JSON format enables both human readability and automated parsing
+- Timestamp tracking enables version lifecycle analysis and compliance auditing
+
+**Q&A Preparation:**
+- *"Who updates the manifest?"*: Same PR that introduces new version or deprecates old one should update manifest. Make it part of your version change checklist.
+- *"Can't this get out of sync with actual deployed versions?"*: Manifest represents intended state. Use deployment workflows to validate manifest matches deployed reality.
+- *"Should this be JSON or YAML?"*: Either works. JSON has better tooling support for validation and parsing. YAML is more human-friendly. Choose based on team preference.
+
+**Sources:**
+- Package.json specification: https://docs.npmjs.com/cli/v9/configuring-npm/package-json
+- Infrastructure as Code principles: https://www.terraform.io/docs/language/index.html
+- Version lifecycle management: https://semver.org/spec/v2.0.0.html
 
 -----
 
@@ -767,6 +841,30 @@ We test configuration - are settings consistent across environments?
 These are all deterministic checks we can automate."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- AI systems require different testing approaches than traditional software
+- Non-deterministic outputs make exact assertion testing impossible
+- Testing structure, constraints, and configuration is more valuable than testing exact outputs
+- Automated testing prevents regression as prompts evolve
+
+**Key Research & Citations:**
+- Testing Pyramid pattern (Mike Cohn) adapted for AI/ML systems
+- Google's Testing Blog: "Testing on the Toilet" series on effective test strategies
+- AI testing research emphasizes deterministic structural validation over output validation
+- Token counting libraries (tiktoken for OpenAI) enable automated constraint testing
+
+**Q&A Preparation:**
+- *"How can we test AI outputs if they're non-deterministic?"*: Test structure and constraints (token limits, required sections) rather than exact output. Use LLM-as-Judge pattern for semantic validation when needed.
+- *"Isn't this just testing the prompt file, not the AI behavior?"*: Correct - we validate artifacts (prompts, configs) not AI model behavior. Integration tests with mock responses validate workflow behavior.
+- *"What about testing actual AI quality?"*: That's evaluation (Block 3 material). Here we're testing engineering quality - syntax, structure, constraints.
+
+**Sources:**
+- The Testing Pyramid (Mike Cohn): https://martinfowler.com/articles/practical-test-pyramid.html
+- Testing AI Systems: https://developers.google.com/machine-learning/testing-debugging
+- Tiktoken (OpenAI token counter): https://github.com/openai/tiktoken
 
 -----
 
@@ -1039,6 +1137,30 @@ This might feel strict. It is. That's the point.
 Quality gates prevent 'just this once' decisions that lead to production outages."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Humans make exceptions under pressure ("just this once, we'll skip tests")
+- Automated gates enforce quality standards without emotions or fatigue
+- Coverage thresholds prevent degradation of test quality over time
+- Failed checks provide clear, objective reason to pause and fix issues
+
+**Key Research & Citations:**
+- Google's research: Code review + automated checks reduce defects by 85%
+- Coverage threshold studies show 80% as optimal balance (higher has diminishing returns)
+- GitHub Status Checks enable blocking merges based on external tool results
+- CI/CD best practices emphasize "fail fast, fail loud" for quality gates
+
+**Q&A Preparation:**
+- *"Isn't 80% coverage too strict?"*: 80% is industry standard for production systems. Lower for experimental code, higher for critical paths. Adjust based on risk.
+- *"What if there's an emergency and we need to bypass?"*: Repository administrators can override, but it's audited. Use sparingly and document why.
+- *"Do quality gates slow down development?"*: Initially yes, long-term no. They catch issues early when they're cheap to fix versus expensive production incidents.
+
+**Sources:**
+- Code Review Research (Google): https://research.google/pubs/pub47025/
+- Test Coverage Best Practices: https://martinfowler.com/bliki/TestCoverage.html
+- GitHub Required Status Checks: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches
 
 -----
 
@@ -1335,10 +1457,698 @@ Great session today. Remember: automation is your friend. The effort you invest 
 
 See you next week!"
 
------
+---
+
+## APPENDICES
+
+### Appendix A: Slide Type Definitions
+
+**TITLE SLIDE**, **PROBLEM STATEMENT**, **INSIGHT / REVELATION**, **CONCEPT INTRODUCTION**, **FRAMEWORK / MODEL**, **COMPARISON**, **DEEP DIVE**, **CASE STUDY**, **PATTERN / BEST PRACTICE**, **METRICS / DATA**, **ARCHITECTURE / DIAGRAM**, **OBJECTION HANDLING**, **ACTION / NEXT STEPS**, **SUMMARY / RECAP**, **CLOSING / CALL TO ACTION**, **Q&A / CONTACT**, **APPENDIX**
+
+### Appendix B: BACKGROUND & Implementation Guidance
+
+See template for full BACKGROUND section structure (Rationale, Key Research & Citations, Q&A Preparation) and Implementation Guidance structure (Getting Started, Best Practices, Common Pitfalls, Tools & Technologies).
+
+### Appendix C: GitHub Actions Workflow Templates
+
+**Basic Validation Workflow:**
+```yaml
+name: AI Workflow Validation
+
+on:
+  push:
+    paths:
+      - 'prompts/**'
+      - 'workflows/**'
+      - 'configs/**'
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  validate-prompts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate prompt syntax
+        run: npm run validate:prompts
+
+      - name: Check token limits
+        run: npm run check:tokens
+
+      - name: Verify required sections
+        run: npm run verify:structure
+```
+
+**Pull Request Quality Gate:**
+```yaml
+name: PR Quality Gate
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run all validations
+        run: npm run validate:all
+
+      - name: Run tests with coverage
+        run: npm run test:coverage
+
+      - name: Check coverage threshold
+        run: |
+          COVERAGE=$(cat coverage/coverage-summary.json | jq '.total.lines.pct')
+          if (( $(echo "$COVERAGE < 80" | bc -l) )); then
+            echo "❌ Coverage $COVERAGE% is below 80% threshold"
+            exit 1
+          fi
+          echo "✅ Coverage $COVERAGE% meets threshold"
+
+      - name: Comment coverage on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const coverage = require('./coverage/coverage-summary.json');
+            const pct = coverage.total.lines.pct;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `📊 Test Coverage: ${pct}%`
+            });
+```
+
+### Appendix D: Version Control Best Practices
+
+**Directory Structure Template:**
+```
+ai-workflows/
+├── prompts/
+│   ├── customer-support/
+│   │   ├── v1.0.0/
+│   │   │   ├── ticket-response.md
+│   │   │   ├── escalation-handler.md
+│   │   │   └── metadata.json
+│   │   ├── v1.1.0/
+│   │   │   └── [same structure]
+│   │   └── v2.0.0/
+│   │       └── [same structure]
+│   ├── sales-automation/
+│   │   └── v1.0.0/
+│   └── VERSION_MANIFEST.json
+├── workflows/
+│   └── [similar versioning]
+└── configs/
+    ├── development.yml
+    ├── staging.yml
+    └── production.yml
+```
+
+**VERSION_MANIFEST.json Template:**
+```json
+{
+  "manifestVersion": "1.0.0",
+  "lastUpdated": "2026-01-03T10:00:00Z",
+  "prompts": {
+    "customer-support/ticket-response": {
+      "current": "2.0.0",
+      "deprecated": ["1.0.0"],
+      "supported": ["1.1.0", "2.0.0"],
+      "deployments": {
+        "production": "1.1.0",
+        "staging": "2.0.0"
+      }
+    },
+    "customer-support/escalation-handler": {
+      "current": "1.1.0",
+      "deprecated": [],
+      "supported": ["1.0.0", "1.1.0"],
+      "deployments": {
+        "production": "1.1.0",
+        "staging": "1.1.0"
+      }
+    }
+  },
+  "workflows": {
+    "sales-automation/lead-qualification": {
+      "current": "1.0.0",
+      "deprecated": [],
+      "supported": ["1.0.0"],
+      "deployments": {
+        "production": "1.0.0",
+        "staging": "1.0.0"
+      }
+    }
+  }
+}
+```
+
+**Metadata Template for Versions:**
+```json
+{
+  "version": "2.0.0",
+  "releaseDate": "2026-01-03",
+  "author": "DevOps Team",
+  "description": "Major rewrite with multi-language support",
+  "breakingChanges": [
+    "Changed output format from plain text to structured JSON",
+    "Removed legacy {{user_name}} placeholder, use {{customer.name}} instead"
+  ],
+  "improvements": [
+    "Added support for 12 languages",
+    "Improved tone consistency",
+    "Reduced average response time by 30%"
+  ],
+  "compatibilityNotes": "Requires API version 2.x or higher",
+  "migrationGuide": "docs/migration-v1-to-v2.md"
+}
+```
+
+**Version Increment Checklist:**
+- [ ] Update version number following SemVer (MAJOR.MINOR.PATCH)
+- [ ] Create new version directory
+- [ ] Copy and modify files from previous version
+- [ ] Create metadata.json documenting changes
+- [ ] Update VERSION_MANIFEST.json
+- [ ] Update deployment documentation
+- [ ] Create migration guide if breaking changes
+- [ ] Tag git commit with version number
+- [ ] Update CHANGELOG.md
+
+### Appendix E: Testing Patterns Reference
+
+**Unit Test Examples:**
+
+**Prompt Structure Test:**
+```javascript
+// tests/prompts/customer-support.test.js
+const fs = require('fs');
+const path = require('path');
+
+describe('Customer Support Prompts', () => {
+  const promptPath = 'prompts/customer-support/v2.0.0/ticket-response.md';
+  let promptContent;
+
+  beforeAll(() => {
+    promptContent = fs.readFileSync(promptPath, 'utf8');
+  });
+
+  describe('Required Sections', () => {
+    test('should have System Context section', () => {
+      expect(promptContent).toMatch(/## System Context/);
+    });
+
+    test('should have Instructions section', () => {
+      expect(promptContent).toMatch(/## Instructions/);
+    });
+
+    test('should have Output Format section', () => {
+      expect(promptContent).toMatch(/## Output Format/);
+    });
+
+    test('should have Examples section', () => {
+      expect(promptContent).toMatch(/## Examples/);
+    });
+  });
+
+  describe('Token Limits', () => {
+    test('should be within 4000 token limit', () => {
+      const tokenCount = estimateTokens(promptContent);
+      expect(tokenCount).toBeLessThan(4000);
+    });
+  });
+
+  describe('Variable Placeholders', () => {
+    test('should use valid placeholder syntax', () => {
+      const placeholders = promptContent.match(/\{\{([^}]+)\}\}/g) || [];
+      const validPlaceholders = [
+        '{{customer.name}}',
+        '{{customer.email}}',
+        '{{ticket.id}}',
+        '{{ticket.description}}',
+        '{{ticket.priority}}'
+      ];
+
+      placeholders.forEach(placeholder => {
+        expect(validPlaceholders).toContain(placeholder);
+      });
+    });
+
+    test('should not have undefined placeholders', () => {
+      expect(promptContent).not.toMatch(/\{\{undefined\}\}/);
+      expect(promptContent).not.toMatch(/\{\{null\}\}/);
+    });
+  });
+});
+```
+
+**Configuration Consistency Test:**
+```javascript
+// tests/configs/consistency.test.js
+const yaml = require('js-yaml');
+const fs = require('fs');
+
+describe('Configuration Consistency', () => {
+  let devConfig, stagingConfig, prodConfig;
+
+  beforeAll(() => {
+    devConfig = yaml.load(fs.readFileSync('configs/development.yml', 'utf8'));
+    stagingConfig = yaml.load(fs.readFileSync('configs/staging.yml', 'utf8'));
+    prodConfig = yaml.load(fs.readFileSync('configs/production.yml', 'utf8'));
+  });
+
+  test('all configs should have same structure', () => {
+    const devKeys = Object.keys(devConfig).sort();
+    const stagingKeys = Object.keys(stagingConfig).sort();
+    const prodKeys = Object.keys(prodConfig).sort();
+
+    expect(devKeys).toEqual(stagingKeys);
+    expect(devKeys).toEqual(prodKeys);
+  });
+
+  test('production should use gpt-4 model', () => {
+    expect(prodConfig.ai.model).toBe('gpt-4');
+  });
+
+  test('production rate limits should be higher than staging', () => {
+    expect(prodConfig.rate_limits.requests_per_minute)
+      .toBeGreaterThan(stagingConfig.rate_limits.requests_per_minute);
+  });
+
+  test('no API keys in configuration files', () => {
+    const configString = JSON.stringify(prodConfig);
+    expect(configString).not.toMatch(/sk-[a-zA-Z0-9]+/); // OpenAI key pattern
+    expect(configString).not.toMatch(/api[_-]?key.*:\s*["'][^"']+["']/i);
+  });
+});
+```
+
+**Integration Test Example:**
+```javascript
+// tests/integration/workflow.test.js
+describe('Ticket Response Workflow Integration', () => {
+  test('should generate valid response with real prompt structure', async () => {
+    const workflow = new TicketResponseWorkflow({
+      promptVersion: '2.0.0',
+      mockAI: true // Use mock instead of real API
+    });
+
+    const ticket = {
+      id: 'TICKET-123',
+      description: 'Cannot log in to account',
+      priority: 'high',
+      customer: {
+        name: 'Jane Doe',
+        email: 'jane@example.com'
+      }
+    };
+
+    const response = await workflow.process(ticket);
+
+    // Verify structure
+    expect(response).toHaveProperty('response_text');
+    expect(response).toHaveProperty('sentiment');
+    expect(response).toHaveProperty('suggested_actions');
+
+    // Verify content
+    expect(response.response_text).toContain('Jane');
+    expect(response.response_text.length).toBeGreaterThan(50);
+
+    // Verify actions
+    expect(Array.isArray(response.suggested_actions)).toBe(true);
+  });
+});
+```
+
+**Coverage Configuration (.nycrc.json):**
+```json
+{
+  "all": true,
+  "check-coverage": true,
+  "lines": 80,
+  "statements": 80,
+  "functions": 80,
+  "branches": 75,
+  "include": [
+    "src/**/*.js",
+    "prompts/**/*.js",
+    "workflows/**/*.js"
+  ],
+  "exclude": [
+    "tests/**",
+    "coverage/**",
+    "node_modules/**"
+  ],
+  "reporter": [
+    "text",
+    "html",
+    "json-summary"
+  ]
+}
+```
+
+### Appendix F: Troubleshooting Guide
+
+**Common Issues and Solutions:**
+
+**Issue: GitHub Actions workflow not triggering**
+- **Symptom**: Pushed commit but workflow didn't run
+- **Diagnosis**:
+  - Check workflow file is in `.github/workflows/` directory
+  - Verify YAML syntax is valid (use YAML linter)
+  - Confirm trigger paths match changed files
+  - Check if workflow is disabled in repository settings
+- **Solution**:
+  ```yaml
+  # Ensure trigger paths are correct
+  on:
+    push:
+      paths:
+        - 'prompts/**'  # Must match actual directory structure
+  ```
+
+**Issue: Tests passing locally but failing in GitHub Actions**
+- **Symptom**: `npm test` works locally, fails in CI
+- **Diagnosis**:
+  - Environment differences (Node version, OS)
+  - Missing environment variables
+  - Absolute vs relative path issues
+  - Timing/race conditions
+- **Solution**:
+  ```yaml
+  # Pin Node version to match local
+  - uses: actions/setup-node@v4
+    with:
+      node-version: '20.x'  # Match your local version
+
+  # Install exact dependencies
+  - run: npm ci  # Use ci instead of install for reproducibility
+  ```
+
+**Issue: Coverage reporting fails**
+- **Symptom**: Coverage check step fails or shows 0%
+- **Diagnosis**:
+  - Coverage tool not installed
+  - Wrong coverage file path
+  - Tests not generating coverage
+- **Solution**:
+  ```yaml
+  # Generate coverage explicitly
+  - name: Run tests with coverage
+    run: npm run test -- --coverage
+
+  # Verify coverage file exists
+  - name: Check coverage exists
+    run: |
+      if [ ! -f coverage/coverage-summary.json ]; then
+        echo "Coverage file not found"
+        exit 1
+      fi
+  ```
+
+**Issue: Token counting inaccurate**
+- **Symptom**: Token count differs from actual API usage
+- **Diagnosis**:
+  - Using wrong tokenizer for model
+  - Not accounting for message formatting
+  - Special characters being counted incorrectly
+- **Solution**:
+  ```javascript
+  // Use model-specific tokenizer
+  const { encoding_for_model } = require('tiktoken');
+  const encoding = encoding_for_model('gpt-4');
+  const tokens = encoding.encode(promptContent);
+  const count = tokens.length;
+  encoding.free(); // Important: free memory
+  ```
+
+**Issue: Version manifest validation failing**
+- **Symptom**: Deployment blocked due to manifest errors
+- **Diagnosis**:
+  - Manifest JSON syntax error
+  - Referenced version doesn't exist in filesystem
+  - Deployment environment not defined
+- **Solution**:
+  ```javascript
+  // Validation script
+  const manifest = require('./prompts/VERSION_MANIFEST.json');
+  const fs = require('fs');
+
+  Object.entries(manifest.prompts).forEach(([promptPath, versionInfo]) => {
+    versionInfo.supported.forEach(version => {
+      const path = `prompts/${promptPath}/v${version}`;
+      if (!fs.existsSync(path)) {
+        throw new Error(`Version ${version} declared in manifest but directory not found: ${path}`);
+      }
+    });
+  });
+  ```
+
+**Issue: Secrets not available in workflow**
+- **Symptom**: `${{ secrets.SECRET_NAME }}` is empty
+- **Diagnosis**:
+  - Secret not configured in repository/environment
+  - Wrong environment specified
+  - Typo in secret name (case-sensitive)
+- **Solution**:
+  ```yaml
+  # Specify environment explicitly
+  jobs:
+    deploy:
+      environment: production  # Required for environment secrets
+      steps:
+        - name: Use secret
+          env:
+            API_KEY: ${{ secrets.AI_API_KEY }}  # Exact case
+          run: |
+            if [ -z "$API_KEY" ]; then
+              echo "Secret not found - check environment and secret name"
+              exit 1
+            fi
+  ```
+
+### Appendix G: Security Checklist
+
+**Pre-Deployment Security Review:**
+
+**Secrets & Credentials:**
+- [ ] No API keys in code or configuration files
+- [ ] All secrets stored in GitHub Secrets
+- [ ] Production secrets use environment-specific scoping
+- [ ] Secret rotation procedure documented
+- [ ] No secrets in git history (check with `git log -p | grep -i 'api[_-]key'`)
+
+**Code Scanning:**
+- [ ] GitHub Advanced Security enabled (if available)
+- [ ] Dependabot alerts reviewed and addressed
+- [ ] No vulnerable dependencies (run `npm audit`)
+- [ ] Code scanning alerts reviewed
+- [ ] Secret scanning enabled
+
+**Access Control:**
+- [ ] Branch protection enabled on main/develop
+- [ ] Required reviews configured (minimum 1)
+- [ ] Direct pushes to main blocked
+- [ ] Only authorized users can approve production deployments
+- [ ] Repository permissions follow least-privilege principle
+
+**Workflow Security:**
+- [ ] Workflows use pinned action versions (`actions/checkout@v4` not `@main`)
+- [ ] Third-party actions reviewed for security
+- [ ] Workflow permissions follow least-privilege
+- [ ] `pull_request_target` used carefully (security risk if misused)
+- [ ] No `script` injection vulnerabilities in workflows
+
+**Data Protection:**
+- [ ] No PII (Personally Identifiable Information) in prompts or logs
+- [ ] Customer data not logged in workflows
+- [ ] Test data is synthetic/anonymized
+- [ ] Compliance requirements documented (GDPR, HIPAA, etc.)
+
+**Network Security:**
+- [ ] API endpoints use HTTPS only
+- [ ] Rate limiting configured
+- [ ] IP allowlisting considered for production APIs
+- [ ] Webhook signatures verified
+
+**Audit Trail:**
+- [ ] All production deployments require approval (audited)
+- [ ] Version changes tracked in git history
+- [ ] ACCESS_LOG for secret access reviewed regularly
+- [ ] Failed deployment attempts monitored
+
+**Incident Response:**
+- [ ] Rollback procedure documented and tested
+- [ ] Incident response runbook exists
+- [ ] On-call rotation defined
+- [ ] Security incident reporting process documented
+
+### Appendix H: Branch Protection Configuration
+
+**Recommended Settings for Main Branch:**
+
+**Branch Protection Rules (via GitHub UI):**
+1. Navigate to: Settings → Branches → Add Rule
+2. Branch name pattern: `main`
+3. Configure:
+
+**Require pull request before merging:**
+- ✅ Require approvals: 1
+- ✅ Dismiss stale pull request approvals when new commits are pushed
+- ✅ Require review from Code Owners (if CODEOWNERS file exists)
+
+**Require status checks before merging:**
+- ✅ Require status checks to pass before merging
+- ✅ Require branches to be up to date before merging
+- Required checks:
+  - `validate-prompts`
+  - `unit-tests`
+  - `integration-tests`
+  - `coverage-check`
+
+**Require conversation resolution before merging:**
+- ✅ All conversations must be resolved
+
+**Require signed commits:**
+- Consider enabling for high-security projects
+
+**Require linear history:**
+- ✅ Prevent merge commits (enforce rebase or squash)
+
+**Restrict who can push to matching branches:**
+- ✅ Restrict pushes that create matching branches
+- ✅ Add repository administrators as exception (for emergencies)
+
+**Rules applied to administrators:**
+- ✅ Include administrators (recommended - no one bypasses)
+
+**Alternative (via API):**
+```bash
+# Configure branch protection via GitHub API
+curl -X PUT \
+  -H "Authorization: token YOUR_TOKEN" \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/repos/OWNER/REPO/branches/main/protection \
+  -d '{
+    "required_status_checks": {
+      "strict": true,
+      "contexts": ["validate-prompts", "unit-tests", "integration-tests"]
+    },
+    "enforce_admins": true,
+    "required_pull_request_reviews": {
+      "dismissal_restrictions": {},
+      "dismiss_stale_reviews": true,
+      "require_code_owner_reviews": false,
+      "required_approving_review_count": 1
+    },
+    "restrictions": null,
+    "required_linear_history": true,
+    "allow_force_pushes": false,
+    "allow_deletions": false
+  }'
+```
+
+### Appendix I: Performance Optimization
+
+**Workflow Optimization Strategies:**
+
+**1. Cache Dependencies:**
+```yaml
+- name: Cache node modules
+  uses: actions/cache@v4
+  with:
+    path: ~/.npm
+    key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+    restore-keys: |
+      ${{ runner.os }}-node-
+```
+
+**2. Run Jobs in Parallel:**
+```yaml
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps: [...]
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps: [...]  # Runs parallel to validate
+
+  integration-tests:
+    needs: [validate, unit-tests]  # Runs after both complete
+    steps: [...]
+```
+
+**3. Matrix Testing:**
+```yaml
+jobs:
+  test:
+    strategy:
+      matrix:
+        node-version: [18, 20]
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+```
+
+**4. Fail Fast:**
+```yaml
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Quick syntax check
+        run: npm run lint:quick  # Fast check first
+
+      - name: Full validation
+        if: success()
+        run: npm run validate:all  # Comprehensive check only if quick check passes
+```
+
+**5. Conditional Job Execution:**
+```yaml
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps: [...]  # Only runs on main branch pushes
+```
+
+**Performance Benchmarks:**
+- Validation workflow: < 2 minutes
+- Full test suite: < 5 minutes
+- Deployment to staging: < 3 minutes
+- Complete pipeline (commit to staging): < 10 minutes
+
+**Optimization Checklist:**
+- [ ] Dependencies cached
+- [ ] Independent jobs run in parallel
+- [ ] Fast checks run before slow ones
+- [ ] Matrix builds used for cross-platform testing
+- [ ] Conditional execution prevents unnecessary runs
+- [ ] Artifacts used to share data between jobs (not re-computing)
+
+---
 
 ## Version History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
-| 1.0 | 2026-01-02 | Initial presentation created | Claude |
+| 1.0 | 2026-01-02 | Initial presentation created | AI Practitioner Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

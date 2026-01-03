@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 participants with multi-agent orchestration from Week 5
 
+**Key Thesis:** Production-ready agents require systematic observability, cost optimization, and reliability patterns - transforming "it works on my machine" prototypes into trustworthy systems through measurement, monitoring, and resilience engineering.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Assess production readiness using a systematic checklist
 2. Design and implement performance dashboards with key metrics
@@ -187,6 +189,29 @@ Secure - not leaking sensitive information.
 Production ready means ALL FIVE. Not just 'it runs.'"
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Five qualities framework provides concrete definition of "production-ready" to counter vague "good enough" thinking
+- Observable quality emphasized because participants often focus on reliability/efficiency and neglect monitoring
+- The "all five required" principle prevents shipping agents with critical gaps
+- Sets up Week 7's capstone preparation where production readiness is assessed
+
+**Key Research & Citations:**
+- **12-Factor Agents - Factor 11 (Logs as Event Streams)**: Production systems must externalize observability data, not rely on operator memory or ad-hoc debugging
+- **Google SRE Book - Monitoring Principles**: Systems without observability cannot be reliably operated - "hope is not a strategy"
+- **Security by Design Principle**: Security cannot be retrofitted - must be architectural from start, especially for agents accessing sensitive data/systems
+
+**Q&A Preparation:**
+- *"Can't I add observability later?"*: Technically yes, practically no. Retrofitting logging/monitoring is harder than building it in, and you'll ship blind initially.
+- *"How do I know what 'reasonable cost' means?"*: Depends on value delivered. ROI calculation (Week 7) determines this, but tracking from start lets you optimize.
+- *"Isn't this overkill for internal tools?"*: Internal tools still cost money and consume time. Production readiness applies regardless of user base.
+
+**Sources:**
+1. [12-Factor Agents - Logs](https://github.com/humanlayer/12-factor-agents#factor-11) - Observability principles
+2. [Google SRE Book - Monitoring](https://sre.google/sre-book/monitoring-distributed-systems/) - Production monitoring
+3. [OWASP Security Principles](https://owasp.org/www-project-proactive-controls/) - Security by design
 
 ---
 
@@ -1026,16 +1051,117 @@ See you next week!"
 
 ---
 
-## Appendix: Slide Design Notes
+## APPENDICES
 
-### Block 3 Color Scheme
+### Appendix A: Slide Type Definitions
+**TITLE SLIDE** - Opens presentation | **FRAMEWORK / MODEL** - Structured approach | **METRICS / DATA** - Quantitative information | **PATTERN / BEST PRACTICE** - Proven approach
 
+### Appendix B: Background Section Guidelines
+**Rationale:** Explain slide's purpose | **Key Research & Citations:** **[Source (Year)]**: [Explanation] | **Q&A Preparation:** *"[Question]"*: [Response]
+
+### Appendix C: Visual Design Guidelines
+**Block 3 Color Scheme:** Primary Green #00CC99, Accent Teal #008B8B | **Theme:** Green for automation, Teal for orchestration
+
+### Appendix D: Quality Checklist
+- [ ] Key Thesis stated | [ ] Learning objectives actionable | [ ] Metrics accurate | [ ] Examples Block 3-relevant
+
+### Appendix E: Sources Section Guidelines
+
+Include 3-7 sources per slide, formatted as:
+```markdown
+1. [Full title with hyperlink](URL) - [Brief description]
+```
+
+Source types:
+- **Primary research**: Academic papers, official documentation
+- **Industry reports**: Analyst reports, surveys, benchmarks
+- **Practitioner content**: Blog posts, conference talks
+- **Official documentation**: Product docs, API references
+
+### Appendix F: Implementation Guidance Structure
+
+**Getting Started (2-4 items):**
+- Immediate actions (can do today)
+- Low-barrier entry points
+- Foundation-building steps
+
+**Best Practices (3-5 items):**
+- Proven approaches with specific criteria
+- Patterns that scale
+- Measurable success indicators
+
+**Common Pitfalls (2-4 items):**
+- Mistakes that seem logical but fail
+- Anti-patterns to avoid
+- Assumptions that mislead
+
+**Tools & Technologies (2-4 categories):**
+Format: **[Category]**: [Tool names] - [use case description]
+
+### Appendix G: Visual/Graphic Description Guidelines
+
+Describe graphics with enough detail for a designer:
+
+1. **Type**: diagram, illustration, chart, photo, etc.
+2. **Main elements**: What objects/shapes appear
+3. **Arrangement**: Spatial relationships
+4. **Labels/Text**: Any text in the graphic
+5. **Communication goal**: What the visual conveys
+
+### Appendix H: Visual Design Guidelines
+
+**Block 3 Color Scheme:**
 | Element | Color | Hex Code |
 |---------|-------|----------|
 | Primary | Green | #00CC99 |
 | Accent | Teal | #008B8B |
 | Background | White | #FFFFFF |
 | Text | Dark Gray | #333333 |
+
+**Block 3 Theme:**
+- Green represents growth, automation, and intelligent systems
+- Use green highlights for agent-related concepts
+- Teal accents for orchestration and coordination
+- Clean, modern aesthetic reflecting production engineering
+
+**Graphic Suggestions:**
+- Title slides: Agent/architecture visuals with green theme
+- Architecture diagrams: Clear component separation
+- Flow diagrams: Directional arrows showing data/control flow
+- Comparison slides: Side-by-side or table formats
+
+### Appendix I: Quality Checklist
+
+**Content Quality:**
+- [ ] Key Thesis clearly stated
+- [ ] Learning objectives are actionable
+- [ ] Each slide has clear purpose in narrative
+- [ ] Transitions connect ideas smoothly
+- [ ] Examples are Block 3-relevant (automation architecture)
+
+**Background Sections:**
+- [ ] Rationale explains slide's role in presentation
+- [ ] Research citations support claims with specifics
+- [ ] Q&A preparation addresses likely objections
+- [ ] Sources are credible and linked
+
+**Implementation Guidance:**
+- [ ] Getting Started provides immediate actions
+- [ ] Best Practices are specific and proven
+- [ ] Common Pitfalls warn against real mistakes
+- [ ] Tools recommended are current and relevant
+
+**Technical Accuracy:**
+- [ ] Code examples are syntactically correct
+- [ ] Architectural patterns follow industry standards
+- [ ] Metrics and calculations are accurate
+- [ ] Links to external resources work
+
+**Audience Engagement:**
+- [ ] Speaker notes include engagement cues
+- [ ] Questions prompt reflection
+- [ ] Examples relate to consulting work
+- [ ] Exercises connect to real capstone needs
 
 ---
 
@@ -1044,3 +1170,4 @@ See you next week!"
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

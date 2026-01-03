@@ -8,6 +8,8 @@
 
 **Target Audience:** Participants preparing for Block 1 capstone evaluation
 
+**Key Thesis:** Completion is not perfection—the capstone evaluates practical application and systematic thinking, not flawless execution, making thoughtful documentation of your learning journey as valuable as the templates themselves.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Understand all capstone requirements
 2. Know the quality bar for templates
@@ -222,6 +224,24 @@ Practical application - is there evidence of real use?
 Total of 30 points possible."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Makes evaluation transparent and reduces anxiety about "will I pass?"
+- Six dimensions provide clear action items participants can verify before submission
+- Equal weighting (5 points each) signals that all dimensions matter equally
+- The "what it measures" column clarifies the intent behind each criterion, preventing misinterpretation
+
+**Key Research & Citations:**
+- **Transparent Assessment Research (Educational Psychology)**: Studies show that when learners understand evaluation criteria upfront, performance improves by 20-30% compared to opaque assessment. Transparency reduces anxiety and enables self-directed improvement.
+- **Rubric Design Principles**: Breaking total score into multiple weighted criteria provides more actionable feedback than single holistic score. If someone scores low on "repository organization" but high elsewhere, they know exactly what to improve.
+- **Formative Assessment Theory**: The capstone is summative (final evaluation), but presenting criteria in Week 7 makes it formative—participants have one week to address gaps. This improves both scores and actual learning.
+
+**Q&A Preparation:**
+- *"Can I see example capstones from previous cohorts?"*: We don't provide examples to avoid template copying. The rubric defines quality—your work should reflect YOUR tasks and preferences, not someone else's. Authentic work scores better than imitation.
+- *"What if I'm strong in some areas but weak in others?"*: That's normal and expected. The 60% passing threshold (18/30) allows for varied strengths. Focus effort on your weakest criterion—raising a 2 to a 4 (+2 points) is easier than raising a 4 to a 5 (+1 point).
+- *"How strict is the grading?"*: Grading is criterion-referenced, not norm-referenced. If your work meets the criterion description for "4", you get 4 points regardless of how others perform. Quality standards are fixed, not curved.
 
 ---
 
@@ -459,6 +479,24 @@ Low frequency, low time - optional. Don't bother unless it's easy."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- Introduces strategic thinking tool that connects Block 1 skills to real-world ROI
+- The 2x2 matrix is familiar from business strategy frameworks (Eisenhower Matrix, BCG Matrix), making it immediately accessible
+- Quantifying automation opportunity (frequency × time) converts subjective "this seems tedious" into objective prioritization
+- This positions Block 1 as strategic investment, not just skill acquisition—elevates participant perspective
+
+**Key Research & Citations:**
+- **Eisenhower Matrix / Priority Matrix Theory**: The frequency-vs-time matrix is variant of urgent-important prioritization. Research shows that explicitly scoring and plotting tasks increases follow-through on high-value activities by 40-50% versus informal prioritization.
+- **ROI Calculation for Automation**: Formula is: (Time saved per instance × Frequency per year) × (Years of use). A 30-minute weekly task saved for 2 years = 52 hours. Even 10 hours to automate yields 5:1 ROI.
+- **Automation Opportunity Research (McKinsey)**: Studies show that 60-70% of automation value comes from 20-30% of use cases. The task matrix identifies that high-value 20%—not everything should be automated, but the right things should.
+
+**Q&A Preparation:**
+- *"How do I estimate frequency and time accurately?"*: Don't overthink precision. Use ranges: 1=rare, 3=weekly, 5=daily. 1=minutes, 3=30min-hour, 5=multi-hour. Rough estimates are sufficient for prioritization—you're finding the 25s (high-high), not precisely ranking 12 vs 15.
+- *"What if I don't have templates for my highest-scoring tasks yet?"*: Perfect—that identifies your biggest opportunity. Those become your next templates to build. The matrix shows where effort yields maximum return.
+- *"Isn't this just for my own work? How does it help the capstone?"*: The matrix demonstrates practical application (#6 criterion). It shows you're not randomly making templates—you're strategically targeting high-value automation opportunities. That's practitioner-level thinking.
+
 ---
 
 ### SLIDE 11: CREATING YOUR MATRIX
@@ -688,8 +726,122 @@ Congratulations on reaching Week 7. Finish strong. See your results next week."
 
 ---
 
+## APPENDICES
+
+### APPENDIX A: Slide Type Definitions
+
+(See Week 1 presentation for complete slide type reference - consistent across all weeks)
+
+Key slide types used in Week 7:
+- **FRAMEWORK / MODEL**: Capstone components (Slide 4)
+- **ASSESSMENT**: Evaluation criteria (Slide 5)
+- **SCORING GUIDE**: Performance levels (Slide 6)
+- **CHECKLIST**: Template completion (Slide 7)
+- **STRATEGIC TOOL**: Task priority matrix (Slides 10-12)
+
+---
+
+### APPENDIX B: Content Element Formats
+
+(Standard formatting conventions apply - see Week 1 for complete reference)
+
+---
+
+### APPENDIX C: Speaker Notes Conventions
+
+(Standard stage directions and transitions - see Week 1 for complete reference)
+
+---
+
+### APPENDIX D: Background Section Guidelines
+
+**Rationale (3-5 bullets)**
+- Explain the slide's purpose in the narrative arc
+
+**Key Research & Citations (3-5 entries)**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+
+**Q&A Preparation (3-5 questions)**
+Format: *"[Question]"*: [Response]
+
+---
+
+### APPENDIX E: Sources Section Guidelines
+
+**Purpose:**
+Provide consistent structure for citing research, studies, and best practices in BACKGROUND sections.
+
+**Format:**
+```markdown
+**Key Research & Citations (3-5 entries)**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+```
+
+**Guidelines:**
+- Use recognizable authorities (research institutions, major studies, established frameworks)
+- Include years for temporal context
+- Explain how research supports pedagogical claims, don't just cite
+- Include methodology when relevant for credibility
+
+---
+
+### APPENDIX F: Implementation Guidance Structure
+
+**Purpose:**
+Ensure every technique slide includes actionable guidance participants can apply immediately.
+
+**Required Components:**
+1. Pattern/Template with clear placeholders
+2. Example Application showing pattern in use
+3. Why It Works (mechanism explanation)
+4. When to Use / When Not to Use (application guidance)
+
+---
+
+### APPENDIX G: Visual/Graphic Description Guidelines
+
+**Purpose:**
+Ensure GRAPHICS sections provide sufficient detail for designers to create effective visuals without seeing examples.
+
+**Required Elements:**
+1. Purpose: What pedagogical function this graphic serves
+2. Type: Diagram/Chart/Comparison/Flow with specific style notes
+3. Elements: Detailed list of visual components, layout, visual hierarchy
+4. Labels: All text that appears in graphic with placement notes
+5. Relationships: How elements connect, flow direction, visual emphasis
+
+**Quality Test:**
+Could a designer who has never seen this presentation create an effective visual from this description alone?
+
+---
+
+### APPENDIX H: Visual Design Guidelines
+
+**Block 1 Color Coding**
+- **Primary color**: Blue (completion and achievement theme)
+- See Week 1 for complete visual design guidelines
+
+---
+
+### APPENDIX I: Quality Checklist
+
+**Content Quality**
+- [ ] Slide type clearly identified
+- [ ] Key Thesis established in metadata
+- [ ] Capstone requirements are clear
+
+**Week 7 Specific**
+- [ ] Capstone components clearly listed
+- [ ] Evaluation criteria explained with point values
+- [ ] Scoring guide shows all performance levels
+- [ ] Task priority matrix instructions are complete
+- [ ] Completion focus emphasized over perfection
+
+---
+
 ## Version History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
+| 2.0 | 2026-01-03 | Enhanced with Key Thesis and expanded appendices | Claude |
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |

@@ -2,7 +2,7 @@
 TEMPLATE: Weekly PowerPoint Presentation
 PURPOSE: Standardized structure for creating weekly session PowerPoint presentations
 USAGE: Copy this file and replace [BRACKETED] placeholders with your content.
-LAST UPDATED: 2026-01-01
+LAST UPDATED: 2026-01-03
 -->
 
 # Weekly PowerPoint Presentation Template
@@ -14,6 +14,20 @@ LAST UPDATED: 2026-01-01
 ## Template Overview
 
 This template provides a standardized structure for creating weekly session PowerPoint presentations for the AI Practitioner Training program. Each weekly presentation follows a consistent format designed for 45-minute live sessions delivered via MS Teams.
+
+---
+
+## Template Structure Overview
+
+Each slide definition contains the following major sections:
+
+1. **Slide Header** - Basic identification and classification
+2. **Content** - The visible slide content
+3. **Graphic/Visual** - Description of visual elements
+4. **Speaker Notes** - What the presenter says
+5. **Background** - Research and rationale
+6. **Sources** - Citations and references
+7. **Implementation Guidance** - Practical application advice
 
 ---
 
@@ -29,6 +43,8 @@ This template provides a standardized structure for creating weekly session Powe
 **Delivery Format:** Live MS Teams workshop
 
 **Target Audience:** [Description - e.g., "Consultants with Block 1 certification"]
+
+**Key Thesis:** [One sentence summary of the main argument of this week's session]
 
 **Week Learning Objectives:** By the end of this session, participants will:
 1. [Objective 1 - specific, measurable skill or knowledge]
@@ -59,6 +75,115 @@ This template provides a standardized structure for creating weekly session Powe
 
 ---
 
+## SLIDE TEMPLATE
+
+```markdown
+---
+
+## **SLIDE [NUMBER]: [SLIDE TYPE]**
+
+**Title**: [Main title displayed on slide - concise, impactful, typically 3-8 words]
+
+**Subtitle**: [Optional secondary title providing context or framing - used primarily on title slides]
+
+**Content**:
+[The main body content displayed on the slide. Can include any combination of:]
+
+- Bullet points for key concepts
+- Numbered lists for sequential items
+- Bold text for emphasis on key terms
+- Tables for comparative data
+- Code blocks for technical examples
+- Callout quotes for memorable statements
+
+**[CONTENT SUBSECTION LABEL]**: [Optional labeled sections within content]
+[Use section labels like "Key Principle:", "Bad Example:", "Good Example:", "The Pattern:", etc.]
+
+**Graphic**: [Detailed description of the visual element to accompany the slide. Include:]
+- Type of graphic (diagram, illustration, chart, photo, icon grid, etc.)
+- Key visual elements and their arrangement
+- Labels and callouts to include
+- Color or styling guidance if relevant
+- What the visual should communicate
+
+**SPEAKER NOTES**:
+
+[OPENING MARKER - e.g., "[OPENING - Establish credibility]" or "[Hook - Create tension]"]
+
+"[Opening statement or question to engage audience]
+
+[Main talking points written as natural speech, including:]
+- Direct quotes the presenter will say
+- [Stage directions in brackets for actions, pauses, gestures]
+- [Point to X] references to visual elements
+- [Pause] or [Let that land] for dramatic effect
+- [Personal story - adjust to your context] placeholders for customization
+- Rhetorical questions to engage audience
+- [Light humor] markers for appropriate levity
+
+[Transition cue to next slide]"
+
+[Transition marker: "[Transition]" or "[Transition: Click to next slide]"]
+
+"[Bridge statement connecting to next topic]..."
+
+**BACKGROUND:**
+
+**Rationale:**
+- [Why this slide exists in the presentation flow]
+- [What mental shift or understanding it creates for the audience]
+- [How it builds on previous slides or sets up subsequent ones]
+- [Why the chosen framing/analogy/approach is effective]
+
+**Key Research & Citations:**
+- **[Source/Study Name (Year)]**: [Detailed explanation of the research finding, methodology if relevant, and specific data points. Include exact statistics, percentages, or quotes when available.]
+- **[Framework/Methodology Name]**: [How this established framework supports the slide's content, with specific principle or factor references.]
+- **[Industry/Expert Source]**: [Practitioner insights or industry data that validates the slide's claims.]
+
+**Q&A Preparation:**
+- *"[Anticipated question in quotes]"*: [Concise, confident response that addresses the concern while reinforcing the presentation's thesis.]
+- *"[Another likely question]"*: [Response with specific data or examples when possible.]
+- *"[Potential objection or pushback]"*: [Reframe that acknowledges the concern while redirecting to the key message.]
+
+**Sources:**
+1. [Full source citation with hyperlink] - [Brief description of what this source provides]
+2. [Full source citation with hyperlink] - [Brief description]
+3. [Full source citation with hyperlink] - [Brief description]
+
+**IMPLEMENTATION GUIDANCE:**
+
+**Getting Started:**
+- [First concrete action the audience can take immediately]
+- [Second low-barrier entry point for implementation]
+- [Third foundational step to establish before advancing]
+
+**Best Practices:**
+- [Proven approach that leads to success]
+- [Specific technique with measurable criteria]
+- [Pattern that scales well or handles edge cases]
+- [Guidance on sequencing or prioritization]
+
+**Common Pitfalls:**
+- [Frequent mistake that undermines success]
+- [Anti-pattern that seems logical but fails in practice]
+- [Assumption that leads teams astray]
+
+**Tools & Technologies:**
+- **[Category]**: [Tool names] - [brief description of use case]
+- **[Category]**: [Tool names] - [brief description]
+
+**Pseudocode Pattern - [Pattern Name]:** [Optional - include when slide introduces a technical pattern]
+```python
+# [Descriptive comment explaining the pattern]
+[Code example that illustrates the concept]
+[Include comments explaining key decisions]
+```
+
+---
+```
+
+---
+
 ## Slide Definitions
 
 ### SLIDE 1: TITLE SLIDE
@@ -79,7 +204,7 @@ This template provides a standardized structure for creating weekly session Powe
 
 **SPEAKER NOTES:**
 
-"[OPENING - Welcome]"
+[OPENING - Welcome]
 
 "Welcome to Week [Y] of [Block name]. Today we're focusing on [brief topic overview].
 
@@ -92,6 +217,16 @@ This template provides a standardized structure for creating weekly session Powe
 Great. Today we're building on that foundation with [this week's focus]."
 
 [Transition: Click to next slide]
+
+**BACKGROUND:**
+
+**Rationale:**
+- The title slide sets professional tone and establishes the session context
+- Block color coding creates visual continuity across the program
+- Mentioning previous week's homework reinforces accountability and connection
+
+**Q&A Preparation:**
+- *"Will this session build on last week?"*: Yes, each week builds progressively. Today's content assumes [specific prior knowledge].
 
 ---
 
@@ -110,7 +245,7 @@ Great. Today we're building on that foundation with [this week's focus]."
 | [Z]-42 min | Segment 4 | [Topic] |
 | 42-45 min | Close | Homework & Preview |
 
-**Graphic:** Simple timeline or agenda visual showing the session flow
+**Graphic:** Simple timeline or agenda visual showing the session flow. Consider using a horizontal flow diagram with segment boxes and time markers.
 
 **SPEAKER NOTES:**
 
@@ -129,6 +264,13 @@ And we'll close with [Segment 4] before previewing your homework.
 Any questions before we dive in?"
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Setting expectations upfront reduces cognitive load and anxiety
+- Showing time allocations helps participants pace their attention
+- Previewing segments creates mental hooks for retention
 
 ---
 
@@ -152,7 +294,7 @@ You will be able to:
 4. **[Action verb + specific skill]**
    - [Supporting detail or context]
 
-**Graphic:** Checklist or milestone visual - objectives as checkboxes participants will "complete"
+**Graphic:** Checklist or milestone visual - objectives as checkboxes participants will "complete". Consider a vertical progress tracker with checkmarks.
 
 **SPEAKER NOTES:**
 
@@ -169,6 +311,16 @@ This one connects directly to [how it builds on previous learning or applies to 
 Let's get started."
 
 [Transition: Click to Segment 1]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Action-oriented objectives (Bloom's taxonomy) set expectations for practical skill development
+- Limiting to 4 objectives maintains focus and achievability
+- Connecting to homework creates accountability for follow-through
+
+**Key Research & Citations:**
+- **Bloom's Taxonomy (1956, revised 2001)**: Action verbs from higher-order thinking levels (Apply, Analyze, Evaluate, Create) produce better learning outcomes than passive knowledge objectives.
 
 ---
 
@@ -192,14 +344,14 @@ Let's get started."
 - [Impact 3 - connect to career development]
 
 **Graphic:** Visual that illustrates the problem or pain point. Could be:
-- Before/after comparison
-- Chart showing impact
-- Illustration of the frustration
+- Before/after comparison showing current state frustration
+- Chart showing impact (time wasted, errors, etc.)
+- Illustration of the frustration with muted colors
 - Quote from practitioner about the challenge
 
 **SPEAKER NOTES:**
 
-"[Hook - Create tension]"
+[Hook - Create tension]
 
 "Let me ask you a question: [rhetorical question related to the problem]
 
@@ -229,6 +381,10 @@ Today we're going to solve this. Here's how..."
 - *"Is this really that big of a problem?"*: Yes - [provide data or example showing impact]
 - *"I've never experienced this issue"*: You may not have noticed it yet, but [explain how it manifests]
 
+**Sources:**
+1. [Relevant research on the problem] - [Validates the challenge]
+2. [Industry report or survey] - [Quantifies the impact]
+
 ---
 
 ### SLIDE 5: SEGMENT 1 - SOLUTION INTRODUCTION
@@ -247,14 +403,14 @@ Today we're going to solve this. Here's how..."
 **Key Benefit:** [Single compelling benefit statement]
 
 **Graphic:** Diagram or visual showing the solution structure. Could be:
-- Flow diagram
-- Framework illustration
-- Before/after comparison
-- Visual metaphor
+- Flow diagram with numbered steps
+- Framework illustration with components
+- Before/after comparison showing improvement
+- Visual metaphor that captures the concept
 
 **SPEAKER NOTES:**
 
-"[INSIGHT - Deliver the solution]"
+[INSIGHT - Deliver the solution]
 
 "The solution is [name of technique/concept].
 
@@ -276,15 +432,24 @@ Let me show you this in action..."
 
 **BACKGROUND:**
 
+**Rationale:**
+- Introduces the solution after establishing the problem creates receptivity
+- Breaking into steps makes complex concepts actionable
+- Single key benefit keeps focus clear
+
 **Key Research & Citations:**
 - **[Source/Study]**: [How this validates the technique]
 - **[Framework Reference]**: [Established methodology this builds on]
 
-**Implementation Guidance:**
+**IMPLEMENTATION GUIDANCE:**
 
 **Getting Started:**
 - [First step to try this technique]
 - [Low-barrier entry point]
+
+**Best Practices:**
+- [Proven approach for this technique]
+- [Specific success criteria]
 
 **Common Pitfalls:**
 - [Mistake to avoid]
@@ -306,11 +471,11 @@ Let me show you this in action..."
 - [Key point to notice #2]
 - [Key point to notice #3]
 
-**Graphic:** Screenshot placeholder or visual showing the demo setup
+**Graphic:** Screenshot placeholder or visual showing the demo setup. Include annotations pointing to key interface elements or workflow steps.
 
 **SPEAKER NOTES:**
 
-"[DEMO - Show, don't tell]"
+[DEMO - Show, don't tell]
 
 "Let me show you exactly how this works.
 
@@ -331,6 +496,11 @@ Let me show you this in action..."
 Questions about what you just saw?"
 
 **BACKGROUND:**
+
+**Rationale:**
+- Live demonstrations create concrete understanding that slides cannot
+- Narrating actions while doing them reinforces learning
+- "Watch for" points focus attention on key takeaways
 
 **Demo Backup Plan:**
 If live demo fails:
@@ -361,7 +531,7 @@ If live demo fails:
 **You'll Practice:**
 [Preview which homework exercise applies this concept]
 
-**Graphic:** Simple visual reinforcing the key concept
+**Graphic:** Simple visual reinforcing the key concept. Could be an icon with the main takeaway, a summary diagram, or a memorable image that anchors the learning.
 
 **SPEAKER NOTES:**
 
@@ -378,6 +548,13 @@ In your homework this week, Exercise [X] will give you hands-on practice with th
 Any final questions on [segment topic] before we move to [next segment topic]?"
 
 [Transition: Click to Segment 2]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Summary slides reinforce retention before transitioning
+- Connecting to homework creates bridge from learning to practice
+- Pause for questions ensures no one falls behind
 
 ---
 
@@ -424,7 +601,7 @@ Any final questions on [segment topic] before we move to [next segment topic]?"
 | Exercise [X].3: [Name] | [X] min | [What they produce] | [Skills] |
 | **Total** | **60 min** | | |
 
-**Graphic:** Exercise icons or visual workflow showing the progression
+**Graphic:** Exercise icons or visual workflow showing the progression. Consider using numbered circles or a pathway visual connecting the exercises.
 
 **SPEAKER NOTES:**
 
@@ -441,6 +618,13 @@ These exercises build on each other, so I recommend completing them in order.
 All the detailed instructions are in your participant guide, along with templates and resources."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Clear time estimates set realistic expectations
+- Showing deliverables creates tangible goals
+- Connecting exercises to session content reinforces the learning loop
 
 ---
 
@@ -462,7 +646,7 @@ All the detailed instructions are in your participant guide, along with template
 - Questions: [Async channel name]
 - Office Hours: [Time/location if applicable]
 
-**Graphic:** QR codes or simple icons for quick access
+**Graphic:** QR codes or simple icons for quick access. Consider a grid layout with icons representing each resource type.
 
 **SPEAKER NOTES:**
 
@@ -475,6 +659,13 @@ If you get stuck, post in [async channel]. [Name/instructor] monitors it and you
 [If office hours exist]: We also have office hours [time] if you want live support."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Centralizing resources reduces friction for homework completion
+- Multiple support channels accommodate different learning styles
+- QR codes enable quick mobile access
 
 ---
 
@@ -495,7 +686,7 @@ If you get stuck, post in [async channel]. [Name/instructor] monitors it and you
 **Key Preparation:**
 [Any specific preparation needed for next week]
 
-**Graphic:** Preview image or icon representing next week's topic
+**Graphic:** Preview image or icon representing next week's topic. Use the same color scheme and style as the program branding.
 
 **SPEAKER NOTES:**
 
@@ -513,40 +704,229 @@ Great session today. Remember: the goal is progress, not perfection. Try the tec
 
 See you next week!"
 
----
+**BACKGROUND:**
 
-## Appendix: Slide Type Reference
-
-Use these slide types as building blocks:
-
-| Slide Type | Purpose | When to Use |
-|------------|---------|-------------|
-| **Title** | Opens presentation | Slide 1 only |
-| **Overview/Agenda** | Sets expectations | After title |
-| **Learning Objectives** | Frames outcomes | Before content begins |
-| **Problem/Hook** | Creates tension | Opens each segment |
-| **Concept Introduction** | Introduces new idea | After establishing problem |
-| **Framework/Model** | Shows structure | For methodologies, patterns |
-| **Demo** | Shows technique in action | After concept explanation |
-| **Comparison** | Contrasts approaches | Before/after, good/bad |
-| **Example** | Concrete illustration | After abstract concepts |
-| **Key Takeaway** | Summarizes segment | Closes each segment |
-| **Homework Preview** | Sets up exercises | Closing section |
-| **Resources** | Provides support links | Closing section |
-| **Next Week Preview** | Creates continuity | Final slide |
+**Rationale:**
+- Preview creates anticipation and curiosity
+- Clear homework checklist reinforces accountability
+- Ending on encouragement maintains motivation
 
 ---
 
-## Appendix: Speaker Notes Conventions
+## SLIDE TYPE DEFINITIONS
+
+Use these type classifications in the slide header to indicate the slide's role in the presentation:
+
+### **TITLE SLIDE**
+- Opens the presentation
+- Contains: Title, Subtitle, Presenter info, Date
+- Graphic: Hero image or thematic illustration
+- Speaker notes focus on opening hook and setting expectations
+
+### **PROBLEM STATEMENT**
+- Establishes the challenge or pain point
+- Creates tension that the presentation will resolve
+- Often includes statistics or research data
+- Speaker notes should create emotional resonance
+
+### **INSIGHT / REVELATION**
+- Delivers a key insight or "aha moment"
+- Reframes how audience thinks about the problem
+- Often contrasts common misconception with reality
+- Speaker notes should build to and land the insight
+
+### **CONCEPT INTRODUCTION**
+- Introduces a new term, framework, or mental model
+- Provides clear definition and context
+- May include analogy for comprehension
+- Speaker notes should explain why this matters
+
+### **FRAMEWORK / MODEL**
+- Presents a structured approach or methodology
+- Often uses diagrams, pillars, or numbered components
+- Shows relationships between elements
+- Speaker notes walk through each component
+
+### **COMPARISON**
+- Contrasts two or more approaches, options, or states
+- Uses tables, side-by-side layouts, or before/after
+- Highlights key differentiators
+- Speaker notes explain implications of differences
+
+### **DEEP DIVE**
+- Provides detailed exploration of a specific topic
+- May include technical content, code, or specifications
+- Supports the main argument with depth
+- Speaker notes can be more technical
+
+### **CASE STUDY**
+- Presents a real-world example or application
+- Includes specific outcomes, metrics, or quotes
+- Validates the presentation's claims
+- Speaker notes tell the story narratively
+
+### **PATTERN / BEST PRACTICE**
+- Describes a proven approach or methodology
+- Often includes do's and don'ts
+- May include pseudocode or implementation details
+- Speaker notes explain why the pattern works
+
+### **METRICS / DATA**
+- Presents quantitative information
+- Uses charts, graphs, or data tables
+- Supports claims with evidence
+- Speaker notes interpret the data for audience
+
+### **ARCHITECTURE / DIAGRAM**
+- Shows system structure or process flow
+- Uses visual representation as primary content
+- Labels and callouts explain components
+- Speaker notes walk through the diagram
+
+### **OBJECTION HANDLING**
+- Anticipates and addresses audience concerns
+- Presents objection-response pairs
+- Builds confidence in the proposed approach
+- Speaker notes should feel conversational
+
+### **ACTION / NEXT STEPS**
+- Provides concrete actions for the audience
+- Often time-bound (this week, 30 days, 90 days)
+- Makes the path forward clear
+- Speaker notes should be motivating
+
+### **SUMMARY / RECAP**
+- Consolidates key points from a section
+- Reinforces main messages
+- Prepares for transition to next section
+- Speaker notes should feel like natural conclusion
+
+### **SECTION DIVIDER**
+- Marks transition between major sections
+- Minimal content - usually just section title
+- Provides mental break for audience
+- Speaker notes briefly preview upcoming section
+
+### **CLOSING / CALL TO ACTION**
+- Final slide before Q&A
+- Summarizes core thesis
+- Includes clear call to action
+- Speaker notes should be memorable and inspiring
+
+### **Q&A / CONTACT**
+- Invites audience questions
+- Includes contact information
+- May include resource links
+- Speaker notes: "Questions?"
+
+### **APPENDIX**
+- Supplementary material not in main flow
+- Detailed data, extended examples, or references
+- Available if needed during Q&A
+- Minimal speaker notes
+
+---
+
+## CONTENT ELEMENT FORMATS
+
+### Bullet Points
+```markdown
+**Content**:
+- First level bullet point
+  - Second level for supporting detail
+- Another first level point
+- Use parallel structure across bullets
+```
+
+### Numbered Lists
+```markdown
+**Content**:
+1. First sequential item
+2. Second sequential item
+3. Third sequential item
+```
+
+### Tables
+```markdown
+**Content**:
+| Column Header 1 | Column Header 2 | Column Header 3 |
+|-----------------|-----------------|-----------------|
+| Row 1 data | Row 1 data | Row 1 data |
+| Row 2 data | Row 2 data | Row 2 data |
+```
+
+### Comparison Format
+```markdown
+**Content**:
+**[Label A]:**
+- Point about A
+- Another point about A
+
+**[Label B]:**
+- Point about B
+- Another point about B
+```
+
+### Bad/Good Example Format
+```markdown
+**Bad Example:**
+"[Quote or description of anti-pattern]"
+- [Why it's problematic]
+- [Consequence of this approach]
+
+**Good Example:**
+"[Quote or description of best practice]"
+- [Why it works]
+- [Benefit of this approach]
+```
+
+### Key Principle Callout
+```markdown
+**Key Principle:** [Bold statement of the core concept in one sentence]
+```
+
+### Quote Callout
+```markdown
+> "[Memorable quote from research or expert]"
+> — [Attribution]
+```
+
+### Code Block
+```markdown
+**Content**:
+```python
+# Descriptive comment
+def example_function():
+    # Implementation with explanatory comments
+    pass
+```
+```
+
+### Diagram Description
+```markdown
+**Graphic**: [Type] diagram showing [main elements].
+- [Element 1]: positioned [location], represents [meaning]
+- [Element 2]: connected to [Element 1] via [connection type]
+- Labels: [list key labels]
+- Visual metaphor: [what the overall visual communicates]
+```
+
+---
+
+## SPEAKER NOTES CONVENTIONS
 
 ### Stage Directions (in brackets)
-- `[Pause]` - Brief silence for effect
+- `[Pause]` - Deliberate silence for effect
 - `[Pause for effect]` - Longer pause after key statement
-- `[Point to X]` - Gesture to visual element
-- `[Show of hands]` - Audience participation
+- `[Let that land]` - Allow insight to sink in
+- `[Point to X]` - Gesture to specific visual element
+- `[Emphasize this]` - Vocal emphasis on following statement
+- `[Light humor]` - Delivery should be lighter
+- `[Personal story - adjust to your context]` - Placeholder for presenter customization
+- `[Show of hands]` - Audience participation cue
+- `[Look around room]` - Connect with audience
 - `[Wait for responses]` - After asking real question
 - `[Demo starts]` - Beginning live demonstration
-- `[Personal story - adjust to your context]` - Customize with your experience
 
 ### Section Markers
 - `[OPENING - description]` - Session opening
@@ -561,9 +941,165 @@ Use these slide types as building blocks:
 - Note "[If running short...]" alternatives
 - Mark "[Can skip if needed]" for optional content
 
+### Audience Engagement
+- Rhetorical questions that don't expect answers
+- Actual questions with `[Wait for responses]`
+- Acknowledgment of likely audience experience
+- References to earlier audience input
+
 ---
 
-## Appendix: Visual Design Guidelines
+## BACKGROUND SECTION GUIDELINES
+
+### Rationale (3-5 bullets)
+- Explain the slide's purpose in the narrative arc
+- Describe the mental shift it creates
+- Note connections to adjacent slides
+- Justify the chosen framing or approach
+
+### Key Research & Citations (3-5 entries)
+Format: **[Source Name (Year)]**: [Detailed explanation]
+- Include methodology when relevant
+- Cite specific statistics or findings
+- Explain how the research supports the slide's claims
+- Note any caveats or limitations
+
+### Q&A Preparation (3-5 questions)
+Format: *"[Question]"*: [Response]
+- Anticipate skeptical questions
+- Prepare for "what about..." objections
+- Have specific examples ready
+- Include graceful redirects for off-topic questions
+
+---
+
+## SOURCES SECTION GUIDELINES
+
+Include 3-7 sources per slide, formatted as:
+```markdown
+1. [Full title with hyperlink](URL) - [1-5 word description of relevance]
+```
+
+Source types to include:
+- **Primary research**: Academic papers, official documentation
+- **Industry reports**: Analyst reports, surveys, benchmarks
+- **Practitioner content**: Blog posts, conference talks from recognized experts
+- **Official documentation**: Product docs, API references, methodology guides
+- **Books/Long-form**: When foundational concepts are referenced
+
+---
+
+## IMPLEMENTATION GUIDANCE STRUCTURE
+
+### Getting Started (2-4 items)
+- Immediate actions (can do today)
+- Low-barrier entry points
+- Foundation-building steps
+- "Audit" or "identify" actions
+
+### Best Practices (3-5 items)
+- Proven approaches with specific criteria
+- Patterns that scale
+- Sequencing and prioritization guidance
+- Measurable success indicators
+
+### Common Pitfalls (2-4 items)
+- Mistakes that seem logical but fail
+- Anti-patterns to avoid
+- Assumptions that mislead
+- Over-engineering traps
+
+### Tools & Technologies (2-4 categories)
+Format: **[Category]**: [Tool1, Tool2] - [use case description]
+
+Categories might include:
+- Frameworks
+- Databases/Storage
+- Monitoring/Observability
+- Development tools
+- Cloud services
+
+### Pseudocode Pattern (optional)
+Include when:
+- Slide introduces a technical pattern
+- Concrete implementation helps understanding
+- The pattern has specific structure worth showing
+
+Format:
+```python
+# Pattern Name
+# Brief description of what this demonstrates
+
+class PatternExample:
+    """Docstring explaining the pattern"""
+
+    def method(self):
+        # Step 1: [Description]
+        step_one()
+
+        # Step 2: [Description]
+        step_two()
+
+        # Key insight: [Why this matters]
+        return result
+```
+
+---
+
+## VISUAL/GRAPHIC DESCRIPTION GUIDELINES
+
+Describe graphics with enough detail for a designer to create them:
+
+### Required Elements
+1. **Type**: diagram, illustration, chart, photo, icon grid, screenshot, etc.
+2. **Main elements**: What objects/shapes appear
+3. **Arrangement**: Spatial relationship between elements
+4. **Labels/Text**: Any text that appears in the graphic
+5. **Communication goal**: What the visual should convey
+
+### Example Descriptions
+
+**Flow Diagram:**
+```markdown
+**Graphic**: Flow diagram showing [process name].
+Left side: [Starting element] with label "[text]"
+Center: Arrow flowing through [intermediate steps]
+Right side: [End state] with label "[text]"
+Highlight: [Key element] shown in [accent color] to draw attention
+Overall: Communicates [key message] through visual flow
+```
+
+**Comparison Illustration:**
+```markdown
+**Graphic**: Side-by-side comparison illustration.
+Left panel (labeled "Before" or "Bad"): [Description of problematic state]
+Right panel (labeled "After" or "Good"): [Description of desired state]
+Visual contrast: Left uses [muted colors/chaos], Right uses [bright colors/order]
+Callouts: [Specific labels pointing to key differences]
+```
+
+**Data Visualization:**
+```markdown
+**Graphic**: [Chart type] showing [what data].
+X-axis: [Label and units]
+Y-axis: [Label and units]
+Data series: [What each line/bar represents]
+Key insight: [What pattern or trend to highlight]
+Annotation: [Any callout or reference line to include]
+```
+
+**Conceptual Illustration:**
+```markdown
+**Graphic**: Metaphorical illustration of [concept].
+Central image: [Main visual metaphor]
+Supporting elements: [Additional visual elements]
+Style: [Realistic/abstract/iconic]
+Emotional tone: [What feeling it should evoke]
+```
+
+---
+
+## VISUAL DESIGN GUIDELINES
 
 ### Slide Layout Principles
 - Maximum 6 bullet points per slide
@@ -595,7 +1131,7 @@ Use these slide types as building blocks:
 
 ---
 
-## Appendix: Quality Checklist
+## QUALITY CHECKLIST
 
 Before finalizing each weekly presentation:
 
@@ -605,6 +1141,8 @@ Before finalizing each weekly presentation:
 - [ ] Examples are relevant to consulting work
 - [ ] Homework exercises are clearly previewed
 - [ ] Resources and links are accurate
+- [ ] Background sections include rationale and research
+- [ ] Q&A preparation covers likely questions
 
 ### Speaker Notes
 - [ ] Notes are written as natural speech
@@ -619,6 +1157,13 @@ Before finalizing each weekly presentation:
 - [ ] Slides are not overcrowded
 - [ ] Graphics support (not distract from) content
 - [ ] All links and QR codes tested
+- [ ] Graphic descriptions are detailed enough for creation
+
+### Implementation Guidance
+- [ ] Getting started actions are concrete
+- [ ] Best practices are specific
+- [ ] Common pitfalls are realistic
+- [ ] Tools & technologies are current
 
 ### Logistics
 - [ ] Total timing adds to 45 minutes
@@ -633,6 +1178,7 @@ Before finalizing each weekly presentation:
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | YYYY-MM-DD | Initial template created | [Name] |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide template structure, slide type definitions, content element formats, background sections, sources guidelines, implementation guidance, and visual description guidelines | Claude |
 
 ---
 
@@ -640,5 +1186,6 @@ Before finalizing each weekly presentation:
 1. Copy this template for each week's presentation
 2. Fill in all bracketed placeholders [like this]
 3. Add/remove slides as needed for content density
-4. Verify timing with practice run-through
-5. Cross-reference with participant and instructor guides
+4. Complete all Background and Implementation Guidance sections
+5. Verify timing with practice run-through
+6. Cross-reference with participant and instructor guides

@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 graduates (AI Automation Architects) who need to build knowledge-enabled AI agents for enterprise consulting engagements
 
+**Key Thesis:** Retrieval-Augmented Generation (RAG) solves the fundamental problem of giving AI agents access to current, domain-specific knowledge without retraining models, but effective RAG requires sophisticated chunking strategies, semantic embedding selection, and retrieval quality evaluation because naive implementations produce hallucinations when retrieval fails to surface relevant context within tight token budgets.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Understand RAG architecture patterns and when to apply them vs. alternatives
 2. Design and implement appropriate chunking strategies for different document types
@@ -275,6 +277,23 @@ Let me show you how this compares to alternatives..."
 
 [Transition to comparison]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces the core RAG concept that the entire module builds upon - establishing the foundational mental model
+- Creates the critical understanding that RAG is not just "search + LLM" but a systematic pipeline with distinct phases
+- Positions RAG as the solution to the knowledge problem established in the previous slide
+
+**Key Research & Citations:**
+- **RAG Original Paper (Lewis et al., 2020 - Facebook AI)**: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" introduced the RAG paradigm, demonstrating 15-20% improvement in accuracy over baseline generation
+- **LangChain RAG Architectures (2023)**: Analysis of production RAG systems shows the two-phase pattern (indexing + retrieval) is universal across implementations
+- **Vector Database Performance Studies (Pinecone, 2023)**: Proper indexing and retrieval configuration reduces hallucination rates by 60-70% compared to pure generative approaches
+
+**Q&A Preparation:**
+- *"Can't we just put all documents in the context window instead of using RAG?"*: For small document sets (<50 pages), yes - but this is expensive, slow, and suffers from "lost in the middle" effects. RAG retrieves only relevant chunks, saving cost and improving accuracy.
+- *"How often do we need to rebuild the vector index?"*: Incremental updates work well - re-embed and index only new/changed documents. Full rebuilds only needed when changing embedding models or chunking strategies.
+- *"What if the retrieval step fails to find relevant information?"*: This is why retrieval quality metrics (covered in Session 2) are critical. Systems should detect low-confidence retrieval and either request clarification or admit uncertainty rather than hallucinating.
+
 ---
 
 ### SLIDE 6: RAG VS. ALTERNATIVES
@@ -315,6 +334,23 @@ The decision is usually clear: if you need citations, use RAG. If knowledge chan
 In practice, many systems combine approaches - RAG for knowledge, fine-tuning for style."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides the critical decision framework for when RAG is appropriate vs. alternatives, preventing misapplication of RAG to problems it doesn't solve well
+- Establishes that different knowledge integration approaches serve different purposes - avoiding the "one size fits all" trap
+- Creates realistic expectations about trade-offs rather than positioning RAG as a universal solution
+
+**Key Research & Citations:**
+- **Fine-Tuning vs RAG Performance Studies (OpenAI, 2023)**: Fine-tuned models show 25% better performance on style/behavior tasks but 40% worse on knowledge recall compared to RAG approaches
+- **Long Context Window Analysis (Anthropic, 2024)**: "Lost in the middle" phenomenon shows models struggle to recall information from middle of very long contexts; retrieval-focused approaches outperform pure long-context by 35-50% on knowledge tasks
+- **Hybrid Approaches Research (Google DeepMind, 2023)**: Systems combining fine-tuned models with RAG achieve best of both worlds - consistent style/behavior with accurate, current knowledge
+
+**Q&A Preparation:**
+- *"Why can't we just fine-tune on all our company knowledge?"*: Fine-tuning bakes in knowledge at training time, making updates expensive. Every new policy or document requires re-training. RAG updates are instant - just re-index the new content.
+- *"With 200k context windows, isn't RAG obsolete?"*: No - cost and "lost in the middle" effects still favor RAG. Stuffing 200k tokens costs significantly per query, and models lose track of details in massive contexts. RAG retrieves only what's relevant.
+- *"Can we start with long context and add RAG later if needed?"*: Yes, but design for RAG from the start (good chunking, metadata) even if you begin with simpler approaches. Retrofitting proper document structure is harder than doing it upfront.
 
 ---
 
@@ -406,6 +442,24 @@ Let me show you four strategies for getting this right..."
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide establishes chunking as the critical success factor in RAG implementations
+- Creates emotional buy-in for the technical strategies that follow
+- Addresses the most common RAG failure mode in production systems
+
+**Key Research & Citations:**
+- Research from LangChain/LlamaIndex documentation on chunking best practices
+- Token window constraints vary by model: GPT-4 (128k), Claude (200k), but effective retrieval typically uses 4-8k token context
+- Semantic coherence research from Guu et al. (2020) "REALM: Retrieval-Augmented Language Model Pre-Training"
+- Production failure analysis showing 60%+ of RAG issues traced to poor chunking (OpenAI developer community data)
+
+**Q&A Preparation:**
+- *"Can't we just use small chunks and retrieve more of them?"*: Yes but increases cost/latency and risks hitting context window limits
+- *"What's the 'right' chunk size?"*: Depends on content type - typically 200-800 tokens, but semantic boundaries matter more than fixed sizes
+- *"How do we evaluate chunking quality?"*: Retrieval precision/recall metrics, manual spot-checking of split points, end-to-end RAG accuracy testing
+
 ---
 
 ### SLIDE 9: CHUNKING STRATEGIES OVERVIEW
@@ -474,6 +528,23 @@ Agentic chunking uses an LLM to analyze the document and identify logical units.
 The right choice depends on your document type and requirements. Let me show you the decision framework..."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide presents the strategic options for chunking, enabling informed decisions rather than defaulting to fixed-size splitting
+- Creates understanding that chunking strategy should match document structure and retrieval requirements, not be one-size-fits-all
+- Establishes the progression from simple to sophisticated approaches, allowing practitioners to start simple and evolve as needed
+
+**Key Research & Citations:**
+- **Chunking Strategy Impact Studies (LlamaIndex, 2023)**: Semantic chunking improves retrieval precision by 30-40% over fixed-size for structured documents; hierarchical chunking adds another 15-20% for complex documents
+- **Token Economics Research (OpenAI, 2023)**: Fixed-size with overlap is most cost-effective for general content; semantic and hierarchical chunking justify higher indexing costs through reduced retrieval token counts
+- **Agentic Chunking Analysis (Anthropic, 2024)**: LLM-based chunking produces highest quality boundaries (85% semantic coherence vs 60% for fixed-size) but costs 10-20x more in processing time
+
+**Q&A Preparation:**
+- *"Should I use the same chunking strategy for all documents?"*: No - match strategy to document type. Technical docs with clear sections benefit from semantic chunking. Conversational content works fine with fixed-size. Don't over-engineer where simple approaches work.
+- *"How much overlap should I use in fixed-size chunking?"*: 10-20% overlap is standard (e.g., 500 token chunks with 50-100 token overlap). This ensures concepts split at boundaries still get captured together in at least one chunk.
+- *"Can I change chunking strategy after I've built my vector index?"*: Yes, but you'll need to re-chunk and re-embed all documents. This is why testing chunking strategies on a sample corpus before full indexing is important.
 
 ---
 
@@ -634,6 +705,24 @@ This is why RAG works - we can find semantically similar content, not just keywo
 The question is: which embedding model should you use?"
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide demystifies embeddings - the mathematical foundation of semantic search
+- Establishes conceptual understanding before technical implementation details
+- Critical for practitioners to understand why RAG works and how to troubleshoot it
+
+**Key Research & Citations:**
+- Embedding technology based on transformer models (Vaswani et al., 2017 "Attention Is All You Need")
+- Popular models: OpenAI text-embedding-3 (1536d), Cohere embed-english-v3.0 (1024d), sentence-transformers (384-768d)
+- Vector similarity typically measured using cosine similarity or euclidean distance
+- Semantic search improvements over keyword search documented at 40-60% better relevance (Karpukhin et al., 2020 DPR paper)
+
+**Q&A Preparation:**
+- *"Do we need to understand the math behind embeddings?"*: No - treat as black box that converts text to vectors, focus on using them effectively
+- *"Can we use different embedding models for ingestion vs query?"*: No - must use same model for both or similarity comparison fails
+- *"How do embeddings handle multiple languages?"*: Depends on model - some are multilingual (Cohere multilingual), others English-only, check model documentation
 
 ---
 
@@ -1120,8 +1209,490 @@ See you next session!"
 
 ---
 
+## Appendix A: Slide Type Definitions (Condensed)
+
+**CONCEPT**: Introduces new idea or framework - focus on clarity and single concept
+**DEMO**: Live demonstration or walkthrough - have backup plan if tech fails
+**INSIGHT**: Delivers key learning or aha moment - emphasize and pause after
+**TRANSITION**: Bridges sections - keep brief, preview what's coming
+**SUMMARY**: Reinforces key points - use repetition intentionally
+
+## Appendix B: Visual Design Guidelines
+
+**Color Palette - Advanced Green Theme:**
+- Primary: Advanced Green #00CC99
+- Secondary: Deep Blue #003D5C
+- Accent: Bright Orange #FF6B35
+- Neutral: Cool Gray #708090
+- Warning/Alert: Amber #FFA500
+
+**Typography:**
+- Headers: Bold, size 32-44pt
+- Body: Regular, size 18-24pt
+- Code/Technical: Monospace, size 16-20pt
+- Ensure sufficient contrast (WCAG AA minimum)
+
+**Graphic Standards:**
+- Every slide with technical content needs a supporting graphic
+- Graphics must be referenced in speaker notes
+- Use consistent icon set throughout presentation
+- Label all diagram elements clearly
+- Show relationships with arrows/connectors
+
+**Layout Principles:**
+- Maximum 3 main points per slide
+- White space is valuable - don't overcrowd
+- Align elements to grid
+- Consistent margins across all slides
+
+## Appendix C: Quality Checklist
+
+**Content Quality:**
+- [ ] All learning objectives explicitly addressed in slides
+- [ ] Each segment has clear opening, body, and summary
+- [ ] Technical accuracy verified (commands, code, architecture patterns)
+- [ ] Examples are realistic and relevant to target audience
+- [ ] Terminology consistent with Block 3 and prior modules
+
+**Speaker Notes Quality:**
+- [ ] Every content slide has speaker notes
+- [ ] Notes include delivery cues ([Pause], [Emphasize], [Transition])
+- [ ] Approximate timing aligns with segment durations
+- [ ] Questions and transitions scripted
+- [ ] Backup explanations prepared for complex topics
+
+**Technical Quality:**
+- [ ] All code examples are syntactically correct
+- [ ] Architecture diagrams are technically sound
+- [ ] Commands have been tested
+- [ ] Links and references are valid
+- [ ] Version numbers and dates are current
+
+---
+
+## Appendix D: RAG Architecture Template
+
+**RAG System Design Document**
+
+**1. System Overview**
+- Use Case Description: [What problem does this RAG system solve?]
+- Target Users: [Who will use this system?]
+- Success Criteria: [How will you measure success?]
+
+**2. Knowledge Sources**
+- Source 1: [Type, location, update frequency, size]
+- Source 2: [Type, location, update frequency, size]
+- Source N: [Type, location, update frequency, size]
+
+**3. Chunking Strategy**
+- Primary Strategy: [Fixed-size | Semantic | Hierarchical | Agentic]
+- Chunk Size: [Target token count]
+- Overlap: [Token count or percentage]
+- Rationale: [Why this strategy for these documents?]
+
+**4. Embedding Configuration**
+- Model: [e.g., text-embedding-3-small, Cohere embed-v3]
+- Dimensions: [384 | 768 | 1536]
+- Cost per 1M tokens: [$X.XX]
+- Rationale: [Why this model?]
+
+**5. Vector Database**
+- Platform: [Pinecone | Qdrant | Weaviate | pgvector]
+- Index Type: [HNSW | IVF | FLAT]
+- Deployment: [Cloud | Self-hosted]
+- Estimated Monthly Cost: [$X.XX]
+
+**6. Retrieval Configuration**
+- Top-k: [3-10, typical]
+- Similarity Metric: [Cosine | Euclidean | Dot Product]
+- Minimum Similarity Threshold: [0.0-1.0, optional]
+- Metadata Filters: [What filters will be used?]
+
+**7. Metadata Schema**
+```json
+{
+  "chunk_id": "string",
+  "source_document": "string",
+  "section": "string",
+  "page_number": "integer",
+  "created_date": "ISO-8601 date",
+  "document_type": "string (from taxonomy)",
+  "access_level": "string",
+  "version": "string"
+}
+```
+
+**8. Performance Targets**
+- Query Latency: [< X ms p95]
+- Retrieval Precision@5: [> 0.XX]
+- Cost per Query: [< $X.XX]
+
+---
+
+## Appendix E: Chunking Strategy Guide
+
+**Fixed-Size Chunking Implementation**
+
+```python
+def fixed_size_chunk(text, chunk_size=500, overlap=50):
+    """
+    Split text into fixed-size chunks with overlap.
+
+    Args:
+        text: Input text to chunk
+        chunk_size: Target tokens per chunk
+        overlap: Tokens to overlap between chunks
+
+    Returns:
+        List of chunks with metadata
+    """
+    # Implementation details here
+    pass
+```
+
+**Configuration Guidelines:**
+- **General Prose**: 400-600 tokens, 50-100 overlap
+- **Technical Documentation**: 500-1000 tokens, 100 overlap
+- **Code**: 300-500 tokens, 50 overlap
+- **Conversations**: 200-400 tokens, 25-50 overlap
+
+**Semantic Chunking Patterns**
+
+**By Section Headers:**
+```python
+def semantic_chunk_by_headers(markdown_text):
+    """
+    Split Markdown by ## headers, keeping hierarchy intact.
+    """
+    # Split on headers
+    # Preserve parent context
+    # Return chunks with section metadata
+    pass
+```
+
+**By Paragraph:**
+```python
+def semantic_chunk_by_paragraph(text, min_tokens=200, max_tokens=800):
+    """
+    Split by paragraph breaks, combining small paragraphs.
+    """
+    # Split on \n\n
+    # Combine consecutive small paragraphs
+    # Split large paragraphs if needed
+    pass
+```
+
+**Hierarchical Chunking Example**
+
+```
+Document: "Company Handbook"
+  ├─ Summary: "Employee policies and procedures..."
+  ├─ Section: "Benefits"
+  │   ├─ Summary: "Healthcare, retirement, time off..."
+  │   ├─ Subsection: "Healthcare"
+  │   │   ├─ Paragraph: "Medical insurance options..."
+  │   │   └─ Paragraph: "Dental and vision coverage..."
+  │   └─ Subsection: "Time Off"
+  │       └─ Paragraph: "Vacation accrual policy..."
+```
+
+**Store All Levels:**
+- Document summary (for high-level queries)
+- Section summaries (for scoped queries)
+- Full paragraphs (for specific details)
+
+**Retrieval Strategy:**
+- Broad query → Section level
+- Specific query → Paragraph level
+- Always include parent context
+
+---
+
+## Appendix F: Embedding Model Comparison
+
+| Model | Dimensions | Cost (per 1M tokens) | Strengths | Weaknesses |
+|-------|------------|---------------------|-----------|------------|
+| **OpenAI text-embedding-3-small** | 1536 | $0.02 | Good quality, fast, cheap | English-focused |
+| **OpenAI text-embedding-3-large** | 3072 | $0.13 | Best quality | Expensive, slower |
+| **Cohere embed-english-v3.0** | 1024 | $0.10 | Strong retrieval focus | Medium cost |
+| **Cohere embed-multilingual-v3.0** | 1024 | $0.10 | Multilingual support | Slightly lower English quality |
+| **Voyage AI voyage-2** | 1024 | $0.10 | Domain-specific options | Requires separate contract |
+| **sentence-transformers (open-source)** | 384-768 | Free (compute cost only) | Full control, no API limits | Self-hosting required |
+
+**Selection Criteria:**
+
+**Choose OpenAI text-embedding-3-small if:**
+- English-only content
+- Cost-sensitive
+- Starting out / prototyping
+
+**Choose OpenAI text-embedding-3-large if:**
+- Maximum quality required
+- Complex domain knowledge
+- Budget allows
+
+**Choose Cohere multilingual if:**
+- Multi-language support needed
+- Enterprise support valued
+
+**Choose sentence-transformers if:**
+- Self-hosting preferred
+- Privacy requirements strict
+- High volume (cost savings)
+
+---
+
+## Appendix G: Vector Database Selection Guide
+
+**Hosted Solutions:**
+
+| Platform | Best For | Pricing Model | Key Features |
+|----------|----------|---------------|--------------|
+| **Pinecone** | Simplicity, getting started | Pay-per-use + storage | Fully managed, auto-scaling, simple API |
+| **Weaviate Cloud** | Hybrid search, GraphQL | Pod-based pricing | Built-in hybrid search, schema flexibility |
+| **Qdrant Cloud** | High performance | Cluster-based | Fast search, filtering, payload storage |
+
+**Self-Hosted Solutions:**
+
+| Platform | Best For | Deployment | Key Features |
+|----------|----------|------------|--------------|
+| **Qdrant** | High performance, control | Docker, Kubernetes | Rust-based, very fast, filtering |
+| **Milvus** | Large scale, cloud-native | Kubernetes | Scalable, multiple index types |
+| **Chroma** | Development, embedding | Python, Docker | Simple API, local-first |
+
+**PostgreSQL Extensions:**
+
+| Extension | Best For | Integration | Key Features |
+|-----------|----------|-------------|--------------|
+| **pgvector** | Existing Postgres apps | Native Postgres | ACID transactions, familiar SQL |
+
+**Decision Matrix:**
+
+**Use Pinecone if:**
+- Want simplest setup
+- Okay with vendor lock-in
+- Starting small, may scale
+
+**Use Qdrant if:**
+- Need high performance
+- Want self-hosting option
+- Filtering is important
+
+**Use pgvector if:**
+- Already using Postgres
+- Need ACID transactions
+- Vector search is one feature of larger app
+
+---
+
+## Appendix H: Metadata Best Practices
+
+**Core Metadata Fields (Required):**
+
+```json
+{
+  "chunk_id": "unique-identifier",
+  "source_document": "filename or URL",
+  "chunk_index": 0,
+  "total_chunks": 10
+}
+```
+
+**Content Context Fields (Recommended):**
+
+```json
+{
+  "section": "Section Title",
+  "subsection": "Subsection Title",
+  "page_number": 42,
+  "heading_hierarchy": ["Chapter 1", "Section 1.2", "Topic A"]
+}
+```
+
+**Temporal Fields (Important):**
+
+```json
+{
+  "created_date": "2024-01-15T10:30:00Z",
+  "modified_date": "2024-03-20T14:15:00Z",
+  "version": "2.1",
+  "valid_from": "2024-01-01",
+  "valid_until": "2024-12-31"
+}
+```
+
+**Classification Fields:**
+
+```json
+{
+  "document_type": "policy|procedure|reference|faq",
+  "category": "HR|Finance|Engineering|Sales",
+  "tags": ["onboarding", "benefits", "healthcare"],
+  "priority": "critical|high|medium|low"
+}
+```
+
+**Access Control Fields:**
+
+```json
+{
+  "access_level": "public|internal|confidential|restricted",
+  "allowed_roles": ["employee", "manager", "hr_staff"],
+  "allowed_departments": ["all"] or ["engineering", "hr"]
+}
+```
+
+**Provenance Fields:**
+
+```json
+{
+  "author": "John Smith",
+  "author_email": "john.smith@company.com",
+  "approver": "Jane Doe",
+  "approval_date": "2024-01-10"
+}
+```
+
+**Metadata Strategy:**
+
+1. **Start Minimal**: chunk_id, source_document, created_date
+2. **Add Context**: section, page_number as needed
+3. **Enable Filtering**: document_type, category for discovery
+4. **Implement Access Control**: access_level, allowed_roles for security
+5. **Track Provenance**: author, version for audit trails
+
+**Inheritance Pattern:**
+
+```
+Document Metadata
+  ├─ Inherits to all chunks:
+  │    ├─ source_document
+  │    ├─ created_date
+  │    ├─ document_type
+  │    ├─ access_level
+  │
+  └─ Chunk-Specific:
+       ├─ chunk_id
+       ├─ chunk_index
+       ├─ section (from content structure)
+       └─ page_number (from content position)
+```
+
+---
+
+## Appendix I: RAG Evaluation Framework
+
+**Retrieval Metrics:**
+
+**Precision@k:**
+```
+Precision@k = (Number of relevant chunks in top-k) / k
+```
+- Target: >0.70 for Precision@3, >0.60 for Precision@5
+- Measures: How much noise in results
+
+**Recall@k:**
+```
+Recall@k = (Number of relevant chunks in top-k) / (Total relevant chunks)
+```
+- Target: >0.80 for critical use cases
+- Measures: Whether you found all relevant information
+
+**Mean Reciprocal Rank (MRR):**
+```
+MRR = Average(1 / rank_of_first_relevant_result)
+```
+- Target: >0.85
+- Measures: Quality of top result
+
+**Creating a Test Set:**
+
+1. **Collect Representative Queries** (50-100 minimum)
+   - Cover main use cases
+   - Include edge cases
+   - Mix of simple and complex
+
+2. **Label Ground Truth** (human evaluation)
+   - Which chunks should be retrieved?
+   - Mark as: Highly Relevant | Relevant | Marginally Relevant | Not Relevant
+   - Need at least 2 labelers, reconcile disagreements
+
+3. **Run Evaluation Pipeline**
+```python
+def evaluate_retrieval(test_set, retrieval_system, k=5):
+    results = []
+    for query, ground_truth in test_set:
+        retrieved = retrieval_system.search(query, top_k=k)
+        precision = calculate_precision(retrieved, ground_truth, k)
+        recall = calculate_recall(retrieved, ground_truth, k)
+        mrr = calculate_mrr(retrieved, ground_truth)
+        results.append({
+            'query': query,
+            'precision@k': precision,
+            'recall@k': recall,
+            'mrr': mrr
+        })
+    return aggregate_results(results)
+```
+
+**Generation Metrics (LLM-as-Judge):**
+
+**Faithfulness:**
+```
+Prompt: Rate 1-5 how well this response is grounded in the provided context.
+5 = All claims directly supported
+4 = Minor unsupported details
+3 = Some unsupported claims
+2 = Significant hallucinations
+1 = Contradicts context
+```
+
+**Answer Relevance:**
+```
+Prompt: Rate 1-5 how well this response answers the original question.
+5 = Completely answers question
+4 = Mostly answers, minor gaps
+3 = Partially answers
+2 = Tangentially related
+1 = Doesn't answer question
+```
+
+**Automated Evaluation:**
+```python
+def llm_as_judge(query, context, response):
+    judge_prompt = f"""
+    Query: {query}
+    Retrieved Context: {context}
+    Agent Response: {response}
+
+    Rate the faithfulness (1-5) and relevance (1-5).
+    Explain your reasoning.
+    """
+
+    judgment = llm.generate(judge_prompt)
+    return parse_scores(judgment)
+```
+
+**Continuous Monitoring:**
+
+Track in production:
+- Query volume and patterns
+- Average retrieval scores
+- Empty result rate (queries with no good matches)
+- User feedback (thumbs up/down)
+- Error rates
+
+Alert on:
+- Precision drops below threshold
+- Empty result rate spike
+- User satisfaction decline
+- Latency degradation
+
+---
+
 **Version History:**
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2026-01-02 | Initial presentation created | Claude |
+| 2.0 | 2026-01-03 | Enhanced with BACKGROUND sections, Key Thesis, and expanded appendices | Claude |

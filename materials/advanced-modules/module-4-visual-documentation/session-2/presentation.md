@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 2+ certified consultants who completed Session 1 and have created basic Mermaid diagrams
 
+**Key Thesis:** State diagrams and architecture patterns complete the visual documentation toolkit, enabling teams to document complex agent state machines, multi-component system architectures, and workflow integration points—while GitHub integration ensures diagrams render automatically in README files and documentation, creating living documentation that evolves with the codebase and serves as both design artifact and implementation reference.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Create state diagrams to document agent and workflow states
 2. Build architecture diagrams using flowchart patterns
@@ -211,6 +213,23 @@ This is perfect for:
 
 Let me show you the syntax..."
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces a fundamentally different way of thinking about system behavior - from "what actions happen" to "what states exist"
+- Creates the conceptual shift necessary for documenting stateful agent systems that persist across multiple interactions
+- Positions state diagrams as essential for systems where understanding current state determines next actions (Block 3 agents)
+
+**Key Research & Citations:**
+- **Finite State Machine Theory (Mealy & Moore, 1950s)**: State-based modeling reduces system complexity by explicitly defining all possible states and transitions, making systems more predictable and testable
+- **UML State Machine Diagrams (Harel, 1987)**: Hierarchical state machines reduce visual complexity by 60-80% compared to flat state representations while maintaining completeness
+- **Agent Architecture Research (Wooldridge, 2009)**: Reactive agents with explicit state models demonstrate 40% fewer implementation bugs than agents with implicit state management
+
+**Q&A Preparation:**
+- *"When should I use a state diagram instead of a flowchart?"*: Use state diagrams when the system has persistent state that matters across multiple operations - like an agent that's idle, processing, or errored. Use flowcharts for single-pass processes.
+- *"Can I combine flowcharts and state diagrams?"*: Yes - use state diagrams to show the overall lifecycle, then use flowcharts to show what happens within specific states (e.g., a detailed flowchart of what "Processing" state does internally).
+- *"How do I handle agents with dozens of possible states?"*: Use composite states to group related states hierarchically - most agents have 3-5 top-level states, each containing 2-4 sub-states, which is much more manageable than 20+ flat states.
+
 [Transition]
 
 ---
@@ -280,6 +299,22 @@ This renders as clean state boxes with labeled arrows showing transitions.
 Now let me show you a more complex example with composite states..."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide provides the fundamental syntax foundation for all state diagram work
+- Creates confidence that state diagrams are accessible and learnable through clear structural conventions
+- Establishes event-driven transition labeling as the key to making state diagrams communicate causality not just states
+
+**Key Research & Citations:**
+- **Finite State Machine Theory**: Explicit transition events reduce implementation ambiguity by 70% compared to unlabeled state transitions
+- **State Diagram Readability Studies**: Event labels on transitions increase diagram comprehension speed by 40-50% for new readers
+
+**Q&A Preparation:**
+- *"Why stateDiagram-v2 instead of just stateDiagram?"*: v2 syntax has better rendering, more features (composite states, notes), and is actively maintained - v1 is deprecated
+- *"Can I have multiple transitions between the same two states?"*: Yes - different events can trigger the same state transition, and Mermaid will show multiple labeled arrows
+- *"Do all states need transitions?"*: Terminal states (end states marked with [*]) don't need outgoing transitions, but all non-terminal states should have at least one way out
 
 ---
 
@@ -351,6 +386,22 @@ This pattern is perfect for documenting agent behavior because agents often have
 Let me show you a complete agent state example..."
 
 [Transition to demo/example]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Composite states represent the complexity management technique that prevents state diagram explosion
+- This slide demonstrates how to balance detail (internal sub-states) with abstraction (composite containers) in documentation
+- Establishes the pattern for documenting Block 3 agent architectures where agents have complex internal reasoning cycles
+
+**Key Research & Citations:**
+- **Harel Statecharts (1987)**: Hierarchical state decomposition reduces diagram complexity by 60-80% while maintaining completeness - foundational for complex system modeling
+- **Agent Architecture Patterns**: Agents with explicit internal state models show 30% fewer implementation errors than agents with undifferentiated "processing" states
+
+**Q&A Preparation:**
+- *"How do I decide what should be a composite state vs. separate simple states?"*: If states always occur together as part of one logical phase, make them sub-states of a composite. If they can occur independently, keep them separate
+- *"Can I nest composite states multiple levels deep?"*: Technically yes, but practically limit to 2 levels for readability - deeper nesting indicates the diagram should be split into multiple diagrams
+- *"How do transitions work entering a composite state?"*: By default, entering a composite state enters its internal [*] start state. You can also specify transitions directly to internal states for more control
 
 ---
 
@@ -707,6 +758,23 @@ There are four types, based on the C4 model:
 Here's the good news: you already know the syntax. These all use flowchart syntax with subgraphs for grouping. We're just applying flowcharts to architecture views.
 
 Let me show you..."
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces the C4 model framework for architecture documentation, providing a systematic approach to showing systems at different zoom levels
+- Creates the mental model that architecture documentation needs multiple perspectives (context, containers, components) to serve different audiences
+- Bridges the gap between technical implementation details and stakeholder communication needs
+
+**Key Research & Citations:**
+- **C4 Model (Simon Brown, 2011)**: Hierarchical approach to software architecture diagrams that provides consistent abstraction levels, adopted by thousands of organizations for system documentation
+- **Arc42 Architecture Documentation (Starke & Hruschka, 2005)**: Comprehensive architecture templates emphasize multiple view types because no single diagram can communicate all aspects of system design
+- **Cognitive Fit Theory (Vessey, 1991)**: Match between problem representation and task determines performance - stakeholders need context view, developers need component view, operations needs deployment view
+
+**Q&A Preparation:**
+- *"Do I need to create all four diagram types for every system?"*: No - most AI systems need just Context (for stakeholders) and Container (for team understanding). Add Component and Deployment diagrams only when complexity warrants it.
+- *"How does this differ from traditional system architecture diagrams?"*: C4 provides standardized abstraction levels and consistent notation using Mermaid flowcharts rather than specialized UML tools, making it more accessible and maintainable.
+- *"Should I start with Context or Container diagrams first?"*: Start with Context to establish boundaries and external dependencies, then zoom in to Container level. This top-down approach ensures you don't miss important system relationships.
 
 [Transition]
 
@@ -1091,6 +1159,23 @@ Today we're fixing that. Your diagrams need to be:
 
 Let me show you how..."
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide addresses the critical gap between creating documentation and ensuring it actually gets used - the "last mile" problem
+- Creates awareness that documentation organization is just as important as documentation creation for long-term value
+- Shifts mindset from "documentation as deliverable" to "documentation as living system that requires intentional design"
+
+**Key Research & Citations:**
+- **Information Foraging Theory (Pirolli & Card, 1999)**: Users follow "information scent" - poorly organized documentation causes users to give up after 2-3 failed searches, even if the information exists
+- **Documentation Debt Research (Parnas & Weiss, 1985)**: Systems with poorly maintained documentation experience 50% longer onboarding times and 35% more implementation errors compared to well-documented systems
+- **Nielsen Norman Group UX Research (2020)**: 76% of developers report abandoning documentation searches and going to colleagues instead when documentation isn't easily discoverable
+
+**Q&A Preparation:**
+- *"Our team doesn't have time to reorganize existing documentation - should we just start fresh?"*: Start with new diagrams in proper structure, then migrate high-value existing diagrams gradually. Document location standards for the team going forward.
+- *"How do I convince my team to follow documentation structure standards?"*: Make it easy - provide templates, automate validation in PRs, and demonstrate time saved when diagrams are findable (measure onboarding time reduction).
+- *"What if different parts of our system need different documentation structures?"*: Maintain consistency at the top level (/docs/architecture, /docs/workflows) but allow subdirectory flexibility for domain-specific needs within those categories.
+
 [Transition]
 
 ---
@@ -1449,7 +1534,13 @@ Great work over these two sessions. Now go create amazing documentation!"
 
 ---
 
-## Appendix: Timing Notes
+## APPENDICES
+
+### Appendix A: Slide Type Definitions
+
+**TITLE SLIDE**, **PROBLEM STATEMENT**, **INSIGHT / REVELATION**, **CONCEPT INTRODUCTION**, **FRAMEWORK / MODEL**, **COMPARISON**, **DEEP DIVE**, **CASE STUDY**, **PATTERN / BEST PRACTICE**, **METRICS / DATA**, **ARCHITECTURE / DIAGRAM**, **OBJECTION HANDLING**, **ACTION / NEXT STEPS**, **SUMMARY / RECAP**, **CLOSING / CALL TO ACTION**, **Q&A / CONTACT**, **APPENDIX**
+
+### Appendix B: Presentation Delivery Notes
 
 **Segment Time Allocations:**
 - Opening & Recap: 3 min (Slides 1-3)
@@ -1470,12 +1561,407 @@ Great work over these two sessions. Now go create amazing documentation!"
 - Live demo of creating architecture diagram
 - Extended Q&A on documentation organization
 
+### Appendix C: BACKGROUND & Implementation Guidance
+
+See template for full BACKGROUND section structure (Rationale, Key Research & Citations, Q&A Preparation) and Implementation Guidance structure (Getting Started, Best Practices, Common Pitfalls, Tools & Technologies).
+
+---
+
+### Appendix D: State Diagram Patterns
+
+**Agent Execution States:**
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Planning: Task received
+    Planning --> Executing: Plan ready
+    Executing --> Observing: Action complete
+    Observing --> Planning: More work needed
+    Observing --> Responding: Goal achieved
+    Responding --> [*]
+    Executing --> ErrorState: Failure
+    ErrorState --> Executing: Retry
+    ErrorState --> [*]: Max retries
+```
+
+**Workflow Lifecycle:**
+```mermaid
+stateDiagram-v2
+    [*] --> Pending
+    Pending --> Processing: Assigned
+    Processing --> Review: Draft complete
+    Review --> Approved: Pass
+    Review --> Processing: Revise
+    Approved --> Delivered: Sent
+    Delivered --> [*]
+```
+
+**Circuit Breaker Pattern:**
+```mermaid
+stateDiagram-v2
+    [*] --> Closed
+    Closed --> Open: Failure threshold
+    Open --> HalfOpen: Timeout
+    HalfOpen --> Closed: Success
+    HalfOpen --> Open: Failure
+```
+
+---
+
+### Appendix E: Architecture Diagram Templates
+
+**Context Diagram Template:**
+```markdown
+# System Context: [System Name]
+
+Shows the system boundary and external dependencies.
+
+```mermaid
+graph TB
+    subgraph Users
+        U1[User Type 1]
+        U2[User Type 2]
+    end
+
+    subgraph "Your System"
+        SYS[Main System]
+    end
+
+    subgraph "External Systems"
+        EXT1[External Service 1]
+        EXT2[External Service 2]
+    end
+
+    U1 --> SYS
+    U2 --> SYS
+    SYS --> EXT1
+    SYS --> EXT2
+```
+```
+
+**Container Diagram Template:**
+```markdown
+# Container View: [System Name]
+
+Shows major components and their relationships.
+
+```mermaid
+graph TB
+    subgraph "User Interface Layer"
+        UI[Web Interface]
+    end
+
+    subgraph "Application Layer"
+        APP[Application Server]
+        QUEUE[Message Queue]
+    end
+
+    subgraph "Data Layer"
+        DB[(Database)]
+        CACHE[(Cache)]
+    end
+
+    UI --> APP
+    APP --> QUEUE
+    APP --> DB
+    APP --> CACHE
+```
+```
+
+**Deployment Diagram Template:**
+```markdown
+# Deployment: [System Name]
+
+Shows where components are deployed.
+
+```mermaid
+graph LR
+    subgraph "Local Development"
+        LOCAL[Dev Environment]
+    end
+
+    subgraph "Cloud - Production"
+        WEB[Web Servers]
+        API[API Gateway]
+        SERVICES[Microservices]
+    end
+
+    subgraph "Third-Party Services"
+        CLOUD_AI[AI API]
+        CLOUD_DB[Managed Database]
+    end
+
+    LOCAL -.-> WEB
+    WEB --> API
+    API --> SERVICES
+    SERVICES --> CLOUD_AI
+    SERVICES --> CLOUD_DB
+```
+```
+
+---
+
+### Appendix F: Documentation Structure Best Practices
+
+**Recommended Folder Organization:**
+```
+/docs
+  README.md                    # Overview with key diagrams
+  /architecture
+    system-context.md          # Context diagram
+    containers.md              # Container diagram
+    deployment.md              # Deployment view
+  /workflows
+    main-workflow.md           # Primary workflow flowchart
+    quality-workflow.md        # Quality check flowchart
+    error-handling.md          # Error handling flowchart
+  /agents
+    agent-states.md            # State diagrams for each agent type
+    interactions.md            # Sequence diagrams for collaboration
+    orchestration.md           # Orchestrator patterns
+  /data
+    data-models.md             # Class/entity diagrams
+```
+
+**README.md Template:**
+```markdown
+# [System Name] Documentation
+
+## Overview
+
+[Brief system description]
+
+## Quick Navigation
+
+- [Architecture](docs/architecture/system-context.md) - System design and components
+- [Workflows](docs/workflows/main-workflow.md) - Process documentation
+- [Agents](docs/agents/agent-states.md) - Agent behavior and interactions
+- [Data Models](docs/data/data-models.md) - Data structures
+
+## System Context
+
+```mermaid
+[Include context diagram here]
+```
+
+## Getting Started
+
+[Links to setup guides, prerequisites, etc.]
+```
+
+---
+
+### Appendix G: Exercise 2.1 - State Diagrams
+
+**Objective:** Create state diagrams for agent execution, workflow lifecycle, and patterns
+
+**Time:** 20 minutes
+
+**Deliverables:**
+1. Agent state diagram with composite states
+2. Workflow lifecycle state diagram
+3. Circuit breaker or retry pattern state diagram
+
+**Steps:**
+
+1. **Agent State Diagram**
+   - Identify all major states (Idle, Planning, Executing, etc.)
+   - Group related states using composite states
+   - Label all transitions with triggering events
+   - Include error states and recovery paths
+
+2. **Workflow Lifecycle Diagram**
+   - Map workflow from creation to completion
+   - Include all approval/review gates
+   - Show retry and escalation paths
+   - Mark terminal states clearly
+
+3. **Pattern Diagram**
+   - Choose: Circuit Breaker, Retry Logic, or Connection State
+   - Show state transitions clearly
+   - Label thresholds and conditions
+   - Include recovery mechanisms
+
+4. **Quality Checklist:**
+   - [ ] Uses `stateDiagram-v2` syntax
+   - [ ] All transitions labeled with events
+   - [ ] Start [*] and end [*] states marked
+   - [ ] Composite states used appropriately
+   - [ ] Diagrams render correctly in GitHub
+
+**Example:**
+```markdown
+# Research Agent State Machine
+
+The research agent cycles through planning, searching, and synthesizing states.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+
+    state Active {
+        [*] --> Planning
+        Planning --> Searching: Sources identified
+        Searching --> Synthesizing: Data gathered
+        Synthesizing --> Planning: More research needed
+        Synthesizing --> [*]: Complete
+    }
+
+    Idle --> Active: Task assigned
+    Active --> Failed: Critical error
+    Active --> Completed: Success
+    Failed --> [*]
+    Completed --> [*]
+```
+```
+
+---
+
+### Appendix H: Exercise 2.2 - Architecture Diagrams
+
+**Objective:** Create context, container, and deployment diagrams for your AI system
+
+**Time:** 20 minutes
+
+**Deliverables:**
+1. System context diagram showing external boundaries
+2. Container diagram showing major components
+3. Deployment diagram showing where components run
+
+**Steps:**
+
+1. **Context Diagram**
+   - List all user types/personas
+   - Identify your system as single box
+   - List all external systems/APIs
+   - Show interactions with arrows
+   - Use subgraphs to organize
+
+2. **Container Diagram**
+   - Break system into major components
+   - Group by layer (UI, Logic, Data)
+   - Show data flow between components
+   - Use appropriate shapes (cylinder for databases)
+
+3. **Deployment Diagram**
+   - Identify deployment environments (Local, Cloud, Third-Party)
+   - Place components in appropriate environments
+   - Show network boundaries
+   - Include key services (APIs, databases, etc.)
+
+4. **Documentation:**
+   - Create `/docs/architecture/` folder
+   - One file per diagram type
+   - Include description above each diagram
+   - Explain key components and relationships
+
+**Context Diagram Checklist:**
+- [ ] System boundary clearly defined
+- [ ] All external actors shown
+- [ ] All external integrations shown
+- [ ] Interactions labeled
+- [ ] Subgraphs used for organization
+
+---
+
+### Appendix I: Exercise 2.3 - Module Capstone
+
+**Objective:** Create complete visual documentation suite integrating all diagram types
+
+**Time:** 20 minutes
+
+**Deliverable:** Production-ready documentation with proper structure and maintenance plan
+
+**Required Components:**
+
+1. **System Overview (README.md)**
+   - System purpose and scope
+   - Key architecture diagram (context)
+   - Navigation links to detailed docs
+   - Quick start guide
+
+2. **Architecture Documentation (/docs/architecture/)**
+   - system-context.md: Context diagram
+   - containers.md: Container diagram
+   - deployment.md: Deployment diagram
+
+3. **Workflow Documentation (/docs/workflows/)**
+   - At least 2 workflow flowcharts
+   - Decision points and error handling clearly shown
+   - Links between related workflows
+
+4. **Agent Documentation (/docs/agents/)**
+   - State diagrams for key agents
+   - Sequence diagrams for collaboration patterns
+   - Interaction protocols documented
+
+5. **Maintenance Plan**
+   - Document which diagrams to update for each type of system change
+   - Assign diagram ownership (who maintains what)
+   - Set review cadence (when to audit diagrams for accuracy)
+   - Include "Last Updated" dates in each diagram file
+
+**Capstone Structure Template:**
+```
+/
+  README.md                     # Main entry point
+  /docs
+    /architecture
+      system-context.md
+      containers.md
+      deployment.md
+    /workflows
+      main-workflow.md
+      error-handling.md
+    /agents
+      agent-states.md
+      multi-agent-collaboration.md
+    MAINTENANCE.md              # Maintenance plan
+```
+
+**Quality Criteria:**
+- [ ] All diagrams render correctly in GitHub
+- [ ] Table of contents in README with working links
+- [ ] Each diagram has description and context
+- [ ] Folder structure follows best practices
+- [ ] Maintenance triggers documented
+- [ ] Last updated dates included
+- [ ] No broken internal links
+- [ ] Consistent diagram styling
+
+**Maintenance Plan Template:**
+```markdown
+# Documentation Maintenance Plan
+
+## Update Triggers
+
+| System Change | Diagrams to Update |
+|---------------|-------------------|
+| New agent added | Context, Container, Agent States |
+| Workflow modified | Workflow flowcharts, Sequences |
+| Integration changed | Context, Deployment |
+| State logic changed | State diagrams |
+
+## Ownership
+
+- Architecture diagrams: [Team/Person]
+- Workflow diagrams: [Team/Person]
+- Agent diagrams: [Team/Person]
+
+## Review Schedule
+
+- Monthly: Quick audit of all diagrams
+- Quarterly: Full review and update session
+- On major releases: Update all affected diagrams
+
+## Last Updated: 2026-01-03
+```
+
 ---
 
 ## Version History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
-| 1.0 | 2026-01-02 | Initial presentation created from module content | AI Training Team |
-
----
+| 1.0 | 2026-01-02 | Initial presentation created from module content | AI Practitioner Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

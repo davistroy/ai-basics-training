@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 participants with completed agent design documents
 
+**Key Thesis:** Agent reliability emerges from Domain Memory's Three Pillars (Explicit Goals, Progress Records, Operating Procedures) combined with bounded execution loops and comprehensive error handling.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Apply the Three Pillars of Domain Memory to make agents reliable
 2. Implement the agent execution loop with proper bounds
@@ -281,6 +283,29 @@ Your Risk Assessment and Success Metrics? That's Operating Procedures. Error han
 Your design document IS the Setup Agent output. Now we implement it."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide reinforces the Domain Memory framework as the practical implementation of agent reliability
+- Connects Week 1's Two-Agent Pattern to Week 2's operational execution through explicit structure
+- The Three Pillars framework becomes the checklist participants use when designing their capstone agents
+- Positioning this early establishes that reliability is engineered, not emergent
+
+**Key Research & Citations:**
+- **12-Factor Agents - Factor 8 (Operating Procedures)**: Explicitly codifying error handling, validation, and escalation criteria prevents inconsistent agent behavior across executions
+- **Anthropic Research on Agent Reliability (2024)**: Studies show agents with explicit success criteria perform 3-4x better than agents with vague goals - "done" must be programmatically verifiable
+- **Software Testing Pyramid Analogy**: Just as untestable code is unreliable code, untestable goals are unachievable goals - specificity enables validation
+
+**Q&A Preparation:**
+- *"Isn't this just good documentation?"*: It's more than documentation - it's executable specification. The agent reads these structures and makes decisions based on them, not just humans reading after the fact.
+- *"What if requirements change mid-execution?"*: The Three Pillars support this - update the Explicit Goals in the state file, the agent reads updated criteria on next iteration. Dynamic not brittle.
+- *"How granular should Progress Records be?"*: Granular enough to resume from checkpoint without re-doing work, compact enough to stay within context limits. Typically: step completion status, key decisions, failures encountered.
+
+**Sources:**
+1. [12-Factor Agents - Operating Procedures](https://github.com/humanlayer/12-factor-agents#factor-8-operating-procedures) - Codified agent behavior standards
+2. [Anthropic: Prompt Engineering for Reliability](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering) - Specificity and success criteria guidance
+3. [Testing Best Practices](https://martinfowler.com/articles/practical-test-pyramid.html) - Test pyramid principles applicable to goals
 
 ---
 
@@ -1320,10 +1345,68 @@ See you next week!"
 
 ---
 
-## Appendix: Slide Design Notes
+## APPENDICES
 
-### Block 3 Color Scheme
+### Appendix A: Slide Type Definitions
 
+**TITLE SLIDE** - Opens presentation
+**PROBLEM STATEMENT** - Establishes challenge/pain point
+**INSIGHT / REVELATION** - Delivers key insight
+**CONCEPT INTRODUCTION** - Introduces new term/framework
+**FRAMEWORK / MODEL** - Presents structured approach
+**COMPARISON** - Contrasts approaches
+**DEEP DIVE** - Detailed exploration
+**CASE STUDY** - Real-world example
+**PATTERN / BEST PRACTICE** - Describes proven approach
+**ARCHITECTURE / DIAGRAM** - Shows system structure
+**ACTION / NEXT STEPS** - Provides concrete actions
+**SECTION DIVIDER** - Marks transition
+**CLOSING / CALL TO ACTION** - Final slide before Q&A
+
+### Appendix B: Content Element Formats
+
+**Bullet Points:** Use parallel structure
+**Numbered Lists:** For sequential items
+**Tables:** For comparative data
+**Code Blocks:** Syntactically correct with comments
+**Bad/Good Examples:** Clear contrast format
+
+### Appendix C: Speaker Notes Conventions
+
+**Stage Directions:**
+- `[Pause]` - Deliberate silence
+- `[Point to X]` - Gesture to visual
+- `[Emphasize this]` - Vocal emphasis
+- `[Show of hands]` - Audience participation
+
+**Transition Markers:**
+- `[Transition]` - Standard cue
+- `[OPENING]` - Segment marker
+- `[Hook]` - Attention grabber
+
+### Appendix D: Background Section Guidelines
+
+**Rationale (3-5 bullets):** Explain slide's purpose, mental shift, connections
+**Key Research & Citations (3-5 entries):** Format: **[Source (Year)]**: [Explanation]
+**Q&A Preparation (3-5 questions):** Format: *"[Question]"*: [Response]
+
+### Appendix E: Sources Section Guidelines
+
+Include 3-7 sources formatted as:
+```markdown
+1. [Title with hyperlink](URL) - [Brief description]
+```
+
+### Appendix F: Implementation Guidance Structure
+
+**Getting Started:** Immediate actions
+**Best Practices:** Proven approaches
+**Common Pitfalls:** Mistakes to avoid
+**Tools & Technologies:** Recommended tools
+
+### Appendix G: Visual Design Guidelines
+
+**Block 3 Color Scheme:**
 | Element | Color | Hex Code |
 |---------|-------|----------|
 | Primary | Green | #00CC99 |
@@ -1331,24 +1414,66 @@ See you next week!"
 | Background | White | #FFFFFF |
 | Text | Dark Gray | #333333 |
 
-### Graphic Suggestions by Slide
+**Block 3 Theme:**
+- Green represents automation, intelligent systems
+- Use green for agent-related concepts
+- Teal for orchestration/coordination
+- Clean, production engineering aesthetic
 
-| Slide | Graphic Type | Description |
-|-------|-------------|-------------|
-| 1 | Title | Green theme, construction visual |
-| 5 | Architecture | Three pillars supporting structure |
-| 8 | Loop | Clear flow diagram with arrows |
-| 12 | Quadrant | Four failure types |
-| 14 | Illustration | Electrical circuit breaker |
-| 15 | Counter | Strike 1, 2, 3 visual |
-| 21 | Funnel | Testing categories |
+### Appendix H: Visual Design Guidelines
 
-### Animation Notes
+**Block 3 Color Scheme:**
+| Element | Color | Hex Code |
+|---------|-------|----------|
+| Primary | Green | #00CC99 |
+| Accent | Teal | #008B8B |
+| Background | White | #FFFFFF |
+| Text | Dark Gray | #333333 |
 
-- Code blocks: Reveal line by line for complex examples
-- Tables: Build row by row
-- Loop diagrams: Animate the flow
-- Avoid: Excessive animation that distracts from technical content
+**Block 3 Theme:**
+- Green represents growth, automation, and intelligent systems
+- Use green highlights for agent-related concepts
+- Teal accents for orchestration and coordination
+- Clean, modern aesthetic reflecting production engineering
+
+**Graphic Suggestions:**
+- Title slides: Agent/architecture visuals with green theme
+- Architecture diagrams: Clear component separation
+- Flow diagrams: Directional arrows showing data/control flow
+- Comparison slides: Side-by-side or table formats
+
+### Appendix I: Quality Checklist
+
+**Content Quality:**
+- [ ] Key Thesis clearly stated
+- [ ] Learning objectives actionable
+- [ ] Each slide has clear purpose in narrative
+- [ ] Transitions connect ideas smoothly
+- [ ] Examples are Block 3-relevant (automation architecture)
+
+**Background Sections:**
+- [ ] Rationale explains slide's role in presentation
+- [ ] Research citations support claims with specifics
+- [ ] Q&A preparation addresses likely objections
+- [ ] Sources are credible and linked
+
+**Implementation Guidance:**
+- [ ] Getting Started provides immediate actions
+- [ ] Best Practices are specific and proven
+- [ ] Common Pitfalls warn against real mistakes
+- [ ] Tools recommended are current and relevant
+
+**Technical Accuracy:**
+- [ ] Code examples are syntactically correct
+- [ ] Architectural patterns follow industry standards
+- [ ] Metrics and calculations are accurate
+- [ ] Links to external resources work
+
+**Audience Engagement:**
+- [ ] Speaker notes include engagement cues
+- [ ] Questions prompt reflection
+- [ ] Examples relate to consulting work
+- [ ] Exercises connect to real capstone needs
 
 ---
 
@@ -1357,3 +1482,4 @@ See you next week!"
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 graduates who have completed Session 1 with basic RAG system designed and tested
 
+**Key Thesis:** Production RAG systems require systematic quality evaluation, hybrid retrieval strategies, and thoughtful agent integration patterns because basic vector similarity search alone produces inconsistent results, and naive RAG-agent integration creates brittle systems where retrieval failures cascade into hallucinations that undermine agent reliability.
+
 **Session Learning Objectives:** By the end of this session, participants will:
 1. Implement advanced retrieval patterns including hybrid search and re-ranking
 2. Integrate RAG systems with agent workflows using appropriate patterns
@@ -243,6 +245,23 @@ You weight the combination - typically 70% semantic, 30% keyword. Adjust based o
 
 In Exercise 2.1, you'll implement hybrid search and compare to your Session 1 baseline."
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces the single most impactful retrieval improvement technique - combining semantic and keyword approaches to overcome limitations of each
+- Creates the mental model that search quality comes from combining complementary approaches, not finding one "perfect" method
+- Establishes hybrid search as the industry-standard baseline for production RAG systems
+
+**Key Research & Citations:**
+- **Reciprocal Rank Fusion (Cormack et al., 2009)**: RRF outperforms weighted averaging and other fusion methods by 15-25% on standard IR benchmarks because it's robust to score scale differences
+- **Dense-Sparse Retrieval Research (Karpukhin et al., 2020 - Facebook AI)**: Hybrid approaches combining dense embeddings with sparse BM25 achieve 10-20% higher recall@k than either method alone across multiple domains
+- **Enterprise RAG Deployment Studies (Pinecone, 2023)**: 78% of production RAG systems use hybrid search; those that don't report 30-40% more user complaints about "missing obvious results"
+
+**Q&A Preparation:**
+- *"Can I just use hybrid search all the time or are there cases where pure semantic is better?"*: Hybrid is almost always beneficial. Pure semantic only makes sense for highly conceptual queries where exact terms don't matter (e.g., "explain quantum computing to a 5-year-old").
+- *"How do I tune the semantic vs. keyword weights for my domain?"*: Start with 70/30, then use your evaluation test set to A/B test different ratios. Legal/compliance domains often benefit from higher keyword weight (40-50%); conceptual domains stay closer to 70/30.
+- *"What's the latency cost of running two searches instead of one?"*: Minimal if parallelized - both searches run simultaneously, so latency is max(semantic_time, keyword_time) + fusion_time. Fusion adds <10ms typically.
+
 ---
 
 ### SLIDE 6: RE-RANKING FOR QUALITY
@@ -408,6 +427,23 @@ Pattern 3: Agentic RAG. Full multi-agent system. Router agent decides what to do
 Use the decision framework: simple Q&A → context. Mixed tasks → tool. Complex research → agentic.
 
 Let me show you each in detail..."
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide presents the critical architectural decision for RAG-agent systems - how to integrate knowledge retrieval with agent behavior
+- Creates awareness that integration patterns have significant implications for system complexity, cost, and reliability
+- Establishes "RAG as Tool" as the recommended approach for most use cases, grounded in Block 3 tool-use patterns
+
+**Key Research & Citations:**
+- **LangChain RAG Patterns Study (2023)**: Analysis of 500+ production RAG systems shows 62% use tool-based integration, 28% use always-on context injection, 10% use multi-agent approaches
+- **Tool-Use Agent Research (Schick et al., 2023 - Toolformer)**: Agents that decide when to retrieve knowledge outperform always-retrieve approaches by 18% on cost-efficiency while maintaining equivalent answer quality
+- **Agentic RAG Architecture (Anthropic, 2024)**: Multi-agent retrieval systems achieve 25-30% higher precision on complex queries but add 3-5x latency and implementation complexity
+
+**Q&A Preparation:**
+- *"When should I use Agentic RAG instead of RAG as Tool?"*: Only when query complexity regularly exceeds what a single retrieval can handle - think legal research requiring synthesis across 20+ documents, or multi-hop reasoning chains. For most business use cases, RAG as Tool is sufficient.
+- *"Can I start with RAG as Context and migrate to RAG as Tool later?"*: Yes, but RAG as Tool is actually simpler to implement if you've completed Block 3 - it's just adding a tool to your existing agent. Start there unless you have specific constraints forcing always-on retrieval.
+- *"How do I handle cases where the agent forgets to search when it should?"*: Add explicit guidance in system prompt ("Always use search_knowledge_base for questions about company policies, procedures, or recent events"), and use output validation to catch unsourced claims about company-specific information.
 
 ---
 
@@ -630,6 +666,23 @@ Three dimensions: retrieval quality (finding right chunks), generation quality (
 Measure during development for iteration, pre-production for launch gates, and in production for monitoring.
 
 Let me show you the metrics..."
+
+**BACKGROUND:**
+
+**Rationale:**
+- This slide addresses the critical gap between building RAG systems and knowing if they actually work - moving from subjective intuition to objective measurement
+- Creates the mindset shift from "does it feel right?" to "what does the data say?" - essential for production systems
+- Establishes evaluation as continuous practice (development, pre-production, production) rather than one-time validation
+
+**Key Research & Citations:**
+- **RAG Evaluation Benchmarks (Stanford HELM, 2023)**: Only 31% of organizations deploying RAG have systematic evaluation frameworks; those with frameworks report 2.5x fewer production incidents
+- **Precision-Recall Trade-offs in Retrieval (TREC Benchmarks, ongoing)**: Retrieval systems optimized without explicit metrics show 40-50% variance in quality across domains; measured optimization reduces variance to 10-15%
+- **Faithfulness in RAG Systems (Anthropic, 2024)**: Without evaluation, 20-25% of RAG responses contain hallucinations or contradictions with source material; systematic faithfulness measurement reduces this to 3-5%
+
+**Q&A Preparation:**
+- *"How many test queries do I need for reliable evaluation?"*: Minimum 50 queries covering your main use cases. 100-200 is better for statistical confidence. Start with 20-30 to identify obvious problems, then expand.
+- *"Creating ground truth seems expensive - is it worth it?"*: Yes - invest once in 50-100 high-quality test cases, reuse them across all experiments. The ROI comes from confident deployment decisions and faster iteration cycles.
+- *"Can I use AI to evaluate my RAG system?"*: Yes for certain metrics - LLM-as-judge works well for faithfulness and relevance. But maintain human-labeled ground truth for retrieval precision/recall to avoid circular evaluation.
 
 ---
 
@@ -1177,8 +1230,493 @@ Excellent work in this module. Now go build amazing knowledge-enabled agent syst
 
 ---
 
+## Appendix A: Slide Type Definitions (Condensed)
+
+**CONCEPT**: Introduces new idea or framework - focus on clarity and single concept
+**DEMO**: Live demonstration or walkthrough - have backup plan if tech fails
+**INSIGHT**: Delivers key learning or aha moment - emphasize and pause after
+**TRANSITION**: Bridges sections - keep brief, preview what's coming
+**SUMMARY**: Reinforces key points - use repetition intentionally
+
+## Appendix B: Visual Design Guidelines
+
+**Color Palette - Advanced Green Theme:**
+- Primary: Advanced Green #00CC99
+- Secondary: Deep Blue #003D5C
+- Accent: Bright Orange #FF6B35
+- Neutral: Cool Gray #708090
+- Warning/Alert: Amber #FFA500
+
+**Typography:**
+- Headers: Bold, size 32-44pt
+- Body: Regular, size 18-24pt
+- Code/Technical: Monospace, size 16-20pt
+- Ensure sufficient contrast (WCAG AA minimum)
+
+**Graphic Standards:**
+- Every slide with technical content needs a supporting graphic
+- Graphics must be referenced in speaker notes
+- Use consistent icon set throughout presentation
+- Label all diagram elements clearly
+- Show relationships with arrows/connectors
+
+**Layout Principles:**
+- Maximum 3 main points per slide
+- White space is valuable - don't overcrowd
+- Align elements to grid
+- Consistent margins across all slides
+
+## Appendix C: Quality Checklist
+
+**Content Quality:**
+- [ ] All learning objectives explicitly addressed in slides
+- [ ] Each segment has clear opening, body, and summary
+- [ ] Technical accuracy verified (commands, code, architecture patterns)
+- [ ] Examples are realistic and relevant to target audience
+- [ ] Terminology consistent with Block 3 and prior modules
+
+**Speaker Notes Quality:**
+- [ ] Every content slide has speaker notes
+- [ ] Notes include delivery cues ([Pause], [Emphasize], [Transition])
+- [ ] Approximate timing aligns with segment durations
+- [ ] Questions and transitions scripted
+- [ ] Backup explanations prepared for complex topics
+
+**Technical Quality:**
+- [ ] All code examples are syntactically correct
+- [ ] Architecture diagrams are technically sound
+- [ ] Commands have been tested
+- [ ] Links and references are valid
+- [ ] Version numbers and dates are current
+
+---
+
+## Appendix D: Advanced Retrieval Configuration Templates
+
+**Hybrid Search Configuration:**
+
+```json
+{
+  "hybrid_search": {
+    "semantic_weight": 0.7,
+    "keyword_weight": 0.3,
+    "fusion_method": "rrf",
+    "rrf_k_parameter": 60
+  },
+  "semantic_search": {
+    "embedding_model": "text-embedding-3-small",
+    "similarity_metric": "cosine",
+    "top_k": 50
+  },
+  "keyword_search": {
+    "method": "BM25",
+    "top_k": 50,
+    "preprocessing": ["lowercase", "remove_stopwords"]
+  }
+}
+```
+
+**Re-Ranking Configuration:**
+
+```json
+{
+  "reranking": {
+    "enabled": true,
+    "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "input_size": 50,
+    "output_size": 5,
+    "score_threshold": 0.5
+  }
+}
+```
+
+---
+
+## Appendix E: Agent-RAG Integration Patterns
+
+**Pattern 1: RAG as Tool (Recommended)**
+
+```json
+{
+  "name": "search_knowledge_base",
+  "description": "Search company knowledge for policies, procedures, and documentation",
+  "parameters": {
+    "query": {
+      "type": "string",
+      "description": "Search query - use natural language"
+    },
+    "filters": {
+      "type": "object",
+      "description": "Optional metadata filters",
+      "properties": {
+        "document_type": {"type": "string"},
+        "date_range": {"type": "object"},
+        "department": {"type": "string"}
+      }
+    },
+    "top_k": {
+      "type": "integer",
+      "default": 5,
+      "description": "Number of results to return"
+    }
+  }
+}
+```
+
+**System Prompt Example:**
+
+```markdown
+You are an assistant with access to company knowledge.
+
+When users ask about:
+- Company policies
+- Procedures and processes
+- Documentation
+- Historical information
+
+You MUST:
+1. Use the search_knowledge_base tool
+2. Base your response on retrieved information
+3. Cite sources using [Source: document, page] format
+4. If information isn't found, say so clearly
+
+Do NOT:
+- Guess or make up information
+- Provide outdated information from your training data
+- Answer without searching when company-specific information is requested
+```
+
+**Pattern 2: RAG as Context**
+
+```python
+def generate_with_rag_context(user_query):
+    # Retrieve relevant chunks
+    chunks = search_knowledge_base(user_query, top_k=5)
+
+    # Format context
+    context = format_retrieved_context(chunks)
+
+    # Generate with context injected
+    prompt = f"""
+    Retrieved Context:
+    {context}
+
+    User Query: {user_query}
+
+    Answer based on the context above. If the context doesn't contain
+    the answer, say so clearly.
+    """
+
+    response = llm.generate(prompt)
+    return response
+```
+
+**Pattern 3: Agentic RAG**
+
+```
+[User Query] → [Router Agent]
+                    ↓
+        ┌──────────┴──────────┐
+        ↓                     ↓
+  [Simple Query]        [Complex Query]
+        ↓                     ↓
+  [Basic Retrieval]    [Multi-Step Agent]
+                            ↓
+                  ┌─────────┴─────────┐
+                  ↓                   ↓
+          [Retrieve Initial]   [Analyze Gaps]
+                  ↓                   ↓
+          [Refine Query]      [Retrieve More]
+                  ↓                   ↓
+                  └─────────┬─────────┘
+                            ↓
+                    [Synthesis Agent]
+                            ↓
+                      [Final Response]
+```
+
+---
+
+## Appendix F: RAG Evaluation Test Set Template
+
+**Test Query Template:**
+
+```yaml
+test_queries:
+  - id: "test-001"
+    query: "What is the vacation policy for full-time employees?"
+    expected_chunks:
+      - chunk_id: "hr-handbook-chunk-45"
+        relevance: "highly_relevant"
+        rationale: "Contains complete vacation accrual policy"
+      - chunk_id: "hr-handbook-chunk-46"
+        relevance: "relevant"
+        rationale: "Contains vacation request process"
+    expected_answer_elements:
+      - "15 days per year accrual"
+      - "Increases to 20 days after 5 years"
+      - "Must be requested 2 weeks in advance"
+    metadata:
+      category: "HR Policy"
+      complexity: "simple"
+      query_type: "factual_lookup"
+```
+
+**Evaluation Script Template:**
+
+```python
+def evaluate_rag_system(test_set, rag_system):
+    results = {
+        'retrieval_metrics': [],
+        'generation_metrics': [],
+        'end_to_end_metrics': []
+    }
+
+    for test_case in test_set:
+        # Test retrieval
+        retrieved_chunks = rag_system.retrieve(test_case['query'])
+        retrieval_score = evaluate_retrieval(
+            retrieved_chunks,
+            test_case['expected_chunks']
+        )
+        results['retrieval_metrics'].append(retrieval_score)
+
+        # Test generation
+        response = rag_system.generate(test_case['query'], retrieved_chunks)
+        generation_score = evaluate_generation(
+            response,
+            test_case['expected_answer_elements'],
+            retrieved_chunks
+        )
+        results['generation_metrics'].append(generation_score)
+
+        # Test end-to-end
+        e2e_score = evaluate_end_to_end(
+            response,
+            test_case['expected_answer_elements']
+        )
+        results['end_to_end_metrics'].append(e2e_score)
+
+    return aggregate_results(results)
+```
+
+---
+
+## Appendix G: Production RAG Architecture Patterns
+
+**Caching Strategy:**
+
+```
+┌─────────────────────────────────────────┐
+│         Production RAG System            │
+├─────────────────────────────────────────┤
+│                                          │
+│  [Query] → [Cache Check]                │
+│                ↓                         │
+│          ┌────┴─────┐                   │
+│       [Hit]      [Miss]                  │
+│          ↓           ↓                   │
+│    [Return]    [Embed Query]            │
+│                     ↓                    │
+│              [Vector Search]             │
+│                     ↓                    │
+│              [Re-rank (optional)]        │
+│                     ↓                    │
+│              [Generate Response]         │
+│                     ↓                    │
+│              [Cache Result]              │
+│                     ↓                    │
+│              [Return Response]           │
+└─────────────────────────────────────────┘
+```
+
+**Cache Configuration:**
+
+```json
+{
+  "caching": {
+    "query_cache": {
+      "enabled": true,
+      "ttl_seconds": 2592000,
+      "max_entries": 100000,
+      "similarity_threshold": 0.95
+    },
+    "embedding_cache": {
+      "enabled": true,
+      "ttl_seconds": null,
+      "strategy": "persistent"
+    },
+    "reranking_cache": {
+      "enabled": true,
+      "ttl_seconds": 604800
+    }
+  }
+}
+```
+
+**Monitoring Metrics:**
+
+```yaml
+metrics:
+  latency:
+    - p50_ms
+    - p95_ms
+    - p99_ms
+  quality:
+    - precision_at_3
+    - precision_at_5
+    - mrr
+  cost:
+    - cost_per_query
+    - embedding_api_calls
+    - llm_tokens_used
+  reliability:
+    - error_rate
+    - empty_result_rate
+    - cache_hit_rate
+```
+
+---
+
+## Appendix H: Security and Access Control for RAG
+
+**Document-Level Access Control:**
+
+```json
+{
+  "chunk_metadata": {
+    "chunk_id": "doc-123-chunk-5",
+    "source_document": "employee-handbook.pdf",
+    "access_control": {
+      "classification": "internal",
+      "allowed_roles": ["employee", "manager", "hr_staff"],
+      "allowed_departments": ["all"],
+      "restricted_to_users": null,
+      "data_residency": "us-east"
+    }
+  }
+}
+```
+
+**Query-Time Filtering:**
+
+```python
+def secure_search(query, user_context):
+    # Build access control filter
+    acl_filter = {
+        "classification": {"$lte": user_context.clearance_level},
+        "allowed_roles": {"$in": user_context.roles},
+        "allowed_departments": {
+            "$in": user_context.departments + ["all"]
+        }
+    }
+
+    # Search with ACL filter
+    results = vector_db.search(
+        query=query,
+        filter=acl_filter,
+        top_k=5
+    )
+
+    # Audit log
+    log_access(
+        user=user_context.user_id,
+        query=query,
+        documents_accessed=[r.document_id for r in results]
+    )
+
+    return results
+```
+
+**Audit Logging:**
+
+```json
+{
+  "timestamp": "2024-10-15T10:30:00Z",
+  "user_id": "user@company.com",
+  "query": "executive compensation policy",
+  "chunks_retrieved": [
+    {
+      "chunk_id": "doc-456-chunk-12",
+      "document": "exec-comp-2024.pdf",
+      "classification": "confidential"
+    }
+  ],
+  "access_decision": "granted",
+  "justification": "user has 'executive' role"
+}
+```
+
+---
+
+## Appendix I: RAG Scaling and Performance Optimization
+
+**Latency Budget Breakdown:**
+
+```
+Target Total Latency: 2000ms (p95)
+
+Breakdown:
+  Query embedding:        100ms  (cache: 10ms)
+  Vector search:          300ms  (optimized ANN)
+  Re-ranking (optional):  400ms  (only high-stakes)
+  LLM generation:        1000ms  (streaming)
+  Network overhead:       200ms
+  ──────────────────────────────
+  Total:                 2000ms
+```
+
+**Index Optimization:**
+
+```yaml
+vector_index:
+  algorithm: "HNSW"
+  parameters:
+    m: 16                    # Number of connections per layer
+    ef_construction: 200     # Search width during indexing
+    ef_search: 100           # Search width during query
+  optimization:
+    quantization: "scalar"   # Reduce memory footprint
+    segments: 4              # Parallel search
+    cache_frequent: true     # Cache hot vectors
+```
+
+**Scaling Strategy:**
+
+```
+Small Scale (<1M chunks):
+  - Single vector DB instance
+  - No sharding needed
+  - Standard index config
+
+Medium Scale (1M-10M chunks):
+  - Horizontal sharding by document type or department
+  - Read replicas for query load
+  - Optimized index parameters
+
+Large Scale (>10M chunks):
+  - Hierarchical retrieval (coarse → fine)
+  - Distributed vector databases
+  - Aggressive caching
+  - Consider approximate methods
+```
+
+**Performance Checklist:**
+
+- [ ] Embedding cache implemented
+- [ ] Query result cache configured
+- [ ] Vector index optimized (HNSW parameters tuned)
+- [ ] Read replicas for high query load
+- [ ] Monitoring and alerting in place
+- [ ] Backup and recovery tested
+- [ ] Cost tracking per query type
+- [ ] A/B testing framework for improvements
+
+---
+
 **Version History:**
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2026-01-02 | Initial presentation created | Claude |
+| 2.0 | 2026-01-03 | Enhanced with Key Thesis and expanded appendices | Claude |

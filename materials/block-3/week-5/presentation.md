@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 3 participants with multi-step agents from Week 4
 
+**Key Thesis:** Agent specialization through focused single-responsibility design combined with orchestration patterns (Sequential for pipelines, Master-Worker for decomposition) creates more reliable and maintainable systems than monolithic multi-purpose agents.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Apply the specialization principle to decompose agents into focused roles
 2. Implement sequential orchestration for pipeline workflows
@@ -185,6 +187,29 @@ Focused prompts produce better results - less confusion. Easier to test - you kn
 The more an agent does, the worse it does each thing. Scope and quality are inversely related."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- The specialization principle directly addresses the "bloated agent syndrome" participants likely encountered in Weeks 2-4
+- Establishes quality-scope inverse relationship as architectural law, not suggestion
+- Creates foundation for understanding why orchestration (later slides) is necessary - you can't just keep adding to one agent
+- The 1-3 responsibilities guideline provides concrete design constraint for capstone planning
+
+**Key Research & Citations:**
+- **Unix Philosophy - Do One Thing Well**: Decades of software engineering demonstrate that focused single-purpose components are more reliable, testable, and reusable than multi-purpose monoliths
+- **Cognitive Load Theory**: Human working memory handles 4±1 items effectively; agent "working memory" (context window) similarly degrades with scope increase
+- **Microservices Single Responsibility Principle**: Each service should have one reason to change - same principle for agents prevents cascading failures
+
+**Q&A Preparation:**
+- *"But more specialized agents means more complexity?"*: Local simplicity (each agent simple) vs. global complexity (orchestration). Local simplicity wins - you can understand and fix each piece independently.
+- *"How do I know if I've specialized too much?"*: If agents can't accomplish meaningful work independently and require constant back-and-forth, you've over-specialized. Sweet spot: 1-3 clear responsibilities.
+- *"Doesn't this require more prompts to write?"*: Initially yes, but each is simpler. Total effort is comparable, but result is more maintainable.
+
+**Sources:**
+1. [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) - Do one thing well
+2. [Microservices Patterns: Single Responsibility](https://microservices.io/patterns/decomposition/decompose-by-business-capability.html) - Service decomposition
+3. [Cognitive Load Theory](https://www.instructionaldesign.org/theories/cognitive-load/) - Working memory limits
 
 ---
 
@@ -1072,10 +1097,66 @@ See you next week!"
 
 ---
 
-## Appendix: Slide Design Notes
+## APPENDICES
 
-### Block 3 Color Scheme
+### Appendix A: Slide Type Definitions
+**TITLE SLIDE** - Opens presentation | **CONCEPT INTRODUCTION** - Introduces framework | **FRAMEWORK / MODEL** - Structured approach | **COMPARISON** - Contrasts approaches | **PATTERN / BEST PRACTICE** - Proven approach
 
+### Appendix B: Background Section Guidelines
+**Rationale:** Explain slide's purpose | **Key Research & Citations:** **[Source (Year)]**: [Explanation] | **Q&A Preparation:** *"[Question]"*: [Response]
+
+### Appendix C: Visual Design Guidelines
+**Block 3 Color Scheme:** Primary Green #00CC99, Accent Teal #008B8B | **Theme:** Green for automation, Teal for orchestration
+
+### Appendix D: Quality Checklist
+- [ ] Key Thesis stated | [ ] Learning objectives actionable | [ ] Examples Block 3-relevant | [ ] Patterns follow standards
+
+### Appendix E: Sources Section Guidelines
+
+Include 3-7 sources per slide, formatted as:
+```markdown
+1. [Full title with hyperlink](URL) - [Brief description]
+```
+
+Source types:
+- **Primary research**: Academic papers, official documentation
+- **Industry reports**: Analyst reports, surveys, benchmarks
+- **Practitioner content**: Blog posts, conference talks
+- **Official documentation**: Product docs, API references
+
+### Appendix F: Implementation Guidance Structure
+
+**Getting Started (2-4 items):**
+- Immediate actions (can do today)
+- Low-barrier entry points
+- Foundation-building steps
+
+**Best Practices (3-5 items):**
+- Proven approaches with specific criteria
+- Patterns that scale
+- Measurable success indicators
+
+**Common Pitfalls (2-4 items):**
+- Mistakes that seem logical but fail
+- Anti-patterns to avoid
+- Assumptions that mislead
+
+**Tools & Technologies (2-4 categories):**
+Format: **[Category]**: [Tool names] - [use case description]
+
+### Appendix G: Visual/Graphic Description Guidelines
+
+Describe graphics with enough detail for a designer:
+
+1. **Type**: diagram, illustration, chart, photo, etc.
+2. **Main elements**: What objects/shapes appear
+3. **Arrangement**: Spatial relationships
+4. **Labels/Text**: Any text in the graphic
+5. **Communication goal**: What the visual conveys
+
+### Appendix H: Visual Design Guidelines
+
+**Block 3 Color Scheme:**
 | Element | Color | Hex Code |
 |---------|-------|----------|
 | Primary | Green | #00CC99 |
@@ -1083,15 +1164,50 @@ See you next week!"
 | Background | White | #FFFFFF |
 | Text | Dark Gray | #333333 |
 
-### Graphic Suggestions
+**Block 3 Theme:**
+- Green represents growth, automation, and intelligent systems
+- Use green highlights for agent-related concepts
+- Teal accents for orchestration and coordination
+- Clean, modern aesthetic reflecting production engineering
 
-| Slide | Graphic Type | Description |
-|-------|-------------|-------------|
-| 1 | Title | Connected agents visual |
-| 4 | Graph | Quality vs. Scope curve |
-| 9 | Pipeline | Sequential flow arrows |
-| 14 | Fan-out | Master-Worker diagram |
-| 19 | Comparison | Side-by-side patterns |
+**Graphic Suggestions:**
+- Title slides: Agent/architecture visuals with green theme
+- Architecture diagrams: Clear component separation
+- Flow diagrams: Directional arrows showing data/control flow
+- Comparison slides: Side-by-side or table formats
+
+### Appendix I: Quality Checklist
+
+**Content Quality:**
+- [ ] Key Thesis clearly stated
+- [ ] Learning objectives are actionable
+- [ ] Each slide has clear purpose in narrative
+- [ ] Transitions connect ideas smoothly
+- [ ] Examples are Block 3-relevant (automation architecture)
+
+**Background Sections:**
+- [ ] Rationale explains slide's role in presentation
+- [ ] Research citations support claims with specifics
+- [ ] Q&A preparation addresses likely objections
+- [ ] Sources are credible and linked
+
+**Implementation Guidance:**
+- [ ] Getting Started provides immediate actions
+- [ ] Best Practices are specific and proven
+- [ ] Common Pitfalls warn against real mistakes
+- [ ] Tools recommended are current and relevant
+
+**Technical Accuracy:**
+- [ ] Code examples are syntactically correct
+- [ ] Architectural patterns follow industry standards
+- [ ] Metrics and calculations are accurate
+- [ ] Links to external resources work
+
+**Audience Engagement:**
+- [ ] Speaker notes include engagement cues
+- [ ] Questions prompt reflection
+- [ ] Examples relate to consulting work
+- [ ] Exercises connect to real capstone needs
 
 ---
 
@@ -1100,3 +1216,4 @@ See you next week!"
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |

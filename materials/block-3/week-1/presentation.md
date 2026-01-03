@@ -8,6 +8,8 @@
 
 **Target Audience:** Block 2 graduates with functional workflows who want to build autonomous AI agents
 
+**Key Thesis:** Autonomous agents require architectural separation between planning and execution, with memory residing in external structured state rather than the agent itself.
+
 **Week Learning Objectives:** By the end of this session, participants will:
 1. Distinguish between agents and workflows and know when to use each
 2. Apply the Two-Agent Architecture Pattern to design reliable agent systems
@@ -202,6 +204,29 @@ Now Level 3 - automation architecture. This is where AI becomes truly autonomous
 Each level builds on the previous. Everything you learned still applies. But now we're adding a crucial capability: agents that make decisions, not just execute steps."
 
 [Transition]
+
+**BACKGROUND:**
+
+**Rationale:**
+- Establishes Block 3 context by anchoring it within the complete learning progression
+- Creates motivation through achievement recognition (checkmarks on completed blocks)
+- Positions agents as natural evolution, not disconnected new topic
+- The "YOU ARE HERE" marker creates present-moment engagement and readiness
+
+**Key Research & Citations:**
+- **Bloom's Taxonomy Progression**: Learning objectives should scaffold from knowledge (Block 1) through application (Block 2) to synthesis and creation (Block 3) - this slide visually demonstrates that progression
+- **AI Maturity Models**: Industry frameworks (Gartner, McKinsey) show organizations progress from ad-hoc AI use through systematized workflows to autonomous operations - mirrors individual skill development
+- **Adult Learning Theory (Knowles)**: Adults learn best when they understand the context and can see how new learning builds on existing knowledge
+
+**Q&A Preparation:**
+- *"Can I skip ahead if I already know some of this?"*: Each block builds essential foundations - Block 3 assumes you've internalized Block 2 patterns like MCP and quality gates. Skipping creates gaps that show up in agent reliability.
+- *"How is Level 3 different from just making my workflows more complex?"*: Workflows execute predetermined logic you design. Agents make dynamic decisions - fundamentally different capability requiring different architecture patterns.
+- *"What comes after Level 3?"*: Advanced modules cover specialized topics (RAG, fine-tuning, domain-specific agents), but Level 3 gives you the architecture foundation to explore any direction.
+
+**Sources:**
+- [Bloom's Taxonomy](https://cft.vanderbilt.edu/guides-sub-pages/blooms-taxonomy/) - Cognitive skill progression
+- [Gartner AI Maturity Model](https://www.gartner.com/en/newsroom/press-releases/2021-11-22-gartner-identifies-four-key-factors-to-successfully-adopt-ai) - Organizational AI evolution
+- [Adult Learning Theory](https://educationaltechnology.net/knowles-theory-of-andragogy/) - Context-based learning principles
 
 ---
 
@@ -776,6 +801,30 @@ Any worker can pick up where the last one left off because all the state is exte
 
 [Transition]
 
+**BACKGROUND:**
+
+**Rationale:**
+- This slide introduces the foundational Two-Agent Architecture Pattern that becomes the design template for all Block 3 work
+- The pattern solves the core reliability problem identified in pre-work (agent amnesia) through external state management
+- Setup-once/Execute-repeatedly pattern aligns with production engineering principles of separation of concerns
+- This architecture enables the Domain Memory framework introduced later in the block
+
+**Key Research & Citations:**
+- **Anthropic Building Effective Agents (2025)**: Explicitly recommends separating planning agents from execution agents, with structured handoff protocols between them to maintain context across sessions
+- **12-Factor Agents - Factor 6 (Launch/Pause/Resume) and Factor 12 (Stateless Reducer)**: Both factors advocate for agents that can restart from externalized state without context loss, mirroring the Setup/Worker pattern
+- **Software Engineering Microservices Pattern**: Stateless services with external data stores have proven more reliable and scalable than stateful monoliths - same principle applies to agents
+
+**Q&A Preparation:**
+- *"Why not just one smart agent that remembers?"*: LLM conversation memory is unreliable for production work - it's optimized for chat coherence, not workflow state. External structured state is queryable, versionable, and agent-independent.
+- *"Isn't this more complex?"*: Initial setup is more work, but it pays dividends in debuggability and reliability. You can inspect state files, replay from checkpoints, and multiple agents can collaborate.
+- *"How is this different from just writing to files?"*: It's the discipline and structure that matters - specific schemas for goals, progress, and procedures that agents can reliably parse and act on.
+
+**Sources:**
+1. [Anthropic: Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) - Official architectural guidance
+2. [12-Factor Agents Methodology](https://github.com/humanlayer/12-factor-agents) - Production agent principles
+3. [The Twelve-Factor App](https://12factor.net/) - Original stateless service patterns
+4. [Google ADK Multi-Agent Framework](https://google.github.io/adk-docs/) - Tiered memory implementation
+
 ---
 
 ## SLIDE 15: THE DAILY CONTRACTOR ANALOGY
@@ -1325,10 +1374,143 @@ See you next week!"
 
 ---
 
-## Appendix: Slide Design Notes
+## APPENDICES
 
-### Block 3 Color Scheme
+### Appendix A: Slide Type Definitions
 
+Use these type classifications in slide headers to indicate the slide's role:
+
+**TITLE SLIDE** - Opens presentation; contains title, subtitle, presenter info
+**PROBLEM STATEMENT** - Establishes challenge/pain point; creates tension
+**INSIGHT / REVELATION** - Delivers key insight or "aha moment"
+**CONCEPT INTRODUCTION** - Introduces new term, framework, or mental model
+**FRAMEWORK / MODEL** - Presents structured approach with diagrams/pillars
+**COMPARISON** - Contrasts approaches using tables or side-by-side layouts
+**DEEP DIVE** - Detailed exploration of specific topic
+**CASE STUDY** - Real-world example with outcomes and metrics
+**PATTERN / BEST PRACTICE** - Describes proven approach with do's/don'ts
+**METRICS / DATA** - Presents quantitative information with charts
+**ARCHITECTURE / DIAGRAM** - Shows system structure or process flow
+**OBJECTION HANDLING** - Anticipates and addresses audience concerns
+**ACTION / NEXT STEPS** - Provides concrete actions for audience
+**SUMMARY / RECAP** - Consolidates key points from section
+**SECTION DIVIDER** - Marks transition between major sections
+**CLOSING / CALL TO ACTION** - Final slide before Q&A with core thesis
+**Q&A / CONTACT** - Invites questions and includes contact information
+
+### Appendix B: Content Element Formats
+
+**Bullet Points:**
+```markdown
+- First level bullet point
+  - Second level for supporting detail
+- Use parallel structure across bullets
+```
+
+**Numbered Lists:**
+```markdown
+1. First sequential item
+2. Second sequential item
+```
+
+**Tables:**
+```markdown
+| Column Header 1 | Column Header 2 |
+|-----------------|-----------------|
+| Row 1 data | Row 1 data |
+```
+
+**Bad/Good Example Format:**
+```markdown
+**Bad Example:**
+"[Description of anti-pattern]"
+- [Why it's problematic]
+
+**Good Example:**
+"[Description of best practice]"
+- [Why it works]
+```
+
+### Appendix C: Speaker Notes Conventions
+
+**Stage Directions (in brackets):**
+- `[Pause]` - Deliberate silence for effect
+- `[Point to X]` - Gesture to specific visual element
+- `[Emphasize this]` - Vocal emphasis
+- `[Personal story - adjust to your context]` - Customization placeholder
+- `[Show of hands]` - Audience participation cue
+
+**Transition Markers:**
+- `[Transition]` - Standard transition cue
+- `[OPENING - Description]` - Opening segment marker
+- `[Hook - Description]` - Attention-grabbing opener
+
+### Appendix D: Background Section Guidelines
+
+**Rationale (3-5 bullets):**
+- Explain slide's purpose in narrative arc
+- Describe mental shift it creates
+- Note connections to adjacent slides
+- Justify chosen framing/approach
+
+**Key Research & Citations (3-5 entries):**
+Format: **[Source Name (Year)]**: [Detailed explanation]
+- Include methodology when relevant
+- Cite specific statistics or findings
+- Explain how research supports claims
+
+**Q&A Preparation (3-5 questions):**
+Format: *"[Question]"*: [Response]
+- Anticipate skeptical questions
+- Prepare for "what about..." objections
+- Have specific examples ready
+
+### Appendix E: Sources Section Guidelines
+
+Include 3-7 sources per slide, formatted as:
+```markdown
+1. [Full title with hyperlink](URL) - [Brief description]
+```
+
+Source types:
+- **Primary research**: Academic papers, official documentation
+- **Industry reports**: Analyst reports, surveys, benchmarks
+- **Practitioner content**: Blog posts, conference talks
+- **Official documentation**: Product docs, API references
+
+### Appendix F: Implementation Guidance Structure
+
+**Getting Started (2-4 items):**
+- Immediate actions (can do today)
+- Low-barrier entry points
+- Foundation-building steps
+
+**Best Practices (3-5 items):**
+- Proven approaches with specific criteria
+- Patterns that scale
+- Measurable success indicators
+
+**Common Pitfalls (2-4 items):**
+- Mistakes that seem logical but fail
+- Anti-patterns to avoid
+- Assumptions that mislead
+
+**Tools & Technologies (2-4 categories):**
+Format: **[Category]**: [Tool names] - [use case description]
+
+### Appendix G: Visual/Graphic Description Guidelines
+
+Describe graphics with enough detail for a designer:
+
+1. **Type**: diagram, illustration, chart, photo, etc.
+2. **Main elements**: What objects/shapes appear
+3. **Arrangement**: Spatial relationships
+4. **Labels/Text**: Any text in the graphic
+5. **Communication goal**: What the visual conveys
+
+### Appendix H: Visual Design Guidelines
+
+**Block 3 Color Scheme:**
 | Element | Color | Hex Code |
 |---------|-------|----------|
 | Primary | Green | #00CC99 |
@@ -1336,25 +1518,50 @@ See you next week!"
 | Background | White | #FFFFFF |
 | Text | Dark Gray | #333333 |
 
-### Graphic Suggestions by Slide
+**Block 3 Theme:**
+- Green represents growth, automation, and intelligent systems
+- Use green highlights for agent-related concepts
+- Teal accents for orchestration and coordination
+- Clean, modern aesthetic reflecting production engineering
 
-| Slide | Graphic Type | Description |
-|-------|-------------|-------------|
-| 1 | Title | Clean with green accent, agent icon |
-| 4 | Progression | Ascending steps/pyramid |
-| 5 | Transformation | Linear to adaptive visual |
-| 9 | Flowchart | Fixed-path workflow |
-| 10 | Loop | Circular observe-think-act |
-| 14 | Architecture | Two-agent diagram with records |
-| 15 | Analogy | Construction site with job board |
-| 16 | Components | Pentagon/star diagram |
+**Graphic Suggestions:**
+- Title slides: Agent/architecture visuals with green theme
+- Architecture diagrams: Clear component separation
+- Flow diagrams: Directional arrows showing data/control flow
+- Comparison slides: Side-by-side or table formats
 
-### Animation Notes
+### Appendix I: Quality Checklist
 
-- Segment title slides: Simple fade
-- Content reveals: Build bullet by bullet for complex slides
-- Diagrams: Reveal components sequentially
-- Avoid: Excessive animation that distracts
+**Content Quality:**
+- [ ] Key Thesis clearly stated in metadata
+- [ ] Learning objectives are actionable
+- [ ] Each slide has clear purpose in narrative
+- [ ] Transitions connect ideas smoothly
+- [ ] Examples are Block 3-relevant (automation architecture)
+
+**Background Sections:**
+- [ ] Rationale explains slide's role in presentation
+- [ ] Research citations support claims with specifics
+- [ ] Q&A preparation addresses likely objections
+- [ ] Sources are credible and linked
+
+**Implementation Guidance:**
+- [ ] Getting Started provides immediate actions
+- [ ] Best Practices are specific and proven
+- [ ] Common Pitfalls warn against real mistakes
+- [ ] Tools recommended are current and relevant
+
+**Technical Accuracy:**
+- [ ] Code examples are syntactically correct
+- [ ] Architectural patterns follow industry standards
+- [ ] Metrics and calculations are accurate
+- [ ] Links to external resources work
+
+**Audience Engagement:**
+- [ ] Speaker notes include engagement cues
+- [ ] Questions prompt reflection
+- [ ] Examples relate to consulting work
+- [ ] Exercises connect to real capstone needs
 
 ---
 
@@ -1363,3 +1570,4 @@ See you next week!"
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 2025-01-01 | Initial presentation created | Training Team |
+| 2.0 | 2026-01-03 | Enhanced with comprehensive slide structure, BACKGROUND sections, Sources, Implementation Guidance, and expanded appendices | Claude |
